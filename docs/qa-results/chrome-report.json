@@ -1,0 +1,29 @@
+{
+  "browser": "chrome",
+  "checks": [
+    "Onboarding saves name and closes",
+    "Daily focus saves and completes",
+    "Tasks add, edit, complete, reorder, and support multiple lists",
+    "Quick links save locally",
+    "Quotes favorite and show history",
+    "All seven widgets disable completely and re-enable",
+    "Bundled backgrounds and uploaded IndexedDB photos apply",
+    "Export/import restores tasks, preferences, favorites, and uploaded image blobs",
+    "Concurrent tab updates preserve both edits",
+    "Desktop and mobile layouts fit without horizontal overflow",
+    "Offline new tab loads local assets and friendly weather state",
+    "Keyboard /, N, Escape and native dialog focus work",
+    "Repeat-open timing recorded: 88, 91, 85, 84, 83 ms",
+    "Full browser restart retains local storage and IndexedDB",
+    "Zero page, console, or CSP errors during integration flow"
+  ],
+  "consoleErrors": [],
+  "cspErrors": [],
+  "readyMs": [
+    87.79999999701977,
+    90.5,
+    85,
+    83.89999999850988,
+    82.80000000447035
+  ]
+}

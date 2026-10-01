@@ -1,0 +1,10 @@
+[
+  "Seven malformed backups rejected without changing saved data",
+  "Hostile text displays literally without HTML execution",
+  "Device reduced-motion prevents loading celebration code",
+  "Denied weather access produces a recoverable message",
+  "City selection and 30-minute weather cache work with mocked provider responses",
+  "Stale weather stays visible offline and converts units correctly",
+  "Core text contrast ratios: 14.66, 7.83, 13.51, 6.05, 5.00",
+  "Full reset clears local state, image records, and synced preferences"
+]
