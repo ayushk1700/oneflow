@@ -1,7 +1,7 @@
 import { get } from './storage.js';
 import { getRecord } from './db.js';
 import { watch } from './ui.js';
-import { dayKey } from './utils.js';
+import { dayKey, el } from './utils.js';
 import { emit } from './events.js';
 const backgrounds = ['alpine', 'cozy', 'lofi', 'minimal', 'dark'];
 let unsubscribe, objectURL, revision = 0, lastBackground, dayTimer;
@@ -19,11 +19,12 @@ export async function render() {
   const rgb = s.accent.match(/\w\w/g).map(x => { const c = parseInt(x, 16) / 255; return c <= .04045 ? c / 12.92 : ((c + .055) / 1.055) ** 2.4; });
   root.style.setProperty('--accent-ink', rgb[0] * .2126 + rgb[1] * .7152 + rgb[2] * .0722 > .179 ? '#101815' : '#ffffff');
   root.style.setProperty('--background-blur', `${s.background.blur}px`);
-  const key = JSON.stringify(s.background) + dayKey();
+  const key = JSON.stringify(s.background) + dayKey() + navigator.onLine;
   if (key === lastBackground) return;
   lastBackground = key;
   const version = ++revision, b = s.background, hero = document.querySelector('#landscape');
-  let source = null, name = 'Your own little world';
+  let source = null, fallback = null, name = 'Your own little world';
+  const attribution = document.querySelector('#photo-attribution'); attribution?.replaceChildren();
   if (b.kind === 'bundled') {
     const index = Math.floor(new Date(`${dayKey()}T12:00:00`).getTime() / 86400000) % backgrounds.length;
     const id = b.rotate ? backgrounds[index] : (backgrounds.includes(b.id) ? b.id : 'alpine');
@@ -32,12 +33,21 @@ export async function render() {
   } else if (b.kind === 'upload') {
     const record = await getRecord('images', b.id);
     if (version !== revision) return;
-    if (record?.blob) source = URL.createObjectURL(record.blob);
+    if (record?.blob) {
+      source = URL.createObjectURL(record.blob);
+      if (record.unsplash && /^https:\/\/images\.unsplash\.com\//.test(record.unsplash.url) && /^https:\/\/unsplash\.com\//.test(record.unsplash.profile)) {
+        fallback = source;
+        const allowed = globalThis.chrome?.permissions ? await chrome.permissions.contains({ origins: ['https://api.unsplash.com/*','https://images.unsplash.com/*'] }) : Boolean(get().integrations.unsplashKey);
+        if (navigator.onLine && allowed) source = record.unsplash.url;
+        name = record.name || 'A new perspective';
+        attribution?.append('Photo by ', el('a', { href: record.unsplash.profile, target: '_blank', rel: 'noreferrer' }, record.unsplash.author), ' on ', el('a', { href: 'https://unsplash.com/?utm_source=oneflow&utm_medium=referral', target: '_blank', rel: 'noreferrer' }, 'Unsplash'));
+      }
+    }
     else { source = '../assets/backgrounds/alpine.webp'; emit('toast', 'Uploaded background is missing. Showing the quiet Alps.'); }
   }
   if (version !== revision) return;
   if (objectURL) URL.revokeObjectURL(objectURL);
-  objectURL = source?.startsWith('blob:') ? source : null;
+  objectURL = fallback || (source?.startsWith('blob:') ? source : null);
   hero.style.backgroundColor = b.color;
   if (source) {
     if (source.startsWith('../assets/backgrounds/')) hero.style.backgroundImage = `url("${source.replace('.webp', '-thumb.webp')}")`;
@@ -46,7 +56,7 @@ export async function render() {
     image.decode().then(() => {
       if (version !== revision) return;
       hero.style.backgroundImage = `url("${source}")`; hero.classList.remove('bg-loading');
-    }).catch(() => { if (version === revision) { hero.classList.remove('bg-loading'); emit('toast', 'This background could not be decoded. Choose another in Scenery.'); } });
+    }).catch(() => { if (version === revision) { hero.classList.remove('bg-loading'); if (fallback) hero.style.backgroundImage = `url("${fallback}")`; else emit('toast', 'This background could not be decoded. Choose another in Scenery.'); } });
   } else {
     hero.classList.remove('bg-loading');
     hero.style.backgroundImage = b.kind === 'gradient' ? `linear-gradient(145deg, ${b.color}, #172f31 65%, #766553)` : 'none';
@@ -56,7 +66,8 @@ export async function render() {
 export function init() {
   unsubscribe = watch(d => d.settings, () => render().catch(error => emit('error', error)));
   media.addEventListener('change', render); motion.addEventListener('change', render);
+  addEventListener('online', render); addEventListener('offline', render);
   dayTimer = setInterval(() => render().catch(error => emit('error', error)), 60000);
   return render();
 }
-export function destroy() { unsubscribe?.(); clearInterval(dayTimer); media.removeEventListener('change', render); motion.removeEventListener('change', render); if (objectURL) URL.revokeObjectURL(objectURL); }
+export function destroy() { unsubscribe?.(); clearInterval(dayTimer); media.removeEventListener('change', render); motion.removeEventListener('change', render); removeEventListener('online', render); removeEventListener('offline', render); if (objectURL) URL.revokeObjectURL(objectURL); }

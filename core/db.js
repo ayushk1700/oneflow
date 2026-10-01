@@ -4,9 +4,13 @@ let database;
 export function openDB() {
   if (database) return database;
   database = new Promise((resolve, reject) => {
-    const request = indexedDB.open('oneflow', 1);
+    const request = indexedDB.open('oneflow', 2);
     request.onupgradeneeded = () => {
       for (const name of STORES) if (!request.result.objectStoreNames.contains(name)) request.result.createObjectStore(name, { keyPath: 'id' });
+      for (const [store, field] of [['journal', 'date'], ['sessions', 'start']]) {
+        const object = request.transaction.objectStore(store);
+        if (!object.indexNames.contains(field)) object.createIndex(field, field);
+      }
     };
     request.onsuccess = () => { request.result.onversionchange = () => { request.result.close(); database = null; }; resolve(request.result); };
     request.onerror = () => { database = null; reject(request.error); };

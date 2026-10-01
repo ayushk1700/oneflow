@@ -1,22 +1,27 @@
 import * as storage from './storage.js';
 import * as db from './db.js';
 import { migrate, defaults } from './schema.js';
+import { validateJournal, validateSession } from './stage2-schema.js';
+import { remaining } from './timer-logic.js';
 const MAX_BYTES = 40 * 1024 * 1024;
 const MAX_IMAGE = 8 * 1024 * 1024;
 const dataURL = blob => new Promise((resolve, reject) => { const reader = new FileReader(); reader.onload = () => resolve(reader.result); reader.onerror = () => reject(reader.error); reader.readAsDataURL(blob); });
 /** Snapshot all extension data, including uploaded image blobs. */
 export async function exportData() {
-  return navigator.locks.request('oneflow-backup', async () => {
+  return navigator.locks.request('oneflow-timer', () => navigator.locks.request('oneflow-backup', async () => {
     const records = Object.fromEntries(await Promise.all(db.STORES.map(async key => [key, await db.getAll(key)])));
     records.images = await Promise.all(records.images.map(async ({ blob, ...record }) => ({ ...record, data: await dataURL(blob) })));
-    return { app: 'ONEFLOW', schemaVersion: 1, exportedAt: new Date().toISOString(), local: storage.get(), database: records };
-  });
+    const local = await storage.readLatest();
+    if (local.timer.status === 'running') { local.timer.remaining = remaining(local.timer, Date.now()); local.timer.status = 'paused'; local.timer.endsAt = null; }
+    local.audio.playing = false; local.audio.sleepAt = null;
+    return { app: 'ONEFLOW', schemaVersion: 2, exportedAt: new Date().toISOString(), local, database: records };
+  }));
 }
 /** Validate an entire backup before touching either storage backend. */
 export async function parseBackup(text) {
   if (new Blob([text]).size > MAX_BYTES) throw new Error('Backup is too large (40 MB maximum).');
   const input = JSON.parse(text);
-  if (input?.app !== 'ONEFLOW' || input.schemaVersion !== 1 || !input.database || !input.local || typeof input.local !== 'object') throw new Error('Choose a ONEFLOW Stage 1 backup.');
+  if (input?.app !== 'ONEFLOW' || ![1,2].includes(input.schemaVersion) || !input.database || !input.local || typeof input.local !== 'object') throw new Error('Choose a ONEFLOW Stage 1 or Stage 2 backup.');
   const local = migrate(input.local), records = {};
   for (const key of db.STORES) {
     const rows = input.database[key];
@@ -24,6 +29,7 @@ export async function parseBackup(text) {
     if (new Set(rows.map(x => x.id)).size !== rows.length) throw new Error(`Duplicate ${key} IDs.`);
     records[key] = rows;
   }
+  records.journal.forEach(validateJournal); records.sessions.forEach(validateSession);
   records.images = await Promise.all(records.images.map(async ({ data, ...record }) => {
     if (typeof data !== 'string' || !/^data:image\/(webp|png|jpeg);base64,[A-Za-z0-9+/=]+$/.test(data)) throw new Error('Unsupported image in backup.');
     const [meta, encoded] = data.split(','), bytes = Uint8Array.from(atob(encoded), c => c.charCodeAt(0));
@@ -33,16 +39,19 @@ export async function parseBackup(text) {
     return { ...record, blob };
   }));
   if (local.settings.background.kind === 'upload' && !records.images.some(x => x.id === local.settings.background.id)) throw new Error('The selected background is missing from this backup.');
+  if (local.timer.status === 'running') { local.timer.remaining = remaining(local.timer, Date.parse(input.exportedAt) || Date.now()); local.timer.status = 'paused'; local.timer.endsAt = null; }
+  local.audio.playing = false; local.audio.sleepAt = null; local.timerNotice = null;
   return { local, records };
 }
 /** Restore with rollback if the second storage backend fails. */
 export async function importData(prepared) {
-  await navigator.locks.request('oneflow-backup', async () => {
+  await navigator.locks.request('oneflow-timer', () => navigator.locks.request('oneflow-backup', async () => {
     const previous = Object.fromEntries(await Promise.all(db.STORES.map(async key => [key, await db.getAll(key)])));
     await db.replaceAll(prepared.records);
     try { await storage.replace(prepared.local); }
     catch (error) { await db.replaceAll(previous); throw error; }
-  });
+  }));
+  if (globalThis.chrome?.runtime?.id) await chrome.runtime.sendMessage({ target: 'worker', type: 'sync' });
 }
 /** Reset both storage backends and browser-synced preferences. */
 export async function resetData() {

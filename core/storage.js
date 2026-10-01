@@ -2,7 +2,7 @@ import { defaults, migrate, validate } from './schema.js';
 import { emit } from './events.js';
 const KEY = 'oneflow';
 const ext = globalThis.chrome?.storage;
-let current, syncTimer;
+let current, syncTimer, initialized;
 const subscribers = new Set();
 const publish = value => { current = value; subscribers.forEach(fn => fn(structuredClone(value))); };
 async function read() {
@@ -16,6 +16,11 @@ async function write(value) {
 }
 /** Initialize local storage, migrations, and cross-tab change notifications. */
 export async function init() {
+  if (initialized) return initialized;
+  initialized = initialize().catch(error => { initialized = null; throw error; });
+  return initialized;
+}
+async function initialize() {
   let raw = await read();
   if (!raw && ext?.sync) {
     try { const { preferences } = await ext.sync.get('preferences'); if (preferences) raw = { settings: preferences }; }
@@ -37,6 +42,8 @@ export async function init() {
 }
 /** Return an isolated snapshot. */
 export function get() { return structuredClone(current ?? defaults()); }
+/** Read the latest persisted snapshot when a consistent backup is needed. */
+export async function readLatest() { return migrate(await read()); }
 /** Listen for storage updates. */
 export function subscribe(callback) { subscribers.add(callback); return () => subscribers.delete(callback); }
 /** Serialize read-modify-write operations across new tabs using an origin lock. */

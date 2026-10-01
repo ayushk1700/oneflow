@@ -1,9 +1,10 @@
-export const SCHEMA_VERSION = 1;
-export const WIDGETS = ['clock', 'focus', 'search', 'links', 'quotes', 'weather', 'tasks'];
+import { extraDefaults, EXTRA_WIDGETS, validateExtra } from './stage2-schema.js';
+export const SCHEMA_VERSION = 2;
+export const WIDGETS = ['clock', 'focus', 'search', 'links', 'quotes', 'weather', 'tasks', ...EXTRA_WIDGETS];
 /** A fresh default document; never share mutable defaults between callers. */
 export function defaults() {
   return {
-    schemaVersion: SCHEMA_VERSION,
+    ...extraDefaults(), schemaVersion: SCHEMA_VERSION,
     settings: {
       name: '', theme: 'dark', accent: '#d6e9ba', font: 'sans', clock24: false, units: 'celsius',
       reducedMotion: false, onboarding: false, engine: 'google',
@@ -56,6 +57,7 @@ export function validate(doc) {
   if (loc && (!string(loc.name, 200) || !Number.isFinite(loc.latitude) || Math.abs(loc.latitude) > 90 || !Number.isFinite(loc.longitude) || Math.abs(loc.longitude) > 180)) throw new Error('Invalid weather location.');
   const cache = doc.weather?.cache;
   if (cache && (!Number.isFinite(cache.temperature) || !Number.isFinite(cache.code) || !Number.isFinite(cache.at) || !string(cache.key, 100))) throw new Error('Invalid cached weather.');
+  validateExtra(doc);
   return doc;
 }
 /** Restrict navigation to web URLs, never executable schemes. */
