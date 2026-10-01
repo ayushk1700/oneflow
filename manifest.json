@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "ONEFLOW — A little space to focus",
+  "version": "0.1.0",
+  "description": "A calm, local-first new tab with a daily focus, tasks, scenic backgrounds, and room to breathe.",
+  "minimum_chrome_version": "120",
+  "chrome_url_overrides": { "newtab": "newtab/index.html" },
+  "background": { "service_worker": "background/service-worker.js", "type": "module" },
+  "permissions": ["storage"],
+  "optional_permissions": ["geolocation"],
+  "optional_host_permissions": ["https://api.open-meteo.com/*", "https://geocoding-api.open-meteo.com/*"],
+  "icons": { "16": "assets/icons/icon-16.png", "32": "assets/icons/icon-32.png", "48": "assets/icons/icon-48.png", "128": "assets/icons/icon-128.png" },
+  "content_security_policy": { "extension_pages": "default-src 'self'; script-src 'self'; object-src 'none'; base-uri 'none'; style-src 'self'; img-src 'self' blob: data:; connect-src 'self' https://api.open-meteo.com https://geocoding-api.open-meteo.com; frame-src 'none'; form-action https://www.google.com https://www.bing.com https://duckduckgo.com;" }
+}
