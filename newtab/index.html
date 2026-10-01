@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <title>ONEFLOW · Your space to focus</title>
+  <link rel="icon" href="../assets/icons/icon-32.png">
+  <link rel="stylesheet" href="newtab.css">
+  <link rel="preload" href="../assets/backgrounds/alpine.webp" as="image">
+  <script type="module" src="newtab.js"></script>
+</head>
+<body>
+  <div id="landscape" aria-hidden="true"></div><div class="readability" aria-hidden="true"></div>
+  <a class="skip-link" href="#main">Skip to dashboard</a>
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="ONEFLOW home"><svg width="32" height="26" viewBox="0 0 32 26" fill="none" aria-hidden="true"><path d="M2 18C7 5 12 5 16 13S25 23 30 8M2 24C7 11 12 11 16 19S25 29 30 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>ONEFLOW</span></a>
+    <span class="top-note">Make room for what matters.</span>
+    <div id="weather"></div>
+  </header>
+  <main id="main" tabindex="-1">
+    <section class="centerpiece" aria-label="Your daily dashboard">
+      <div id="clock"></div>
+      <div id="focus"></div>
+      <div id="search"></div>
+      <div id="links"></div>
+    </section>
+  </main>
+  <footer>
+    <div id="quotes"></div>
+    <div class="bottom-row">
+      <button id="background-button" class="landscape-credit" type="button"><span class="location-mark" aria-hidden="true">⌁</span><span><span id="landscape-name">The quiet Alps</span><small>A change of scenery</small></span></button>
+      <nav id="dock" class="glass dock" aria-label="Dashboard tools"></nav>
+      <button class="shortcut-hint" id="shortcuts-button" type="button"><kbd>/</kbd> A little shortcut</button>
+    </div>
+  </footer>
+  <dialog id="panel" aria-labelledby="panel-title"><header class="panel-header"><div><span class="eyebrow">YOUR SPACE</span><h2 id="panel-title"></h2></div><button id="close-panel" class="icon-button" type="button" aria-label="Close panel">✕</button></header><div id="panel-body"></div></dialog>
+  <div id="toast" role="status" aria-live="polite" hidden></div>
+  <noscript>ONEFLOW needs JavaScript enabled to save and display your dashboard.</noscript>
+</body>
+</html>

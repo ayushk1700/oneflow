@@ -1,0 +1,1 @@
+.search-form{display:flex;align-items:center;padding:4px 9px 4px 17px;max-width:430px;margin:0 auto;border-radius:12px;gap:9px}.search-form input{background:transparent;border:0;color:#fff;width:100%;min-width:0;padding:11px 0;font-size:12px}.search-form input::placeholder{color:#e1e8df}.search-form .icon-button{color:#e1e8df}

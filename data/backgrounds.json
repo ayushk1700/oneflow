@@ -1,0 +1,7 @@
+[
+  {"id":"alpine","name":"The quiet Alps","category":"nature","colors":["#849fa7","#425e61","#162c2a"]},
+  {"id":"cozy","name":"Golden hour","category":"cozy","colors":["#c0a288","#766955","#373d30"]},
+  {"id":"lofi","name":"After the rain","category":"lo-fi","colors":["#a09bb9","#686b91","#2e3e58"]},
+  {"id":"minimal","name":"Soft horizons","category":"minimal","colors":["#c4c3b0","#8f9b88","#4b625b"]},
+  {"id":"dark","name":"Blue hour","category":"dark","colors":["#45546b","#2c4555","#102931"]}
+]
