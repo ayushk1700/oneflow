@@ -5,8 +5,9 @@ import { exportData, parseBackup, importData, resetData, prepareImage } from '..
 import { put, getAll, remove } from '../../core/db.js';
 import { emit, on } from '../../core/events.js';
 import { WIDGETS } from '../../core/schema.js';
+import { backgroundSync } from '../../core/timer-client.js';
 let offOpen, catalog;
-const labels = { clock: 'Clock & greeting', focus: 'Daily main focus', search: 'Web search', links: 'Quick links', quotes: 'Words of encouragement', weather: 'Weather', tasks: 'To-do lists' };
+const labels = { clock: 'Clock & greeting', focus: 'Daily main focus', search: 'Web search', links: 'Quick links', quotes: 'Words of encouragement', weather: 'Weather', tasks: 'To-do lists', timer: 'Focus timer', sounds: 'Ambient sounds', journal: 'Gratitude journal', notes: 'Notes', habits: 'Habits', countdowns: 'Countdowns', stats: 'Focus statistics', mood: 'Mood & energy', music: 'Music playlists' };
 const preference = (key, value) => update(d => { d.settings[key] = value; });
 const background = (key, value) => update(d => { d.settings.background[key] = value; });
 export function render(tab = 'appearance') {
@@ -34,7 +35,7 @@ function appearance(body) {
 }
 function widgets(body) {
   body.append(el('p', { class: 'muted' }, 'Keep what serves you. Let the rest fade away.'));
-  for (const key of WIDGETS) body.append(toggle(labels[key], get().settings.widgets[key], act(e => update(d => { d.settings.widgets[key] = e.target.checked; }))));
+  for (const key of WIDGETS) body.append(toggle(labels[key], get().settings.widgets[key], act(async e => { const enabled = e.target.checked; await update(d => { d.settings.widgets[key] = enabled; if (key === 'sounds' && !enabled) d.audio.playing = false; }); if (key === 'sounds') await backgroundSync(); })));
 }
 async function scenery(body) {
   const b = get().settings.background;
@@ -62,13 +63,14 @@ async function scenery(body) {
   for (const image of await getAll('images')) body.append(el('div', { class: 'row' }, el('button', { class: 'grow photo-name', onclick: act(async () => { await update(d => { Object.assign(d.settings.background, { kind: 'upload', id: image.id, rotate: false }); }); render('backgrounds'); }) }, image.name || 'Your photograph'), el('button', { onclick: () => confirmAction(body, 'Remove this saved photograph?', async () => {
     await navigator.locks.request('oneflow-backup', async () => { await update(d => { if (d.settings.background.id === image.id) Object.assign(d.settings.background, { kind: 'bundled', id: 'alpine' }); }); await remove('images', image.id); }); render('backgrounds');
   }) }, 'Remove')));
+  const unsplash = await import('../unsplash/index.js'); unsplash.render(body);
 }
 function dataTools(body) {
-  body.append(el('p', { class: 'muted' }, 'Your days belong to you. Everything is stored locally. Export a backup to take it with you, including your uploaded photos.'),
+  body.append(el('p', { class: 'muted' }, 'Your days belong to you. Export includes journal entries, sessions, notes, habits, moods, photos, and your locally saved Unsplash access key. This JSON file is not encrypted; keep it private. Restored timers are paused and audio stays off.'),
     el('button', { class: 'primary', onclick: act(async () => { const result = await exportData(); download(new Blob([JSON.stringify(result)], { type: 'application/json' }), `oneflow-${dayKey()}.json`); emit('toast', 'Your backup is ready. Keep it somewhere safe.'); }) }, 'Export all data'),
     field('Restore from a backup', el('input', { type: 'file', accept: '.json,application/json', onchange: act(async e => { const file = e.target.files[0]; if (!file) return; if (file.size > 40 * 1024 * 1024) throw new Error('Backup is too large (40 MB maximum).'); const prepared = await parseBackup(await file.text()); confirmAction(body, `Replace this device’s data with this backup? It contains ${prepared.local.tasks.length} tasks and ${prepared.records.images.length} photos. Export your current data first if you want to keep it.`, async () => { await importData(prepared); location.reload(); }); e.target.value = ''; }) }), 'A restore replaces current data after the complete file is validated.'),
     el('hr', { class: 'divider' }), el('p', { class: 'muted' }, 'Browser sync holds only your name, theme, accent, and widget toggles. Tasks and photographs stay on this device.'),
-    el('button', { class: 'danger', onclick: () => confirmAction(body, 'Permanently delete all ONEFLOW data, including tasks, favorites, photos, and synced preferences?', async () => { await resetData(); if (globalThis.chrome?.permissions) await chrome.permissions.remove({ origins: ['https://api.open-meteo.com/*', 'https://geocoding-api.open-meteo.com/*'], permissions: ['geolocation'] }); location.reload(); }) }, 'Delete all data'));
+    el('button', { class: 'danger', onclick: () => confirmAction(body, 'Permanently delete all ONEFLOW data, including tasks, favorites, photos, and synced preferences?', async () => { await resetData(); if (globalThis.chrome?.permissions) await chrome.permissions.remove({ origins: ['https://api.open-meteo.com/*', 'https://geocoding-api.open-meteo.com/*', 'https://api.unsplash.com/*', 'https://images.unsplash.com/*'], permissions: ['geolocation'] }); location.reload(); }) }, 'Delete all data'));
 }
 export function init() { offOpen = on('settings:open', tab => render(tab)); }
 export function destroy() { offOpen?.(); }

@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
 const manifest = JSON.parse(await fs.readFile('manifest.json', 'utf8'));
 assert.equal(manifest.manifest_version, 3);
-assert.deepEqual(manifest.permissions, ['storage']);
+assert.deepEqual(manifest.permissions, ['storage','alarms','notifications','offscreen']);
 assert(!manifest.host_permissions);
 const csp = manifest.content_security_policy.extension_pages;
 assert(csp.includes("script-src 'self'") && !csp.includes('unsafe-'));

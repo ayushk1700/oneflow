@@ -32,7 +32,7 @@ const mark = '<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" v
 for (const size of [16,32,48,128]) await sharp(Buffer.from(mark)).resize(size,size).png().toFile(`assets/icons/icon-${size}.png`);
 const context = { exports: {} }; context.module = { exports: context.exports };
 vm.runInNewContext(await fs.readFile('vendor/lucide/0.468.0/lucide.min.js', 'utf8'), context);
-const names = ['search','arrow-right','arrow-up-right','pencil','plus','trash-2','sun','cloud','heart','refresh-cw','bookmark','chevron-up','chevron-down','folder-plus','list-todo','layout-grid','image','sliders-horizontal'];
+const names = ['search','arrow-right','arrow-up-right','pencil','plus','trash-2','sun','cloud','heart','refresh-cw','bookmark','chevron-up','chevron-down','folder-plus','list-todo','layout-grid','image','sliders-horizontal','clock','audio-lines','play'];
 const serialize = ([tag, attrs, children = []]) => `<${tag} ${Object.entries(attrs).map(([k,v]) => `${k}="${v}"`).join(' ')}>${children.map(serialize).join('')}</${tag}>`;
 const symbols = names.map(name => {
   const key = name.split('-').map(x => x[0].toUpperCase()+x.slice(1)).join('');

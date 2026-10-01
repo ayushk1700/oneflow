@@ -1,0 +1,1 @@
+.sound-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.sound-tile{padding:16px 12px;background:var(--surface);border:1px solid var(--border);border-radius:14px;display:grid;gap:14px;font-size:12px}.sound-tile output{font-size:10px;color:var(--muted)}

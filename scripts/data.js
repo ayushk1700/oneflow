@@ -18,6 +18,4 @@ const invitations = [
 ];
 const quotes = thoughts.flatMap((thought, i) => invitations.map((invitation, j) => ({ id: `oneflow-${i*10+j+1}`, text: `${thought} ${invitation}`, author: 'ONEFLOW · A daily thought' })));
 await fs.writeFile('data/quotes.json', JSON.stringify(quotes, null, 2) + '\n');
-await fs.writeFile('data/prompts.json', '[]\n');
-await fs.writeFile('data/scenes.json', '[]\n');
 console.log(`Wrote ${quotes.length} original, locally bundled reflections.`);

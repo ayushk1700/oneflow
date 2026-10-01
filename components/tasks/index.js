@@ -2,7 +2,9 @@ import { get, update } from '../../core/storage.js';
 import { el, uid, loadScript } from '../../core/utils.js';
 import { openPanel, button, select, watch, act, confirmAction } from '../../core/ui.js';
 import { on, emit } from '../../core/events.js';
-let unsubscribe, offNew, currentList = 'inbox', sorter, host, taskInput, mounted = false;
+import { getAll } from '../../core/db.js';
+import { timerCommand } from '../../core/timer-client.js';
+let unsubscribe, offNew, currentList = 'inbox', sorter, host, taskInput, mounted = false, sessions = [];
 export function render() {
   if (!host) return;
   const draft = taskInput?.value || '', restoreFocus = taskInput === document.activeElement;
@@ -25,7 +27,7 @@ export function render() {
   }) }, taskInput, el('button', { class: 'primary icon-button', type: 'submit', 'aria-label': 'Add task' }, '+'));
   const items = el('ul', { class: 'task-list', 'aria-label': 'Tasks' });
   for (const [index, task] of list.entries()) {
-    const check = el('input', { type: 'checkbox', checked: task.completed, 'aria-label': `Complete ${task.text}`, onchange: act(async event => { const done = event.target.checked; await update(d => { const item = d.tasks.find(x => x.id === task.id); if (item) item.completed = done; }); host?.querySelector(`[data-id="${CSS.escape(task.id)}"] input`)?.focus(); }) });
+    const check = el('input', { type: 'checkbox', checked: task.completed, 'aria-label': `Complete ${task.text}`, onchange: act(async event => { const done = event.target.checked; await update(d => { const item = d.tasks.find(x => x.id === task.id); if (item) { item.completed = done; item.completedAt = done ? Date.now() : null; } }); host?.querySelector(`[data-id="${CSS.escape(task.id)}"] input`)?.focus(); }) });
     const row = el('li', { class: `task-row${task.completed ? ' completed' : ''}`, 'data-id': task.id }, el('span', { class: 'drag-handle', 'aria-hidden': 'true' }, '⠿'), check, el('span', { class: 'task-text grow' }, task.text));
     row.append(button(`Move ${task.text} up`, 'chevron-up', act(() => move(task.id, -1))), button(`Move ${task.text} down`, 'chevron-down', act(() => move(task.id, 1))), button(`Edit ${task.text}`, 'pencil', () => {
       const input = el('input', { class: 'grow', value: task.text, maxlength: 240, 'aria-label': 'Edit task', required: true });
@@ -33,6 +35,12 @@ export function render() {
     }), button(`Delete ${task.text}`, 'trash-2', () => confirmAction(host, `Delete “${task.text}”?`, async () => { await update(d => { d.tasks = d.tasks.filter(x => x.id !== task.id); }); })));
     row.querySelectorAll('button')[0].disabled = index === 0;
     row.querySelectorAll('button')[1].disabled = index === list.length - 1;
+    const spent = sessions.filter(s => s.taskId === task.id);
+    row.querySelector('.task-text').append(el('small', { class: 'task-session-count' }, `${spent.length} sessions · ${Math.round(spent.reduce((n,s) => n+s.duration,0) / 60000)} min`));
+    if (get().settings.widgets.timer) row.append(button(`Focus on ${task.text}`, 'play', () => {
+      const start = async () => { await timerCommand('task', { taskId: task.id }); emit('toast', 'Focus started. One thing at a time.'); };
+      if (get().timer.sessionId) confirmAction(host, 'Save the current partial session and focus on this task?', start); else act(start)();
+    }));
     items.append(row);
   }
   host.replaceChildren(tools, el('p', { class: 'muted task-summary' }, `${list.filter(x => x.completed).length} of ${list.length} complete. Small steps count.`), form, list.length ? items : el('div', { class: 'empty-state' }, 'A little breathing room.', el('p', {}, 'Add something you’d like to move forward today.')));
@@ -58,6 +66,7 @@ function editList(id) {
 export async function open() {
   if (!mounted) return;
   await loadScript('../vendor/sortablejs/1.15.6/Sortable.min.js');
+  sessions = await getAll('sessions');
   if (!mounted) return;
   host = el('div', { class: 'stack' }); render(); openPanel('A few small steps', 'tasks', host, () => { sorter?.destroy(); sorter = null; host = null; taskInput = null; }); taskInput.focus();
 }

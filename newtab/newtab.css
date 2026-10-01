@@ -1,3 +1,14 @@
+@import url('../components/timer/style.css');
+@import url('../components/sounds/style.css');
+@import url('../components/journal/style.css');
+@import url('../components/notes/style.css');
+@import url('../components/habits/style.css');
+@import url('../components/countdowns/style.css');
+@import url('../components/stats/style.css');
+@import url('../components/mood/style.css');
+@import url('../components/music/style.css');
+@import url('../components/unsplash/style.css');
+@import url('../components/break/style.css');
 @import url('../components/clock/style.css');
 @import url('../components/focus/style.css');
 @import url('../components/tasks/style.css');
@@ -23,3 +34,5 @@ dialog{position:fixed;inset:20px 24px 20px auto;width:min(480px,calc(100% - 32px
 :root[data-theme=light] dialog :focus-visible{outline-color:#496824}
 .background-card[aria-pressed=true] span:after{content:' ✓'}
 #landscape{transition:filter var(--ease)}#landscape.bg-loading{filter:blur(calc(var(--background-blur) + 6px))}
+
+.day-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.day-card{display:grid;gap:8px;text-align:left;padding:20px 16px;background:var(--surface);min-height:108px}.day-card strong{font-size:14px;font-weight:500}.day-card small{font-size:11px;color:var(--muted)}.task-session-count{display:block;font-size:9px;color:var(--muted);margin-top:3px}.dock{gap:2px}.dock button{min-width:57px;padding:9px 10px}@media(max-width:700px){.dock{width:100%;justify-content:center;padding:5px}.dock button{min-width:0;flex:1;padding:8px 5px}.dock-divider{margin:0 1px}.day-card{padding:16px 12px}.task-row{gap:4px}}
