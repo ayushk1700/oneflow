@@ -1,0 +1,8 @@
+[
+  "Music connects only on explicit load, uses an allowed provider frame, and stops on close",
+  "Mocked Unsplash selection records download, saves a blob, and displays attribution",
+  "Selected Unsplash photo and attribution survive offline reload without an API key request",
+  "Audio sleep deadline stops playback and clears persisted playing state",
+  "Disabling sound widget stops the shared player and removes its dock entry",
+  "Backup coordinates safely with active background services"
+]

@@ -1,4 +1,22 @@
-# Stage 1 architecture
+# Architecture
+
+## Stage 2 additions
+
+The original Stage 1 design below is retained as historical context. Version 0.2.0 upgrades the local document to schema 2 and IndexedDB to version 2 without replacing existing stores. IDB adds date/start indexes to journal and session stores. New state is validated in `core/stage2-schema.js`; old local documents receive defaults. Stage 1 JSON backups remain importable.
+
+`core/timer-logic.js` is pure and unit-tested. Active phases have persisted start/deadline timestamps and a revision. Tabs send commands to `background/service-worker.js`; stale revisions cannot duplicate starts. `core/timer-engine.js` holds an origin lock and saves session records through a persisted outbox. Each session has a stable ID, so replay after a worker interruption overwrites the same ID. It logs actual active focus duration and completed/partial status, preserving task ID/title even if the task is later deleted. Pauses preserve remaining duration. Late wake-ups finish only the current phase; automatic next phases start at wake time, avoiding invented overnight work. Clock changes are interpreted as wall time: detected backward jumps rebase the deadline, forward jumps count as elapsed. Small corrections between observations are inherently indistinguishable from normal elapsed time.
+
+The worker registers listeners at module top level, recreates alarms whenever activated, and owns deadline alarms, a minute badge pulse, habit reminders, notifications, and audio sleep stops. Browser alarms may run late while the OS sleeps; they cannot wake a powered-down computer. Timer deadlines remain authoritative. The notification icon uses an absolute extension URL. Browser restart pauses audio but preserves timer state. A toolbar click opens a dashboard.
+
+One offscreen AUDIO_PLAYBACK document owns local audio for all new tabs. It loads only on explicit sound playback or an enabled chime. `core/audio-engine.js` decodes locally bundled WAVs lazily, runs native looping AudioBufferSourceNodes through per-layer and master gains, and synthesizes the chime. Original sound files and their provenance are documented in `assets/sounds/LICENSES.md`. No recorded speech or third-party audio is shipped. The ordinary browser preview uses the same engine in the page; it cannot provide closed-tab playback/notifications.
+
+`core/features.js` loads reflection/tracking/music/stats panels on demand. The timer pill and pinned countdown stay compact on the dashboard. Journal/session data uses IDB; notes/habits/events/moods use local settings storage. Notes format only safe text nodes. Stats aggregate records by local start date, include partial work, and expose an accessible data table alongside the lazy-loaded chart. A month is a rolling 30-day window. Historic Stage 1 tasks lack completion timestamps and therefore do not invent dated completion statistics.
+
+Backup operations acquire the timer lock before reading both storage backends, so a completed session cannot fall between IDB and outbox snapshots. Restore acquires the same lock, transactionally replaces IDB, rolls back IDB if the local write fails, then reschedules background services. Cross-backend restore is still not fully crash-atomic. It pauses restored timers and stops sound to avoid silently resuming an old session. Close other editing tabs when restoring. Backups include all private records and the locally held Unsplash key; the UI explicitly warns that exports are unencrypted.
+
+Music is an explicit iframe connection to allowlisted provider playlist paths, removed on panel close. No provider SDK script executes in the extension. Unsplash uses the user's local key, optional host permissions, API-returned image URLs online, required selection download events, photographer/Unsplash attribution, and cached blobs offline. The static CSP limits external frames, image domains, and API origins. Mocked provider tests exercise these boundaries without real credentials.
+
+## Original Stage 1 foundation
 
 ## Startup and boundaries
 

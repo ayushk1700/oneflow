@@ -45,7 +45,7 @@ try {
   await page.getByLabel('New task',{exact:true}).fill('A second small step');
   await page.getByLabel('New task',{exact:true}).press('Enter');
   await page.getByLabel('Move A second small step up',{exact:true}).click();
-  await page.waitForFunction(()=>document.querySelector('.task-text')?.textContent==='A second small step');
+  await page.waitForFunction(()=>document.querySelector('.task-text')?.firstChild.textContent==='A second small step');
   await page.getByLabel('Edit A thoughtful first task',{exact:true}).click();
   await page.getByLabel('Edit task',{exact:true}).fill('An edited first task');
   await page.getByLabel('Edit task',{exact:true}).press('Enter');

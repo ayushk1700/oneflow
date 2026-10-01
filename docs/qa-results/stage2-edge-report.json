@@ -1,0 +1,37 @@
+{
+  "browser": "edge",
+  "checks": [
+    "Stage 1 local and IndexedDB migrations preserve existing records",
+    "Startup loads no charts, music frames, or third-party resources",
+    "Journal saves, searches, and retains migrated history",
+    "Notes autosave and markdown preview never executes HTML",
+    "Habit check-ins, weekly heatmap, and daily reminder alarms persist",
+    "Countdown saves and pins to main dashboard",
+    "Mood check-in stores a timestamp and energy value",
+    "Task-linked timer starts, pauses, resumes, and updates live",
+    "Timer state synchronizes across open tabs",
+    "Offscreen Web Audio runs a two-layer mix in a single shared owner",
+    "Real browser alarm logs a completed session and the notification API accepts it with every dashboard tab closed",
+    "Reopening does not duplicate the completed session",
+    "Break companion appears and stats load Chart.js only on demand",
+    "Full Stage 2 export/import restores every new data collection",
+    "Repeat-open samples: 145, 118, 120, 140, 134 ms",
+    "Browser restart retains timer deadline, sound volumes, and new data",
+    "No page or console errors across Stage 2 flows"
+  ],
+  "errors": [],
+  "requests": [],
+  "timings": [
+    144.5,
+    118,
+    119.5,
+    139.70000000298023,
+    134.09999999403954
+  ],
+  "notification": [
+    {
+      "id": "oneflow-phase-closed-tabs-test",
+      "accepted": true
+    }
+  ]
+}
