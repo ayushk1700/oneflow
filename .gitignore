@@ -2,3 +2,4 @@ node_modules/
 .test-profile/
 test-results/
 *.log
+release/

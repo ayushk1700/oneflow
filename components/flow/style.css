@@ -1,0 +1,4 @@
+#flow-view { border:0; border-radius:0; width:100vw; max-width:none; height:100svh; max-height:none; margin:0; padding:32px; background:transparent; color:#f6f1e7; box-shadow:none; }
+#flow-view::backdrop { background:#12251b; }.flow-content { max-width:720px; margin:max(3vh,24px) auto; text-align:center; justify-items:center; }
+.flow-content h1 { font-size:clamp(24px,4vw,46px); overflow-wrap:anywhere; }.flow-time { font-size:clamp(70px,15vw,160px); font-variant-numeric:tabular-nums; line-height:1.2; font-weight:300; }
+.flow-actions { justify-content:center; flex-wrap:wrap; }.flow-content .field { width:min(100%,320px); }.flow-content .eyebrow { color:#cad5c9; }

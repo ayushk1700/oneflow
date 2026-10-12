@@ -1,0 +1,14 @@
+{
+  "checks": [
+    "Compact switcher and searchable favorites/recent launcher retain an unsaved subject draft across tools",
+    "Idea collection search and stage filters show one selected fragment or a truthful empty result",
+    "Career evidence survives contextual tab navigation and saves to the selected opportunity",
+    "Skill evidence drafts survive tab changes and arrow-key tab navigation works",
+    "Recall keeps answers hidden until requested and preserves editable concepts in a separate view",
+    "Scenic capsule library leads with saved work, filters by name and restores into the existing re-entry ritual",
+    "Launcher and five independent workspaces fit desktop and mobile in both themes",
+    "Favorites survive offline reload; keyboard dismissal, CSP and no-external-request checks pass"
+  ],
+  "errors": [],
+  "requests": []
+}

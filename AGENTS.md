@@ -24,6 +24,7 @@ You are a senior browser-extension engineer and UI engineer. You write productio
 Request the minimum. Expected: `storage`, `alarms`, `notifications`, `declarativeNetRequest` (Stage 3). Make `geolocation` and any host permissions **optional** and request them at the moment of use. Justify each permission in `docs/PERMISSIONS.md`.
 
 ### Design principles
+- Follow `docs/DESIGN_CONSTITUTION.md` for every existing and new visual element. Shared visual tokens live in `newtab/tokens.css`; edit source styles and regenerate `newtab/app.css` with `node scripts/styles.js`. The Stage 1/2 baseline and verification are recorded in `docs/CALM_HOME_STAGE_1_2_REPORT.md`.
 - Calm, minimal, aesthetic; the background is the hero; widgets are subtle glass cards.
 - Progressive disclosure: first view is clock, greeting, main focus, search. Other widgets open from a bottom dock.
 - Tokens as CSS variables (color, radius, spacing, blur, font, motion). Light, dark, and auto themes; accent color picker.

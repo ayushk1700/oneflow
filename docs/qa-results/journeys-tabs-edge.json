@@ -1,0 +1,7 @@
+{
+  "checks": [
+    "PASS: Real tab categorization, capsule-before-close parking, active-tab protection and duplicate-free restoration. Native permission dialog is a separate manual check."
+  ],
+  "errors": [],
+  "permissionFixture": true
+}

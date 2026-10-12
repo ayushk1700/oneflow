@@ -1,0 +1,7 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {trusted,mediaItems} from '../components/pexels/index.js';
+import {defaults,validate,migrate} from '../core/schema.js';
+test('provider links reject credentials, insecure and lookalike origins',()=>{for(const value of ['http://images.pexels.com/a','https://images.pexels.com.evil.test/a','https://key@images.pexels.com/a','javascript:alert(1)'])assert.equal(trusted(value,['images.pexels.com']),null);assert.equal(trusted('https://images.pexels.com/a',['images.pexels.com']),'https://images.pexels.com/a');});
+test('video normalization picks a bounded landscape file and rejects foreign media',()=>{const video={url:'https://www.pexels.com/video/1',image:'https://images.pexels.com/a',user:{name:'Creator'},video_files:[{file_type:'video/mp4',width:3840,height:2160,link:'https://videos.pexels.com/4k'},{file_type:'video/mp4',width:1280,height:720,link:'https://videos.pexels.com/hd'},{file_type:'video/mp4',width:1080,height:1920,link:'https://videos.pexels.com/portrait'}]};assert.equal(mediaItems({videos:[video]},'video')[0].source,'https://videos.pexels.com/hd');video.video_files=[{file_type:'video/mp4',width:1280,height:720,link:'https://evil.test/video'}];assert.deepEqual(mediaItems({videos:[video]},'video'),[]);});
+test('existing settings remain valid and optional Pexels key is bounded',()=>{const data=migrate(defaults());validate(data);data.integrations.pexelsKey='x'.repeat(201);assert.throws(()=>validate(data));data.integrations.pexelsKey='my-key';validate(data);});

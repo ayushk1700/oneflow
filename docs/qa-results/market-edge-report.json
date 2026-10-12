@@ -1,0 +1,73 @@
+{
+  "browser": "edge",
+  "checks": [
+    "First-run scene → task → running session; silent, offline and no website grants",
+    "Pause/resume synchronizes across tabs and offline reload preserves session identity",
+    "Completion summary survives reload; continue starts a new session on the same task",
+    "Complete a task and return to a clean next-session choice",
+    "Advanced tools are disclosed on demand; feedback downloads only user-authored text without requests",
+    "Encrypted backup and restore retain tasks and the last-session summary",
+    "Desktop and narrow screens, visible dock labels, reduced motion and keyboard shortcuts",
+    "Eight cached opens meet the 300 ms startup target on this machine",
+    "Real browser search API uses the isolated browser’s default provider: www.bing.com"
+  ],
+  "errors": [
+    "_G is not defined"
+  ],
+  "network": [
+    "https://www.bing.com/search?q=oneflow+default+provider+check&FORM=ANAB01&PC=PCMWSB"
+  ],
+  "timings": [
+    241.69999999925494,
+    175.89999999850988,
+    233.30000000074506,
+    197.69999999925494,
+    160.90000000223517,
+    163.5,
+    166.79999999701977,
+    171.40000000223517
+  ],
+  "startupStages": [
+    {
+      "oneflow-script-ready": 207.39999999850988,
+      "oneflow-storage-ready": 222.80000000074506,
+      "oneflow-ready": 241.69999999925494
+    },
+    {
+      "oneflow-script-ready": 158.39999999850988,
+      "oneflow-storage-ready": 165.19999999925494,
+      "oneflow-ready": 175.89999999850988
+    },
+    {
+      "oneflow-script-ready": 206.40000000223517,
+      "oneflow-storage-ready": 218.20000000298023,
+      "oneflow-ready": 233.30000000074506
+    },
+    {
+      "oneflow-script-ready": 173,
+      "oneflow-storage-ready": 183.5,
+      "oneflow-ready": 197.69999999925494
+    },
+    {
+      "oneflow-script-ready": 135.5,
+      "oneflow-storage-ready": 146.30000000074506,
+      "oneflow-ready": 160.90000000223517
+    },
+    {
+      "oneflow-script-ready": 143.89999999850988,
+      "oneflow-storage-ready": 151.09999999776483,
+      "oneflow-ready": 163.5
+    },
+    {
+      "oneflow-script-ready": 143.69999999925494,
+      "oneflow-storage-ready": 157,
+      "oneflow-ready": 166.79999999701977
+    },
+    {
+      "oneflow-script-ready": 153.5,
+      "oneflow-storage-ready": 160.70000000298023,
+      "oneflow-ready": 171.40000000223517
+    }
+  ],
+  "date": "2026-10-05T15:39:53.689Z"
+}

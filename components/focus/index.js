@@ -1,25 +1,36 @@
+import { t } from '../../core/i18n.js';
 import { get, set } from '../../core/storage.js';
-import { dayKey, el, loadScript } from '../../core/utils.js';
-import { watch, act, button } from '../../core/ui.js';
-import { emit } from '../../core/events.js';
-import { reduceMotion } from '../../core/theme.js';
-let root, unsubscribe, timer, currentDay;
+import { dayKey, el } from '../../core/utils.js';
+import { watch, act } from '../../core/ui.js';
+import { emit, on } from '../../core/events.js';
+import { createSessionView } from '../session-view/index.js';
+let root, session, unsubscribe, interval, offReflection, reflecting = false;
+/** Render the single dashboard session and independent daily completion control. */
 export function render() {
-  const focus = get().focus, today = focus.date === dayKey();
-  root.replaceChildren(el('p', { class: 'focus-label' }, today && focus.text ? 'TODAY, ONE THING AT A TIME' : 'WHAT MATTERS MOST TODAY?'));
-  if (!today || !focus.text) {
-    const input = el('input', { type: 'text', maxlength: 240, placeholder: 'Give your day a little direction…', 'aria-label': 'Your main focus today', autocomplete: 'off' });
-    root.append(el('form', { class: 'focus-form', onsubmit: act(async event => { event.preventDefault(); if (input.value.trim()) await set('focus', { date: dayKey(), text: input.value.trim(), completed: false }); }) }, input, button('Save daily focus', 'arrow-right', act(async () => { if (input.value.trim()) await set('focus', { date: dayKey(), text: input.value.trim(), completed: false }); }))));
-  } else {
-    const check = el('input', { type: 'checkbox', checked: focus.completed, 'aria-label': 'Complete daily focus', onchange: act(async event => {
-      const completed = event.target.checked; await set('focus', { ...focus, completed });
-      if (completed) { emit('toast', 'One meaningful thing, done. Take a breath.'); if (!reduceMotion()) { await loadScript('../vendor/canvas-confetti/1.9.3/confetti.browser.min.js'); globalThis.confetti({ particleCount: 45, spread: 65, origin: { y: .58 }, colors: ['#d6e9ba', '#e8dcb5', '#ffffff'], disableForReducedMotion: true }); } }
+  if (!root) return;
+  session.render();
+  const data = get(), timer = data.timer;
+  document.documentElement.dataset.activity = reflecting ? 'reflection' : timer.phase !== 'focus' ? 'break' : timer.sessionId ? 'focus' : 'home';
+  let label = root.querySelector('.daily-focus-complete');
+  if (data.focus.date !== dayKey() || !data.focus.text) { label?.remove(); return; }
+  if (!label) {
+    const complete = el('input', { type: 'checkbox', onchange: act(async event => {
+      await set('focus', { ...get().focus, completed: event.target.checked });
+      if (event.target.checked) emit('celebrate');
     }) });
-    root.append(el('div', { class: `focus-value${focus.completed ? ' completed' : ''}` }, el('label', {}, check, el('span', {}, focus.text)), button('Edit daily focus', 'pencil', () => {
-      const input = el('input', { value: focus.text, maxlength: 240, 'aria-label': 'Edit daily focus' });
-      root.replaceChildren(el('form', { class: 'focus-form', onsubmit: act(async event => { event.preventDefault(); await set('focus', { ...focus, text: input.value.trim() }); }) }, input, el('button', { type: 'submit' }, 'Save'))); input.focus();
-    })));
+    label = el('label', { class: 'daily-focus-complete row' }, complete, t('Mark daily focus complete'));
+    root.append(label);
   }
+  label.querySelector('input').checked = data.focus.completed;
 }
-export function init(node) { root = node; currentDay = dayKey(); render(); unsubscribe = watch(d => d.focus, render); timer = setInterval(() => { if (currentDay !== dayKey()) { currentDay = dayKey(); render(); } }, 1000); }
-export function destroy() { unsubscribe?.(); clearInterval(timer); root?.replaceChildren(); }
+/** Mount the shared session view without a separate timer instance. @param {HTMLElement} node */
+export function init(node) {
+  root = node; session = createSessionView(); root.replaceChildren(session.root);
+  offReflection = on('reflection:active', value => { reflecting = value; render(); });
+  unsubscribe = watch(data => [data.focus, data.timer, data.timerConfig, data.tasks, data.settings.widgets.timer], render);
+  interval = setInterval(render, 1000); render();
+}
+export function destroy() {
+  unsubscribe?.(); offReflection?.(); clearInterval(interval); session?.destroy(); root?.replaceChildren(); root = null;
+  delete document.documentElement.dataset.activity;
+}

@@ -1,0 +1,13 @@
+{
+  "checks": [
+    "Directory exposes five tools; capsule capture is local and active timer restoration is refused",
+    "Capsule restores paused without overwrites or autoplay; recovery resumes the same shared session",
+    "Offline compiler creates edited task actions and effort metadata once",
+    "Opt-in DNA records real early stops and switch counts and explains repeated comparisons",
+    "Planner protects recovery blocks; backups include validated capsules and DNA observations",
+    "Simulated native denial requests only tabs, preserves capsules and permits context-only saving; no grant blocks tab capture",
+    "Desktop/mobile, both themes, offline reload, reduced motion and learning deletion pass without remote requests"
+  ],
+  "errors": [],
+  "requests": []
+}

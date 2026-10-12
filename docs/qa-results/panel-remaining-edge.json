@@ -1,0 +1,17 @@
+{
+  "checks": [
+    "Daily check-in separates today/history and saves focus with optional task priorities",
+    "Reflection saves real session context; mood uses labeled choices and suggestions lead with one idea",
+    "Notifications filter by attention/unread/text; Stats separates overview from patterns while retaining chart/data",
+    "Milestones save/search cleanly and command search launches a chosen action by keyboard",
+    "Feedback retains a live draft and downloads locally; web search uses the browser provider explicitly",
+    "Dictionary preserves denied-access guidance, safe text rendering and offline session cache",
+    "Customize searches categories; Layout switches the live editor context without losing preview changes",
+    "Remaining panels and live Layout fit desktop/mobile, both themes and reduced motion",
+    "Saved work survives offline reload, Escape works and only the explicit dictionary fixture was requested"
+  ],
+  "errors": [],
+  "requests": [
+    "https://api.dictionaryapi.dev/api/v2/entries/en/focus"
+  ]
+}

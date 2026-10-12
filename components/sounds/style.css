@@ -1,1 +1,5 @@
 .sound-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.sound-tile{padding:16px 12px;background:var(--surface);border:1px solid var(--border);border-radius:14px;display:grid;gap:14px;font-size:12px}.sound-tile output{font-size:10px;color:var(--muted)}
+.sound-tile[data-enabled=true] { border-color: var(--accent); box-shadow: inset 0 3px 0 var(--accent); }
+.sound-switch { border: 0; padding: 3px 0; text-align: left; font-size: 13px; font-weight: 600; }
+.sound-switch:hover { background: transparent; text-decoration: underline; }
+@media(max-width:420px) { .sound-grid { grid-template-columns: 1fr; } }

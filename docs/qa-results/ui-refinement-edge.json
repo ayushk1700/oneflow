@@ -1,0 +1,10 @@
+{
+  "checks": [
+    "Both themes fit 1440/1280/390/320px; focus and quote clear the corner controls",
+    "Quote attribution and actions disclose by keyboard and tap",
+    "Invalid custom duration is rejected; 25-minute preset, pause, continuation and break actions work",
+    "Appearance preview updates, saved typography survives, offline/reduced motion has no errors or remote calls"
+  ],
+  "errors": [],
+  "requests": []
+}

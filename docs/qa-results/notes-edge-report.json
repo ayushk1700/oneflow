@@ -1,0 +1,12 @@
+{
+  "checks": [
+    "Autosave survives reload, markup stays literal, labels/links/pin and idempotent task conversion work",
+    "Raster attachment, saved drawing and local voice recording commit with media",
+    "Conflict detection, media backup round-trip, archive, trash and recovery work",
+    "Checklist completion/reorder, search, label filter, list view and Escape work",
+    "Optional context menu grant/handler/revocation and keyboard command registration work",
+    "Desktop/390/320 widths, dark/light and reduced motion render without overflow",
+    "Existing Notes entry opens shared workspace and closes its panel"
+  ],
+  "errors": []
+}

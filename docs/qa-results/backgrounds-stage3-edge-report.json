@@ -1,0 +1,40 @@
+{
+  "browser": "edge",
+  "date": "2026-10-03T16:40:43.648Z",
+  "checks": [
+    "Stage 1 document migrates to schema 4 while retaining task data",
+    "Stage 2 migration retains notes and IndexedDB reflections",
+    "Startup keeps four tools and does not load chart or music frames",
+    "Scene save, complete apply and reversal retain the previous preferences",
+    "Keyboard layout resize saves and reset restores the original arrangement",
+    "Morning ritual saves focus, top priority, streak and an optional reminder alarm",
+    "Local suggestions render without an online service",
+    "Fullscreen Flow applies scene, starts focus and installs a real browser rule in 348 ms",
+    "Real main-frame redirect shows the interstitial and logs only a hostname",
+    "Explicit override releases the hostname and expired override reinstalls blocking",
+    "Pause clears blocking and resume restores it only during focus",
+    "Worker suspension reconstructs the active session rule from its browser-session lease",
+    "Leaving Flow clears rules before logging and shows a session summary",
+    "Full browser restart clears session rules and releases orphaned Flow state",
+    "Expired focus clears blocker rules through a real alarm with dashboard tabs closed",
+    "Missing browser-session lease recovery releases orphaned Flow state",
+    "Encrypted backup restores scenes, rituals and prior records without activating Flow or AI",
+    "Diagnostics exports categories and counts while omitting private content and browsing hosts",
+    "Repeat-open responsiveness: 132, 134, 138, 156, 155 ms",
+    "Mobile dashboard fits without horizontal overflow",
+    "No page or console errors across Stage 3 browser flows"
+  ],
+  "errors": [],
+  "timings": [
+    131.7000000178814,
+    133.5,
+    137.89999997615814,
+    156.19999998807907,
+    155.19999998807907
+  ],
+  "flowMs": 348,
+  "hostPermissionFixture": true,
+  "manualChecks": [
+    "Physical process crash: CDP Browser.crash does not release the Windows profile lock in this environment; normal restart and missing-lease recovery tested instead."
+  ]
+}

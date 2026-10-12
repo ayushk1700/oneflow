@@ -1,11 +1,11 @@
-import { get } from '../../core/storage.js';
+import { t as translate } from '../../core/i18n.js';
 import { el } from '../../core/utils.js';
-import { icon, watch } from '../../core/ui.js';
-const engines = { google: ['Google', 'https://www.google.com/search'], bing: ['Bing', 'https://www.bing.com/search'], duckduckgo: ['DuckDuckGo', 'https://duckduckgo.com/'] };
-let root, unsubscribe;
+import { icon, act } from '../../core/ui.js';
+import { searchWeb } from '../../core/search.js';
+let root;
 export function render() {
-  const [label, url] = engines[get().settings.engine];
-  root.replaceChildren(el('form', { class: 'search-form glass', action: url, method: 'get', role: 'search' }, icon('search', 18), el('input', { id: 'web-search', name: 'q', type: 'search', required: true, placeholder: `Search with ${label}`, 'aria-label': `Search the web with ${label}`, autocomplete: 'off' }), el('button', { type: 'submit', class: 'icon-button', 'aria-label': 'Search' }, icon('arrow-up-right', 17))));
+  const input = el('input', { id: 'web-search', type: 'search', maxlength: 1000, required: true, placeholder: 'Search with your browser', 'aria-label': 'Search with your default search engine', autocomplete: 'off' });
+  root.replaceChildren(el('form', { class: 'search-form glass', role: 'search', onsubmit: act(async event => { event.preventDefault(); await searchWeb(input.value); }) }, icon('search', 18), input, el('button', { type: 'submit', class: 'icon-button', 'aria-label': translate('m0231') }, icon('arrow-up-right', 17))));
 }
-export function init(node) { root = node; render(); unsubscribe = watch(d => d.settings.engine, render); }
-export function destroy() { unsubscribe?.(); root?.replaceChildren(); }
+export function init(node) { root = node; render(); }
+export function destroy() { root?.replaceChildren(); root = null; }

@@ -1,3 +1,4 @@
+import { t as translate } from './i18n.js';
 import { SOUND_NAMES } from './stage2-schema.js';
 /** Shared by the offscreen owner and the ordinary-browser preview. */
 export class SoundEngine {
@@ -8,29 +9,32 @@ export class SoundEngine {
   }
   async mix(config, onSleep = () => {}) {
     const epoch = ++this.epoch; await this.ready();
-    this.master.gain.setTargetAtTime(config.master, this.context.currentTime, .08); clearTimeout(this.sleep);
+    const fade = Math.max(.03,Math.min(10,config.fade || .24) / 3);
+    this.master.gain.setTargetAtTime(config.master, this.context.currentTime, fade); clearTimeout(this.sleep);
     if (config.sleepAt) this.sleep = setTimeout(() => { this.stop(); onSleep(); }, Math.max(0, config.sleepAt - Date.now()));
     for (const name of SOUND_NAMES) {
       const volume = config.playing ? config.volumes[name] : 0;
-      if (!volume) { const layer = this.layers.get(name); if (layer) { layer.source.stop(); layer.gain.disconnect(); this.layers.delete(name); } continue; }
+      if (!volume) { const layer = this.layers.get(name); if (layer && !layer.stopping) { layer.gain.gain.setTargetAtTime(0,this.context.currentTime,fade); layer.stopping=setTimeout(()=>{layer.source.stop();layer.gain.disconnect();this.layers.delete(name);},fade*3000); } continue; }
       if (!this.buffers.has(name)) {
         const response = await fetch(new URL(`../assets/sounds/${name}.wav`, import.meta.url));
-        if (!response.ok) throw new Error(`The bundled ${name} sound could not load.`);
+        if (!response.ok) throw new Error(translate('m0001', {p0: name}));
         this.buffers.set(name, await this.context.decodeAudioData(await response.arrayBuffer()));
       }
       if (epoch !== this.epoch) return;
       if (!this.layers.has(name)) {
         const source = this.context.createBufferSource(), gain = this.context.createGain(); source.buffer = this.buffers.get(name); source.loop = true; source.connect(gain); gain.connect(this.master); gain.gain.value = 0; source.start(); this.layers.set(name, { source, gain });
       }
-      this.layers.get(name).gain.gain.setTargetAtTime(volume, this.context.currentTime, .08);
+      const layer = this.layers.get(name); clearTimeout(layer.stopping); layer.stopping=null; layer.gain.gain.setTargetAtTime(volume, this.context.currentTime, fade);
     }
   }
-  stop() { this.epoch++; clearTimeout(this.sleep); for (const { source, gain } of this.layers.values()) { source.stop(); gain.disconnect(); } this.layers.clear(); }
-  async chime() {
+  stop() { this.epoch++; clearTimeout(this.sleep); for (const { source, gain, stopping } of this.layers.values()) { clearTimeout(stopping); source.stop(); gain.disconnect(); } this.layers.clear(); }
+  async chime(options = {}) {
+    if (options.sound === 'none' || options.volume === 0) return;
     await this.ready();
-    for (const [index, frequency] of [523.25, 659.25, 783.99].entries()) {
+    const notes = options.sound === 'bell' ? [880] : options.sound === 'soft' ? [392,523.25] : [523.25,659.25,783.99];
+    for (const [index, frequency] of notes.entries()) {
       const oscillator = this.context.createOscillator(), gain = this.context.createGain(), start = this.context.currentTime + index * .15;
-      oscillator.frequency.value = frequency; gain.gain.setValueAtTime(0, start); gain.gain.linearRampToValueAtTime(.045, start + .03); gain.gain.exponentialRampToValueAtTime(.001, start + 1.3);
+      oscillator.frequency.value = frequency; gain.gain.setValueAtTime(0, start); gain.gain.linearRampToValueAtTime(.045 * (options.volume ?? 50) / 50, start + .03); gain.gain.exponentialRampToValueAtTime(.001, start + 1.3);
       oscillator.connect(gain); gain.connect(this.context.destination); oscillator.start(start); oscillator.stop(start + 1.4); oscillator.onended = () => gain.disconnect();
     }
   }

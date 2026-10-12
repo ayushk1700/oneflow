@@ -1,3 +1,4 @@
+import { t } from './i18n.js';
 /** Pure timestamp-based timer transitions. No browser APIs or ticking counters. */
 export const TIMER_DEFAULTS = { focus: 25, short: 5, long: 15, cycles: 4, autoFocus: false, autoBreak: false, notifications: true, chime: false };
 export function freshTimer(config = TIMER_DEFAULTS) {
@@ -39,8 +40,37 @@ export function advance(input, config, now, nextId) {
 export function command(input, config, action, now, id, payload = {}) {
   const result = advance(input, config, now, `${id}-next`), timer = result.timer;
   if (payload.expectedRevision !== undefined && payload.expectedRevision !== timer.revision) return result;
+  if (action === 'restore') {
+    if (timer.status !== 'idle' || timer.sessionId) throw new Error('Pause or finish your current session before restoring a capsule.');
+    const saved = payload.timer;
+    if (!saved || !['focus','short','long'].includes(saved.phase) || !Number.isFinite(saved.remaining) || saved.remaining < 0 || saved.remaining > 10800000) throw new Error('Invalid saved interval.');
+    // A recovery interval starts fresh: saved elapsed time must never count twice.
+    const duration = Math.max(60000, saved.remaining);
+    Object.assign(timer, freshTimer(config), { phase:saved.phase, status:'paused', duration, remaining:duration, taskId:saved.taskId || null, taskTitle:String(saved.taskTitle || '').slice(0,240), revision:timer.revision+1 });
+    return result;
+  }
+  if (action === 'phase') {
+    if (!['focus', 'short', 'long'].includes(payload.phase)) throw new Error('Invalid timer phase.');
+    // Phase tabs prepare the next interval; they cannot discard an active session.
+    if (timer.status !== 'idle' || timer.sessionId || timer.phase === payload.phase) return result;
+    Object.assign(timer, { phase: payload.phase, duration: config[payload.phase] * 60000, remaining: config[payload.phase] * 60000, endsAt: null, startedAt: null, elapsed: 0 });
+    timer.revision++;
+    return result;
+  }
+  if (action === 'continue') {
+    // A single revision-checked transition avoids two tabs skipping two phases.
+    if (timer.phase === 'focus') return result;
+    nextPhase(timer, config, now, id, false);
+    begin(timer, now, id);
+    timer.revision++;
+    return result;
+  }
   if (action === 'start' && timer.status !== 'running') {
-    if (payload.taskId && timer.status === 'idle') { timer.taskId = payload.taskId; timer.taskTitle = payload.taskTitle || ''; }
+    if (timer.status === 'idle' && timer.phase === 'focus' && payload.focusMinutes !== undefined) {
+      if (!Number.isInteger(payload.focusMinutes) || payload.focusMinutes < 1 || payload.focusMinutes > 180) throw new Error(t('Invalid focus duration.'));
+      timer.duration = timer.remaining = payload.focusMinutes * 60000;
+    }
+    if ((payload.taskId || payload.taskTitle !== undefined) && timer.status === 'idle') { timer.taskId = payload.taskId || null; timer.taskTitle = String(payload.taskTitle || '').slice(0, 240); }
     begin(timer, now, id);
   } else if (action === 'pause' && timer.status === 'running') {
     timer.remaining = remaining(timer, now); timer.elapsed = timer.duration - timer.remaining; timer.endsAt = null; timer.status = 'paused';

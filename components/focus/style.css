@@ -1,1 +1,43 @@
-#focus{margin:0 auto 30px;min-height:76px;max-width:500px}.focus-label{font-size:9px;letter-spacing:.22em;color:#dce5dd;margin:0 0 10px}.focus-form{display:flex;align-items:center;border-bottom:1px solid #e6eee866;padding-bottom:3px;max-width:420px;margin:auto}.focus-form input{background:transparent;border:0;text-align:center;flex:1;min-width:0;color:#fff;padding:9px 0;font-size:18px;border-radius:0}.focus-form input::placeholder{color:#e4e9e1}.focus-value{display:flex;align-items:center;justify-content:center;font-size:20px;gap:8px}.focus-value label{display:flex;gap:14px;align-items:center;overflow-wrap:anywhere}.focus-value.completed label span{text-decoration:line-through;opacity:.75}.focus-value input{width:20px;height:20px}.focus-value .icon-button{opacity:.75}
+#focus { margin: 0 auto 22px; max-width: 580px; min-height: 88px; text-align: left; color: var(--glass-ink); padding: 18px 22px; background: var(--glass); backdrop-filter: blur(var(--glass-blur)); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: 3px 4px 0 #0b150f66; display: grid; grid-template-columns: 1fr auto; gap: 6px 14px; }
+.focus-label { grid-column: 1/-1; font-size: 10px; letter-spacing: .18em; color: var(--glass-muted); margin: 0 0 4px; font-weight: 600; }
+.focus-form { grid-column: 1/-1; display: flex; align-items: center; gap: 8px; min-width: 0; }
+.focus-form input { background: transparent; border: 0; padding: 7px 0; color: inherit; flex: 1; min-width: 0; font-size: 19px; }
+.focus-form input::placeholder { color: var(--glass-muted); }
+.focus-value { display: flex; align-items: center; gap: 6px; min-width: 0; font-size: 19px; font-weight: 600; }
+.focus-value label { display: flex; gap: 12px; align-items: center; overflow-wrap: anywhere; }
+.focus-value.completed label span { text-decoration: line-through; opacity: .75; }
+.focus-start { align-self: center; font-size: 12px; padding: 11px 14px; white-space: nowrap; }
+@media(max-width:600px) { #focus { padding: 16px; grid-template-columns: 1fr; } .focus-start { justify-self: start; margin-top: 8px; } .focus-value { font-size: 17px; } }
+#focus .session-title { grid-column:1/-1; margin:0; font-size:20px; font-weight:500; overflow-wrap:anywhere; }
+#focus .session-countdown { grid-column:1/-1; font-size:clamp(48px,7vw,76px); font-weight:400; font-variant-numeric:tabular-nums; }
+#focus progress { grid-column:1/-1; width:100%; height:6px; accent-color:var(--accent); margin:8px 0; }
+#focus .focus-form { grid-column:auto; }
+#focus .focus-form input { font-size:18px; }
+.focus-label { font-size:12px; }
+html[data-activity="focus"] #clock { transform:scale(.75); opacity:.8; }
+#clock { transition:transform 200ms ease,opacity 200ms ease; }
+@media(prefers-reduced-motion:reduce) { #clock { transition:none; } }
+@media(max-width:600px) { #focus .focus-form { flex-wrap:wrap; } }
+
+.daily-focus-complete { grid-column:1/-1; font-size:12px; margin-top:8px; }
+html[data-activity=focus] .clock-time, html[data-activity=break] .clock-time { font-size:clamp(64px,7vw,98px); }
+html[data-activity=focus] .greeting, html[data-activity=break] .greeting { margin-bottom:18px; }
+:root[data-motion=reduce] #clock { transition:none; }
+
+#focus { display:block; }
+.unified-session { display:grid; gap:14px; width:100%; }
+.unified-session .session-title, .unified-session progress, .unified-session .session-countdown { grid-column:1/-1; }
+.session-setup { gap:12px; }
+.session-setup > input { width:100%; }
+.session-duration { align-items:end; }
+.session-duration .field { flex:1; max-width:140px; }
+.session-actions { align-items:center; }
+#flow-view .unified-session { text-align:center; justify-items:center; }
+#flow-view progress { width:min(100%,400px); }
+#flow-view .session-actions { justify-content:center; }
+#flow-view .session-setup { width:min(100%,420px); text-align:left; }
+
+#focus .unified-session { gap:10px; }
+#focus .session-countdown { font-size:clamp(48px,6vw,64px); line-height:1.15; }
+html[data-activity=focus] .clock-time, html[data-activity=break] .clock-time { font-size:clamp(60px,6vw,80px); }
+html[data-activity=focus] .greeting, html[data-activity=break] .greeting { font-size:24px; margin-bottom:12px; }

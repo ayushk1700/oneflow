@@ -1,0 +1,15 @@
+{
+  "browser": "chrome",
+  "checks": [
+    "Idle task selection and chosen duration start one linked countdown",
+    "Fullscreen expands a paused task session without resetting or resuming it",
+    "Leaving fullscreen keeps the same running deadline on the dashboard",
+    "End session returns to idle and records elapsed task time once",
+    "Daily focus and another new tab share the same session",
+    "Focus dock opens duration/preferences only, without a duplicate countdown",
+    "Break uses the shared countdown and Skip break returns to focus setup",
+    "Task-row start closes Tasks and updates the dashboard session",
+    "Mobile shared timer has no horizontal overflow or page errors"
+  ],
+  "errors": []
+}

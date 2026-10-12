@@ -1,0 +1,14 @@
+{
+  "browser": "chrome",
+  "checks": [
+    "Offline local Tailwind grid, asymmetric desktop and four labelled dock tools",
+    "Top Settings opens the shared settings panel",
+    "Photo, Pure Black and Pure White switch through real Settings controls",
+    "Unified timer starts and pauses within the transformed home",
+    "Light, auto and reduced motion preserve the session and optional widgets",
+    "Laptop, tablet, mobile, narrow mobile and zoom-sized layouts keep controls reachable",
+    "Offline reload retains the session with no console/CSP errors"
+  ],
+  "errors": [],
+  "network": []
+}

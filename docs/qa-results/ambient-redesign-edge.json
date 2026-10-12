@@ -1,0 +1,11 @@
+{
+  "checks": [
+    "Ambient loads lazily; clock and controls fit desktop/mobile and both themes without autoplay",
+    "Scene picker selects offline wallpaper without starting audio; clock expansion and Escape work",
+    "Shared audio playback, volume, mute restoration and pause work",
+    "Immersive fades when idle, wakes on movement, protects keyboard focus and exits with Escape",
+    "Session return preserves deadline; Home return, offline reload and reduced motion have no errors/remote calls"
+  ],
+  "errors": [],
+  "requests": []
+}

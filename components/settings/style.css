@@ -1,1 +1,6 @@
 .settings-tabs{display:flex;gap:4px;padding:4px;background:var(--surface);border-radius:12px}.settings-tabs button{flex:1;border:0;padding:9px 6px;font-size:12px}.settings-tabs button[aria-current=page]{background:var(--panel);box-shadow:0 2px 8px #0001}.background-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.background-card{padding:0 0 10px;overflow:hidden;text-align:left;display:grid;gap:3px;border-radius:12px}.background-card img{width:100%;height:auto;display:block;aspect-ratio:16/9;object-fit:cover;margin-bottom:6px;background:#526d62}.background-card span,.background-card small{padding:0 11px}.background-card span{font-size:12px}.background-card small{text-transform:capitalize;color:var(--muted);font-size:10px}.background-card[aria-pressed=true]{border:2px solid var(--accent)}.photo-name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-align:left}
+.settings-tabs { border: 1px solid var(--border); }
+.settings-tabs button[aria-current=page] { background: var(--accent); color: var(--accent-ink); }
+.background-card { border-width: 2px; background: var(--surface); }
+.background-card[aria-pressed=true] { box-shadow: 3px 4px 0 #0b150f55; }
+.background-card[aria-pressed=true] span:after { content: ' ✓'; }

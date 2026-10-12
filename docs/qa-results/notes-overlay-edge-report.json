@@ -1,0 +1,10 @@
+{
+  "checks": [
+    "Real toolbar action grants temporary access, injects isolated overlay, captures selected text/link without HTML",
+    "Keyboard move/resize, focus loop, responsive clamp, Escape and focus restoration work",
+    "Forged webpage frame cannot initialize or read the notes UI",
+    "Legacy migration is idempotent; note alarms schedule/cancel and permanent deletion works",
+    "Protected browser pages fall back to a full extension workspace"
+  ],
+  "errors": []
+}

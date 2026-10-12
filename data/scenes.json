@@ -1,1 +1,312 @@
-[]
+[
+  {
+    "id": "deep-work",
+    "name": "Deep Work",
+    "builtin": true,
+    "snapshot": {
+      "settings": {
+        "theme": "dark",
+        "accent": "#c9d9b5",
+        "font": "sans",
+        "background": {
+          "kind": "bundled",
+          "id": "alpine",
+          "blur": 0,
+          "rotate": false,
+          "color": "#293c36"
+        },
+        "widgets": {
+          "clock": true,
+          "focus": true,
+          "search": true,
+          "links": true,
+          "quotes": true,
+          "weather": true,
+          "tasks": true,
+          "timer": true,
+          "sounds": true,
+          "journal": true,
+          "notes": true,
+          "habits": true,
+          "countdowns": true,
+          "stats": true,
+          "mood": true,
+          "music": true
+        }
+      },
+      "timerConfig": {
+        "focus": 50,
+        "short": 5,
+        "long": 15,
+        "cycles": 4,
+        "autoFocus": false,
+        "autoBreak": false,
+        "notifications": true,
+        "chime": false
+      },
+      "audio": {
+        "playing": true,
+        "master": 0.5,
+        "volumes": {
+          "rain": 0,
+          "cafe": 0,
+          "fireplace": 0,
+          "forest": 0,
+          "ocean": 0,
+          "white": 0,
+          "brown": 0.35
+        },
+        "sleepAt": null
+      },
+      "layout": {}
+    }
+  },
+  {
+    "id": "study-cafe",
+    "name": "Study Cafe",
+    "builtin": true,
+    "snapshot": {
+      "settings": {
+        "theme": "light",
+        "accent": "#c9d9b5",
+        "font": "sans",
+        "background": {
+          "kind": "bundled",
+          "id": "cozy",
+          "blur": 0,
+          "rotate": false,
+          "color": "#293c36"
+        },
+        "widgets": {
+          "clock": true,
+          "focus": true,
+          "search": true,
+          "links": true,
+          "quotes": true,
+          "weather": true,
+          "tasks": true,
+          "timer": true,
+          "sounds": true,
+          "journal": true,
+          "notes": true,
+          "habits": true,
+          "countdowns": true,
+          "stats": true,
+          "mood": true,
+          "music": true
+        }
+      },
+      "timerConfig": {
+        "focus": 25,
+        "short": 5,
+        "long": 15,
+        "cycles": 4,
+        "autoFocus": false,
+        "autoBreak": false,
+        "notifications": true,
+        "chime": false
+      },
+      "audio": {
+        "playing": true,
+        "master": 0.5,
+        "volumes": {
+          "rain": 0,
+          "cafe": 0.35,
+          "fireplace": 0,
+          "forest": 0,
+          "ocean": 0,
+          "white": 0,
+          "brown": 0
+        },
+        "sleepAt": null
+      },
+      "layout": {}
+    }
+  },
+  {
+    "id": "creative-flow",
+    "name": "Creative Flow",
+    "builtin": true,
+    "snapshot": {
+      "settings": {
+        "theme": "dark",
+        "accent": "#c9d9b5",
+        "font": "sans",
+        "background": {
+          "kind": "bundled",
+          "id": "lofi",
+          "blur": 0,
+          "rotate": false,
+          "color": "#293c36"
+        },
+        "widgets": {
+          "clock": true,
+          "focus": true,
+          "search": true,
+          "links": true,
+          "quotes": true,
+          "weather": true,
+          "tasks": true,
+          "timer": true,
+          "sounds": true,
+          "journal": true,
+          "notes": true,
+          "habits": true,
+          "countdowns": true,
+          "stats": true,
+          "mood": true,
+          "music": true
+        }
+      },
+      "timerConfig": {
+        "focus": 40,
+        "short": 5,
+        "long": 15,
+        "cycles": 4,
+        "autoFocus": false,
+        "autoBreak": false,
+        "notifications": true,
+        "chime": false
+      },
+      "audio": {
+        "playing": true,
+        "master": 0.5,
+        "volumes": {
+          "rain": 0,
+          "cafe": 0,
+          "fireplace": 0,
+          "forest": 0.35,
+          "ocean": 0,
+          "white": 0,
+          "brown": 0
+        },
+        "sleepAt": null
+      },
+      "layout": {}
+    }
+  },
+  {
+    "id": "evening-wind-down",
+    "name": "Evening Wind-down",
+    "builtin": true,
+    "snapshot": {
+      "settings": {
+        "theme": "dark",
+        "accent": "#c9d9b5",
+        "font": "sans",
+        "background": {
+          "kind": "bundled",
+          "id": "dark",
+          "blur": 0,
+          "rotate": false,
+          "color": "#293c36"
+        },
+        "widgets": {
+          "clock": true,
+          "focus": true,
+          "search": true,
+          "links": true,
+          "quotes": true,
+          "weather": true,
+          "tasks": true,
+          "timer": true,
+          "sounds": true,
+          "journal": true,
+          "notes": true,
+          "habits": true,
+          "countdowns": true,
+          "stats": true,
+          "mood": true,
+          "music": true
+        }
+      },
+      "timerConfig": {
+        "focus": 15,
+        "short": 5,
+        "long": 15,
+        "cycles": 4,
+        "autoFocus": false,
+        "autoBreak": false,
+        "notifications": true,
+        "chime": false
+      },
+      "audio": {
+        "playing": true,
+        "master": 0.5,
+        "volumes": {
+          "rain": 0.35,
+          "cafe": 0,
+          "fireplace": 0,
+          "forest": 0,
+          "ocean": 0,
+          "white": 0,
+          "brown": 0
+        },
+        "sleepAt": null
+      },
+      "layout": {}
+    }
+  },
+  {
+    "id": "minimal",
+    "name": "Minimal",
+    "builtin": true,
+    "snapshot": {
+      "settings": {
+        "theme": "light",
+        "accent": "#c9d9b5",
+        "font": "sans",
+        "background": {
+          "kind": "solid",
+          "id": "minimal",
+          "blur": 0,
+          "rotate": false,
+          "color": "#293c36"
+        },
+        "widgets": {
+          "clock": true,
+          "focus": true,
+          "search": true,
+          "links": false,
+          "quotes": false,
+          "weather": false,
+          "tasks": true,
+          "timer": true,
+          "sounds": false,
+          "journal": true,
+          "notes": true,
+          "habits": true,
+          "countdowns": true,
+          "stats": true,
+          "mood": true,
+          "music": true
+        }
+      },
+      "timerConfig": {
+        "focus": 25,
+        "short": 5,
+        "long": 15,
+        "cycles": 4,
+        "autoFocus": false,
+        "autoBreak": false,
+        "notifications": true,
+        "chime": false
+      },
+      "audio": {
+        "playing": false,
+        "master": 0.5,
+        "volumes": {
+          "rain": 0,
+          "cafe": 0,
+          "fireplace": 0,
+          "forest": 0,
+          "ocean": 0,
+          "white": 0,
+          "brown": 0
+        },
+        "sleepAt": null
+      },
+      "layout": {}
+    }
+  }
+]

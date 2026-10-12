@@ -1,3 +1,31 @@
+# Market-readiness QA — 2026-10-05
+
+Current acceptance is recorded in MARKET_RELEASE_REPORT.md. Run `node --test tests/*.test.js`, `node scripts/check.js`, and `node tests/market-browser.js chrome` / `edge`. The market suite covers real first-run activation, default-provider search, cross-tab and offline continuity, session completion/continuation, encrypted recovery, local feedback, privacy page, narrow layouts, shortcuts and eight cached startup samples. The `search` permission is required and storage schema is now 5. Public links need actual publisher details in core/publisher.js. A real two-week pilot and assistive-technology/device checks are not replaced by automated results.
+
+# Stage 3 release QA — 2026-10-03
+
+Run these with Node and the optional development Playwright runtime (ONEFLOW_NODE_MODULES points to its installed node_modules directory). Runtime extension code has no dependency on that tooling.
+
+1. node scripts/check.js — manifest references, strict CSP, all-source syntax, safe DOM checks, 500 unique local quotes and eager JS size.
+2. node --test tests/*.test.js — 44 unit/storage checks, including background metadata/assets, schema migrations, timer transitions, malformed imports, scene boundaries, domain rules, encryption authentication and language fallback.
+3. node tests/stage3-browser.js chrome and edge — isolated profiles, migrations, scene save/apply/undo, keyboard layout, ritual/alarm, suggestions, fullscreen timing, real DNR redirect/override/expiry, pause/resume/exit, worker suspension, browser restart, missing session lease, encrypted restore, diagnostics, repeated opens and mobile width.
+4. node scripts/package.js — deterministic runtime-only zip and SHA-256; no personal/test profiles or credentials.
+5. node tests/package-browser.js chrome and edge — CRC-checked extraction, clean manifest, no host grants/startup network, offline keyboard tasks, plain text rendering, daily completion, Focus-disabled timer controls, dock bounds, command keyboard focus, Hindi shell and console errors.
+
+The Stage 3 redirect tests copy the extension into an isolated fixture and add required test host grants. They exercise actual browser DNR rules, not a mock. The release manifest is tested separately with zero host grants. Native permission acceptance/rejection remains a manual check. Existing Stage 1/2 reports are historical evidence; their UI-specific scripts may require selector updates for the unified card and More dock.
+
+## Required manual acceptance before store publication
+
+- Enable blocklist access through the actual permission prompt; decline it and verify the dashboard remains usable. Test an allow-only list, subdomains and removing permission through browser settings. Browser-internal pages and non-HTTP(S) addresses are outside blocking scope.
+- In an isolated profile, forcibly terminate the browser during Flow and relaunch. Normal restart and missing-lease recovery pass automatically; physical process-crash verification could not complete because CDP Browser.crash left a Windows profile lock.
+- Review notification permission and actual OS toasts, audible chime, sound mixing and seamless loops. Headless tests do not verify perceived audio quality.
+- Use NVDA/Narrator, 200% zoom, and keyboard navigation across every tool. Verify daily rollover and real device sleep/wake. Automated modal focus and reduced-motion CSS checks do not certify a full WCAG audit.
+- Review contrast over bright uploads and each theme/accent, actual weather/location prompts, own-key Unsplash and optional playlist embed behavior. No personal provider keys are used during this build.
+- Restore a large image-bearing encrypted backup in a disposable profile; preserve your own backup before destructive testing. Verify forgotten-passphrase messaging.
+- Provide publisher identity/contact and a public privacy-policy URL, resize/capture screenshots to current portal requirements, review store declarations, then upload manually. This build does not publish an extension.
+
+---
+
 # Stage 1 QA
 
 Run `node --test tests/*.test.js`, `node scripts/check.js`, and optional `node tests/browser.js chrome` / `edge`. Automated results and limitations are recorded in `STAGE_1_REPORT.md`.
@@ -44,3 +72,18 @@ The sections above describe the historical Stage 1 baseline. Stage 2 results and
 13. Inspect desktop/mobile layout and new-tab console; check startup has no online calls without opt-in and no eager chart/music resources. Automated responsive/startup/error checks pass. Repeat keyboard-only navigation, 200% zoom and the full Stage 1 walkthrough for release acceptance.
 
 Automated commands: `node --test tests/*.test.js`, `node scripts/check.js`, `node tests/stage2-browser.js chrome`, `node tests/stage2-browser.js edge`, `node tests/stage2-integrations.js`, and `node tests/browser.js chrome`. Browser tests require Playwright as described in README and generate fresh isolated profiles. Saved Stage 2 evidence is under `docs/qa-results/stage2-*.json`; original Stage 1 reports are preserved separately.
+## Focus, panels and unified Settings acceptance
+
+Run `node tests/panels-browser.js chrome` and `node tests/panels-browser.js edge` with the optional Playwright runtime configured. The walkthrough opens all tools and all seven Settings sections at 1440, 390 and 320 pixel widths with real saved task, note, habit and countdown fixtures. It verifies the dock/gear routes, retained drafts, unchanged active deadline on preference save, ritual/habit alarm creation, Notes autosave, blocking setup without grants while disabled, fullscreen continuity, light Settings, keyboard containment, no console/CSP errors, and offline reload without external calls.
+
+For manual acceptance, inspect reading comfort, imagery and contrast on your uploaded backgrounds; navigate every form with a keyboard and a screen reader. Check physical-device touch targets, actual browser zoom, OS notification delivery and sound quality. Automated responsive checks do not certify a full WCAG audit. See `FOCUS_PANELS_REPORT.md` for this stage's verified results and any performance limit.
+## Background presentation and final release acceptance
+
+Run `node tests/backgrounds-browser.js chrome` and `node tests/backgrounds-browser.js edge`. All six local images are checked offline at 1440×960, 1280×720, 390×844 and 320×640, with crop metadata, no overflow and accessible Start controls. The suite tests stale completions, an injected full-image failure, uploaded image/scene persistence and small previews, solid/photo switching, strong contrast, layout shading, explicit/system reduced motion, shortcuts, visible focus, dialog containment and actual 200% tab zoom via the browser Tabs API. The injected image failure intentionally produces a failed-resource console entry; release regression runs require clean consoles.
+
+Run unified timer, panels, Stage 3, optional-integration and extracted-package suites in Chrome and Edge. Stage 3 measures five cached opens with the other test browsers closed. Optional provider tests use fixture responses, not real keys or playback. See `BACKGROUNDS_RELEASE_REPORT.md` and `docs/qa-results/backgrounds-*.json` for final evidence. Human screen-reader use, arbitrary upload contrast, touch devices, audio listening, OS notifications, real-provider connection and physical crash recovery are not certified by these checks. Browser 200% zoom is now covered automatically; assistive-technology reading order remains a human check.
+
+## Current journal and wallpaper checks
+
+Run node tests/dashboard-browser.js edge and node tests/journal-wallpapers-browser.js chrome / edge with the optional Playwright runtime configured. They verify separate tools, journal calendar navigation and autosave/manual save, local export, print-content preparation, metrics, unified preferences, responsive layouts, appearance controls, animated backgrounds, silent local WebM playback, reduced motion, media backup roundtrips and offline persistence. Physical printing, screen-reader usability and video codec/device coverage remain manual. Earlier home/sketch scripts document historical interfaces.
+

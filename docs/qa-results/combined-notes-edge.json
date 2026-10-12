@@ -1,0 +1,9 @@
+{
+  "checks": [
+    "One Notes launcher opens one dedicated panel containing saved notes, tasks and habits",
+    "Task IDs, timer linkage, habit history/check-ins and reminders remain live",
+    "Single creation menu adds tasks/habits; shared search and type filter work",
+    "Responsive panel, legacy task/habit routes, N shortcut and reopen persistence work"
+  ],
+  "errors": []
+}

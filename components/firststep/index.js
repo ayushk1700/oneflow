@@ -1,0 +1,15 @@
+import { tinyStep } from '../../core/journeys-logic.js';
+import { library } from '../panel-design/index.js';
+import { workspace, el, input, field, button, section, message, choices, requireText, addJourney, editJourney, beginJourney, remove } from '../journeys/shared.js';
+/** A two-minute entry creates a real task and uses the existing visual timer. */
+export async function open(){
+  const data=await workspace('firststep','First Step Mode','Choose one tiny action. Two minutes is enough to begin; the Focus screen shows time passing.');if(!data)return;
+  const {root,j,tasks,sessions}=data,title=input('',240),draft=el('div',{class:'stack'});
+  const existing=choices(['Choose an existing task',...tasks.filter(t=>!t.completed).map(t=>t.text)],'Choose an existing task');existing.addEventListener('change',()=>{if(existing.selectedIndex)title.value=existing.value;});
+  const capture=el('section',{class:'firststep-entry stack'},el('h3',{},'One small beginning'));
+  capture.append(section('A small beginning',field('Existing task',existing),field('What feels hard to start?',title),button('Find a tiny first step',()=>{const proposal=tinyStep(requireText(title,'a task'));capture.querySelector('.primary')?.classList.remove('primary');const next=input(proposal.action,240);draft.replaceChildren(section('Just this next action',field('Tiny action',next),button('Begin for 2 minutes',async()=>{const record=await addJourney('firstSteps',{title:title.value.trim(),action:requireText(next,'a tiny action'),kind:proposal.kind,state:'ready',sessionId:null});await beginJourney('firststep',record.id,record.action,2);},true)));},true),draft));root.append(capture);
+  const history=el('details',{open:j.firstSteps[0]?.state==='rescued'?'':undefined},el('summary',{},'Rescue choices & history'));root.append(history);const stops=sessions.filter(s=>!s.completed).map(s=>{const link=tasks.find(t=>t.id===s.taskId)?.journey;return link?.kind==='firststep'?j.firstSteps.find(x=>x.id===link.id):null;}).filter(Boolean),counts=new Map();for(const x of stops)counts.set(x.kind,(counts.get(x.kind)||0)+1);
+  if(counts.size)history.append(message(`Your early stops by task type: ${[...counts].map(([kind,count])=>`${kind} ${count}`).join(' · ')}. Try a smaller entry for those tasks.`));
+  if(j.firstSteps.length){const saved=library(history,{name:'firststep',heading:'Small beginnings',filters:['ready','started','rescued','finished']});for(const r of j.firstSteps){const next=input(r.action,240);saved.add({id:r.id,title:r.title,summary:`${r.kind} · ${r.state}`,status:r.state,detail:section(r.title,message(r.state==='rescued'?'A fresh start is available. Choose a smaller action if that helps.':'One action. Two minutes. You can decide what follows afterward.'),field('Next tiny action',next),button(r.state==='rescued'?'Try a gentler 2 minutes':'Start 2 minutes',async()=>{await editJourney('firstSteps',r.id,x=>{x.action=requireText(next,'an action');x.state='ready';});await beginJourney('firststep',r.id,next.value,2);}),remove('firstSteps',r.id,open))});}}
+}
+export function init(){}export const render=open;export function destroy(){}

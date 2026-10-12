@@ -1,0 +1,19 @@
+{
+  "browser": "chrome",
+  "checks": [
+    "Focus dock opens the Focus section of the one Settings dialog",
+    "Unsaved Focus preferences survive switching sections and save through one form",
+    "Timer gear shares Settings; saving a rhythm preserves a running session deadline",
+    "All seven Settings sections load; ritual and habit preferences create real browser alarms",
+    "Task draft stays intact while switching between tools and Settings",
+    "Grouped tool directory opens Notes; split editor saves without interrupting focus",
+    "Every tool and Settings section fits desktop, mobile and narrow mobile without overflow",
+    "Blocking preferences save inside Settings without website access while disabled",
+    "Ritual and blocking entry points lead to their unified Settings sections",
+    "Scenic fullscreen expands one paused timer and remains usable on mobile",
+    "Light Settings keeps its layout and keyboard focus stays in the dialog",
+    "Offline reload preserves data/session with no external calls, console or CSP errors"
+  ],
+  "errors": [],
+  "network": []
+}

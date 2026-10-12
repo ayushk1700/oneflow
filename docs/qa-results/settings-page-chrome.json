@@ -1,0 +1,9 @@
+{
+  "checks": [
+    "Appearance opens as a full-screen page with grouped controls",
+    "Section changes preserve a Focus draft and reminders still save",
+    "Every Settings section remains reachable from the desktop rail",
+    "390px and 320px pages fit; Data tools and Escape remain accessible"
+  ],
+  "errors": []
+}

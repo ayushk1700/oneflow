@@ -1,0 +1,15 @@
+{
+  "browser": "chrome",
+  "checks": [
+    "Extracted zip loads with no website grants or startup network requests",
+    "Offline keyboard task entry renders markup as plain text",
+    "Unified focus starts, pauses and retains daily completion",
+    "Timer stays available with Focus disabled; dock fits the viewport",
+    "Command dialog keyboard focus stays inside and Escape closes it",
+    "Hindi sample shell loads offline with English fallback",
+    "No page errors in extracted release"
+  ],
+  "errors": [],
+  "requests": [],
+  "date": "2026-10-03T17:09:34.818Z"
+}

@@ -1,0 +1,22 @@
+{
+  "checks": [
+    "Release ZIP checksum/CRC and safe contents pass; manifest retains strict CSP and optional website access.",
+    "Packaged redesigned tools load offline and dismiss by keyboard.",
+    "Packaged Layout and privacy documentation are available offline.",
+    "FAIL: Eight cached ready marks: median 208.6 ms, maximum 656.1 ms; target below 300 ms.",
+    "Packaged extension has no page errors or external startup/tool requests."
+  ],
+  "errors": [],
+  "requests": [],
+  "timings": [
+    210.90000000596046,
+    181.90000000596046,
+    656.0999999940395,
+    288.80000001192093,
+    206.2999999821186,
+    222.09999999403954,
+    168.19999998807907,
+    180.7999999821186
+  ],
+  "sha256": "887fbf4034f293d379dbbd506703ffaab6e5f16285a0d2f0975b75e8e6f01712"
+}

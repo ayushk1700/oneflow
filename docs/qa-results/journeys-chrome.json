@@ -1,0 +1,17 @@
+{
+  "checks": [
+    "Two-minute entry uses a real timer and an early stop creates a gentle rescue",
+    "Recall room generates editable prompts and confidence schedules spaced reviews",
+    "Idea fragment becomes a persistent Note and can develop into a project",
+    "Voluntary project evidence and timer history produce only individually approved report lines",
+    "Energy ratings and shutdown ritual persist with a resume note",
+    "Meeting decisions, owners and editable actions link to Tasks and a local follow-up Note",
+    "Career pipeline records application progress, evidence and offline preparation tasks",
+    "Quiet Web handles denied access without tab capture and saves a context-only reset capsule",
+    "Skill evidence schedules the next review and starts a linked practice interval",
+    "Ten workspaces fit desktop and mobile widths in both themes",
+    "Backup/reset/import, offline reload and keyboard exit preserve all workspaces without remote requests"
+  ],
+  "errors": [],
+  "requests": []
+}

@@ -1,0 +1,11 @@
+{
+  "checks": [
+    "First Step retains a draft, starts a real two-minute session and offers searchable rescued work",
+    "Compiler preserves edited plans across tools, discloses later actions and adds reviewed tasks once",
+    "Recovery preserves a draft, leads with its return action and resumes the same paused session",
+    "Three workspaces fit desktop/mobile and both themes with reduced motion",
+    "Saved work remains available offline, Escape works, and there are no page errors or remote requests"
+  ],
+  "errors": [],
+  "requests": []
+}

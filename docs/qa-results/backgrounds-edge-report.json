@@ -1,0 +1,16 @@
+{
+  "browser": "edge",
+  "checks": [
+    "6 bundled backgrounds work offline at desktop, compact laptop and two mobile sizes",
+    "Slow decode keeps Home usable and stale image completions cannot replace a newer scene",
+    "A failed full-size image keeps its offline thumbnail visible",
+    "Upload selection, small photo/scene previews and an uploaded scene survive offline reload",
+    "Custom layouts strengthen coverage; explicit and system reduced motion suppress the image fade",
+    "Pure white stays unshaded and Photo restores the selected upload",
+    "Search, new-task, timer, Flow and Escape shortcuts work with visible keyboard focus",
+    "Actual 200% tab zoom fits Home and Focus Settings; keyboard focus stays in the dialog",
+    "No page exceptions, external requests or new website permissions"
+  ],
+  "errors": [],
+  "network": []
+}

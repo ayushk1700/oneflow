@@ -1,0 +1,190 @@
+/* ONEFLOW design tokens.
+ *
+ * Keep visual decisions here. Component and layout styles may consume these
+ * values, but should not redefine the shared design system.
+ */
+:root {
+  --notes-paper: #fff;
+  --notes-ink: #17212f;
+  --notes-muted: #667286;
+  --notes-line: #e4e8ee;
+  --notes-hover: #17212f0a;
+  --notes-sidebar: #f8f9fb;
+  --notes-card: #fff;
+  --notes-card-line: #e7eaf0;
+  --notes-search: #f3f5f9;
+  --notes-selected: #fff2c8;
+  --notes-count: #eef0f5;
+  --notes-accent: #ffbb2e;
+  --notes-yellow: #fff3bc;
+  --notes-blue: #e6f1ff;
+  --notes-pink: #ffe5ed;
+  --notes-green: #dff9e5;
+  --notes-label: #ffffff9c;
+  --notes-icon: #526075;
+  --notes-pin: #d28c00;
+  --notes-checkbox: #91a0b3;
+  --notes-dot-pink: #ef4f88;
+  --notes-dot-green: #39a56a;
+  --notes-dot-blue: #448be5;
+  --notes-dot-yellow: #f7b91b;
+  --notes-focus: #2f629c;
+  --notes-error: #a32622;
+  --notes-shadow: 0 18px 50px #26364b26;
+  --notes-soft-shadow: 0 8px 25px #26364b12;
+  --notes-card-shadow: 0 3px 14px #26364b0a;
+  --settings-paper: #171e1b;
+  --settings-sidebar: #1d2821;
+  --settings-surface: #222e27;
+  --settings-ink: #f3f5ef;
+  --settings-muted: #b6c3b8;
+  --settings-line: #35453a;
+  --settings-feature: #2d402f;
+  --settings-selected: #334632;
+  --accent: #c9d9b5;
+  --accent-ink: #101815;
+  --text: #f5f3ea;
+  --muted: #bec9c0;
+  --panel: #1c2522;
+  --surface: #f5f3ea0d;
+  --border: #e1e8dd29;
+  --danger: #ffb5ac;
+
+  --radius: 18px;
+  --space: 16px;
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-3: 12px;
+  --space-md: 16px;
+  --space-4: 16px;
+  --space-lg: 24px;
+  --space-5: 32px;
+  --space-xl: 40px;
+  --space-2xl: 48px;
+  --radius-control: 12px;
+  --radius-small: 8px;
+  --panel-padding: 24px;
+  --text-caption: 11px;
+  --text-metric: 32px;
+  --text-display: 48px;
+  --weight-heading: 550;
+  --weight-control: 400;
+  --icon-size: 20px;
+  --tracking-label: .08em;
+  --tracking-heading: -.025em;
+  --surface-accent: color-mix(in srgb,var(--action) 12%,var(--panel));
+  --journal-paper: #f3f4ed;
+  --journal-paper-ink: #25322b;
+  --journal-paper-muted: #526157;
+  --journal-paper-line: #25322b29;
+  --journal-dark: #1c2522;
+  --journal-dark-ink: #f5f3ea;
+  --journal-dark-muted: #bec9c0;
+  --journal-dark-line: #e1e8dd29;
+  --radius-dock: 20px;
+  --control-height: 44px;
+  --text-small: 12px;
+  --text-body: 14px;
+  --text-title: 24px;
+
+  --glass: #1c2522eb;
+  --glass-ink: #f5f3ea;
+  --glass-muted: #bec9c0;
+  --glass-blur: 24px;
+  --background-blur: 0px;
+  --shadow: 0 20px 70px #0005;
+
+  --font: 'Segoe UI', Arial, sans-serif;
+  --ease: 200ms ease;
+  --scene-text-shade: .70;
+  --focus-ring: #dce8cf;
+
+  --action: var(--accent);
+  --action-ink: var(--accent-ink);
+  --canvas-ink: #f8f7ef;
+  --canvas-muted: #eef0e6;
+  --canvas-control: #18251fbd;
+  --canvas-line: #eef2e43d;
+  --canvas-hover: #f5f3ea14;
+  --canvas-quiet: #18251f80;
+  --ambient-clock-paper: #f2ecde;
+  --ambient-clock-ink: #343a32;
+  --ambient-clock-tick: #8c9185;
+  --canvas-text-shadow: 0 1px 3px #0008;
+  --shade-rgb: 12 22 19;
+  --home-shade: .64;
+  --dock-shadow: 0 8px 32px #0d171d33;
+
+  --clock-size: 128px;
+  --clock-weight: 400;
+  --panel-alpha: .94;
+  --user-shade: .60;
+  --motion-speed: 30s;
+
+  color-scheme: dark;
+}
+
+:root[data-notes-theme='light'] {
+  color-scheme: light;
+}
+
+:root[data-notes-theme='dark'] {
+  --notes-paper: #171e29;
+  --notes-ink: #f5f6fa;
+  --notes-muted: #bbc4d2;
+  --notes-line: #3a4555;
+  --notes-hover: #ffffff12;
+  --notes-sidebar: #1d2633;
+  --notes-card: #263242;
+  --notes-card-line: #445163;
+  --notes-search: #293545;
+  --notes-selected: #4e431f;
+  --notes-count: #364251;
+  --notes-yellow: #51472c;
+  --notes-blue: #304661;
+  --notes-pink: #583e4a;
+  --notes-green: #2c4d42;
+  --notes-label: #ffffff24;
+  --notes-icon: #d6dce6;
+  --notes-pin: #ffca58;
+  --notes-checkbox: #b7c0d0;
+  --notes-focus: #ffd36e;
+  --notes-error: #ffb5ac;
+  --notes-shadow: 0 18px 50px #0008;
+  --notes-soft-shadow: 0 8px 25px #0005;
+  --notes-card-shadow: 0 3px 14px #0003;
+  color-scheme: dark;
+}
+
+:root[data-theme='light'] {
+  --settings-paper: #f7f8f3;
+  --settings-sidebar: #eef2ea;
+  --settings-surface: #ffffff;
+  --settings-ink: #25372b;
+  --settings-muted: #627469;
+  --settings-line: #dfe7dd;
+  --settings-feature: #e5eedf;
+  --settings-selected: #dce9d7;
+  --text: #25322b;
+  --muted: #526157;
+  --panel: #f3f4ed;
+  --surface: #25322b0a;
+  --border: #25322b29;
+  --danger: #a32622;
+  --glass: #f3f4edf5;
+  --glass-ink: #25322b;
+  --glass-muted: #526157;
+  --focus-ring: #3d5b34;
+  color-scheme: light;
+}
+
+:root[data-font='serif'] { --font: Georgia, 'Times New Roman', serif; }
+:root[data-font='mono'] { --font: Consolas, 'Courier New', monospace; }
+
+html[data-canvas='white'] {
+  --canvas-ink: #25322b;
+  --canvas-muted: #526157;
+  --canvas-control: #f3f4eded;
+  --canvas-line: #25322b3d;
+  --canvas-hover: #25322b0a;
+}

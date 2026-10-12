@@ -1,64 +1,118 @@
 # ONEFLOW
 
-A little space to focus. ONEFLOW is an offline-first Manifest V3 new tab extension for Chrome and Edge, written in plain HTML, CSS, and JavaScript. **This is Stage 2 (focus engine and feature expansion), version 0.2.0.**
+A private workspace in every new tab. ONEFLOW is a local-first Manifest V3 extension for Chrome and Edge, written in plain HTML, CSS and vanilla JavaScript. Choose one task, start focusing, and see your progress. No account, compilation or package installation is required to use it.
 
-## Load the extension
+## Scenic dashboard update
 
-1. Open `chrome://extensions` in Chrome, or `edge://extensions` in Edge.
-2. Enable **Developer mode**.
-3. Choose **Load unpacked** and select this repository folder (`D:\BOOKS\ONEFLOW`), containing `manifest.json`.
-4. Open a new tab. If the browser asks, approve keeping ONEFLOW as your new tab page.
-5. Enter a name and choose a theme, or skip onboarding.
+Home, Focus and Ambient share six original muted landscapes with scene-aware text shading. Home centers a lighter clock, greeting, date, daily focus and quiet search. The centered dock opens Tasks, Sounds, Journal, Tools and Options. Music, Stats and other tools remain available inside Tools. Options contains the view switcher, Settings, fullscreen, shortcuts, scenery, weather, quotes and optional links/countdowns. Ambient clears the central shading and keeps the analog clock. Existing Studio layouts can retain explicitly placed widgets and extra dock shortcuts.
 
-No package installation, account, compilation, or API key is needed.
+The design contract is in `docs/DESIGN_CONSTITUTION.md`. Visual defaults live in `newtab/tokens.css`; `node scripts/styles.js` regenerates the shipped CSS. The source folder loads unpacked without a build. See `docs/CALM_HOME_STAGE_1_2_REPORT.md` for the Stage 1/2 file map, acceptance evidence and loading instructions.
 
-## In your space
+Switching views preserves the session and unsaved focus form. The welcome screen guides scene → task → first session. Completed sessions show time spent, task completion and a direct way to continue. Search uses the browser's default provider. Existing schema 5 data, preferences and deadlines remain intact. New installations start with a violet accent and local daily quotes. See [dashboard stage report](docs/DASHBOARD_REPLACEMENT_REPORT.md). Journal has a full writing workspace with a calendar, autosave, search, export, printing and writing metrics. Settings → Appearance controls type, clock size, panel opacity, shade, visibility and startup view. Settings → Appearance → Wallpapers provides four offline animated atmospheres and up to two local MP4/WebM wallpapers (16 MB each), alongside still images. Journal preferences have their own section in the same Settings hub.
 
-- Local-time clock, greeting, and daily main focus with a small completion celebration.
-- Multiple to-do lists, editing, completion, deletion, drag sorting, and accessible reorder buttons.
-- Google, Bing, or DuckDuckGo search; editable quick links with local letter icons.
-- 500 locally bundled original ONEFLOW reflections, refresh, and favorites.
-- Optional Open-Meteo weather, city search, optional location access, Celsius/Fahrenheit, 30-minute cache, and offline state.
-- Five original illustrated landscapes, daily rotation, solid colors, gradients, blur, and up to eight uploaded photographs stored in IndexedDB.
-- Light, dark, and device-based panel themes; accent and typography controls; independent widget toggles.
-- Full JSON backup/restore including uploaded images; explicit delete-all control.
-- Background Pomodoro timer with presets, task linking, pause/resume, skip/reset, notifications, optional chime, toolbar badge, and live cross-tab updates.
-- Seven original local sound beds with per-layer/master volumes, continuous Web Audio loops, shared playback after tabs close, and a sleep timer.
-- Gratitude journal with 100 prompts, history/search/date filtering, and streaks; autosaved notes with safe markdown-lite preview.
-- Habits with a weekly check-in grid and optional daily reminders; countdowns with a pinned dashboard event; timestamped mood/energy check-ins.
-- Local daily/weekly/monthly focus statistics using lazy-loaded Chart.js, including partial sessions, completed tasks, focus streak, and best starting hour.
-- Break guidance, opt-in Spotify/YouTube playlist frames, and optional user-key Unsplash search with attribution and an offline image copy.
+Tools → Help & feedback provides local help, a privacy page, backup guidance and a feedback download that sends nothing automatically. See [release report](docs/MARKET_RELEASE_REPORT.md), [launch checklist](docs/LAUNCH_CHECKLIST.md) and [two-week beta guide](docs/BETA_GUIDE.md). The launch folder contains store screenshots, a promotional image and a silent 20-second walkthrough. Public contact details, hosting, human/device acceptance and participant testing still require the publisher.
 
-The scenic dashboard retains white text and its contrast veil in both themes. Light/dark controls the panels and form surfaces. `N` opens a new task, `Space` starts/pauses the timer, `/` focuses search, and `Esc` dismisses panels. Shortcuts do not interrupt text entry. **Your day** opens journal, notes, habits, countdowns, stats, mood, and music. **Scenery** contains optional Unsplash setup.
+## Visual customization studio
 
-If upgrading from Stage 1, reload ONEFLOW on the extensions page, accept its new alarms/notifications/offscreen permissions, then reopen old dashboard tabs. Existing data migrates automatically. Export a backup before upgrading. Restore pauses timers and stops sound; JSON backups contain private reflections and any saved Unsplash key, so keep them private.
+Open **Tools → Customize** or **Settings → Appearance → Open visual customization studio**. Preview changes immediately, undo/redo experiments, and Save or Cancel. Tools → Layout opens the same editor directly on layout controls.
 
-## Development and verification
+Customize independent desktop/mobile layouts, typography, glass surfaces, wallpaper playlists and video speed, dock placement, timer presentation, journal paper/templates, saved sound mixes, automatic Scenes, shortcuts, alerts and accessibility. Design presets include referenced local wallpapers while excluding tasks, notes, journal entries, API keys and location. See the [customization stage report](docs/CUSTOMIZATION_STUDIO_REPORT.md) for verification and limits.
 
-Node 20+ is sufficient for the dependency-free checks:
+## Install or upgrade
+
+1. Export a backup before upgrading an existing installation.
+2. Open `chrome://extensions` or `edge://extensions`, enable Developer mode, and choose Load unpacked.
+3. Select `D:\BOOKS\ONEFLOW`, or extract `release/oneflow-1.0.0.zip` and select its extracted folder.
+4. Reload an existing entry and review its permission prompt. Reopen older dashboard tabs.
+5. Open a new tab, choose a scene and enter your first task, or skip onboarding. Older records migrate automatically to schema 7. Name and theme are optional in Settings.
+
+## Your space
+
+- Clock/greeting, daily focus, search, quick links, original local reflections, optional weather and scenic backgrounds.
+- One shared session across Home, Focus and Ambient; floating tool panels, tasks/lists, drafts, task actions/Undo, command search and three-priority queue with estimates.
+- Persistent Pomodoro phases, task-linked history, notifications/chime, toolbar badge, shared local sounds and sleep timer.
+- Journal, notes, habits, countdowns, mood/energy and local focus charts.
+- Five built-in Scenes and custom save/rename/duplicate/delete; save atmosphere, sound mix, rhythm, visibility and layout together.
+- Flow Mode: selected scene, fullscreen task/timer/sound view, optional website blocking and exit summary. Previous scene restores on exit.
+- Local blocklist or allow-only mode, hostname-only visit log and an explicit five-minute override. Rules apply only to running Flow focus and release on pause, break, expiry, exit or restart.
+- Morning/midday/evening rituals with reminders and streaks, grid-snapped drag/resize layout plus keyboard controls, and local suggestions.
+- Full local JSON backup/restore, optional passphrase encryption, backup reminders, diagnostic export and storage monitoring.
+- Centralized English interface catalog and Hindi sample with English fallback. Light/dark/device themes, reduced motion and stronger contrast.
+- One Settings hub: Appearance, Home, Focus, Scenery, Reminders, Website blocking, and Data & privacy. The timer gear opens Focus preferences. Ritual, habit and backup reminder times live in Reminders.
+- Optional user-key Unsplash and explicit Spotify/YouTube playlist frames. External AI is excluded by your choice.
+
+**Tools** opens tracking tools, Scenes, blocking, rituals, layout, suggestions, Settings and Scenery. No permission or online connection is requested during onboarding. Blocking setup asks only for selected domain access in blocklist mode; allow-only needs all HTTP/HTTPS sites. No content script, browsing-history reading or analytics.
+
+Tools share translucent surfaces, accent highlights and responsive layouts. Tasks, Sounds and Notes open as floating sheets on desktop; mobile gives panels more room. Notes uses a sidebar/editor layout on desktop; Settings uses a section sidebar on desktop and a compact section picker on mobile. Flow Mode expands the same timer over the selected scenery, with sound controls under a disclosure. Leaving Flow keeps the current timer; End session ends it. The fullscreen corner button only changes the browser display and does not enable Flow blocking.
+
+`N` opens a task, `Space` starts/pauses focus, `F` enters Flow, `/` focuses search, `Esc` closes a panel/leaves Flow, and `Ctrl/Cmd+K` opens commands. Ordinary shortcuts pause while typing. The browser can refuse fullscreen; the Flow view still fills the tab.
+
+## Data and limits
+
+Records live in browser storage and IndexedDB. Only name/theme/accent/widget toggles use browser-managed settings sync. Backups contain private records and saved optional-service keys; use a passphrase if you need encryption. A lost passphrase cannot be recovered. Restore pauses timers and turns off Flow/audio. Close other editing tabs and retain a pre-restore backup.
+
+Timer deadlines survive worker suspension. OS sleep can delay alarms; a closed browser cannot play sounds or deliver notifications. The next automatic phase begins when the worker wakes rather than inventing overnight work. Blocking is a focus aid for new GET page navigations, not a security boundary; existing loaded pages are not closed. Browser restart releases orphaned Flow and never silently reinstalls its session rules.
+
+## Development, checks and packaging
+
+Node 20+ runs dependency-free checks and packaging:
 
 ```sh
 node --test tests/*.test.js
 node scripts/check.js
+node scripts/package.js
 node scripts/preview.js
 ```
 
-The optional local preview at `http://127.0.0.1:4173/newtab/index.html` uses localStorage in place of Chrome storage. It is a design preview; browser-specific permission behavior must be checked in the extension.
+The zip excludes development files, tests, profiles, Git data and external AI code. A checksum and screenshot inventory are written beside it. Local preview is `http://127.0.0.1:4173/newtab/index.html`; it uses localStorage and cannot demonstrate extension-only blocking or closed-tab services.
 
-Optional browser integration tests use Playwright with installed Chrome or Edge:
+Optional browser tests use Playwright and installed Chrome/Edge. Set `ONEFLOW_NODE_MODULES` to a supplied package directory:
 
 ```sh
-node tests/browser.js chrome
-node tests/browser.js edge
-node tests/stage2-browser.js chrome
-node tests/stage2-browser.js edge
-node tests/stage2-integrations.js
+node tests/stage3-browser.js chrome
+node tests/stage3-browser.js edge
+node tests/package-browser.js chrome
+node tests/package-browser.js edge
+node tests/refinement-browser.js
+node tests/panels-browser.js chrome
+node tests/panels-browser.js edge
+node tests/backgrounds-browser.js chrome
+node tests/backgrounds-browser.js edge
+node tests/stage2-integrations.js chrome
+node tests/stage2-integrations.js edge
+node tests/backgrounds-browser.js chrome
+node tests/backgrounds-browser.js edge
+node tests/stage2-integrations.js chrome
+node tests/stage2-integrations.js edge
+node tests/backgrounds-browser.js chrome
+node tests/backgrounds-browser.js edge
+node tests/stage2-integrations.js chrome
+node tests/stage2-integrations.js edge
 ```
 
-Set `ONEFLOW_NODE_MODULES` to a directory containing Playwright if it is supplied by an external runtime. Tests create their own `.test-profile` and write screenshots/results under `test-results`. They never use a personal browser profile. Asset generation uses Sharp through the same variable (`node scripts/assets.js`); generated assets already ship in the repository.
+Tests use disposable `.test-profile` folders. Stage 3 DNR tests pre-grant website access in an isolated fixture; the real package retains optional host grants and is loaded separately. The crash test crashes only its isolated browser. Generated evidence is in `test-results`; selected release evidence is preserved under `docs`.
 
-See [Architecture](docs/ARCHITECTURE.md), [Permissions](docs/PERMISSIONS.md), [Stage 2 report](docs/STAGE_2_REPORT.md), and [QA checklist](docs/QA.md). Add features through isolated widget modules and the shared storage boundary. Vendor executable dependencies locally and record versions and licenses. Keep user/API strings in text nodes, and validate every imported data format before writing.
+Keep widget lifecycles isolated and storage access inside `core/storage.js`/`core/db.js`. Use text-safe rendering and validated imports. Vendor executable libraries locally and record source/version/license. The localization extraction helper uses the optional Playwright parser; generated catalogs already ship.
 
-## Later stages
+See [Stage 3 report](docs/STAGE_3_REPORT.md), [QA](docs/QA.md), [Architecture](docs/ARCHITECTURE.md), [Permissions](docs/PERMISSIONS.md), [Privacy](docs/PRIVACY_POLICY.md) and [Store listing](docs/STORE_LISTING.md). Public publication requires publisher contact/policy hosting and the remaining human checks. No upload or store publication is performed by this task.
 
-Scenes, Flow Mode, blocking, rituals, AI assistance, full localization, release packaging, and store submission are Stage 3. They are not enabled in this Stage 2 build. `F` remains reserved for Flow Mode.
+## Unified timer update
+
+Daily focus, task sessions and breaks now share one timer view. Choose a task or enter a focus and duration, then Start focus. Focus opens duration/settings only. Fullscreen expands the current session; Leave Flow returns to the same running or paused timer. Use End session to finish it. See [UNIFIED_TIMER_REPORT.md](docs/UNIFIED_TIMER_REPORT.md) for changes and current verification.
+
+The subsequent focus/panel redesign and unified Settings implementation are recorded in [FOCUS_PANELS_REPORT.md](docs/FOCUS_PANELS_REPORT.md). Regenerate the checked-in `widgets.css` and `app.css` with `node scripts/styles.js` after changing any source stylesheet.
+
+## Visual foundation and home transformation
+
+The current dashboard centers its clock and timer directly over the scenery. Photo/Pure Black/Pure White choices remain in Settings → Appearance → Wallpapers. Tailwind 3.4.17 ships locally; no CDN or compilation is needed to run the extension. Component CSS is consolidated with `node scripts/styles.js` after edits. `newtab/dashboard.css` supplies the current interface; the earlier home and sketch reports describe historical designs. See [DASHBOARD_REPLACEMENT_REPORT.md](docs/DASHBOARD_REPLACEMENT_REPORT.md) for this stage.
+
+Six original landscapes load offline, including **A quiet journey**, an illustration with a warm summit and quiet foreground. Choose one in Settings → Appearance → Wallpapers. Backgrounds use small previews, a decoded-image fade and crops suited to desktop/mobile; shading protects the text area while leaving more of the scenery visible. Stronger contrast and custom layouts increase the coverage. Flow has its own shading without stacking Home's overlay. Uploaded images and optional cached Unsplash photos remain available; small previews are generated locally. Existing selections are preserved. See [background and release report](docs/BACKGROUNDS_RELEASE_REPORT.md) for final checks and manual accessibility limits.
+
+
+
+
+Pexels photos and videos: Settings → Appearance → Wallpapers. Save your own Pexels API key, choose Photos or Videos and search. Selected media works offline. See [Pexels stage report](docs/PEXELS_REPORT.md).
+
+
+Workspace groups Tasks, Notes and Habits in one tabbed panel. Tools opens the expanded tool page; Journal uses shared panel navigation and styling. See [Workspace stage report](docs/WORKSPACE_REPORT.md).
+

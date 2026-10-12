@@ -1,22 +1,30 @@
+import { t as translate, setLanguage } from '../core/i18n.js';
+import { syncBlocker, recoverFlow, startFlow, stopFlow, blockedRequest, scheduleReminders, notifyReminder } from './focus-service.js';
 import * as storage from '../core/storage.js';
 import { runTimer } from '../core/timer-engine.js';
 import { remaining } from '../core/timer-logic.js';
 import { dayKey } from '../core/utils.js';
+import { searchPexels } from './pexels.js';
+import { processStudio, scheduleStudio } from './studio.js';
+import { record as recordNotice } from '../core/notifications.js';
+import { initNotesService } from './notes-service.js';
+import { countInterruption } from '../core/work-context.js';
+initNotesService();
 let creatingAudio, serial = Promise.resolve();
-const enqueue = job => { const work = serial.then(job); serial = work.catch(error => console.error('Background operation failed', error)); return work; };
+const enqueue = job => { const work = serial.then(job); serial = work.catch(error => console.error(translate('m0604'), error)); return work; };
 async function audioMessage(message) {
   const contexts = await chrome.runtime.getContexts({ contextTypes: ['OFFSCREEN_DOCUMENT'] });
   if (!contexts.length) {
-    if (!creatingAudio) creatingAudio = chrome.offscreen.createDocument({ url: 'background/audio/index.html', reasons: ['AUDIO_PLAYBACK'], justification: 'Play the requested local sound mix and timer chime while new tabs are closed.' }).finally(() => { creatingAudio = null; });
+    if (!creatingAudio) creatingAudio = chrome.offscreen.createDocument({ url: 'background/audio/index.html', reasons: ['AUDIO_PLAYBACK'], justification: translate('m0605') }).finally(() => { creatingAudio = null; });
     await creatingAudio;
   }
   const result = await chrome.runtime.sendMessage({ target: 'audio', ...message });
-  if (!result?.ok) throw new Error(result?.error || 'Local audio did not respond.');
+  if (!result?.ok) throw new Error(result?.error || translate('m0606'));
   return result;
 }
 async function syncAudio() {
   const a = storage.get().audio;
-  if (a.playing && Object.values(a.volumes).some(v => v > 0)) await audioMessage({ type: 'mix', config: a });
+  if (a.playing && Object.values(a.volumes).some(v => v > 0)) await audioMessage({ type: 'mix', config: { ...a, fade: storage.get().settings.studio.phaseSounds.fade } });
   else if ((await chrome.runtime.getContexts({ contextTypes: ['OFFSCREEN_DOCUMENT'] })).length) await chrome.runtime.sendMessage({ target: 'audio', type: 'stop' });
   if (a.playing && a.sleepAt) await chrome.alarms.create('oneflow-audio-sleep', { when: Math.max(Date.now() + 1, a.sleepAt) });
   else await chrome.alarms.clear('oneflow-audio-sleep');
@@ -29,7 +37,7 @@ async function schedule() {
   } else { await chrome.alarms.clear('oneflow-timer-end'); await chrome.alarms.clear('oneflow-timer-pulse'); }
   await chrome.action.setBadgeBackgroundColor({ color: '#385b48' });
   await chrome.action.setBadgeText({ text: t.status === 'running' ? String(Math.ceil(remaining(t, Date.now()) / 60000)) : t.status === 'paused' ? 'Ⅱ' : '' });
-  await chrome.action.setTitle({ title: `ONEFLOW · ${t.phase === 'focus' ? 'Focus' : 'Break'} · ${t.status}` });
+  await chrome.action.setTitle({ title: `ONEFLOW notes · ${t.phase === 'focus' ? translate('m0504') : translate('m0607')} · ${t.status}` });
   const expected = new Set();
   for (const habit of d.habits) if (habit.reminder) {
     const name = `oneflow-habit-${habit.id}`, date = new Date(), [hour, minute] = habit.reminder.split(':').map(Number);
@@ -43,40 +51,71 @@ async function schedule() {
 async function notifyPhase() {
   const { timerNotice: notice, timerConfig: c, timer } = storage.get();
   if (!notice) return;
-  const next = timer.phase === 'focus' ? 'Time for a fresh focus session.' : 'Your break is ready. Stretch, breathe, or look into the distance.';
-  if (c.notifications) await chrome.notifications.create(`oneflow-phase-${notice.id}`, { type: 'basic', iconUrl: chrome.runtime.getURL('assets/icons/icon-128.png'), title: notice.finishedPhase === 'focus' ? 'A little progress, made.' : 'Welcome back.', message: next });
-  if (c.chime) await audioMessage({ type: 'chime' });
+  const next = timer.phase === 'focus' ? translate('m0608') : translate('m0609');
+  if (c.notifications) await recordNotice(next, 'success', `oneflow-phase-${notice.id}`);
+  if (c.notifications) await chrome.notifications.create(`oneflow-phase-${notice.id}`, { type: 'basic', iconUrl: chrome.runtime.getURL('assets/icons/icon-128.png'), title: notice.finishedPhase === 'focus' ? translate('m0676') : translate('m0610'), message: next });
+  if (c.chime) await audioMessage({ type: 'chime', options: storage.get().settings.studio.interaction });
   await storage.update(d => { if (d.timerNotice?.id === notice.id) d.timerNotice = null; });
 }
 async function reconcile(action = 'tick', payload = {}) {
-  await runTimer(action, payload); await schedule();
-  await notifyPhase().catch(error => console.warn('Phase notification unavailable:', error.message));
+  setLanguage(storage.get().settings.language);
+  await syncBlocker();
+  await runTimer(action, payload); await schedule(); await syncBlocker(); await scheduleReminders();
+  if (await processStudio()) await syncAudio(); await scheduleStudio();
+  await notifyPhase().catch(error => console.warn(translate('m0611'), error.message));
 }
-const ready = storage.init();
+const ready = storage.init().then(recoverFlow).catch(async error => {
+  const rules = await chrome.declarativeNetRequest.getSessionRules();
+  await chrome.declarativeNetRequest.updateSessionRules({ removeRuleIds: rules.map(rule => rule.id) });
+  throw error;
+});
 chrome.runtime.onMessage.addListener((message, sender, respond) => {
   if (message?.target !== 'worker' || sender.id !== chrome.runtime.id) return false;
+  if (message.type === 'pexels-search') {
+    if (sender.url !== chrome.runtime.getURL('newtab/index.html')) return false;
+    // Network requests must not hold the timer/alarm serialization queue.
+    ready.then(() => searchPexels(message))
+      .then(data => respond({ ok: true, data }), error => respond({ ok: false, error: error.message }));
+    return true;
+  }
   enqueue(async () => {
     await ready;
-    if (message.type === 'timer') {
-      if (!['tick','start','pause','skip','reset','task'].includes(message.action)) throw new Error('Invalid timer command.');
+    if (message.type === 'flow-start') { await startFlow(message.sceneId, Boolean(message.block)); await reconcile(); await syncAudio(); }
+    else if (message.type === 'flow-stop') { const summary = await stopFlow(); await reconcile(); await syncAudio(); return { ok: true, summary }; }
+    else if (['blocked', 'override'].includes(message.type)) {
+      if (!sender.url?.startsWith(chrome.runtime.getURL('blocked/index.html'))) throw new Error(translate('m0683'));
+      return { ok: true, ...await blockedRequest(message.url, message.type === 'override') };
+    }
+    else if (message.type === 'timer') {
+      if (!['tick','start','pause','skip','reset','task','continue','phase','restore'].includes(message.action)) throw new Error(translate('m0612'));
       await reconcile(message.action, message.payload || {});
     } else if (message.type === 'sync') { await reconcile(); await syncAudio(); }
+    else if (message.type === 'test-alert') { await audioMessage({ type: 'chime', options: storage.get().settings.studio.interaction }); }
     else if (message.type === 'audio-slept') { await storage.update(d => { d.audio.playing = false; d.audio.sleepAt = null; }); await syncAudio(); }
-    else throw new Error('Unknown background request.');
+    else throw new Error(translate('m0613'));
     return { ok: true };
   }).then(respond, error => respond({ ok: false, error: error.message })); return true;
 });
 chrome.alarms.onAlarm.addListener(alarm => enqueue(async () => {
   await ready;
+  if (alarm.name.startsWith('oneflow-ritual-') || alarm.name === 'oneflow-backup-reminder') await notifyReminder(alarm.name);
   if (alarm.name === 'oneflow-audio-sleep') { await storage.update(d => { d.audio.playing = false; d.audio.sleepAt = null; }); await syncAudio(); }
   else if (alarm.name.startsWith('oneflow-habit-')) {
     const habit = storage.get().habits.find(h => `oneflow-habit-${h.id}` === alarm.name);
-    if (habit && !habit.dates.includes(dayKey())) await chrome.notifications.create(alarm.name, { type: 'basic', iconUrl: chrome.runtime.getURL('assets/icons/icon-128.png'), title: 'A small promise to yourself', message: habit.name });
+    if (habit && !habit.dates.includes(dayKey())) await recordNotice(`${translate('m0677')}: ${habit.name}`, 'info', `${alarm.name}-${dayKey()}`);
+    if (habit && !habit.dates.includes(dayKey())) await chrome.notifications.create(alarm.name, { type: 'basic', iconUrl: chrome.runtime.getURL('assets/icons/icon-128.png'), title: translate('m0677'), message: habit.name });
   }
   await reconcile();
+  await syncAudio();
 }));
-chrome.runtime.onStartup.addListener(() => enqueue(async () => { await ready; await storage.update(d => { d.audio.playing = false; d.audio.sleepAt = null; }); await reconcile(); }));
+chrome.runtime.onStartup.addListener(() => enqueue(async () => { await ready; await recoverFlow(); await storage.update(d => { d.audio.playing = false; d.audio.sleepAt = null; }); await reconcile(); }));
 chrome.runtime.onInstalled.addListener(() => enqueue(async () => { await ready; await reconcile(); }));
-chrome.action.onClicked.addListener(() => chrome.tabs.create({ url: 'newtab/index.html' }));
 // Alarms can disappear across browser upgrades: rebuild on every worker activation.
 enqueue(async () => { await ready; await reconcile(); });
+
+chrome.permissions.onRemoved.addListener(() => enqueue(async () => { await ready; await reconcile(); }));
+// Only counts activation events when explicitly enabled; never reads visited URLs.
+chrome.tabs.onActivated.addListener(() => enqueue(async () => {
+  await ready;
+  if (storage.get().timer.status === 'running' && storage.get().timer.phase === 'focus') await countInterruption();
+}));

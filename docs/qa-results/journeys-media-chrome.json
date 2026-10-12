@@ -1,0 +1,6 @@
+{
+  "checks": [
+    "PASS: Screenshot and pointer sketch become two local optimized Note attachments and survive backup parsing."
+  ],
+  "errors": []
+}

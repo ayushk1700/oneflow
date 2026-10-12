@@ -1,4 +1,42 @@
+# Release 1.0.0 architecture (Stage 3)
+
+ONEFLOW loads directly from its Manifest V3 directory. There is no compilation or remotely hosted executable code. The new-tab shell eagerly mounts the clock, unified focus, search, links, quotes and weather surfaces; editors and advanced tools are lazy ES-module imports. Local Chart.js and SortableJS load only when needed. The static budget checker follows the eager import graph and separately scans every module for syntax and unsafe rendering.
+
+The shared event bus coordinates independent widgets. The unified Focus card remains mounted whenever Focus or Timer is enabled. Shared native dialogs retain supported editor views, keep keyboard focus inside and invalidate stale asynchronous opens. Advanced tools live under More. Flow uses a separate native fullscreen dialog and exits on Escape/fullscreen exit.
+
+## State and recovery
+
+Schema 7 adds validated customization settings to the earlier appearance and journal preferences. IndexedDB version 3 adds a wallpapers store while retaining journal, sessions and images. core/storage.js serializes local mutations across tabs and the worker with an origin lock, validates every saved document, and owns chrome.storage.local/sync/session access. Small preferences alone sync. core/db.js owns versioned IndexedDB sessions, gratitude entries and image/video blobs. Drafts remain local. Scenes contain only validated appearance, rhythm, audio and grid preferences, including contrast; applying them never replaces personal task or journal records.
+
+The worker owns timer transitions, alarms, offscreen audio and blocking. A Flow lease in chrome.storage.session distinguishes a suspended worker from a restarted browser. Blocking uses DNR session rules only, and only while a leased Flow has a running, unexpired focus deadline. Pause, break, expiry and exit remove rules. Exit clears rules before history writes. Startup removes orphaned Flow, stops its timer, restores preferences and releases rules. No static or dynamic blocking rules survive browser shutdown. Chrome DNR has no rule TTL, so powered-off devices and suspended browsers cannot execute cleanup until they resume; this is documented rather than treated as a real-time guarantee.
+
+## Boundaries
+
+The blocked page is the only allowed sender for blocked/override messages. Its five-minute override is hostname scoped; stored logs exclude paths and query strings. Domain lists reject credentials, wildcards and executable URLs. Redirects require optional site access requested when enabling the feature. The clean release has no required host permissions. The integration test fixture pregrants hosts solely to automate real browser redirects without accepting a native permission prompt.
+
+Backup restore authenticates optional AES-256-GCM ciphertext before parsing, rejects dangerous object keys and future/malformed schemas, and imports through storage/DB boundaries with rollback. PBKDF2-SHA256 uses 310,000 iterations and random salt/IV. Passphrases are never stored. Cross-store recovery is best effort; a browser termination during a restore is not a transactional guarantee across chrome.storage and IndexedDB.
+
+Diagnostics contain timestamps, error categories, sizes and record counts; no raw errors, task text, journal text, keys or browsing logs are exported. No telemetry is sent. External AI is excluded by the user's decision: its flag is false, implementation modules are absent, and its endpoint is absent from CSP.
+
+## Language and compatibility
+
+The English message catalog is central, with a Hindi sample and English fallback; user content is never translated or interpreted as markup. Browser key names, DOM attributes and storage protocol tokens remain language independent. Hindi is a sample, not a complete localization. Test Chrome and Edge first. Firefox is not certified: Chrome offscreen audio, DNR and permissions behavior need a deliberate compatibility adapter before a Firefox release.
+
+---
+
 # Architecture
+
+## Glass dashboard refinement (0.2.1)
+
+`core/ui.js` owns one centered native dialog and its internal tool navigation. The dashboard behind it is inert. While the dialog stays open, form-based widgets retain detached live DOM, handlers, draft fields, and scroll position. `resumePanel` restores these views without rebuilding controls; `discardPanel` disposes a widget when disabled. Closing the dialog releases all retained views. Draft retention is in-memory for the current open dialog, not persistence across reloads or closing it. Settings categories have separate view keys. Async opening requests use a generation guard so an earlier load cannot override a later tool choice or reopen a closed dialog. Tab cycles inside the popup, Escape closes it, and focus returns to the launcher.
+
+Music retains its form but removes the provider frame on suspension and close; resuming never reconnects automatically. Stats dispose their chart on departure and recalculate on re-entry. Task session counters refresh on resume without replacing task drafts. Existing module storage watchers continue to update their own retained views. Widgets still communicate through the event bus and shared UI API.
+
+The dashboard timer uses the existing timestamp engine and exposes start/pause/resume plus progress. Daily focus can start a session with a title and a null task ID; this creates no task record and cannot relabel a running or paused session. Audio status reads saved mixer state and pauses the existing owner. It does not create an audio engine at startup.
+
+Storage initialization now shares the edit lock: first-run migration/default writes cannot overwrite a concurrent initial user edit. Schema versions and permissions are unchanged. The default sage accent applies to new profiles; existing accent choices are preserved.
+
+Shared CSS tokens supply glass surfaces, contrast veils, hard offset shadows, light/dark variants, and reduced-motion overrides. The existing local illustrated backgrounds are retained. No new libraries, remote code, font requests, or permissions were added.
 
 ## Stage 2 additions
 
@@ -49,3 +87,21 @@ Background WebPs and thumbnails are checked in. Only the active background is lo
 - [Manifest CSP](https://developer.chrome.com/docs/extensions/reference/manifest/content-security-policy)
 - [Open-Meteo weather](https://open-meteo.com/en/docs) and [geocoding](https://open-meteo.com/en/docs/geocoding-api)
 - [Chrome DevTools unpacked extension loading](https://chromedevtools.github.io/devtools-protocol/tot/Extensions/)
+## Shared Settings and visual shell
+
+The dock's Focus action and session gear emit `settings:open` with `focus`. Blocking setup emits the same event with `blocking`; ritual and habit timing links use `reminders`. Settings owns seven sections and the mobile section selector. Timer and blocker modules expose preference renderers; they do not create separate settings dialogs. Ritual, habit and backup schedules remain in the existing storage schema and background alarm service.
+
+Focus and blocker forms retain their unsaved values while switching tools. Focus preferences refresh from storage when resumed without unsaved changes; saving preferences preserves a running or paused session. Automatically saved Settings sections rebuild from current storage when reopened. The panel shell releases replaced suspended views and cancels late async tool opens.
+
+`newtab/panels.css` contains the shared tool styling and responsive per-panel layouts. `scripts/styles.js` regenerates `widgets.css` from isolated widget styles, then `app.css` in the order local Tailwind utilities, widgets, base, foundation and panels. The checked-in `app.css` is the only runtime stylesheet request. The checker compares both generated artifacts to their sources. No remote code, runtime CSS compiler or installation is needed.
+## Background presentation
+
+`data/backgrounds.json` is the shared local catalog. Each entry has a safe asset identifier, desktop/mobile focal points and a bounded text-zone shade. `core/background-presentation.js` normalizes it and caches the small catalog request. Theme loads the thumbnail immediately, decodes the full image without blocking Home, then fades a decorative image layer over the preview. A revision guard discards stale completions. The placeholder remains if a full image fails. Uploaded/cached blobs retain their original IndexedDB records and backup format; object URLs are revoked when replaced. A permitted Unsplash remote image falls back to its cached blob on failure/offline.
+
+Home shades the left text area and header/footer, compact screens shade the central text area, and a custom layout increases coverage for movable widgets. Flow hides Home's shading and supplies a separate central overlay. Strong contrast raises shading, pure white stays unshaded, and either system or explicit reduced motion removes transitions. Scene previews use the 384×216 bundled thumbnails; upload previews are resized locally on demand with `core/image-preview.js`, released with the view and never added to the saved schema.
+
+## Visual customization studio (schema 7)
+
+The lazy-loaded customizer edits an in-memory settings draft. The runtime applies that draft to shared shell surfaces and restores saved settings on Cancel. Save persists validated settings through core/storage.js; core/studio-presets.js installs referenced media only at Save and rolls newly installed blobs back if persistence fails. Portable designs use a settings allowlist and exclude personal records, keys and automatic-scene location/rules.
+
+core/studio-schema.js owns bounded preferences and schema migration. core/studio-logic.js contains pure scheduling, offline solar calculations and deterministic playlist order. background/studio.js uses the existing worker queue and alarms to apply Scenes and playlists while protecting running deadlines, Flow and manual overrides. Audio phase changes use the existing offscreen sound engine with volume ramps. No extra permissions, external scripts or dependencies are introduced.

@@ -1,1 +1,5 @@
-.note-list{display:flex;gap:7px;flex-wrap:wrap;max-height:140px;overflow:auto}.note-tab{font-size:12px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.note-tab[aria-pressed=true]{border-color:var(--text);background:var(--surface)}.markdown-preview{overflow-wrap:anywhere;background:var(--surface);border-radius:12px;padding:18px}.markdown-preview p{white-space:pre-wrap;margin:0 0 8px}.markdown-preview code{background:var(--panel);padding:2px 5px;border-radius:4px}
+/* Notes renders its card collection inside the isolated capture workspace. */
+.notes-workspace-frame { display:block; width:100%; height:min(760px,74dvh); border:0; border-radius:var(--radius-control); }
+.markdown-preview { overflow-wrap:anywhere; padding:var(--space-md); }
+.markdown-preview p { white-space:pre-wrap; margin:0 0 var(--space-sm); }
+.markdown-preview code { background:var(--panel); padding:var(--space-xs); border-radius:var(--radius-small); }

@@ -1,0 +1,72 @@
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import assert from 'node:assert/strict';
+import { createRequire } from 'node:module';
+const require = createRequire(import.meta.url), { chromium } = require(process.env.ONEFLOW_NODE_MODULES + '/playwright');
+const browser = process.argv[2] || 'chrome', checks = [], errors = [], requests = [];
+const context = await chromium.launchPersistentContext(path.resolve('.test-profile',`journal-${browser}-${Date.now()}`),{ executablePath:browser === 'edge' ? 'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe' : 'C:/Program Files/Google/Chrome/Application/chrome.exe',headless:true,viewport:{ width:1440,height:900 },args:['--enable-unsafe-extension-debugging'],ignoreDefaultArgs:['--disable-extensions'] });
+const page = await context.newPage();
+page.on('pageerror',error => errors.push(error.message)); page.on('console',message => { if (message.type() === 'error') errors.push(message.text()); }); page.on('request',request => { if (/^https?:/.test(request.url())) requests.push(request.url()); });
+const pass = label => { checks.push(label); console.log('PASS: ' + label); };
+const state = () => page.evaluate(async () => (await import('../core/storage.js')).get());
+const shot = name => page.screenshot({ path:`docs/screenshots/custom-${browser}-${name}.png`,animations:'disabled' });
+const journal = () => page.locator('#dock [data-tool=journal]').click();
+const menu = label => page.locator('.journal-menu').getByRole('button',{ name:label,exact:true }).click();
+async function section(name) { await page.evaluate(async name => (await import('../core/events.js')).emit('settings:open',name),name); await page.locator('.settings-content[aria-label]').waitFor(); }
+try {
+  await fs.mkdir('docs/screenshots',{ recursive:true }); const cdp = await context.browser().newBrowserCDPSession(),{ id } = await cdp.send('Extensions.loadUnpacked',{ path:process.cwd() }),url = `chrome-extension://${id}/newtab/index.html`;
+  await page.goto(url); await page.waitForSelector('html[data-ready=true]'); await page.getByRole('button',{ name:'Skip for now',exact:true }).click();
+  await page.getByLabel('Your main focus today').fill('Task responsibilities stay separate'); await page.getByRole('button',{ name:'Start focus',exact:true }).click(); await page.getByRole('button',{ name:'Pause',exact:true }).waitFor();
+  const running = (await state()).timer;
+  await journal(); await page.getByLabel('Your reflection',{ exact:true }).fill('A quiet page and one small win. <script>literal text</script>');
+  await page.waitForFunction(async () => (await (await import('../core/db.js')).getAll('journal')).some(entry => entry.text.includes('one small win')));
+  await page.waitForFunction(() => document.querySelector('.journal-status')?.textContent === 'Saved locally');
+  assert.equal(await page.locator('#panel script').count(),0);
+  await shot('journal'); await page.getByRole('button',{ name:'Previous day',exact:true }).click(); await page.getByLabel('Your reflection',{ exact:true }).fill('Yesterday I made time to read.');
+  await page.waitForFunction(async () => (await (await import('../core/db.js')).getAll('journal')).length === 2);
+  await page.waitForFunction(() => document.querySelector('.journal-status')?.textContent === 'Saved locally');
+  await page.getByRole('button',{ name:'Next day',exact:true }).click(); assert((await page.getByLabel('Your reflection').inputValue()).includes('one small win'));
+  await menu('Search'); await page.getByLabel('Search reflections').fill('Yesterday'); assert.equal(await page.locator('.journal-result').count(),1);
+  await menu('Metrics'); assert((await page.locator('.journal-metrics').textContent()).includes('Entries2'));
+  await page.evaluate(() => { window.print = () => { window.__printText = document.querySelector('.journal-print')?.textContent; }; });
+  await menu('Print current'); await page.waitForFunction(() => window.__printText?.includes('one small win'));
+  await menu('Print all'); await page.waitForFunction(() => window.__printText?.includes('Yesterday'));
+  const downloading = page.waitForEvent('download'); await menu('Export'); const downloaded = await downloading;
+  const exported = JSON.parse(await fs.readFile(await downloaded.path(),'utf8')); assert.equal(exported.entries.length,2); assert.equal(exported.local,undefined);
+  await page.getByRole('button',{ name:'Focus on writing',exact:true }).click(); assert.equal(await page.locator('.journal-workspace').getAttribute('data-focus'),'true');
+  await page.getByRole('button',{ name:'Show journal sidebar',exact:true }).click(); assert(await page.locator('.journal-sidebar').isVisible());
+  await menu('Settings'); await page.getByRole('heading',{ name:'Journal',exact:true }).waitFor();
+  await page.getByLabel('Autosave journal entries',{ exact:true }).uncheck(); await page.getByLabel('Journal appearance',{ exact:true }).selectOption('dark'); await page.getByLabel('Journal typeface',{ exact:true }).selectOption('serif');
+  await page.keyboard.press('Escape'); await journal(); await page.getByRole('button',{ name:'Hide journal sidebar',exact:true }).click();
+  assert.equal(await page.locator('.journal-workspace').getAttribute('data-journal-theme'),'dark');
+  await page.getByLabel('Your reflection').fill('Manually saved reflection.'); await page.getByRole('button',{ name:'Save reflection',exact:true }).click();
+  await page.waitForFunction(async () => (await (await import('../core/db.js')).getAll('journal')).some(entry => entry.text === 'Manually saved reflection.'));
+  const after = (await state()).timer; assert.equal(after.sessionId,running.sessionId); assert.equal(after.endsAt,running.endsAt);
+  pass('Journal date navigation, autosave/manual save, search, export, print content, metrics and unified preferences preserve the running task session');
+  for (const width of [390,320]) { await page.setViewportSize({ width,height:844 }); assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)); assert(await page.getByLabel('Your reflection').isVisible()); await shot('journal-' + width); }
+  await page.keyboard.press('Escape'); await page.setViewportSize({ width:1440,height:900 });
+  await section('appearance'); await page.getByLabel('Clock size',{ exact:true }).evaluate(node => { node.value = '190'; node.dispatchEvent(new Event('change',{ bubbles:true })); });
+  await page.waitForFunction(() => document.documentElement.style.getPropertyValue('--clock-size') === '190px');
+  await page.getByLabel('Show clock in Ambient',{ exact:true }).check(); await shot('appearance'); await page.keyboard.press('Escape');
+  await section('backgrounds'); await page.getByRole('button',{ name:'Aurora glow',exact:true }).click(); await page.waitForSelector('html[data-live=aurora]'); await page.keyboard.press('Escape');
+  await page.getByRole('button',{ name:'Ambient view',exact:true }).click(); await shot('live-ambient');
+  assert(await page.locator('#clock').isVisible());
+  await page.emulateMedia({ reducedMotion:'reduce' }); await page.waitForSelector('html[data-motion=reduce]');
+  assert.equal(await page.locator('#landscape').evaluate(node => getComputedStyle(node,'::after').animationName),'none');
+  pass('Custom clock sizing, Ambient clock, animated wallpaper and reduced-motion preferences apply immediately');
+  // A small real WebM fixture verifies decoding, playback and backup without a remote provider.
+  const bytes = await fs.readFile('docs/launch/oneflow-demo.webm'); await page.bringToFront();
+  await page.emulateMedia({ reducedMotion:'no-preference' }); await section('backgrounds');
+  await page.getByLabel('Upload live wallpaper',{ exact:true }).setInputFiles({ name:'test-loop.webm',mimeType:'video/webm',buffer:Buffer.from(bytes) });
+  await page.waitForSelector('.live-wallpaper.is-visible'); await page.waitForFunction(() => !document.querySelector('.live-wallpaper').paused);
+  assert.equal(await page.locator('.live-wallpaper').evaluate(video => video.muted),true);
+  await page.keyboard.press('Escape'); await shot('video');
+  const restored = await page.evaluate(async () => { const backup = await import('../core/backup.js'); const exported = await backup.exportData(); const prepared = await backup.parseBackup(JSON.stringify(exported)); return { videos:prepared.records.wallpapers.length,entries:prepared.records.journal.length,kind:prepared.local.settings.background.kind }; });
+  assert.deepEqual(restored,{ videos:1,entries:2,kind:'video' });
+  await page.emulateMedia({ reducedMotion:'reduce' }); await page.waitForFunction(() => document.querySelector('.live-wallpaper').paused);
+  await context.setOffline(true); await page.reload(); await page.waitForSelector('.live-wallpaper.is-visible'); assert(await page.locator('.live-wallpaper').evaluate(video => video.paused));
+  await journal(); await page.getByRole('button',{ name:'Hide journal sidebar',exact:true }).click(); assert.equal(await page.getByLabel('Your reflection').inputValue(),'Manually saved reflection.');
+  assert.deepEqual(errors,[]); assert.deepEqual(requests,[]);
+  pass('Silent local video decodes and plays, pauses for reduced motion, roundtrips in backup and reloads offline with journal data');
+} catch (error) { checks.push('FAIL: ' + error.message); console.error(error); console.log(await page.evaluate(async () => { const v = document.querySelector('video'); return { hidden:document.hidden,motion:document.documentElement.dataset.motion,landscape:document.querySelector('#landscape').dataset,wallpapers:(await (await import('../core/db.js')).getAll('wallpapers')).map(r => ({ id:r.id,size:r.blob?.size,type:r.blob?.type })),video:v ? { ready:v.readyState,paused:v.paused,error:v.error?.message,src:v.currentSrc,class:v.className } : null }; })); process.exitCode = 1; await shot('failure').catch(() => {}); }
+finally { await fs.mkdir('test-results',{ recursive:true }); await fs.writeFile(`test-results/journal-${browser}-report.json`,JSON.stringify({ browser,checks,errors,requests,date:new Date().toISOString() },null,2)); await context.close(); }

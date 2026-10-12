@@ -1,0 +1,239 @@
+{
+  "measuredAt": "2026-10-12T05:14:30.615Z",
+  "node": "v24.19.0",
+  "host": {
+    "platform": "win32",
+    "release": "10.0.26300",
+    "cpu": "11th Gen Intel(R) Core(TM) i3-1115G4 @ 3.00GHz"
+  },
+  "method": "Source checkout, headless installed browser, disposable profile, 1440x900, default settings, onboarding skipped, offline; one warm-up reload then eight sequential reloads. oneflow-ready is application initialization, not a paint or every deferred widget completion.",
+  "javascript": {
+    "bytes": 152249,
+    "kib": 148.6806640625,
+    "limitBytes": 153600,
+    "pass": true,
+    "modules": [
+      {
+        "file": "newtab/newtab.js",
+        "bytes": 10944,
+        "sha256": "84f2fc6cfeeba03eccbd2db2b4b46438ab37a0b87e0f2fc80ea5045f6f14f098"
+      },
+      {
+        "file": "core/i18n.js",
+        "bytes": 34205,
+        "sha256": "cfac61047683dca986eb5c2c4e42d8c930523973d733332aac35539c3a79079d"
+      },
+      {
+        "file": "core/storage.js",
+        "bytes": 5924,
+        "sha256": "dba0a5b04d47fbc5feb3e71fd9f1bfee2ddb449d4862a7b4004fe97733fe225b"
+      },
+      {
+        "file": "core/schema.js",
+        "bytes": 8317,
+        "sha256": "70af43d079ba164631f6e1b7738bbc686330b67f5504abc8e000d6a41b54c181"
+      },
+      {
+        "file": "core/refinement-schema.js",
+        "bytes": 1635,
+        "sha256": "1cbac81e1d36dd3ec1a800794bd5a7005023c30169c2645d1e6507ac183c3215"
+      },
+      {
+        "file": "core/stage2-schema.js",
+        "bytes": 4307,
+        "sha256": "cd1bafe63f25cea472a7fe58e7f02ea28e04ddb6e6f2f0e8cf63a06de4fc4fea"
+      },
+      {
+        "file": "core/timer-logic.js",
+        "bytes": 5876,
+        "sha256": "ef33488d6663331af56e8ea7145ed30b1e2c3a710d769b48a4bbc38b63b34f28"
+      },
+      {
+        "file": "core/stage3-schema.js",
+        "bytes": 5728,
+        "sha256": "115499f434dee93dc7b41c59b79e331c8fcc3570a8b9430bdda0cbbc809f561d"
+      },
+      {
+        "file": "core/studio-schema.js",
+        "bytes": 6114,
+        "sha256": "be09a9d1716a85a9e1543ee5cc31d160d0f10d7cb1a803870c0462ce6552749e"
+      },
+      {
+        "file": "core/events.js",
+        "bytes": 604,
+        "sha256": "f23f5287fc45315b1d00612793190c520f2c69b7e29d177485fb04b9ef53b195"
+      },
+      {
+        "file": "core/theme.js",
+        "bytes": 9331,
+        "sha256": "3343a641d2be3205d0dc229ab45e969b0c51d6d3839fcd0934ac1a5faec2de54"
+      },
+      {
+        "file": "core/db.js",
+        "bytes": 3080,
+        "sha256": "10776f2de5621c91f8e25a02dc9d5916e7e7af5c38f8d861b3405ba2e5f6e83d"
+      },
+      {
+        "file": "core/ui.js",
+        "bytes": 9042,
+        "sha256": "b6d2e6b568569662a62c70d56d4fa3c08559f18aa62eaefc2f6854b0482842f0"
+      },
+      {
+        "file": "core/utils.js",
+        "bytes": 2025,
+        "sha256": "b6c658082442248e7f49a347fe928205176ebfbf0efcb92ec76d720c4c4ed83e"
+      },
+      {
+        "file": "core/background-presentation.js",
+        "bytes": 3553,
+        "sha256": "26bc40553dca96bb770cc4b39ffb657f31dc2cd894836f0bc21564675685b309"
+      },
+      {
+        "file": "core/state.js",
+        "bytes": 354,
+        "sha256": "25fa9982eacdb265b083d5ff3b5caa3ccb0989c7b818389f0607f1453da98721"
+      },
+      {
+        "file": "components/clock/index.js",
+        "bytes": 1562,
+        "sha256": "c437254ed21371154191cce9b1b14eff778d2b8d2d076ef6a915286d75a817a0"
+      },
+      {
+        "file": "components/focus/index.js",
+        "bytes": 1975,
+        "sha256": "3a34adfae0ff4cc1e553e03cc4fa1d77759e1a726cf4aeee02f3c9099c910365"
+      },
+      {
+        "file": "components/session-view/index.js",
+        "bytes": 10341,
+        "sha256": "9470f3329d4ab5c8ce8581d56f42a10c8c482ba6c5d317fb9ee398e6a329c211"
+      },
+      {
+        "file": "core/drafts.js",
+        "bytes": 1038,
+        "sha256": "0025add00469c00d4b32be12d9e63bef117ded5c4d5ce3a51d91eaf94a1edb2a"
+      },
+      {
+        "file": "core/timer-client.js",
+        "bytes": 1149,
+        "sha256": "2469673077a007b2aba5b9ec8aec7166ccc784be603071a30c490b859dd83318"
+      },
+      {
+        "file": "components/search/index.js",
+        "bytes": 892,
+        "sha256": "cb79296f7c01587f35d8f04a0b043dedf04dcfb265eb23d4898941fde8db3f48"
+      },
+      {
+        "file": "core/search.js",
+        "bytes": 697,
+        "sha256": "bf46d8424106c7507963a486bc5efe7994014dd6e2d95c41ef765d92aef4d2ec"
+      },
+      {
+        "file": "core/lazy-widgets.js",
+        "bytes": 2470,
+        "sha256": "8c2932dec436bdbaa746d72c5a9ad6f1730fb4ab24b23f6dea7582ed3c91b888"
+      },
+      {
+        "file": "components/timer/index.js",
+        "bytes": 1287,
+        "sha256": "b2bb0123d632ffd572f923cd594638e320394b8de9829fb4cc1a6a97c9527300"
+      },
+      {
+        "file": "core/features.js",
+        "bytes": 1599,
+        "sha256": "4bae80bc44712c91338408413a33a4504d7f68a5a2ae30ba2e90cb2dd3fa1c67"
+      },
+      {
+        "file": "core/config.js",
+        "bytes": 116,
+        "sha256": "04d76b3f506d97761caf4c1c68cea9ea9ef5c9d2d8ff195cfba373570093f9f2"
+      },
+      {
+        "file": "components/flow/index.js",
+        "bytes": 6357,
+        "sha256": "28ac445a688b6a7edc32949949a537f093b621f5b81b34f1a1b54a5ec523ca1b"
+      },
+      {
+        "file": "core/scenes.js",
+        "bytes": 2946,
+        "sha256": "1875d4a2eee3cfa7907d6750a6b696a5931bd7c38e1678c0d84e91f9fc76c9e2"
+      },
+      {
+        "file": "core/layout.js",
+        "bytes": 965,
+        "sha256": "a007173145e339eefc866d887b0708b3b3263c35242ce796b863732783e4ba56"
+      },
+      {
+        "file": "core/diagnostics.js",
+        "bytes": 1559,
+        "sha256": "c4bae94444e41449f7f08e866a61c93256c1bf83ed507a95e30269985cd56250"
+      },
+      {
+        "file": "core/dashboard-view.js",
+        "bytes": 3172,
+        "sha256": "24a2bb038f63b6789e2b74bb510c5de04859ed7178df2519cab632b155847d46"
+      },
+      {
+        "file": "core/home-menu.js",
+        "bytes": 1375,
+        "sha256": "44506f20094f6e8d36fd7b79c654c2250cbd2d6c68e711bcf8166813325557aa"
+      },
+      {
+        "file": "core/notifications.js",
+        "bytes": 1710,
+        "sha256": "2b87e9f0d22d68c43c52e887cfdc997624f2892f88eb135f209b5e2c54572a5b"
+      }
+    ]
+  },
+  "browsers": [
+    {
+      "browser": "chrome",
+      "executablePath": "C:/Program Files/Google/Chrome/Application/chrome.exe",
+      "timingsMs": [
+        192.59999999403954,
+        268.40000000596046,
+        189.19999998807907,
+        330.2000000178814,
+        300.59999999403954,
+        164.40000000596046,
+        207.30000001192093,
+        207.60000002384186
+      ],
+      "errors": [],
+      "externalRequests": [],
+      "version": "154.0.8037.98",
+      "home": {
+        "visible": {
+          "greeting": true,
+          "clock": true,
+          "date": true,
+          "focus": true,
+          "search": true,
+          "quote": true,
+          "journal": true,
+          "bottomLeft": true,
+          "more": true,
+          "settings": true,
+          "brand": true
+        },
+        "homeShade": "0.6",
+        "sceneTextShade": ".70",
+        "headingWeight": "550",
+        "font": "'Segoe UI', Arial, sans-serif",
+        "readability": "linear-gradient(90deg, rgba(0, 0, 0, 0) 8%, rgba(12, 22, 19, 0.192) 38%, rgba(12, 22, 19, 0.192) 62%, rgba(0, 0, 0, 0) 92%), linear-gradient(rgba(12, 22, 19, 0.24), rgba(12, 22, 19, 0.24))"
+      },
+      "medianMs": 207.4500000178814,
+      "maxMs": 330.2000000178814,
+      "startupPass": false,
+      "loadPass": true
+    },
+    {
+      "browser": "edge",
+      "executablePath": "C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe",
+      "timingsMs": [],
+      "errors": [],
+      "externalRequests": [],
+      "failure": "browserType.launchPersistentContext: Target page, context or browser has been closed\nBrowser logs:\n\n<launching> C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,Translate,AutoDeElevate,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --enable-unsafe-extension-debugging --user-data-dir=D:\\BOOKS\\ONEFLOW\\.test-profile\\design-baseline-edge-1791782101914 --remote-debugging-pipe about:blank\n<launched> pid=11412\n[pid=11412][err] [1012/104503.366:ERROR:third_party\\crashpad\\crashpad\\util\\win\\registration_protocol_win.cc:136] TransactNamedPipe: The pipe has been ended. (0x6D)\n[pid=11412][err] [11412:13980:1012/104504.310:ERROR:chrome\\browser\\task_manager\\providers\\fallback_task_provider.cc:126] Every renderer should have at least one task provided by a primary task provider. If a \"Renderer\" fallback task is shown, it is a bug. If you have repro steps, please file a new bug and tag it as a dependency of crbug.com/40528867.\n[pid=11412][err] [1012/104504.526:ERROR:third_party\\crashpad\\crashpad\\client\\crashpad_client_win.cc:158] crash server failed to launch\nCall log:\n\u001b[2m  - <launching> C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,Translate,AutoDeElevate,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --enable-unsafe-extension-debugging --user-data-dir=D:\\BOOKS\\ONEFLOW\\.test-profile\\design-baseline-edge-1791782101914 --remote-debugging-pipe about:blank\u001b[22m\n\u001b[2m  - <launched> pid=11412\u001b[22m\n\u001b[2m  - [pid=11412][err] [1012/104503.366:ERROR:third_party\\crashpad\\crashpad\\util\\win\\registration_protocol_win.cc:136] TransactNamedPipe: The pipe has been ended. (0x6D)\u001b[22m\n\u001b[2m  - [pid=11412][err] [11412:13980:1012/104504.310:ERROR:chrome\\browser\\task_manager\\providers\\fallback_task_provider.cc:126] Every renderer should have at least one task provided by a primary task provider. If a \"Renderer\" fallback task is shown, it is a bug. If you have repro steps, please file a new bug and tag it as a dependency of crbug.com/40528867.\u001b[22m\n\u001b[2m  - [pid=11412][err] [1012/104504.526:ERROR:third_party\\crashpad\\crashpad\\client\\crashpad_client_win.cc:158] crash server failed to launch\u001b[22m\n\u001b[2m  - [pid=11412] <gracefully close start>\u001b[22m\n\u001b[2m  - [pid=11412] <kill>\u001b[22m\n\u001b[2m  - [pid=11412] <will force kill>\u001b[22m\n\u001b[2m  - [pid=11412] taskkill stderr: ERROR: The user name or password is incorrect.\u001b[22m\n\u001b[2m  - [pid=11412] <process did exit: exitCode=3221225477, signal=null>\u001b[22m\n\u001b[2m  - [pid=11412] starting temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11412] finished temporary directories cleanup\u001b[22m\n\u001b[2m  - [pid=11412] <gracefully close end>\u001b[22m\n"
+    }
+  ]
+}

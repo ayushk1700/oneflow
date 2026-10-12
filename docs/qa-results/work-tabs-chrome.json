@@ -1,0 +1,7 @@
+{
+  "checks": [
+    "PASS: Real granted Chrome tab APIs capture current web URLs, reopen missing resources once and reject unsafe links. Native grant dialog is outside this fixture."
+  ],
+  "errors": [],
+  "permissionFixture": true
+}

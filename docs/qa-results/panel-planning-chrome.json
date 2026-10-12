@@ -1,0 +1,15 @@
+{
+  "checks": [
+    "DNA leads with its explanation and keeps opt-in/privacy controls behind disclosure",
+    "Planner separates schedule, effort and pattern; retains effort drafts and protects recovery time",
+    "Energy Weather separates check-in, saved ratings and recovery, preserving shutdown drafts",
+    "Priorities leads with selected work and searches remaining tasks",
+    "Project views preserve evidence drafts and export only approved, freshly read report lines",
+    "Meeting views preserve reviewed drafts and connect owners/actions to Tasks and Notes",
+    "Quiet Web uses searchable context buckets and handles denied tab access with a context-only reset capsule",
+    "Seven panels fit desktop/mobile and both themes with reduced motion",
+    "Saved work survives offline reload, keyboard dismissal works and no remote requests/page errors occur"
+  ],
+  "errors": [],
+  "requests": []
+}

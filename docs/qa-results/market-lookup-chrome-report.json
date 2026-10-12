@@ -1,0 +1,11 @@
+{
+  "checks": [
+    "Web search opens encoded query in a separate tab without opener access",
+    "Denied access produces a useful message",
+    "Dictionary renders meanings, examples and unsafe API text safely",
+    "Session words work offline; uncached words show offline guidance",
+    "Responsive panel and Escape close work"
+  ],
+  "errors": [],
+  "fixture": true
+}

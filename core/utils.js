@@ -1,3 +1,4 @@
+import { t as translate } from './i18n.js';
 /** Create a DOM node with text-safe children and attributes. */
 export function el(tag, attrs = {}, ...children) {
   const node = document.createElement(tag);
@@ -22,7 +23,7 @@ export function loadScript(path) {
   if (!loaded.has(path)) loaded.set(path, new Promise((resolve, reject) => {
     const script = el('script', { src: new URL(path, import.meta.url).href });
     script.onload = resolve;
-    script.onerror = () => { loaded.delete(path); script.remove(); reject(new Error('A bundled library could not be loaded.')); };
+    script.onerror = () => { loaded.delete(path); script.remove(); reject(new Error(translate('m0642'))); };
     document.head.append(script);
   }));
   return loaded.get(path);
@@ -30,5 +31,8 @@ export function loadScript(path) {
 /** Download a local export without transmitting data. */
 export function download(blob, name) {
   const url = URL.createObjectURL(blob), link = el('a', { href: url, download: name });
-  link.click(); setTimeout(() => URL.revokeObjectURL(url), 10000);
+  // Keep export links in the active modal rather than the inert document.
+  link.hidden = true;
+  (document.querySelector('dialog[open]') || document.body).append(link);
+  link.click(); link.remove(); setTimeout(() => URL.revokeObjectURL(url), 10000);
 }

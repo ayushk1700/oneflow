@@ -1,0 +1,140 @@
+/* One visual language for every tool; each panel keeps its own useful layout. */
+#panel { width:min(760px,calc(100% - 48px)); height:min(760px,calc(100svh - 64px)); padding:28px; }
+#panel:is([data-panel=tasks],[data-panel=sounds],[data-panel=commands]) { height:fit-content; max-height:calc(100svh - 64px); }
+#panel[data-panel=settings],#panel[data-panel=notes] { width:min(940px,calc(100% - 48px)); }
+.panel-header { align-items:flex-start; margin-bottom:22px; }
+.panel-header h2 { font-size:26px; font-weight:500; letter-spacing:-.04em; line-height:1.2; }
+.panel-header .eyebrow { font-size:9px; letter-spacing:.2em; color:var(--muted); }
+#close-panel { border-radius:10px; min-width:40px; }
+#panel-nav { padding:3px; margin-bottom:24px; border-radius:12px; }
+.panel-nav-button { display:flex; justify-content:center; gap:9px; padding:10px 4px; font-size:12px; min-height:42px; }
+#panel-body { padding:2px 8px 8px 0; scrollbar-color:var(--border) transparent; overflow-x:hidden; }
+#panel-body :is(h3,h4) { font-weight:500; letter-spacing:-.02em; }
+#panel-body p { overflow-wrap:anywhere; }
+#panel-body :is(input,select,textarea) { min-width:0; max-width:100%; border-color:var(--border); }
+#panel-body :is(input:not([type=checkbox]):not([type=range]):not([type=color]),select) { min-height:44px; }
+#panel-body textarea { padding:14px 16px; line-height:1.7; resize:vertical; min-height:120px; }
+#panel-body .field > span { font-size:12px; color:var(--muted); }
+#panel-body .toggle-row { border-bottom:1px solid var(--border); min-height:48px; padding:12px 0; }
+#panel-body .stack { gap:16px; grid-template-columns:minmax(0,1fr); }
+#panel-body > *,#panel-body .stack { min-width:0; }
+#panel-body .entry-card { padding:18px; border-radius:14px; }
+#panel-body :is(button,[type=checkbox]) { flex-shrink:0; }
+#panel-body button { max-width:100%; overflow-wrap:anywhere; }
+#panel-body .entry-card .row { flex-wrap:wrap; min-width:0; }
+#panel-body .primary { justify-self:start; padding-inline:20px; }
+#panel-body :is(details,summary) { overflow-wrap:anywhere; }
+#panel-body details { border-top:1px solid var(--border); padding-top:14px; }
+#panel-body summary { min-height:40px; padding-block:7px; color:var(--muted); }
+.settings-layout { display:grid; grid-template-columns:166px minmax(0,1fr); gap:28px; align-items:start; }
+.settings-tabs { position:sticky; top:0; display:grid; gap:4px; background:transparent; border:0; padding:0; border-radius:0; }
+.settings-tabs button { text-align:left; font-size:12px; padding:12px; min-height:44px; border:1px solid transparent; border-radius:9px; }
+.settings-tabs button[aria-current=page] { background:var(--action); color:var(--action-ink); box-shadow:none; }
+.settings-content { min-width:0; padding:0 4px 16px; }
+.settings-content h3 { font-size:22px; margin:0 0 6px; }
+.settings-intro { border-bottom:1px solid var(--border); padding-bottom:18px; margin-bottom:4px; }
+.settings-intro p { font-size:12px; margin:0; }
+.settings-picker { display:none; }
+#panel-body .settings-content .rhythm-form { padding-top:0; display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:16px; }
+.rhythm-form > :is(.field:first-child,.toggle-row,button,small) { grid-column:1/-1; }
+.background-grid { gap:12px; }
+.background-card { border-radius:12px; background:var(--surface); box-shadow:none; }
+.background-card img { aspect-ratio:16/10; }
+.canvas-choices { gap:8px; }
+.canvas-choices button { flex:1; font-size:12px; padding:10px 8px; }
+.settings-link { justify-self:start; color:var(--muted); font-size:12px; }
+.tool-group h3 { font-size:11px; color:var(--muted); letter-spacing:.12em!important; text-transform:uppercase; margin:0; }
+.tool-directory .day-grid { gap:10px; }
+.day-card { grid-template-columns:24px minmax(0,1fr); gap:4px 12px; padding:16px; min-height:92px; border-radius:12px; }
+.day-card svg { grid-row:1/3; margin-top:3px; color:var(--muted); }
+.day-card strong { font-size:14px; font-weight:500; }
+.day-card small { line-height:1.5; }
+.day-card:hover { border-color:var(--muted); }
+.directory-links { border-top:1px solid var(--border); padding-top:16px; }
+.directory-links button { font-size:12px; }
+#panel .task-row { padding:12px; border-radius:10px; }
+#panel .task-row > .icon-button { opacity:1; width:36px; height:36px; }
+#panel .task-text { font-size:14px; line-height:1.5; }
+.task-summary { font-size:11px; color:var(--muted); }
+.task-list { gap:8px; }
+.task-menu summary { color:var(--text)!important; padding:8px!important; }
+.task-menu > div { box-shadow:var(--shadow); }
+.notes-workspace { display:grid; grid-template-columns:190px minmax(0,1fr); gap:22px; min-width:0; }
+.note-list { display:flex; flex-direction:column; align-items:stretch; flex-wrap:nowrap; max-height:420px; gap:5px; }
+.note-tab { text-align:left; padding:12px; flex-shrink:0; background:transparent; border-color:transparent; }
+.note-tab[aria-pressed=true] { background:var(--surface); border-color:var(--border); }
+.note-editor { min-width:0; }
+.note-toolbar input { flex:1; }
+.note-toolbar { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:12px; }
+.note-editor > input { font-size:20px; border-width:0 0 1px; border-radius:0; padding-inline:0; background:transparent; }
+.note-editor textarea { min-height:280px; }
+.note-editor .row { flex-wrap:wrap; }
+.note-editor .row > small { margin-right:auto; }
+.sound-grid { gap:12px; }
+.sound-tile { padding:18px; border-radius:14px; background:var(--surface); gap:12px; }
+.sound-tile[data-enabled=true] { border-color:var(--action); box-shadow:none; }
+.sound-switch { font-size:14px; font-weight:500; display:flex; justify-content:space-between; align-items:center; }
+.sound-switch:after { content:'+'; color:var(--muted); font-size:20px; font-weight:300; }
+.sound-switch[aria-pressed=true]:after { content:'−'; color:var(--text); }
+.sound-tile output { font-size:11px; }
+#panel[data-panel=scenes] .scene-card { position:relative; overflow:hidden; }
+.scene-card > strong { font-size:20px; font-weight:500; }
+.scene-card .row { gap:8px; }
+.scene-card button { font-size:12px; }
+.scene-card .scene-preview-image { height:190px; border-radius:10px; margin:0 0 12px; }
+#panel[data-panel=queue] .entry-card { display:grid; grid-template-columns:minmax(0,1fr) 120px; align-items:center; gap:10px 20px; }
+#panel[data-panel=queue] .entry-card .field { grid-column:2; grid-row:1/3; }
+#panel[data-panel=queue] .entry-card .row { overflow-wrap:anywhere; }
+#panel:is([data-panel=journal],[data-panel=rituals],[data-panel=reflection]) textarea { min-height:180px; font-size:16px; }
+#panel:is([data-panel=journal],[data-panel=reflection]) strong { font-size:18px; font-weight:500; }
+.stats-grid { gap:12px; grid-template-columns:repeat(2,minmax(0,1fr)); }
+.stat-card { padding:18px; background:var(--surface); border-radius:12px; border:1px solid var(--border); }
+.stat-card { box-shadow:none; }
+.stat-card strong { font-weight:300; font-size:32px; }
+.stat-card small { color:var(--muted); font-size:11px; }
+.stats-table { width:100%; font-size:12px; }
+.stats-table :is(td,th) { text-align:left; padding:10px; border-bottom:1px solid var(--border); }
+.mood-choices { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:8px; }
+.mood-choices button { width:auto; padding:16px 6px; border-radius:12px; min-width:0; }
+.mood-choices button > span { filter:grayscale(1); }
+#panel[data-panel=commands] .text-button { text-align:left; padding:12px 14px; border:1px solid transparent; background:var(--surface); border-radius:9px; }
+#panel[data-panel=commands] .text-button:hover { border-color:var(--border); }
+#panel[data-panel=suggestions] .entry-card { border-left:2px solid var(--action); padding:18px; }
+.layout-grid { border-color:var(--border); background:var(--surface); border-radius:12px; }
+.layout-tile { background:var(--panel); border-color:var(--muted); box-shadow:none; }
+.layout-controls { gap:12px; }
+.countdown-pin { background:var(--glass); color:var(--glass-ink); }
+.habit-day[aria-pressed=true] { background:var(--action); color:var(--action-ink); border-color:transparent; }
+.habit-week { gap:6px; }
+.habit-week .habit-day { padding:8px 0; min-width:0; width:100%; }
+#panel[data-panel=countdowns] .entry-card > .row:first-child { align-items:baseline; flex-wrap:wrap; }
+#panel[data-panel=countdowns] .entry-card > .row:first-child > span { font-size:24px; font-weight:300; }
+#panel[data-panel=music] .music-player { border-radius:12px; }
+.settings-content .danger { margin-top:20px; justify-self:start; }
+@media(max-width:650px) {
+  #panel,#panel[data-panel=settings],#panel[data-panel=notes] { width:calc(100% - 24px); height:calc(100svh - 32px); padding:20px 16px; }
+  #panel:is([data-panel=tasks],[data-panel=sounds],[data-panel=commands]) { max-height:calc(100svh - 32px); }
+  #panel-body { padding-right:2px; }
+  .panel-header h2 { font-size:22px; }
+  .panel-nav-button { font-size:11px; gap:6px; }
+  .panel-nav-button svg { width:16px; }
+  .settings-layout { grid-template-columns:minmax(0,1fr); gap:20px; }
+  .settings-tabs { display:none; }
+  .settings-picker { display:grid; }
+  .settings-content { padding:0 0 8px; }
+  .settings-content .rhythm-form { gap:12px; }
+  .notes-workspace { grid-template-columns:minmax(0,1fr); gap:18px; }
+  .note-list { flex-direction:row; max-height:none; overflow-x:auto; padding-bottom:8px; }
+  .note-tab { max-width:160px; }
+  .note-editor textarea { min-height:220px; }
+  .mood-choices { grid-template-columns:repeat(3,minmax(0,1fr)); }
+  #panel[data-panel=queue] .entry-card { grid-template-columns:minmax(0,1fr) 95px; gap:8px; padding:14px; }
+  .day-card { grid-template-columns:minmax(0,1fr); min-height:124px; gap:7px; padding:14px; }
+  .day-card svg { grid-row:auto; }
+  .day-card strong { font-size:13px; }
+  .day-card small { font-size:11px; }
+}
+.uploaded-background .photo-name { display:flex; align-items:center; gap:12px; text-align:left; min-width:0; }
+.uploaded-background img { width:96px; height:54px; object-fit:cover; border-radius:6px; flex-shrink:0; }
+.uploaded-background span { overflow-wrap:anywhere; min-width:0; }
+@media(max-width:600px) { .uploaded-background img { width:64px; height:48px; } }

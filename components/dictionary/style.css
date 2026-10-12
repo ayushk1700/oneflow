@@ -1,0 +1,7 @@
+.lookup-workspace { max-width:760px; margin-inline:auto; padding-block:var(--space-4, 16px); }
+.lookup-form { max-width:560px; }
+.dictionary-entry h3 { font-size:clamp(24px, 4vw, 36px); margin:0; }
+.dictionary-entry h4 { margin:0; font-size:14px; text-transform:uppercase; letter-spacing:.08em; }
+.dictionary-entry ol { padding-left:24px; margin:0; }
+.dictionary-entry li p { margin:4px 0; overflow-wrap:anywhere; }
+.dictionary-entry small { overflow-wrap:anywhere; }

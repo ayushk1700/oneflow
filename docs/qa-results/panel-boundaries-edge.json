@@ -1,0 +1,8 @@
+{
+  "checks": [
+    "Enabled boundaries install real session rules only during running Flow focus; pause releases them and resume preserves session identity.",
+    "Leaving Flow clears session rules; explicit disconnect disables future blocking. Native optional-host approval remains a manual check."
+  ],
+  "errors": [],
+  "hostPermissionFixture": true
+}

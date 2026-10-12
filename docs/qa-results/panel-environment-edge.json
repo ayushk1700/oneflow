@@ -1,0 +1,12 @@
+{
+  "checks": [
+    "Sounds supports playback, live saved mixes/master volume and a truthful scheduled sleep stop",
+    "Scenes searches saved/built-in environments, saves current preferences, applies and undoes them",
+    "Music separates Listen/Search, discloses missing credentials and retains drafts without connecting automatically",
+    "Blocking separates rules/activity, retains tab drafts and preserves settings when optional permission is denied",
+    "Four environment panels fit desktop/mobile in both themes and reduced motion",
+    "Scenes and preferences survive offline reload; keyboard dismissal works without page errors or external requests"
+  ],
+  "errors": [],
+  "requests": []
+}
