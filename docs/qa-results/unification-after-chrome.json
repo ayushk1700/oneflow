@@ -1,0 +1,2503 @@
+{
+  "browser": "chrome",
+  "phase": "after",
+  "panels": [
+    {
+      "name": "home",
+      "theme": "dark",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/home-dark-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "home",
+      "theme": "dark",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/home-dark-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "home",
+      "theme": "dark",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/home-dark-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "home",
+      "theme": "dark",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/home-dark-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "tools",
+      "theme": "dark",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/tools-dark-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "tools",
+      "theme": "dark",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/tools-dark-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "tools",
+      "theme": "dark",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/tools-dark-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "tools",
+      "theme": "dark",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/tools-dark-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "capsules",
+      "theme": "dark",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/capsules-dark-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "capsules",
+      "theme": "dark",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/capsules-dark-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "capsules",
+      "theme": "dark",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/capsules-dark-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "capsules",
+      "theme": "dark",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/capsules-dark-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "recovery",
+      "theme": "dark",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/recovery-dark-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "recovery",
+      "theme": "dark",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/recovery-dark-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "recovery",
+      "theme": "dark",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/recovery-dark-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "recovery",
+      "theme": "dark",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/recovery-dark-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "compiler",
+      "theme": "dark",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/compiler-dark-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "compiler",
+      "theme": "dark",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/compiler-dark-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "compiler",
+      "theme": "dark",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/compiler-dark-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "compiler",
+      "theme": "dark",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/compiler-dark-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "firststep",
+      "theme": "dark",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/firststep-dark-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "firststep",
+      "theme": "dark",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/firststep-dark-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "firststep",
+      "theme": "dark",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/firststep-dark-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "firststep",
+      "theme": "dark",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/firststep-dark-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "dna",
+      "theme": "dark",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/dna-dark-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "dna",
+      "theme": "dark",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/dna-dark-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "dna",
+      "theme": "dark",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/dna-dark-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "dna",
+      "theme": "dark",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/dna-dark-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "quietweb",
+      "theme": "dark",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/quietweb-dark-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "quietweb",
+      "theme": "dark",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/quietweb-dark-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "quietweb",
+      "theme": "dark",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/quietweb-dark-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "quietweb",
+      "theme": "dark",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/quietweb-dark-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "energy",
+      "theme": "dark",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/energy-dark-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "energy",
+      "theme": "dark",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/energy-dark-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "energy",
+      "theme": "dark",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/energy-dark-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "energy",
+      "theme": "dark",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/energy-dark-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "queue",
+      "theme": "dark",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/queue-dark-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "queue",
+      "theme": "dark",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/queue-dark-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "queue",
+      "theme": "dark",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/queue-dark-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "queue",
+      "theme": "dark",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/queue-dark-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "countdowns",
+      "theme": "dark",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/countdowns-dark-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "countdowns",
+      "theme": "dark",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/countdowns-dark-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "countdowns",
+      "theme": "dark",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/countdowns-dark-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "countdowns",
+      "theme": "dark",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/countdowns-dark-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "rituals",
+      "theme": "dark",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/rituals-dark-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "rituals",
+      "theme": "dark",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/rituals-dark-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "rituals",
+      "theme": "dark",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/rituals-dark-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "rituals",
+      "theme": "dark",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/rituals-dark-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "energyweather",
+      "theme": "dark",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/energyweather-dark-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "energyweather",
+      "theme": "dark",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/energyweather-dark-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "energyweather",
+      "theme": "dark",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/energyweather-dark-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "energyweather",
+      "theme": "dark",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/energyweather-dark-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "afterglow",
+      "theme": "dark",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/afterglow-dark-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "afterglow",
+      "theme": "dark",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/afterglow-dark-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "afterglow",
+      "theme": "dark",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/afterglow-dark-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "afterglow",
+      "theme": "dark",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/afterglow-dark-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "stats",
+      "theme": "dark",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/stats-dark-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "stats",
+      "theme": "dark",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/stats-dark-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "stats",
+      "theme": "dark",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/stats-dark-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "stats",
+      "theme": "dark",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/stats-dark-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "suggestions",
+      "theme": "dark",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/suggestions-dark-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "suggestions",
+      "theme": "dark",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/suggestions-dark-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "suggestions",
+      "theme": "dark",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/suggestions-dark-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "suggestions",
+      "theme": "dark",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/suggestions-dark-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "recall",
+      "theme": "dark",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/recall-dark-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "recall",
+      "theme": "dark",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/recall-dark-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "recall",
+      "theme": "dark",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/recall-dark-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "recall",
+      "theme": "dark",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/recall-dark-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "garden",
+      "theme": "dark",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/garden-dark-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "garden",
+      "theme": "dark",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/garden-dark-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "garden",
+      "theme": "dark",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/garden-dark-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "garden",
+      "theme": "dark",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/garden-dark-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "skills",
+      "theme": "dark",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/skills-dark-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "skills",
+      "theme": "dark",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/skills-dark-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "skills",
+      "theme": "dark",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/skills-dark-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "skills",
+      "theme": "dark",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/skills-dark-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "career",
+      "theme": "dark",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/career-dark-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "career",
+      "theme": "dark",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/career-dark-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "career",
+      "theme": "dark",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/career-dark-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "career",
+      "theme": "dark",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/career-dark-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "proof",
+      "theme": "dark",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/proof-dark-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "proof",
+      "theme": "dark",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/proof-dark-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "proof",
+      "theme": "dark",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/proof-dark-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "proof",
+      "theme": "dark",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/proof-dark-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "dictionary",
+      "theme": "dark",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/dictionary-dark-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "dictionary",
+      "theme": "dark",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/dictionary-dark-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "dictionary",
+      "theme": "dark",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/dictionary-dark-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "dictionary",
+      "theme": "dark",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/dictionary-dark-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "sounds",
+      "theme": "dark",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/sounds-dark-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "sounds",
+      "theme": "dark",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/sounds-dark-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "sounds",
+      "theme": "dark",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/sounds-dark-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "sounds",
+      "theme": "dark",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/sounds-dark-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "scenes",
+      "theme": "dark",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/scenes-dark-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "scenes",
+      "theme": "dark",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/scenes-dark-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "scenes",
+      "theme": "dark",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/scenes-dark-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "scenes",
+      "theme": "dark",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/scenes-dark-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "music",
+      "theme": "dark",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/music-dark-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "music",
+      "theme": "dark",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/music-dark-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "music",
+      "theme": "dark",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/music-dark-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "music",
+      "theme": "dark",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/music-dark-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "notifications",
+      "theme": "dark",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/notifications-dark-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "notifications",
+      "theme": "dark",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/notifications-dark-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "notifications",
+      "theme": "dark",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/notifications-dark-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "notifications",
+      "theme": "dark",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/notifications-dark-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "customizer",
+      "theme": "dark",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/customizer-dark-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "customizer",
+      "theme": "dark",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/customizer-dark-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "customizer",
+      "theme": "dark",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/customizer-dark-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "customizer",
+      "theme": "dark",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/customizer-dark-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "support",
+      "theme": "dark",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/support-dark-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "support",
+      "theme": "dark",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/support-dark-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "support",
+      "theme": "dark",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/support-dark-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "support",
+      "theme": "dark",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/support-dark-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "websearch",
+      "theme": "dark",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/websearch-dark-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "websearch",
+      "theme": "dark",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/websearch-dark-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "websearch",
+      "theme": "dark",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/websearch-dark-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "websearch",
+      "theme": "dark",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/websearch-dark-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "commands",
+      "theme": "dark",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/commands-dark-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "commands",
+      "theme": "dark",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/commands-dark-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "commands",
+      "theme": "dark",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/commands-dark-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "commands",
+      "theme": "dark",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/commands-dark-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "layout",
+      "theme": "dark",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/layout-dark-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "layout",
+      "theme": "dark",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/layout-dark-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "layout",
+      "theme": "dark",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/layout-dark-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "layout",
+      "theme": "dark",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/layout-dark-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "notes",
+      "theme": "dark",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/notes-dark-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "notes",
+      "theme": "dark",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/notes-dark-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "notes",
+      "theme": "dark",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/notes-dark-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "notes",
+      "theme": "dark",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/notes-dark-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "journal",
+      "theme": "dark",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/journal-dark-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "journal",
+      "theme": "dark",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/journal-dark-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "journal",
+      "theme": "dark",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/journal-dark-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "journal",
+      "theme": "dark",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/journal-dark-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "mood",
+      "theme": "dark",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/mood-dark-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "mood",
+      "theme": "dark",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/mood-dark-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "mood",
+      "theme": "dark",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/mood-dark-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "mood",
+      "theme": "dark",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/mood-dark-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "reflection",
+      "theme": "dark",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/reflection-dark-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "reflection",
+      "theme": "dark",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/reflection-dark-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "reflection",
+      "theme": "dark",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/reflection-dark-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "reflection",
+      "theme": "dark",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/reflection-dark-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "settings",
+      "theme": "dark",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/settings-dark-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "settings",
+      "theme": "dark",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/settings-dark-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "settings",
+      "theme": "dark",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/settings-dark-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "settings",
+      "theme": "dark",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/settings-dark-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "blocker",
+      "theme": "dark",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/blocker-dark-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "blocker",
+      "theme": "dark",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/blocker-dark-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "blocker",
+      "theme": "dark",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/blocker-dark-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "blocker",
+      "theme": "dark",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/blocker-dark-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "links",
+      "theme": "dark",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/links-dark-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "links",
+      "theme": "dark",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/links-dark-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "links",
+      "theme": "dark",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/links-dark-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "links",
+      "theme": "dark",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/links-dark-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "weather",
+      "theme": "dark",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/weather-dark-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "weather",
+      "theme": "dark",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/weather-dark-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "weather",
+      "theme": "dark",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/weather-dark-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "weather",
+      "theme": "dark",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/weather-dark-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "home",
+      "theme": "light",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/home-light-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "home",
+      "theme": "light",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/home-light-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "home",
+      "theme": "light",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/home-light-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "home",
+      "theme": "light",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/home-light-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "tools",
+      "theme": "light",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/tools-light-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "tools",
+      "theme": "light",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/tools-light-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "tools",
+      "theme": "light",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/tools-light-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "tools",
+      "theme": "light",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/tools-light-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "capsules",
+      "theme": "light",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/capsules-light-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "capsules",
+      "theme": "light",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/capsules-light-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "capsules",
+      "theme": "light",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/capsules-light-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "capsules",
+      "theme": "light",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/capsules-light-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "recovery",
+      "theme": "light",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/recovery-light-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "recovery",
+      "theme": "light",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/recovery-light-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "recovery",
+      "theme": "light",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/recovery-light-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "recovery",
+      "theme": "light",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/recovery-light-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "compiler",
+      "theme": "light",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/compiler-light-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "compiler",
+      "theme": "light",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/compiler-light-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "compiler",
+      "theme": "light",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/compiler-light-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "compiler",
+      "theme": "light",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/compiler-light-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "firststep",
+      "theme": "light",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/firststep-light-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "firststep",
+      "theme": "light",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/firststep-light-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "firststep",
+      "theme": "light",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/firststep-light-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "firststep",
+      "theme": "light",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/firststep-light-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "dna",
+      "theme": "light",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/dna-light-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "dna",
+      "theme": "light",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/dna-light-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "dna",
+      "theme": "light",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/dna-light-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "dna",
+      "theme": "light",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/dna-light-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "quietweb",
+      "theme": "light",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/quietweb-light-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "quietweb",
+      "theme": "light",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/quietweb-light-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "quietweb",
+      "theme": "light",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/quietweb-light-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "quietweb",
+      "theme": "light",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/quietweb-light-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "energy",
+      "theme": "light",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/energy-light-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "energy",
+      "theme": "light",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/energy-light-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "energy",
+      "theme": "light",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/energy-light-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "energy",
+      "theme": "light",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/energy-light-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "queue",
+      "theme": "light",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/queue-light-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "queue",
+      "theme": "light",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/queue-light-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "queue",
+      "theme": "light",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/queue-light-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "queue",
+      "theme": "light",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/queue-light-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "countdowns",
+      "theme": "light",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/countdowns-light-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "countdowns",
+      "theme": "light",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/countdowns-light-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "countdowns",
+      "theme": "light",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/countdowns-light-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "countdowns",
+      "theme": "light",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/countdowns-light-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "rituals",
+      "theme": "light",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/rituals-light-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "rituals",
+      "theme": "light",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/rituals-light-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "rituals",
+      "theme": "light",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/rituals-light-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "rituals",
+      "theme": "light",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/rituals-light-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "energyweather",
+      "theme": "light",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/energyweather-light-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "energyweather",
+      "theme": "light",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/energyweather-light-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "energyweather",
+      "theme": "light",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/energyweather-light-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "energyweather",
+      "theme": "light",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/energyweather-light-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "afterglow",
+      "theme": "light",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/afterglow-light-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "afterglow",
+      "theme": "light",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/afterglow-light-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "afterglow",
+      "theme": "light",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/afterglow-light-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "afterglow",
+      "theme": "light",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/afterglow-light-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "stats",
+      "theme": "light",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/stats-light-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "stats",
+      "theme": "light",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/stats-light-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "stats",
+      "theme": "light",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/stats-light-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "stats",
+      "theme": "light",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/stats-light-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "suggestions",
+      "theme": "light",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/suggestions-light-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "suggestions",
+      "theme": "light",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/suggestions-light-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "suggestions",
+      "theme": "light",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/suggestions-light-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "suggestions",
+      "theme": "light",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/suggestions-light-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "recall",
+      "theme": "light",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/recall-light-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "recall",
+      "theme": "light",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/recall-light-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "recall",
+      "theme": "light",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/recall-light-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "recall",
+      "theme": "light",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/recall-light-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "garden",
+      "theme": "light",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/garden-light-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "garden",
+      "theme": "light",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/garden-light-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "garden",
+      "theme": "light",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/garden-light-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "garden",
+      "theme": "light",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/garden-light-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "skills",
+      "theme": "light",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/skills-light-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "skills",
+      "theme": "light",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/skills-light-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "skills",
+      "theme": "light",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/skills-light-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "skills",
+      "theme": "light",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/skills-light-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "career",
+      "theme": "light",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/career-light-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "career",
+      "theme": "light",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/career-light-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "career",
+      "theme": "light",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/career-light-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "career",
+      "theme": "light",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/career-light-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "proof",
+      "theme": "light",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/proof-light-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "proof",
+      "theme": "light",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/proof-light-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "proof",
+      "theme": "light",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/proof-light-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "proof",
+      "theme": "light",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/proof-light-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "dictionary",
+      "theme": "light",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/dictionary-light-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "dictionary",
+      "theme": "light",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/dictionary-light-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "dictionary",
+      "theme": "light",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/dictionary-light-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "dictionary",
+      "theme": "light",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/dictionary-light-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "sounds",
+      "theme": "light",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/sounds-light-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "sounds",
+      "theme": "light",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/sounds-light-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "sounds",
+      "theme": "light",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/sounds-light-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "sounds",
+      "theme": "light",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/sounds-light-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "scenes",
+      "theme": "light",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/scenes-light-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "scenes",
+      "theme": "light",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/scenes-light-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "scenes",
+      "theme": "light",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/scenes-light-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "scenes",
+      "theme": "light",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/scenes-light-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "music",
+      "theme": "light",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/music-light-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "music",
+      "theme": "light",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/music-light-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "music",
+      "theme": "light",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/music-light-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "music",
+      "theme": "light",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/music-light-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "notifications",
+      "theme": "light",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/notifications-light-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "notifications",
+      "theme": "light",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/notifications-light-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "notifications",
+      "theme": "light",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/notifications-light-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "notifications",
+      "theme": "light",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/notifications-light-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "customizer",
+      "theme": "light",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/customizer-light-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "customizer",
+      "theme": "light",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/customizer-light-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "customizer",
+      "theme": "light",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/customizer-light-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "customizer",
+      "theme": "light",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/customizer-light-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "support",
+      "theme": "light",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/support-light-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "support",
+      "theme": "light",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/support-light-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "support",
+      "theme": "light",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/support-light-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "support",
+      "theme": "light",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/support-light-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "websearch",
+      "theme": "light",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/websearch-light-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "websearch",
+      "theme": "light",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/websearch-light-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "websearch",
+      "theme": "light",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/websearch-light-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "websearch",
+      "theme": "light",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/websearch-light-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "commands",
+      "theme": "light",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/commands-light-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "commands",
+      "theme": "light",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/commands-light-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "commands",
+      "theme": "light",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/commands-light-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "commands",
+      "theme": "light",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/commands-light-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "layout",
+      "theme": "light",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/layout-light-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "layout",
+      "theme": "light",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/layout-light-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "layout",
+      "theme": "light",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/layout-light-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "layout",
+      "theme": "light",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/layout-light-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "notes",
+      "theme": "light",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/notes-light-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "notes",
+      "theme": "light",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/notes-light-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "notes",
+      "theme": "light",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/notes-light-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "notes",
+      "theme": "light",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/notes-light-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "journal",
+      "theme": "light",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/journal-light-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "journal",
+      "theme": "light",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/journal-light-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "journal",
+      "theme": "light",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/journal-light-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "journal",
+      "theme": "light",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/journal-light-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "mood",
+      "theme": "light",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/mood-light-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "mood",
+      "theme": "light",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/mood-light-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "mood",
+      "theme": "light",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/mood-light-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "mood",
+      "theme": "light",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/mood-light-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "reflection",
+      "theme": "light",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/reflection-light-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "reflection",
+      "theme": "light",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/reflection-light-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "reflection",
+      "theme": "light",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/reflection-light-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "reflection",
+      "theme": "light",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/reflection-light-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "settings",
+      "theme": "light",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/settings-light-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "settings",
+      "theme": "light",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/settings-light-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "settings",
+      "theme": "light",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/settings-light-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "settings",
+      "theme": "light",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/settings-light-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "blocker",
+      "theme": "light",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/blocker-light-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "blocker",
+      "theme": "light",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/blocker-light-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "blocker",
+      "theme": "light",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/blocker-light-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "blocker",
+      "theme": "light",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/blocker-light-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "links",
+      "theme": "light",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/links-light-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "links",
+      "theme": "light",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/links-light-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "links",
+      "theme": "light",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/links-light-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "links",
+      "theme": "light",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/links-light-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "weather",
+      "theme": "light",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-after-chrome/weather-light-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "weather",
+      "theme": "light",
+      "width": 390,
+      "screenshot": "docs/screenshots/unification-after-chrome/weather-light-390.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "weather",
+      "theme": "light",
+      "width": 320,
+      "screenshot": "docs/screenshots/unification-after-chrome/weather-light-320.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "weather",
+      "theme": "light",
+      "width": 720,
+      "screenshot": "docs/screenshots/unification-after-chrome/weather-light-720.png",
+      "overflow": false,
+      "panelOverflow": false
+    }
+  ],
+  "errors": []
+}

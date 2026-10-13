@@ -89,7 +89,7 @@ export function init() {
   } }, icon('maximize'), el('span', {}, 'Immersive'));
   root = el('section', { class: 'ambient-interface', 'aria-label': 'Ambient controls', hidden: true }, home, scene, audio, immersiveButton);
   document.body.append(root);
-  for (const event of ['pointermove', 'pointerdown', 'keydown', 'focusin', 'visibilitychange']) document.addEventListener(event, wake, { signal: abort.signal, passive: true });
+  for (const event of ['pointermove', 'pointerdown', 'keydown', 'focusin', 'focusout', 'toggle', 'visibilitychange']) document.addEventListener(event, wake, { signal: abort.signal, passive: true, capture: true });
   document.addEventListener('keydown', event => {
     if (visible && event.key === 'Escape' && immersive && !event.defaultPrevented && !document.querySelector('dialog[open],#home-menu[open]')) setImmersive(false);
   }, { signal: abort.signal });

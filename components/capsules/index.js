@@ -29,11 +29,11 @@ export async function open() {
     await captureCapsule(name.value,next.value,tabs.checked,[...selected]); await open(); emit('toast','Focus capsule saved.');
   });
   const capture=el('details',{class:'capture-form',open:work.capsules.length?undefined:''},el('summary',{},'Save current work'),section('Capture this work',field('Capsule name',name),field('Resume note',next),el('label',{class:'toggle-row'},el('span',{},'Include current-window tabs (optional browser access)'),tabs),options,save));
-  const search=el('input',{type:'search','aria-label':'Search capsules',placeholder:'Find a saved work context…'}),list=el('div',{class:'capsule-grid'}),cards=[];
-  search.oninput=()=>{const term=search.value.trim().toLowerCase();for(const {c,row} of cards)row.hidden=!`${c.name} ${c.resumeNote}`.toLowerCase().includes(term);};
+  const search=el('input',{type:'search','aria-label':'Search capsules',placeholder:'Find a saved work context…'}),list=el('div',{class:'capsule-grid'}),cards=[],searchStatus=message('');
+  search.oninput=()=>{const term=search.value.trim().toLowerCase();let count=0;for(const {c,row} of cards){row.hidden=!`${c.name} ${c.resumeNote}`.toLowerCase().includes(term);if(!row.hidden)count++;}searchStatus.textContent=term?(count?`${count} matching capsules`:'No matching capsules. Try another search.') : '';};
   const captureButton=action('Save current work',()=>{capture.open=!capture.open;if(capture.open)name.focus();});captureButton.classList.add('capsule-capture-header');captureButton.setAttribute('aria-expanded',String(capture.open));capture.addEventListener('toggle',()=>captureButton.setAttribute('aria-expanded',String(capture.open)));
   root.prepend(el('header',{class:'workspace-context-header'},el('h3',{},'Your saved work'),captureButton));
-  root.append(el('div',{class:'panel-toolbar'},search),capture,el('h3',{},'Saved capsules'),list);
+  root.append(el('div',{class:'panel-toolbar'},search),searchStatus,capture,el('h3',{},'Saved capsules'),list);
   if(!work.capsules.length)list.append(message('Your saved work will appear here. Name your current context to create the first capsule.'));
   for(const c of work.capsules){
     const row=section(c.name,message(`${new Date(c.at).toLocaleDateString()} · ${c.tabs.length} tabs · ${c.notes.length} notes`),el('p',{class:'capsule-next'},c.resumeNote.slice(0,140) || 'No resume note saved.'));

@@ -50,12 +50,14 @@ export async function render(override) {
   root.dataset.font = s.font; root.dataset.contrast = s.contrast; root.dataset.motion = s.reducedMotion || motion.matches ? 'reduce' : 'full';
   root.style.setProperty('--accent', s.accent);
   const rgb = s.accent.match(/\w\w/g).map(x => { const c = parseInt(x, 16) / 255; return c <= .04045 ? c / 12.92 : ((c + .055) / 1.055) ** 2.4; });
-  root.style.setProperty('--accent-ink', rgb[0] * .2126 + rgb[1] * .7152 + rgb[2] * .0722 > .179 ? '#101815' : '#ffffff');
+  root.style.setProperty('--accent-ink', rgb[0] * .2126 + rgb[1] * .7152 + rgb[2] * .0722 > .179 ? 'var(--color-black)' : 'var(--color-white)');
+  root.style.setProperty('--accent-shade', rgb[0] * .2126 + rgb[1] * .7152 + rgb[2] * .0722 > .179 ? 'var(--color-white)' : 'var(--color-black)');
   root.style.setProperty('--background-blur', `${s.background.blur}px`); shade(s);
   const a = s.appearance;
   for (const [key,value] of Object.entries({ 'clock-size':a.clockSize + 'px','clock-weight':a.clockWeight,'panel-alpha':a.panelOpacity / 100,'user-shade':a.overlay / 100,'motion-speed':a.motionSpeed + 's' })) root.style.setProperty('--' + key,value);
   root.dataset.brand = String(a.showBrand); root.dataset.date = String(a.showDate); root.dataset.caption = String(a.showCaption);
   root.dataset.live = s.background.kind === 'animated' ? s.background.id : 'off'; live?.sync(reduceMotion());
+  document.dispatchEvent(new Event('oneflow:theme'));
   const key = JSON.stringify(s.background) + dayKey() + navigator.onLine;
   if (key === lastBackground) return;
   lastBackground = key;
@@ -89,7 +91,7 @@ export async function render(override) {
   if (objectURL) URL.revokeObjectURL(objectURL); objectURL = ownedURL;
   shade(s); root.dataset.background = artwork?.id || b.kind; hero.style.backgroundColor = b.color;
   if (source) loadImage(hero, source, preview, fallback, version);
-  else { hero.replaceChildren(); hero.classList.remove('bg-loading','background-fallback'); hero.dataset.load = 'ready'; hero.style.backgroundImage = b.kind === 'gradient' ? `linear-gradient(145deg, ${b.color}, #172f31 65%, #766553)` : 'none'; }
+  else { hero.replaceChildren(); hero.classList.remove('bg-loading','background-fallback'); hero.dataset.load = 'ready'; hero.style.backgroundImage = b.kind === 'gradient' ? `linear-gradient(145deg, ${b.color}, var(--gradient-middle) 65%, var(--gradient-end))` : 'none'; }
   document.querySelector('#landscape-name').textContent = name;
   if (b.kind === 'animated') document.querySelector('#landscape-name').textContent = { aurora:'Aurora glow',dusk:'Rose dusk',ocean:'Ocean drift',ember:'Warm embers' }[b.id] || 'Animated atmosphere';
 }

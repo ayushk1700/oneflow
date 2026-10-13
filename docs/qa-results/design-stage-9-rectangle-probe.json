@@ -1,0 +1,3472 @@
+{
+  "checks": [],
+  "errors": [],
+  "requests": [],
+  "contrast": [
+    {
+      "scene": "alpine",
+      "width": 1440,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 3.877424359947137,
+      "pass": true
+    },
+    {
+      "scene": "alpine",
+      "width": 1440,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 4.1832749905129765,
+      "pass": false
+    },
+    {
+      "scene": "alpine",
+      "width": 1440,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 3.572975609824041,
+      "pass": false
+    },
+    {
+      "scene": "alpine",
+      "width": 1440,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 2.243116704044729,
+      "pass": false
+    },
+    {
+      "scene": "alpine",
+      "width": 1440,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 8.621068309479002,
+      "pass": true
+    },
+    {
+      "scene": "alpine",
+      "width": 1440,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 3.546690447984225,
+      "pass": false
+    },
+    {
+      "scene": "alpine",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 12.228514921703379,
+      "pass": true
+    },
+    {
+      "scene": "alpine",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 12.228514921703379,
+      "pass": true
+    },
+    {
+      "scene": "cozy",
+      "width": 1440,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 3.6194989561461313,
+      "pass": true
+    },
+    {
+      "scene": "cozy",
+      "width": 1440,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 3.7838248678118056,
+      "pass": false
+    },
+    {
+      "scene": "cozy",
+      "width": 1440,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 3.345968828281236,
+      "pass": false
+    },
+    {
+      "scene": "cozy",
+      "width": 1440,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 2.1083197333333943,
+      "pass": false
+    },
+    {
+      "scene": "cozy",
+      "width": 1440,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 6.659214169936078,
+      "pass": true
+    },
+    {
+      "scene": "cozy",
+      "width": 1440,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 3.109807193344834,
+      "pass": false
+    },
+    {
+      "scene": "cozy",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 9.593625068424616,
+      "pass": true
+    },
+    {
+      "scene": "cozy",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 9.593625068424616,
+      "pass": true
+    },
+    {
+      "scene": "lofi",
+      "width": 1440,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 4.07512761372875,
+      "pass": true
+    },
+    {
+      "scene": "lofi",
+      "width": 1440,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 4.438494373487155,
+      "pass": false
+    },
+    {
+      "scene": "lofi",
+      "width": 1440,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 3.7776401630146568,
+      "pass": false
+    },
+    {
+      "scene": "lofi",
+      "width": 1440,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 2.253941548130334,
+      "pass": false
+    },
+    {
+      "scene": "lofi",
+      "width": 1440,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 7.558436271323536,
+      "pass": true
+    },
+    {
+      "scene": "lofi",
+      "width": 1440,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 3.813020348339588,
+      "pass": false
+    },
+    {
+      "scene": "lofi",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 10.274718586513398,
+      "pass": true
+    },
+    {
+      "scene": "lofi",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 10.274718586513398,
+      "pass": true
+    },
+    {
+      "scene": "minimal",
+      "width": 1440,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 3.567092326860528,
+      "pass": true
+    },
+    {
+      "scene": "minimal",
+      "width": 1440,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 3.834798880095346,
+      "pass": false
+    },
+    {
+      "scene": "minimal",
+      "width": 1440,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 3.2937220729789125,
+      "pass": false
+    },
+    {
+      "scene": "minimal",
+      "width": 1440,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 2.070976422958817,
+      "pass": false
+    },
+    {
+      "scene": "minimal",
+      "width": 1440,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 6.650962003288075,
+      "pass": true
+    },
+    {
+      "scene": "minimal",
+      "width": 1440,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 3.204997976930648,
+      "pass": false
+    },
+    {
+      "scene": "minimal",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 8.49106466603532,
+      "pass": true
+    },
+    {
+      "scene": "minimal",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 8.49106466603532,
+      "pass": true
+    },
+    {
+      "scene": "dark",
+      "width": 1440,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 7.442473431018054,
+      "pass": true
+    },
+    {
+      "scene": "dark",
+      "width": 1440,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 8.45236522905566,
+      "pass": true
+    },
+    {
+      "scene": "dark",
+      "width": 1440,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 6.819862345613704,
+      "pass": true
+    },
+    {
+      "scene": "dark",
+      "width": 1440,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 3.1769719803839704,
+      "pass": false
+    },
+    {
+      "scene": "dark",
+      "width": 1440,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 9.56663835889278,
+      "pass": true
+    },
+    {
+      "scene": "dark",
+      "width": 1440,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 9.178415153545554,
+      "pass": true
+    },
+    {
+      "scene": "dark",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 13.320333411296929,
+      "pass": true
+    },
+    {
+      "scene": "dark",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 13.320333411296929,
+      "pass": true
+    },
+    {
+      "scene": "summit",
+      "width": 1440,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 3.958369012654364,
+      "pass": true
+    },
+    {
+      "scene": "summit",
+      "width": 1440,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 4.148761552368479,
+      "pass": false
+    },
+    {
+      "scene": "summit",
+      "width": 1440,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 3.6524668546871237,
+      "pass": false
+    },
+    {
+      "scene": "summit",
+      "width": 1440,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 2.233178679318774,
+      "pass": false
+    },
+    {
+      "scene": "summit",
+      "width": 1440,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 6.912508008750641,
+      "pass": true
+    },
+    {
+      "scene": "summit",
+      "width": 1440,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 3.504122829968987,
+      "pass": false
+    },
+    {
+      "scene": "summit",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 7.223651258437056,
+      "pass": true
+    },
+    {
+      "scene": "summit",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 7.223651258437056,
+      "pass": true
+    },
+    {
+      "scene": "still-efe29597ad8dfe46",
+      "width": 1440,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 2.921170499850801,
+      "pass": false
+    },
+    {
+      "scene": "still-efe29597ad8dfe46",
+      "width": 1440,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 3.666099648368265,
+      "pass": false
+    },
+    {
+      "scene": "still-efe29597ad8dfe46",
+      "width": 1440,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 2.781156226684264,
+      "pass": false
+    },
+    {
+      "scene": "still-efe29597ad8dfe46",
+      "width": 1440,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 2.006614071302752,
+      "pass": false
+    },
+    {
+      "scene": "still-efe29597ad8dfe46",
+      "width": 1440,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 9.249155764344321,
+      "pass": true
+    },
+    {
+      "scene": "still-efe29597ad8dfe46",
+      "width": 1440,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 1.9351852088890953,
+      "pass": false
+    },
+    {
+      "scene": "still-efe29597ad8dfe46",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 2.768445142717764,
+      "pass": false
+    },
+    {
+      "scene": "still-efe29597ad8dfe46",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 2.3232653322069723,
+      "pass": false
+    },
+    {
+      "scene": "still-f08fc60ebdbf23bf",
+      "width": 1440,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 3.806642083983807,
+      "pass": true
+    },
+    {
+      "scene": "still-f08fc60ebdbf23bf",
+      "width": 1440,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 7.949952159446475,
+      "pass": true
+    },
+    {
+      "scene": "still-f08fc60ebdbf23bf",
+      "width": 1440,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 7.994516082651917,
+      "pass": true
+    },
+    {
+      "scene": "still-f08fc60ebdbf23bf",
+      "width": 1440,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 2.273705832398317,
+      "pass": false
+    },
+    {
+      "scene": "still-f08fc60ebdbf23bf",
+      "width": 1440,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 9.844730931327776,
+      "pass": true
+    },
+    {
+      "scene": "still-f08fc60ebdbf23bf",
+      "width": 1440,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 6.296462874894891,
+      "pass": true
+    },
+    {
+      "scene": "still-f08fc60ebdbf23bf",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 4.323187422064415,
+      "pass": false
+    },
+    {
+      "scene": "still-f08fc60ebdbf23bf",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 5.184959281797698,
+      "pass": true
+    },
+    {
+      "scene": "still-585cd0c8fcdc6730",
+      "width": 1440,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 2.7197318442682423,
+      "pass": false
+    },
+    {
+      "scene": "still-585cd0c8fcdc6730",
+      "width": 1440,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 11.857704865149122,
+      "pass": true
+    },
+    {
+      "scene": "still-585cd0c8fcdc6730",
+      "width": 1440,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 2.766489482513971,
+      "pass": false
+    },
+    {
+      "scene": "still-585cd0c8fcdc6730",
+      "width": 1440,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 1.9620884992040188,
+      "pass": false
+    },
+    {
+      "scene": "still-585cd0c8fcdc6730",
+      "width": 1440,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 7.515397466268582,
+      "pass": true
+    },
+    {
+      "scene": "still-585cd0c8fcdc6730",
+      "width": 1440,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 1.8267847192768585,
+      "pass": false
+    },
+    {
+      "scene": "still-585cd0c8fcdc6730",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 5.829201177224255,
+      "pass": true
+    },
+    {
+      "scene": "still-585cd0c8fcdc6730",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 10.113023783202017,
+      "pass": true
+    },
+    {
+      "scene": "still-54b7319536a12df4",
+      "width": 1440,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 2.7246162131049387,
+      "pass": false
+    },
+    {
+      "scene": "still-54b7319536a12df4",
+      "width": 1440,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 3.006522621071721,
+      "pass": false
+    },
+    {
+      "scene": "still-54b7319536a12df4",
+      "width": 1440,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 4.4224112040393875,
+      "pass": false
+    },
+    {
+      "scene": "still-54b7319536a12df4",
+      "width": 1440,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 1.7639579484669972,
+      "pass": false
+    },
+    {
+      "scene": "still-54b7319536a12df4",
+      "width": 1440,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 8.09340486997596,
+      "pass": true
+    },
+    {
+      "scene": "still-54b7319536a12df4",
+      "width": 1440,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 7.819635455341507,
+      "pass": true
+    },
+    {
+      "scene": "still-54b7319536a12df4",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 12.411111289295102,
+      "pass": true
+    },
+    {
+      "scene": "still-54b7319536a12df4",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 12.503627985483735,
+      "pass": true
+    },
+    {
+      "scene": "still-085fc81103c532c6",
+      "width": 1440,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 7.219941272330067,
+      "pass": true
+    },
+    {
+      "scene": "still-085fc81103c532c6",
+      "width": 1440,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 9.425753342653593,
+      "pass": true
+    },
+    {
+      "scene": "still-085fc81103c532c6",
+      "width": 1440,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 11.862358761969743,
+      "pass": true
+    },
+    {
+      "scene": "still-085fc81103c532c6",
+      "width": 1440,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 6.184716419588199,
+      "pass": true
+    },
+    {
+      "scene": "still-085fc81103c532c6",
+      "width": 1440,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 10.422317862432658,
+      "pass": true
+    },
+    {
+      "scene": "still-085fc81103c532c6",
+      "width": 1440,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 3.584097123976322,
+      "pass": false
+    },
+    {
+      "scene": "still-085fc81103c532c6",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 6.706019347105903,
+      "pass": true
+    },
+    {
+      "scene": "still-085fc81103c532c6",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 6.606267748140115,
+      "pass": true
+    },
+    {
+      "scene": "still-ec30a7337910c6ec",
+      "width": 1440,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 3.09864257302389,
+      "pass": true
+    },
+    {
+      "scene": "still-ec30a7337910c6ec",
+      "width": 1440,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 5.253966414557116,
+      "pass": true
+    },
+    {
+      "scene": "still-ec30a7337910c6ec",
+      "width": 1440,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 3.2503686121319872,
+      "pass": false
+    },
+    {
+      "scene": "still-ec30a7337910c6ec",
+      "width": 1440,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 2.051857008127436,
+      "pass": false
+    },
+    {
+      "scene": "still-ec30a7337910c6ec",
+      "width": 1440,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 9.405354094535229,
+      "pass": true
+    },
+    {
+      "scene": "still-ec30a7337910c6ec",
+      "width": 1440,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 4.412974739108446,
+      "pass": false
+    },
+    {
+      "scene": "still-ec30a7337910c6ec",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 7.157813441325602,
+      "pass": true
+    },
+    {
+      "scene": "still-ec30a7337910c6ec",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 6.969728153360984,
+      "pass": true
+    },
+    {
+      "scene": "still-0e4855219f32f3cb",
+      "width": 1440,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 2.430475550906783,
+      "pass": false
+    },
+    {
+      "scene": "still-0e4855219f32f3cb",
+      "width": 1440,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 2.5176558146335837,
+      "pass": false
+    },
+    {
+      "scene": "still-0e4855219f32f3cb",
+      "width": 1440,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 2.543247918574237,
+      "pass": false
+    },
+    {
+      "scene": "still-0e4855219f32f3cb",
+      "width": 1440,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 1.8564144823999562,
+      "pass": false
+    },
+    {
+      "scene": "still-0e4855219f32f3cb",
+      "width": 1440,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 7.421825950767142,
+      "pass": true
+    },
+    {
+      "scene": "still-0e4855219f32f3cb",
+      "width": 1440,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 4.714244729785209,
+      "pass": true
+    },
+    {
+      "scene": "still-0e4855219f32f3cb",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 4.317299555507039,
+      "pass": false
+    },
+    {
+      "scene": "still-0e4855219f32f3cb",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 3.334004807672479,
+      "pass": false
+    },
+    {
+      "scene": "still-a6fbba24c95b0620",
+      "width": 1440,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 3.2038931792410446,
+      "pass": true
+    },
+    {
+      "scene": "still-a6fbba24c95b0620",
+      "width": 1440,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 6.929028042998298,
+      "pass": true
+    },
+    {
+      "scene": "still-a6fbba24c95b0620",
+      "width": 1440,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 3.536345157588149,
+      "pass": false
+    },
+    {
+      "scene": "still-a6fbba24c95b0620",
+      "width": 1440,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 2.035435188173186,
+      "pass": false
+    },
+    {
+      "scene": "still-a6fbba24c95b0620",
+      "width": 1440,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 9.528738544326938,
+      "pass": true
+    },
+    {
+      "scene": "still-a6fbba24c95b0620",
+      "width": 1440,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 7.539723017213817,
+      "pass": true
+    },
+    {
+      "scene": "still-a6fbba24c95b0620",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 7.862184117577897,
+      "pass": true
+    },
+    {
+      "scene": "still-a6fbba24c95b0620",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 7.843245263896074,
+      "pass": true
+    },
+    {
+      "scene": "still-991a7d9c9316d34e",
+      "width": 1440,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 2.455610205078817,
+      "pass": false
+    },
+    {
+      "scene": "still-991a7d9c9316d34e",
+      "width": 1440,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 2.2704545375942744,
+      "pass": false
+    },
+    {
+      "scene": "still-991a7d9c9316d34e",
+      "width": 1440,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 2.48049095436539,
+      "pass": false
+    },
+    {
+      "scene": "still-991a7d9c9316d34e",
+      "width": 1440,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 1.7795354825569627,
+      "pass": false
+    },
+    {
+      "scene": "still-991a7d9c9316d34e",
+      "width": 1440,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 8.44224438778336,
+      "pass": true
+    },
+    {
+      "scene": "still-991a7d9c9316d34e",
+      "width": 1440,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 1.6104664649651077,
+      "pass": false
+    },
+    {
+      "scene": "still-991a7d9c9316d34e",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 9.98963730107283,
+      "pass": true
+    },
+    {
+      "scene": "still-991a7d9c9316d34e",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 4.328360630337542,
+      "pass": false
+    },
+    {
+      "scene": "still-477c20f3f04f5cfd",
+      "width": 1440,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 2.41240196686899,
+      "pass": false
+    },
+    {
+      "scene": "still-477c20f3f04f5cfd",
+      "width": 1440,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 2.430020903640573,
+      "pass": false
+    },
+    {
+      "scene": "still-477c20f3f04f5cfd",
+      "width": 1440,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 10.024782317517465,
+      "pass": true
+    },
+    {
+      "scene": "still-477c20f3f04f5cfd",
+      "width": 1440,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 1.8752476747921984,
+      "pass": false
+    },
+    {
+      "scene": "still-477c20f3f04f5cfd",
+      "width": 1440,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 7.437120569594878,
+      "pass": true
+    },
+    {
+      "scene": "still-477c20f3f04f5cfd",
+      "width": 1440,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 12.035339653385371,
+      "pass": true
+    },
+    {
+      "scene": "still-477c20f3f04f5cfd",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 13.182936167852349,
+      "pass": true
+    },
+    {
+      "scene": "still-477c20f3f04f5cfd",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 12.256952623981253,
+      "pass": true
+    },
+    {
+      "scene": "still-30bb8a4e5ee2183a",
+      "width": 1440,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 2.5774119361178958,
+      "pass": false
+    },
+    {
+      "scene": "still-30bb8a4e5ee2183a",
+      "width": 1440,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 2.8883258299929895,
+      "pass": false
+    },
+    {
+      "scene": "still-30bb8a4e5ee2183a",
+      "width": 1440,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 2.6895747782167434,
+      "pass": false
+    },
+    {
+      "scene": "still-30bb8a4e5ee2183a",
+      "width": 1440,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 2.1515584367604728,
+      "pass": false
+    },
+    {
+      "scene": "still-30bb8a4e5ee2183a",
+      "width": 1440,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 6.826167945440886,
+      "pass": true
+    },
+    {
+      "scene": "still-30bb8a4e5ee2183a",
+      "width": 1440,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 5.6450526589635714,
+      "pass": true
+    },
+    {
+      "scene": "still-30bb8a4e5ee2183a",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 2.5680132545579704,
+      "pass": false
+    },
+    {
+      "scene": "still-30bb8a4e5ee2183a",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 2.5733906782831624,
+      "pass": false
+    },
+    {
+      "scene": "still-9df1f9015a5f6659",
+      "width": 1440,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 2.3364827774869146,
+      "pass": false
+    },
+    {
+      "scene": "still-9df1f9015a5f6659",
+      "width": 1440,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 2.3851707028257954,
+      "pass": false
+    },
+    {
+      "scene": "still-9df1f9015a5f6659",
+      "width": 1440,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 3.727501573548825,
+      "pass": false
+    },
+    {
+      "scene": "still-9df1f9015a5f6659",
+      "width": 1440,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 2.121763240364832,
+      "pass": false
+    },
+    {
+      "scene": "still-9df1f9015a5f6659",
+      "width": 1440,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 7.759659482746214,
+      "pass": true
+    },
+    {
+      "scene": "still-9df1f9015a5f6659",
+      "width": 1440,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 5.198591765003284,
+      "pass": true
+    },
+    {
+      "scene": "still-9df1f9015a5f6659",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 3.321874337505109,
+      "pass": false
+    },
+    {
+      "scene": "still-9df1f9015a5f6659",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 3.5646568208030893,
+      "pass": false
+    },
+    {
+      "scene": "still-5fd0bc0d1743fc06",
+      "width": 1440,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 2.4074563539678318,
+      "pass": false
+    },
+    {
+      "scene": "still-5fd0bc0d1743fc06",
+      "width": 1440,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 2.413791962956166,
+      "pass": false
+    },
+    {
+      "scene": "still-5fd0bc0d1743fc06",
+      "width": 1440,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 2.4520483629310776,
+      "pass": false
+    },
+    {
+      "scene": "still-5fd0bc0d1743fc06",
+      "width": 1440,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 1.748497512526003,
+      "pass": false
+    },
+    {
+      "scene": "still-5fd0bc0d1743fc06",
+      "width": 1440,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 8.251148372331977,
+      "pass": true
+    },
+    {
+      "scene": "still-5fd0bc0d1743fc06",
+      "width": 1440,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 1.8380843542954972,
+      "pass": false
+    },
+    {
+      "scene": "still-5fd0bc0d1743fc06",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 9.68549234101083,
+      "pass": true
+    },
+    {
+      "scene": "still-5fd0bc0d1743fc06",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 6.144429662121413,
+      "pass": true
+    },
+    {
+      "scene": "still-4dd1c2193ceaa5fb",
+      "width": 1440,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 2.2928649591170536,
+      "pass": false
+    },
+    {
+      "scene": "still-4dd1c2193ceaa5fb",
+      "width": 1440,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 2.4145532805795127,
+      "pass": false
+    },
+    {
+      "scene": "still-4dd1c2193ceaa5fb",
+      "width": 1440,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 2.5892428321058056,
+      "pass": false
+    },
+    {
+      "scene": "still-4dd1c2193ceaa5fb",
+      "width": 1440,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 2.138640346907283,
+      "pass": false
+    },
+    {
+      "scene": "still-4dd1c2193ceaa5fb",
+      "width": 1440,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 7.6235401961930425,
+      "pass": true
+    },
+    {
+      "scene": "still-4dd1c2193ceaa5fb",
+      "width": 1440,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 10.724211848783025,
+      "pass": true
+    },
+    {
+      "scene": "still-4dd1c2193ceaa5fb",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 4.975871022877688,
+      "pass": true
+    },
+    {
+      "scene": "still-4dd1c2193ceaa5fb",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 7.650228294823771,
+      "pass": true
+    },
+    {
+      "scene": "still-f8ad5325ae74b1f5",
+      "width": 1440,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 2.6488912664707827,
+      "pass": false
+    },
+    {
+      "scene": "still-f8ad5325ae74b1f5",
+      "width": 1440,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 2.6723096978204595,
+      "pass": false
+    },
+    {
+      "scene": "still-f8ad5325ae74b1f5",
+      "width": 1440,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 2.8594377861869353,
+      "pass": false
+    },
+    {
+      "scene": "still-f8ad5325ae74b1f5",
+      "width": 1440,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 2.160648464553256,
+      "pass": false
+    },
+    {
+      "scene": "still-f8ad5325ae74b1f5",
+      "width": 1440,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 8.56262132026516,
+      "pass": true
+    },
+    {
+      "scene": "still-f8ad5325ae74b1f5",
+      "width": 1440,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 2.3818524630793485,
+      "pass": false
+    },
+    {
+      "scene": "still-f8ad5325ae74b1f5",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 3.5910520032488975,
+      "pass": false
+    },
+    {
+      "scene": "still-f8ad5325ae74b1f5",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 4.031004761799949,
+      "pass": false
+    },
+    {
+      "scene": "white-upload",
+      "width": 1440,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 5.472189374295193,
+      "pass": true
+    },
+    {
+      "scene": "white-upload",
+      "width": 1440,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 5.472189374295193,
+      "pass": true
+    },
+    {
+      "scene": "white-upload",
+      "width": 1440,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 5.108189199701989,
+      "pass": true
+    },
+    {
+      "scene": "white-upload",
+      "width": 1440,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 2.8684109479915243,
+      "pass": false
+    },
+    {
+      "scene": "white-upload",
+      "width": 1440,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 8.521579665899068,
+      "pass": true
+    },
+    {
+      "scene": "white-upload",
+      "width": 1440,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 5.472189374295193,
+      "pass": true
+    },
+    {
+      "scene": "white-upload",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 5.472189374295193,
+      "pass": true
+    },
+    {
+      "scene": "white-upload",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 5.472189374295193,
+      "pass": true
+    },
+    {
+      "scene": "white-upload-strong",
+      "width": 1440,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 11.077004763643634,
+      "pass": true
+    },
+    {
+      "scene": "white-upload-strong",
+      "width": 1440,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 11.077004763643634,
+      "pass": true
+    },
+    {
+      "scene": "white-upload-strong",
+      "width": 1440,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 10.340182370969156,
+      "pass": true
+    },
+    {
+      "scene": "white-upload-strong",
+      "width": 1440,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 4.486087755491655,
+      "pass": false
+    },
+    {
+      "scene": "white-upload-strong",
+      "width": 1440,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 12.029052821331687,
+      "pass": true
+    },
+    {
+      "scene": "white-upload-strong",
+      "width": 1440,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 11.077004763643634,
+      "pass": true
+    },
+    {
+      "scene": "white-upload-strong",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 11.077004763643634,
+      "pass": true
+    },
+    {
+      "scene": "white-upload-strong",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 11.077004763643634,
+      "pass": true
+    },
+    {
+      "scene": "#ffffff",
+      "width": 1440,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 17.9278402530276,
+      "pass": true
+    },
+    {
+      "scene": "#ffffff",
+      "width": 1440,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 17.9278402530276,
+      "pass": true
+    },
+    {
+      "scene": "#ffffff",
+      "width": 1440,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 9.739769120526205,
+      "pass": true
+    },
+    {
+      "scene": "#ffffff",
+      "width": 1440,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 3.955809747510498,
+      "pass": false
+    },
+    {
+      "scene": "#ffffff",
+      "width": 1440,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 2.0603326293128936,
+      "pass": false
+    },
+    {
+      "scene": "#ffffff",
+      "width": 1440,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 4.208201194525563,
+      "pass": false
+    },
+    {
+      "scene": "#ffffff",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 4.208201194525563,
+      "pass": false
+    },
+    {
+      "scene": "#ffffff",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 4.208201194525563,
+      "pass": false
+    },
+    {
+      "scene": "#000000",
+      "width": 1440,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 19.541996451832723,
+      "pass": true
+    },
+    {
+      "scene": "#000000",
+      "width": 1440,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 19.541996451832723,
+      "pass": true
+    },
+    {
+      "scene": "#000000",
+      "width": 1440,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 18.242098068604154,
+      "pass": true
+    },
+    {
+      "scene": "#000000",
+      "width": 1440,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 8.13376073325614,
+      "pass": true
+    },
+    {
+      "scene": "#000000",
+      "width": 1440,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 16.342106492528842,
+      "pass": true
+    },
+    {
+      "scene": "#000000",
+      "width": 1440,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 17.506614967831258,
+      "pass": true
+    },
+    {
+      "scene": "#000000",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 17.506614967831258,
+      "pass": true
+    },
+    {
+      "scene": "#000000",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 17.506614967831258,
+      "pass": true
+    },
+    {
+      "scene": "alpine",
+      "width": 320,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 3.5606975294917356,
+      "pass": true
+    },
+    {
+      "scene": "alpine",
+      "width": 320,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 4.108356305452399,
+      "pass": false
+    },
+    {
+      "scene": "alpine",
+      "width": 320,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 3.3908771804395252,
+      "pass": false
+    },
+    {
+      "scene": "alpine",
+      "width": 320,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 1.9277969620651694,
+      "pass": false
+    },
+    {
+      "scene": "alpine",
+      "width": 320,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 7.681680171698415,
+      "pass": true
+    },
+    {
+      "scene": "alpine",
+      "width": 320,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 3.5341410577520502,
+      "pass": false
+    },
+    {
+      "scene": "alpine",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 11.107093196896889,
+      "pass": true
+    },
+    {
+      "scene": "alpine",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 12.075945962521923,
+      "pass": true
+    },
+    {
+      "scene": "cozy",
+      "width": 320,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 3.2659747214297217,
+      "pass": true
+    },
+    {
+      "scene": "cozy",
+      "width": 320,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 3.688254791492215,
+      "pass": false
+    },
+    {
+      "scene": "cozy",
+      "width": 320,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 3.1523550932890596,
+      "pass": false
+    },
+    {
+      "scene": "cozy",
+      "width": 320,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 1.8424783115271213,
+      "pass": false
+    },
+    {
+      "scene": "cozy",
+      "width": 320,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 5.971379241939255,
+      "pass": true
+    },
+    {
+      "scene": "cozy",
+      "width": 320,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 3.093322032764193,
+      "pass": false
+    },
+    {
+      "scene": "cozy",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 7.507764955947059,
+      "pass": true
+    },
+    {
+      "scene": "cozy",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 7.726321442616358,
+      "pass": true
+    },
+    {
+      "scene": "lofi",
+      "width": 320,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 3.822842360981138,
+      "pass": true
+    },
+    {
+      "scene": "lofi",
+      "width": 320,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 4.365566882648179,
+      "pass": false
+    },
+    {
+      "scene": "lofi",
+      "width": 320,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 3.629168297423754,
+      "pass": false
+    },
+    {
+      "scene": "lofi",
+      "width": 320,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 1.9980545502896765,
+      "pass": false
+    },
+    {
+      "scene": "lofi",
+      "width": 320,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 6.328182482905121,
+      "pass": true
+    },
+    {
+      "scene": "lofi",
+      "width": 320,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 3.787413276383674,
+      "pass": false
+    },
+    {
+      "scene": "lofi",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 7.6868608844895725,
+      "pass": true
+    },
+    {
+      "scene": "lofi",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 8.968974337172087,
+      "pass": true
+    },
+    {
+      "scene": "minimal",
+      "width": 320,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 3.2246214985964103,
+      "pass": true
+    },
+    {
+      "scene": "minimal",
+      "width": 320,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 3.7509135251571353,
+      "pass": false
+    },
+    {
+      "scene": "minimal",
+      "width": 320,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 3.099325465298162,
+      "pass": false
+    },
+    {
+      "scene": "minimal",
+      "width": 320,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 1.8083262930975632,
+      "pass": false
+    },
+    {
+      "scene": "minimal",
+      "width": 320,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 5.855536282270621,
+      "pass": true
+    },
+    {
+      "scene": "minimal",
+      "width": 320,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 3.1686454680326612,
+      "pass": false
+    },
+    {
+      "scene": "minimal",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 6.497933829436581,
+      "pass": true
+    },
+    {
+      "scene": "minimal",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 7.784569465931586,
+      "pass": true
+    },
+    {
+      "scene": "dark",
+      "width": 320,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 7.713351292602324,
+      "pass": true
+    },
+    {
+      "scene": "dark",
+      "width": 320,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 8.999413009651667,
+      "pass": true
+    },
+    {
+      "scene": "dark",
+      "width": 320,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 7.059959375558769,
+      "pass": true
+    },
+    {
+      "scene": "dark",
+      "width": 320,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 3.065400424401506,
+      "pass": false
+    },
+    {
+      "scene": "dark",
+      "width": 320,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 8.694708928156645,
+      "pass": true
+    },
+    {
+      "scene": "dark",
+      "width": 320,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 8.89608394939277,
+      "pass": true
+    },
+    {
+      "scene": "dark",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 11.94251102675187,
+      "pass": true
+    },
+    {
+      "scene": "dark",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 12.782191826334744,
+      "pass": true
+    },
+    {
+      "scene": "summit",
+      "width": 320,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 3.590738862630777,
+      "pass": true
+    },
+    {
+      "scene": "summit",
+      "width": 320,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 4.015291574961039,
+      "pass": false
+    },
+    {
+      "scene": "summit",
+      "width": 320,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 3.4301786557363645,
+      "pass": false
+    },
+    {
+      "scene": "summit",
+      "width": 320,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 1.9751872822361276,
+      "pass": false
+    },
+    {
+      "scene": "summit",
+      "width": 320,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 6.272424037371389,
+      "pass": true
+    },
+    {
+      "scene": "summit",
+      "width": 320,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 3.3989262581961217,
+      "pass": false
+    },
+    {
+      "scene": "summit",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 5.558213191689464,
+      "pass": true
+    },
+    {
+      "scene": "summit",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 4.953457367712753,
+      "pass": true
+    },
+    {
+      "scene": "still-efe29597ad8dfe46",
+      "width": 320,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 2.0985119344333567,
+      "pass": false
+    },
+    {
+      "scene": "still-efe29597ad8dfe46",
+      "width": 320,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 2.311099954230195,
+      "pass": false
+    },
+    {
+      "scene": "still-efe29597ad8dfe46",
+      "width": 320,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 2.716626355665907,
+      "pass": false
+    },
+    {
+      "scene": "still-efe29597ad8dfe46",
+      "width": 320,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 1.8793046358856247,
+      "pass": false
+    },
+    {
+      "scene": "still-efe29597ad8dfe46",
+      "width": 320,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 7.192264037429938,
+      "pass": true
+    },
+    {
+      "scene": "still-efe29597ad8dfe46",
+      "width": 320,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 1.831166649580241,
+      "pass": false
+    },
+    {
+      "scene": "still-efe29597ad8dfe46",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 1.840950659602794,
+      "pass": false
+    },
+    {
+      "scene": "still-efe29597ad8dfe46",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 2.6234218518813743,
+      "pass": false
+    },
+    {
+      "scene": "still-f08fc60ebdbf23bf",
+      "width": 320,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 6.16683677289711,
+      "pass": true
+    },
+    {
+      "scene": "still-f08fc60ebdbf23bf",
+      "width": 320,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 6.550021119118812,
+      "pass": true
+    },
+    {
+      "scene": "still-f08fc60ebdbf23bf",
+      "width": 320,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 5.364480171803192,
+      "pass": true
+    },
+    {
+      "scene": "still-f08fc60ebdbf23bf",
+      "width": 320,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 2.2518765430996486,
+      "pass": false
+    },
+    {
+      "scene": "still-f08fc60ebdbf23bf",
+      "width": 320,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 10.956525718337502,
+      "pass": true
+    },
+    {
+      "scene": "still-f08fc60ebdbf23bf",
+      "width": 320,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 10.702193104625223,
+      "pass": true
+    },
+    {
+      "scene": "still-f08fc60ebdbf23bf",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 3.918668002489686,
+      "pass": false
+    },
+    {
+      "scene": "still-f08fc60ebdbf23bf",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 10.08998157059289,
+      "pass": true
+    },
+    {
+      "scene": "still-585cd0c8fcdc6730",
+      "width": 320,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 4.194831341675154,
+      "pass": true
+    },
+    {
+      "scene": "still-585cd0c8fcdc6730",
+      "width": 320,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 5.114859780145434,
+      "pass": true
+    },
+    {
+      "scene": "still-585cd0c8fcdc6730",
+      "width": 320,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 5.200152742386137,
+      "pass": true
+    },
+    {
+      "scene": "still-585cd0c8fcdc6730",
+      "width": 320,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 1.6750599816895393,
+      "pass": false
+    },
+    {
+      "scene": "still-585cd0c8fcdc6730",
+      "width": 320,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 7.808731780407679,
+      "pass": true
+    },
+    {
+      "scene": "still-585cd0c8fcdc6730",
+      "width": 320,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 1.9664499569994438,
+      "pass": false
+    },
+    {
+      "scene": "still-585cd0c8fcdc6730",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 8.308981868964342,
+      "pass": true
+    },
+    {
+      "scene": "still-585cd0c8fcdc6730",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 13.918152038707207,
+      "pass": true
+    },
+    {
+      "scene": "still-54b7319536a12df4",
+      "width": 320,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 2.2136156996551266,
+      "pass": false
+    },
+    {
+      "scene": "still-54b7319536a12df4",
+      "width": 320,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 8.50535899345766,
+      "pass": true
+    },
+    {
+      "scene": "still-54b7319536a12df4",
+      "width": 320,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 2.4652665710100043,
+      "pass": false
+    },
+    {
+      "scene": "still-54b7319536a12df4",
+      "width": 320,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 1.6739039858942875,
+      "pass": false
+    },
+    {
+      "scene": "still-54b7319536a12df4",
+      "width": 320,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 6.886236217637121,
+      "pass": true
+    },
+    {
+      "scene": "still-54b7319536a12df4",
+      "width": 320,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 8.036877063121633,
+      "pass": true
+    },
+    {
+      "scene": "still-54b7319536a12df4",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 13.70371064966582,
+      "pass": true
+    },
+    {
+      "scene": "still-54b7319536a12df4",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 14.433424714040497,
+      "pass": true
+    },
+    {
+      "scene": "still-085fc81103c532c6",
+      "width": 320,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 7.46266670981108,
+      "pass": true
+    },
+    {
+      "scene": "still-085fc81103c532c6",
+      "width": 320,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 8.150835880746046,
+      "pass": true
+    },
+    {
+      "scene": "still-085fc81103c532c6",
+      "width": 320,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 7.389055086235173,
+      "pass": true
+    },
+    {
+      "scene": "still-085fc81103c532c6",
+      "width": 320,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 3.1594583004230667,
+      "pass": false
+    },
+    {
+      "scene": "still-085fc81103c532c6",
+      "width": 320,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 15.225815844511805,
+      "pass": true
+    },
+    {
+      "scene": "still-085fc81103c532c6",
+      "width": 320,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 7.361164075836913,
+      "pass": true
+    },
+    {
+      "scene": "still-085fc81103c532c6",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 5.567632286703165,
+      "pass": true
+    },
+    {
+      "scene": "still-085fc81103c532c6",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 7.424502971732635,
+      "pass": true
+    },
+    {
+      "scene": "still-ec30a7337910c6ec",
+      "width": 320,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 4.589732672828777,
+      "pass": true
+    },
+    {
+      "scene": "still-ec30a7337910c6ec",
+      "width": 320,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 5.315524094350496,
+      "pass": true
+    },
+    {
+      "scene": "still-ec30a7337910c6ec",
+      "width": 320,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 4.38479688871269,
+      "pass": false
+    },
+    {
+      "scene": "still-ec30a7337910c6ec",
+      "width": 320,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 2.216088445381097,
+      "pass": false
+    },
+    {
+      "scene": "still-ec30a7337910c6ec",
+      "width": 320,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 8.895174795431252,
+      "pass": true
+    },
+    {
+      "scene": "still-ec30a7337910c6ec",
+      "width": 320,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 4.57221005508194,
+      "pass": true
+    },
+    {
+      "scene": "still-ec30a7337910c6ec",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 6.947771735359719,
+      "pass": true
+    },
+    {
+      "scene": "still-ec30a7337910c6ec",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 8.516765921584339,
+      "pass": true
+    },
+    {
+      "scene": "still-0e4855219f32f3cb",
+      "width": 320,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 2.1714912714608303,
+      "pass": false
+    },
+    {
+      "scene": "still-0e4855219f32f3cb",
+      "width": 320,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 4.699175869028987,
+      "pass": true
+    },
+    {
+      "scene": "still-0e4855219f32f3cb",
+      "width": 320,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 2.0969246451079666,
+      "pass": false
+    },
+    {
+      "scene": "still-0e4855219f32f3cb",
+      "width": 320,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 1.5122461395437075,
+      "pass": false
+    },
+    {
+      "scene": "still-0e4855219f32f3cb",
+      "width": 320,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 5.654822443366307,
+      "pass": true
+    },
+    {
+      "scene": "still-0e4855219f32f3cb",
+      "width": 320,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 4.351323066088902,
+      "pass": false
+    },
+    {
+      "scene": "still-0e4855219f32f3cb",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 2.6731858523980594,
+      "pass": false
+    },
+    {
+      "scene": "still-0e4855219f32f3cb",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 3.61361286135181,
+      "pass": false
+    },
+    {
+      "scene": "still-a6fbba24c95b0620",
+      "width": 320,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 2.7303276255466793,
+      "pass": false
+    },
+    {
+      "scene": "still-a6fbba24c95b0620",
+      "width": 320,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 7.298833756728218,
+      "pass": true
+    },
+    {
+      "scene": "still-a6fbba24c95b0620",
+      "width": 320,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 4.257817888675114,
+      "pass": false
+    },
+    {
+      "scene": "still-a6fbba24c95b0620",
+      "width": 320,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 2.177667931812247,
+      "pass": false
+    },
+    {
+      "scene": "still-a6fbba24c95b0620",
+      "width": 320,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 9.217509711235868,
+      "pass": true
+    },
+    {
+      "scene": "still-a6fbba24c95b0620",
+      "width": 320,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 8.002901728265076,
+      "pass": true
+    },
+    {
+      "scene": "still-a6fbba24c95b0620",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 7.53779521883556,
+      "pass": true
+    },
+    {
+      "scene": "still-a6fbba24c95b0620",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 8.572432132318816,
+      "pass": true
+    },
+    {
+      "scene": "still-991a7d9c9316d34e",
+      "width": 320,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 1.8852712129143112,
+      "pass": false
+    },
+    {
+      "scene": "still-991a7d9c9316d34e",
+      "width": 320,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 2.096148074239145,
+      "pass": false
+    },
+    {
+      "scene": "still-991a7d9c9316d34e",
+      "width": 320,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 6.533742186792962,
+      "pass": true
+    },
+    {
+      "scene": "still-991a7d9c9316d34e",
+      "width": 320,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 1.6740238910406682,
+      "pass": false
+    },
+    {
+      "scene": "still-991a7d9c9316d34e",
+      "width": 320,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 8.855276016683653,
+      "pass": true
+    },
+    {
+      "scene": "still-991a7d9c9316d34e",
+      "width": 320,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 5.181651241713586,
+      "pass": true
+    },
+    {
+      "scene": "still-991a7d9c9316d34e",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 3.10574050642874,
+      "pass": false
+    },
+    {
+      "scene": "still-991a7d9c9316d34e",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 9.592816721946452,
+      "pass": true
+    },
+    {
+      "scene": "still-477c20f3f04f5cfd",
+      "width": 320,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 2.038571938152858,
+      "pass": false
+    },
+    {
+      "scene": "still-477c20f3f04f5cfd",
+      "width": 320,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 2.1789950012930466,
+      "pass": false
+    },
+    {
+      "scene": "still-477c20f3f04f5cfd",
+      "width": 320,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 3.171664251148446,
+      "pass": false
+    },
+    {
+      "scene": "still-477c20f3f04f5cfd",
+      "width": 320,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 1.4090371091065164,
+      "pass": false
+    },
+    {
+      "scene": "still-477c20f3f04f5cfd",
+      "width": 320,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 5.90567204363473,
+      "pass": true
+    },
+    {
+      "scene": "still-477c20f3f04f5cfd",
+      "width": 320,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 5.153295579151904,
+      "pass": true
+    },
+    {
+      "scene": "still-477c20f3f04f5cfd",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 13.328885403198955,
+      "pass": true
+    },
+    {
+      "scene": "still-477c20f3f04f5cfd",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 13.873847791353906,
+      "pass": true
+    },
+    {
+      "scene": "still-30bb8a4e5ee2183a",
+      "width": 320,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 2.615891823598193,
+      "pass": false
+    },
+    {
+      "scene": "still-30bb8a4e5ee2183a",
+      "width": 320,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 2.362054713138789,
+      "pass": false
+    },
+    {
+      "scene": "still-30bb8a4e5ee2183a",
+      "width": 320,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 2.7276967558673557,
+      "pass": false
+    },
+    {
+      "scene": "still-30bb8a4e5ee2183a",
+      "width": 320,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 1.9712691314900506,
+      "pass": false
+    },
+    {
+      "scene": "still-30bb8a4e5ee2183a",
+      "width": 320,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 6.414330141429951,
+      "pass": true
+    },
+    {
+      "scene": "still-30bb8a4e5ee2183a",
+      "width": 320,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 2.036518927055872,
+      "pass": false
+    },
+    {
+      "scene": "still-30bb8a4e5ee2183a",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 2.5024997326874883,
+      "pass": false
+    },
+    {
+      "scene": "still-30bb8a4e5ee2183a",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 3.343170832410749,
+      "pass": false
+    },
+    {
+      "scene": "still-9df1f9015a5f6659",
+      "width": 320,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 2.2470012701226305,
+      "pass": false
+    },
+    {
+      "scene": "still-9df1f9015a5f6659",
+      "width": 320,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 2.677098037643292,
+      "pass": false
+    },
+    {
+      "scene": "still-9df1f9015a5f6659",
+      "width": 320,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 2.17925946793595,
+      "pass": false
+    },
+    {
+      "scene": "still-9df1f9015a5f6659",
+      "width": 320,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 1.7125855585105985,
+      "pass": false
+    },
+    {
+      "scene": "still-9df1f9015a5f6659",
+      "width": 320,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 8.539639416010832,
+      "pass": true
+    },
+    {
+      "scene": "still-9df1f9015a5f6659",
+      "width": 320,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 2.7370600659066877,
+      "pass": false
+    },
+    {
+      "scene": "still-9df1f9015a5f6659",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 4.66558468561124,
+      "pass": true
+    },
+    {
+      "scene": "still-9df1f9015a5f6659",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 5.13790658200416,
+      "pass": true
+    },
+    {
+      "scene": "still-5fd0bc0d1743fc06",
+      "width": 320,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 2.088624763311783,
+      "pass": false
+    },
+    {
+      "scene": "still-5fd0bc0d1743fc06",
+      "width": 320,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 2.220022754869755,
+      "pass": false
+    },
+    {
+      "scene": "still-5fd0bc0d1743fc06",
+      "width": 320,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 3.0641099423404303,
+      "pass": false
+    },
+    {
+      "scene": "still-5fd0bc0d1743fc06",
+      "width": 320,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 1.4469089727343656,
+      "pass": false
+    },
+    {
+      "scene": "still-5fd0bc0d1743fc06",
+      "width": 320,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 7.392181917030011,
+      "pass": true
+    },
+    {
+      "scene": "still-5fd0bc0d1743fc06",
+      "width": 320,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 6.7445445051337405,
+      "pass": true
+    },
+    {
+      "scene": "still-5fd0bc0d1743fc06",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 7.023913710452501,
+      "pass": true
+    },
+    {
+      "scene": "still-5fd0bc0d1743fc06",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 2.7479641061808464,
+      "pass": false
+    },
+    {
+      "scene": "still-4dd1c2193ceaa5fb",
+      "width": 320,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 2.0492743274836003,
+      "pass": false
+    },
+    {
+      "scene": "still-4dd1c2193ceaa5fb",
+      "width": 320,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 2.221072759720151,
+      "pass": false
+    },
+    {
+      "scene": "still-4dd1c2193ceaa5fb",
+      "width": 320,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 2.06112831748045,
+      "pass": false
+    },
+    {
+      "scene": "still-4dd1c2193ceaa5fb",
+      "width": 320,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 1.4642220031160806,
+      "pass": false
+    },
+    {
+      "scene": "still-4dd1c2193ceaa5fb",
+      "width": 320,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 7.249872952975524,
+      "pass": true
+    },
+    {
+      "scene": "still-4dd1c2193ceaa5fb",
+      "width": 320,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 5.840282788941499,
+      "pass": true
+    },
+    {
+      "scene": "still-4dd1c2193ceaa5fb",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 7.854779724790446,
+      "pass": true
+    },
+    {
+      "scene": "still-4dd1c2193ceaa5fb",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 9.752938995175198,
+      "pass": true
+    },
+    {
+      "scene": "still-f8ad5325ae74b1f5",
+      "width": 320,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 2.2241457783543024,
+      "pass": false
+    },
+    {
+      "scene": "still-f8ad5325ae74b1f5",
+      "width": 320,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 2.612675215400862,
+      "pass": false
+    },
+    {
+      "scene": "still-f8ad5325ae74b1f5",
+      "width": 320,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 2.2972432941600336,
+      "pass": false
+    },
+    {
+      "scene": "still-f8ad5325ae74b1f5",
+      "width": 320,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 1.727564945152711,
+      "pass": false
+    },
+    {
+      "scene": "still-f8ad5325ae74b1f5",
+      "width": 320,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 7.720148735927001,
+      "pass": true
+    },
+    {
+      "scene": "still-f8ad5325ae74b1f5",
+      "width": 320,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 2.115609972554733,
+      "pass": false
+    },
+    {
+      "scene": "still-f8ad5325ae74b1f5",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 2.8772449917184777,
+      "pass": false
+    },
+    {
+      "scene": "still-f8ad5325ae74b1f5",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 5.496813937346304,
+      "pass": true
+    },
+    {
+      "scene": "white-upload",
+      "width": 320,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 5.472189374295193,
+      "pass": true
+    },
+    {
+      "scene": "white-upload",
+      "width": 320,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 5.472189374295193,
+      "pass": true
+    },
+    {
+      "scene": "white-upload",
+      "width": 320,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 5.108189199701989,
+      "pass": true
+    },
+    {
+      "scene": "white-upload",
+      "width": 320,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 2.865788151165075,
+      "pass": false
+    },
+    {
+      "scene": "white-upload",
+      "width": 320,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 8.521579665899068,
+      "pass": true
+    },
+    {
+      "scene": "white-upload",
+      "width": 320,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 5.472189374295193,
+      "pass": true
+    },
+    {
+      "scene": "white-upload",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 5.472189374295193,
+      "pass": true
+    },
+    {
+      "scene": "white-upload",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 5.472189374295193,
+      "pass": true
+    },
+    {
+      "scene": "white-upload-strong",
+      "width": 320,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 11.077004763643634,
+      "pass": true
+    },
+    {
+      "scene": "white-upload-strong",
+      "width": 320,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 11.077004763643634,
+      "pass": true
+    },
+    {
+      "scene": "white-upload-strong",
+      "width": 320,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 10.340182370969156,
+      "pass": true
+    },
+    {
+      "scene": "white-upload-strong",
+      "width": 320,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 4.481528035668635,
+      "pass": false
+    },
+    {
+      "scene": "white-upload-strong",
+      "width": 320,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 12.029052821331687,
+      "pass": true
+    },
+    {
+      "scene": "white-upload-strong",
+      "width": 320,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 11.077004763643634,
+      "pass": true
+    },
+    {
+      "scene": "white-upload-strong",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 11.077004763643634,
+      "pass": true
+    },
+    {
+      "scene": "white-upload-strong",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 11.077004763643634,
+      "pass": true
+    },
+    {
+      "scene": "#ffffff",
+      "width": 320,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 17.9278402530276,
+      "pass": true
+    },
+    {
+      "scene": "#ffffff",
+      "width": 320,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 17.9278402530276,
+      "pass": true
+    },
+    {
+      "scene": "#ffffff",
+      "width": 320,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 9.739769120526205,
+      "pass": true
+    },
+    {
+      "scene": "#ffffff",
+      "width": 320,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 3.91527475612133,
+      "pass": false
+    },
+    {
+      "scene": "#ffffff",
+      "width": 320,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 2.0603326293128936,
+      "pass": false
+    },
+    {
+      "scene": "#ffffff",
+      "width": 320,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 4.208201194525563,
+      "pass": false
+    },
+    {
+      "scene": "#ffffff",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 4.208201194525563,
+      "pass": false
+    },
+    {
+      "scene": "#ffffff",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 4.208201194525563,
+      "pass": false
+    },
+    {
+      "scene": "#000000",
+      "width": 320,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 19.541996451832723,
+      "pass": true
+    },
+    {
+      "scene": "#000000",
+      "width": 320,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 19.541996451832723,
+      "pass": true
+    },
+    {
+      "scene": "#000000",
+      "width": 320,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 18.242098068604154,
+      "pass": true
+    },
+    {
+      "scene": "#000000",
+      "width": 320,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 8.124988218638673,
+      "pass": true
+    },
+    {
+      "scene": "#000000",
+      "width": 320,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 16.342106492528842,
+      "pass": true
+    },
+    {
+      "scene": "#000000",
+      "width": 320,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 17.506614967831258,
+      "pass": true
+    },
+    {
+      "scene": "#000000",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 17.506614967831258,
+      "pass": true
+    },
+    {
+      "scene": "#000000",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 17.506614967831258,
+      "pass": true
+    }
+  ],
+  "method": "Minimum contrast against every backing pixel in each text/control bounding rectangle; foreground hidden, backgrounds retained. Conservative rectangle coverage, no text-shadow credit. 1440x900 and 320x700.",
+  "panelContrast": [
+    {
+      "theme": "dark",
+      "foreground": "--text",
+      "background": "--panel",
+      "limit": 4.5,
+      "ratio": 14.128202760761756
+    },
+    {
+      "theme": "dark",
+      "foreground": "--muted",
+      "background": "--panel",
+      "limit": 4.5,
+      "ratio": 9.202925781896615
+    },
+    {
+      "theme": "dark",
+      "foreground": "--muted",
+      "background": "--surface",
+      "limit": 4.5,
+      "ratio": 8.024431127172456
+    },
+    {
+      "theme": "dark",
+      "foreground": "--action-ink",
+      "background": "--action",
+      "limit": 4.5,
+      "ratio": 12.097733634133162
+    },
+    {
+      "theme": "dark",
+      "foreground": "--focus-ring",
+      "background": "--panel",
+      "limit": 3,
+      "ratio": 12.33023674995098
+    },
+    {
+      "theme": "light",
+      "foreground": "--text",
+      "background": "--panel",
+      "limit": 4.5,
+      "ratio": 12.087047903606475
+    },
+    {
+      "theme": "light",
+      "foreground": "--muted",
+      "background": "--panel",
+      "limit": 4.5,
+      "ratio": 5.917810968797099
+    },
+    {
+      "theme": "light",
+      "foreground": "--muted",
+      "background": "--surface",
+      "limit": 4.5,
+      "ratio": 5.515513351776226
+    },
+    {
+      "theme": "light",
+      "foreground": "--action-ink",
+      "background": "--action",
+      "limit": 4.5,
+      "ratio": 12.097733634133162
+    },
+    {
+      "theme": "light",
+      "foreground": "--focus-ring",
+      "background": "--panel",
+      "limit": 3,
+      "ratio": 6.91364723944594
+    }
+  ],
+  "catalog": {
+    "hubs": [
+      {
+        "name": "Focus",
+        "count": 6
+      },
+      {
+        "name": "Plan",
+        "count": 3
+      },
+      {
+        "name": "Reflect",
+        "count": 5
+      },
+      {
+        "name": "Learn and Career",
+        "count": 6
+      },
+      {
+        "name": "Environment",
+        "count": 3
+      }
+    ],
+    "tools": [
+      {
+        "id": "capsules",
+        "label": "Focus Capsules",
+        "enabled": true
+      },
+      {
+        "id": "recovery",
+        "label": "Focus Recovery",
+        "enabled": true
+      },
+      {
+        "id": "compiler",
+        "label": "Next-Step Compiler",
+        "enabled": true
+      },
+      {
+        "id": "firststep",
+        "label": "First Step Mode",
+        "enabled": true
+      },
+      {
+        "id": "dna",
+        "label": "Local Focus DNA",
+        "enabled": true
+      },
+      {
+        "id": "quietweb",
+        "label": "Quiet Web",
+        "enabled": true
+      },
+      {
+        "id": "energy",
+        "label": "Energy Planner",
+        "enabled": true
+      },
+      {
+        "id": "queue",
+        "label": "Priorities",
+        "enabled": true
+      },
+      {
+        "id": "countdowns",
+        "label": "Countdowns",
+        "enabled": false
+      },
+      {
+        "id": "rituals",
+        "label": "Daily check-in",
+        "enabled": true
+      },
+      {
+        "id": "energyweather",
+        "label": "Energy Weather",
+        "enabled": true
+      },
+      {
+        "id": "afterglow",
+        "label": "Afterglow",
+        "enabled": true
+      },
+      {
+        "id": "stats",
+        "label": "Stats",
+        "enabled": true
+      },
+      {
+        "id": "suggestions",
+        "label": "Suggestions",
+        "enabled": true
+      },
+      {
+        "id": "recall",
+        "label": "Recall Rooms",
+        "enabled": true
+      },
+      {
+        "id": "garden",
+        "label": "Idea Garden",
+        "enabled": true
+      },
+      {
+        "id": "skills",
+        "label": "Skill Loops",
+        "enabled": true
+      },
+      {
+        "id": "career",
+        "label": "Career Sprint",
+        "enabled": true
+      },
+      {
+        "id": "proof",
+        "label": "Proof of Work",
+        "enabled": true
+      },
+      {
+        "id": "dictionary",
+        "label": "Dictionary",
+        "enabled": true
+      },
+      {
+        "id": "sounds",
+        "label": "Sounds",
+        "enabled": true
+      },
+      {
+        "id": "scenes",
+        "label": "Scenes",
+        "enabled": true
+      },
+      {
+        "id": "music",
+        "label": "Music",
+        "enabled": true
+      },
+      {
+        "id": "notifications",
+        "label": "Notifications",
+        "enabled": true
+      },
+      {
+        "id": "customizer",
+        "label": "Customize",
+        "enabled": true
+      },
+      {
+        "id": "support",
+        "label": "Help & feedback",
+        "enabled": true
+      },
+      {
+        "id": "websearch",
+        "label": "Web search",
+        "enabled": true
+      },
+      {
+        "id": "commands",
+        "label": "Find an action",
+        "enabled": true
+      },
+      {
+        "id": "layout",
+        "label": "Layout",
+        "enabled": true
+      },
+      {
+        "id": "notes",
+        "label": "Notes",
+        "enabled": true
+      },
+      {
+        "id": "journal",
+        "label": "Journal",
+        "enabled": true
+      },
+      {
+        "id": "mood",
+        "label": "Mood",
+        "enabled": true
+      },
+      {
+        "id": "reflection",
+        "label": "Session reflection",
+        "enabled": true
+      }
+    ]
+  },
+  "failure": "locator.waitFor: Error: strict mode violation: getByRole('button', { name: 'Sounds', exact: true }) resolved to 2 elements:\n    1) <button type=\"button\" title=\"Sounds\" data-tool=\"sounds\" class=\"dock-button\" aria-label=\"Sounds\" aria-expanded=\"false\" aria-haspopup=\"dialog\">…</button> aka getByRole('button', { name: 'Sounds', description: 'Sounds' })\n    2) <button class=\"text-button\">Sounds</button> aka getByLabel('Command results').getByRole('button', { name: 'Sounds' })\n\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Sounds', exact: true }) to be visible\u001b[22m\n"
+}

@@ -1,0 +1,12 @@
+{
+  "browser": "chrome",
+  "checks": [
+    "Extracted zip loads with no website grants or startup network requests",
+    "Offline keyboard Notes entry creates a task and renders markup as plain text"
+  ],
+  "errors": [],
+  "requests": [],
+  "timings": [],
+  "startupStages": [],
+  "date": "2026-10-13T06:51:42.891Z"
+}

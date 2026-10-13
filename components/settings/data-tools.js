@@ -7,8 +7,13 @@ import { el, download, dayKey } from '../../core/utils.js';
 import { field, act, confirmAction } from '../../core/ui.js';
 import { backgroundSync } from '../../core/timer-client.js';
 import { emit } from '../../core/events.js';
+import { MAX_ENCRYPTED_BYTES } from '../../core/backup-limits.js';
 /** Local-only backup, restore, diagnostic and storage controls. */
 export async function render(body) {
+  if (!globalThis.chrome?.runtime?.id) {
+    const recovered = (await import('../../core/storage-recovery.js')).recoveryRecords();
+    if (Object.keys(recovered).length) body.append(el('p', { role: 'alert' }, 'Damaged preview data was preserved. Download it before deleting all data. It may contain private records and keys.'), el('button', { type: 'button', onclick: () => download(new Blob([JSON.stringify(recovered)], { type: 'application/json' }), 'oneflow-recovered-data.json') }, 'Download recovered data'));
+  }
   body.append(el('section', { class: 'stack' }, el('h4', {}, 'Keep a recoverable copy'),
     el('p', {}, 'Tasks, journal entries and focus history stay in this browser profile. Export before uninstalling or moving to another computer. Only small preferences use browser sync.'),
     el('p', { class: 'muted' }, get().backup.lastExport ? `Last backup: ${new Date(get().backup.lastExport).toLocaleDateString()}. Keep the downloaded file somewhere you can find it.` : 'No backup exported yet. Download one below; a passphrase is optional.'),
@@ -19,12 +24,15 @@ export async function render(body) {
     minlength: 12,
     'aria-label': translate('m0372')
   });
+  const includeKeys = el('input', { type: 'checkbox', 'aria-label': 'Include saved service keys in encrypted backup' });
+  body.append(el('label', { class: 'toggle-row' }, el('span', {}, 'Include saved service keys (requires a passphrase)'), includeKeys));
   body.append(el('p', {
     class: 'muted'
   }, translate('m0373')), field(translate('m0374'), password), el('button', {
     class: 'primary',
     onclick: act(async () => {
-      const plain = JSON.stringify(await exportData()),
+      if (includeKeys.checked && !password.value) throw new Error('Add a passphrase before including saved service keys.');
+      const plain = JSON.stringify(await exportData({ includeKeys: includeKeys.checked })),
         content = password.value ? await encryptBackup(plain, password.value) : plain;
       download(new Blob([content], {
         type: 'application/json'
@@ -49,7 +57,7 @@ export async function render(body) {
       const file = e.target.files[0];
       e.target.value = '';
       if (!file) return;
-      if (file.size > 60 * 1024 * 1024) throw new Error(translate('m0380'));
+      if (file.size > MAX_ENCRYPTED_BYTES) throw new Error('Backup exceeds the supported file size.');
       let text = await file.text();
       if (JSON.parse(text)?.encrypted) text = await decryptBackup(text, restorePassword.value);
       restorePassword.value = '';
@@ -83,15 +91,6 @@ export async function render(body) {
     class: 'danger',
     onclick: () => confirmAction(body, translate('m0391'), async () => {
       await resetData();
-      if (globalThis.chrome?.permissions) {
-        const grants = await chrome.permissions.getAll();
-        if (grants.origins?.length) await chrome.permissions.remove({
-          origins: grants.origins
-        });
-        await chrome.permissions.remove({
-          permissions: ['geolocation']
-        });
-      }
       location.reload();
     })
   }, translate('m0392'))));

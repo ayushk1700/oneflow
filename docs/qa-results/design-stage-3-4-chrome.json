@@ -1,0 +1,14 @@
+{
+  "checks": [
+    "Five hubs stay within six tools; workspace/reflection shortcuts remain accessible and proposed aliases resolve",
+    "Old and proposed command names resolve; the first Escape closes from a populated search field",
+    "Global switcher searches aliases and restores live editor text and selection",
+    "Disabled tools are excluded from launcher, switcher and commands",
+    "Shared frame, switcher and accessible tabs fit both themes at desktop, 390px and 320px",
+    "Completed session is recorded once and remains in its break phase across Ambient/Focus changes",
+    "Focus exposes context capture and accessible progress; capsule restore and view changes preserve active/paused sessions",
+    "Offline reload, reduced motion, CSP and no-external-request checks pass"
+  ],
+  "errors": [],
+  "requests": []
+}

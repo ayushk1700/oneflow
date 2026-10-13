@@ -3,18 +3,19 @@ import { get, update } from '../../core/storage.js';
 import { el } from '../../core/utils.js';
 import { openPanel, field, icon, watch, act } from '../../core/ui.js';
 import { emit } from '../../core/events.js';
+import { readJSON } from '../../core/network.js';
 let root, unsubscribe, refreshTimer, busy = false, alive = false;
 const origins = ['https://api.open-meteo.com/*', 'https://geocoding-api.open-meteo.com/*'];
 const locationKey = loc => `${loc.latitude.toFixed(3)},${loc.longitude.toFixed(3)}`;
 function description(code) { if (code === 0) return translate('m0552'); if (code < 4) return translate('m0553'); if (code < 50) return translate('m0554'); if (code < 70) return translate('m0555'); if (code < 80) return translate('m0556'); if (code < 90) return translate('m0557'); return translate('m0558'); }
-async function requestPermission(geolocation = false) {
+async function requestPermission() {
   if (!globalThis.chrome?.permissions) return true;
-  return chrome.permissions.request({ origins, ...(geolocation ? { permissions: ['geolocation'] } : {}) });
+  return chrome.permissions.request({ origins });
 }
 async function fetchJSON(url) {
-  const response = await fetch(url, { signal: AbortSignal.timeout(10000), credentials: 'omit', referrerPolicy: 'no-referrer' });
+  const response = await fetch(url, { signal: AbortSignal.timeout(10000), credentials: 'omit', referrerPolicy: 'no-referrer', redirect: 'error' });
   if (!response.ok) throw new Error(translate('m0559'));
-  return response.json();
+  return readJSON(response, 128 * 1024);
 }
 export function render() {
   const { weather, settings } = get(), cache = weather.cache, loc = weather.location;
@@ -44,19 +45,14 @@ export function open() {
     try {
       if (!await permission) throw new Error(translate('m0570'));
       const data = await fetchJSON(`https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(city.value.trim())}&count=5&language=en&format=json`);
-      const cities = (data.results || []).filter(x => Number.isFinite(x.latitude) && Number.isFinite(x.longitude));
+      const cities = (Array.isArray(data.results) ? data.results : []).slice(0, 5).filter(x => x && typeof x.name === 'string' && Number.isFinite(x.latitude) && Math.abs(x.latitude) <= 90 && Number.isFinite(x.longitude) && Math.abs(x.longitude) <= 180);
       results.replaceChildren(...(cities.length ? cities.map(x => el('button', { type: 'button', onclick: act(() => choose({ name: `${x.name}, ${x.country || x.admin1 || ''}`.slice(0, 200), latitude: x.latitude, longitude: x.longitude })) }, `${x.name} · ${x.admin1 || ''} ${x.country || ''}`)) : [el('p', {}, translate('m0571'))]));
     } finally { search.disabled = false; }
   }) }, field(translate('m0572'), city), search);
-  content.append(el('p', { class: 'muted' }, translate('m0573')), form,
-    el('button', { type: 'button', onclick: act(async () => {
-      if (!await requestPermission(true)) throw new Error(translate('m0574'));
-      const position = await new Promise((resolve, reject) => navigator.geolocation.getCurrentPosition(resolve, () => reject(new Error(translate('m0575'))), { timeout: 10000, maximumAge: 1800000 }));
-      await choose({ name: translate('m0576'), latitude: Math.round(position.coords.latitude * 100) / 100, longitude: Math.round(position.coords.longitude * 100) / 100 });
-    }) }, translate('m0577')), results);
+  content.append(el('p', { class: 'muted' }, 'Choose a city for weather. ONEFLOW does not request device location.'), form, results);
   const cache = get().weather.cache;
   if (cache) content.append(el('p', { class: 'muted' }, translate('m0578', {p0: new Date(cache.at).toLocaleString()})));
-  if (get().weather.location) content.append(el('button', { onclick: act(async () => { await update(d => { d.weather = { location: null, cache: null }; }); if (globalThis.chrome?.permissions) await chrome.permissions.remove({ origins, permissions: ['geolocation'] }); open(); }) }, translate('m0579')));
+  if (get().weather.location) content.append(el('button', { onclick: act(async () => { await update(d => { d.weather = { location: null, cache: null }; }); if (globalThis.chrome?.permissions) await chrome.permissions.remove({ origins }); open(); }) }, translate('m0579')));
   content.append(el('a', { href: 'https://open-meteo.com/', target: '_blank', rel: 'noreferrer', class: 'muted' }, translate('m0580')));
   openPanel(translate('m0673'), 'weather', content);
 }

@@ -55,12 +55,12 @@ try {
   await frame.getByRole('button', { name: '← All notes', exact: true }).click();
   await create('Habit'); await frame.getByLabel('Habit name', { exact: true }).fill('Stretch'); await saved();
   await frame.getByRole('button', { name: '← All notes', exact: true }).click();
-  await frame.getByLabel('Note type').selectOption('habit');
-  await frame.getByRole('button', { name: 'Open habit Stretch' }).waitFor();
+  await frame.getByLabel('Note type', { exact:true }).selectOption('habit');
+  await frame.getByRole('button', { name: 'Stretch', exact:true }).waitFor();
   assert.equal(await frame.locator('[data-kind=task]').count(), 0);
   await frame.getByLabel('Search notes').fill('Stretch');
-  await page.waitForTimeout(200); assert.equal(await frame.locator('.note-card').count(), 1);
-  await frame.getByLabel('Search notes').fill(''); await frame.getByLabel('Note type').selectOption('');
+  await page.waitForTimeout(200); assert.equal(await frame.locator('.planner-habit-grid tbody tr').count(), 1);
+  await frame.getByLabel('Search notes').fill(''); await frame.getByLabel('Note type', { exact:true }).selectOption('');
   pass('Single creation menu adds tasks/habits; shared search and type filter work');
   await fs.mkdir('docs/screenshots', { recursive: true });
   await page.screenshot({ path: `docs/screenshots/combined-notes-${browser}-1440.png` });

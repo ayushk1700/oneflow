@@ -83,6 +83,16 @@ export function render(tab = 'appearance', refresh = false) {
   openPanel(translate('Settings'), 'settings', content, () => { stopPreview?.(); previewURLs.forEach(url => URL.revokeObjectURL(url)); }, `settings-${tab}`);
 }
 function reminders(body) {
+  const system = el('section', { class: 'settings-card stack' }, el('h5', {}, 'System notifications'), el('p', {}, 'Reminders are kept in Notifications. Allow system notices to see them outside ONEFLOW.'));
+  system.append(el('button', { type: 'button', onclick: act(async () => {
+    if (!globalThis.chrome?.permissions) throw new Error('System notifications need the installed extension.');
+    const allowed = await chrome.permissions.request({ permissions: ['notifications'] });
+    emit('toast', allowed ? 'System notifications are allowed.' : 'System notices were declined. In-app reminders remain available.');
+  }) }, 'Allow system notifications'), el('button', { type: 'button', onclick: act(async () => {
+    if (globalThis.chrome?.permissions) await chrome.permissions.remove({ permissions: ['notifications'] });
+    emit('toast', 'System notifications are off.');
+  }) }, 'Turn off system notifications'));
+  body.append(system);
   const rituals = el('section', { class: 'settings-card settings-reminder-card' },
     el('div', { class: 'settings-card-heading' }, el('h5', {}, translate('Daily rituals')), el('p', {}, translate('m0344'))));
   for (const [key, label] of [['morning', translate('m0341')], ['midday', translate('m0342')], ['evening', translate('m0343')]]) rituals.append(field(label, el('input', {

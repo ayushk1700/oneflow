@@ -25,9 +25,10 @@ export const listNotes = () => db.getAll('notes');
 export const getNote = id => db.getRecord('notes', id);
 export const getMedia = id => db.getRecord('noteMedia', id);
 /** Optimistic revisions prevent a stale editor from overwriting another window. */
-export async function saveNote(note, attachments = []) {
+export async function saveNote(note, attachments = [], expectedGeneration) {
   let reschedule = false;
   const saved = await lock(async () => {
+    if (expectedGeneration !== undefined && (await storage.sessionGet('data-generation') || '') !== expectedGeneration) throw new Error('Data was replaced in another window. Reload Notes before saving.');
     const old = await getNote(note.id);
     if (old && old.revision !== note.revision) throw new Error('This note changed in another window. Copy your text, then reload the note.');
     if (!old && note.revision !== 1) throw new Error('This note was deleted in another window. Copy your text before leaving.');
@@ -59,15 +60,30 @@ export async function deleteNote(note) {
   if (globalThis.chrome?.runtime?.id) chrome.runtime.sendMessage({ target: 'notes-worker', type: 'schedule' }).catch(() => {});
 }
 /** Capture only text and an explicitly selected page/link URL. No page markup. */
-export async function captureNote({ title = '', text = '', url = '' }) {
+export async function captureNote({ title = '', text = '', url = '' }, expectedGeneration) {
   await migrateNotes();
-  return saveNote(makeNote({ title: title.slice(0, 120), text: text.slice(0, 50000), url: noteURL(url).slice(0, 4096) }));
+  return saveNote(makeNote({ title: title.slice(0, 120), text: text.slice(0, 50000), url: noteURL(url).slice(0, 4096) }), [], expectedGeneration);
+}
+/** Deliver and acknowledge a due reminder under the same lock as restore/reset. */
+export async function remindNote(id, deliver) {
+  const delivered = await lock(async () => {
+    const note = await getNote(id);
+    if (!note || note.state === 'trash' || !note.reminderAt || note.reminderAt > Date.now() + 1000) return false;
+    await deliver(note);
+    await db.put('notes', validateNote({ ...note, revision: note.revision + 1, reminderAt: null, updatedAt: Date.now() }));
+    return true;
+  });
+  if (delivered) changed();
+  return delivered;
 }
 /** Add one linked inbox task. Repeated clicks do not duplicate it. */
-export async function sendToTasks(note) {
+export async function sendToTasks(note, expectedGeneration) {
   await storage.init();
-  await storage.update(d => {
+  await lock(async () => {
+    if (expectedGeneration !== undefined && (await storage.sessionGet('data-generation') || '') !== expectedGeneration) throw new Error('Data was replaced. Reload Notes before adding a task.');
+    await storage.update(d => {
     const id = `note-${note.id}`;
     if (!d.tasks.some(t => t.id === id)) d.tasks.push({ id, text: (note.title || note.text || 'Untitled note').slice(0, 240), listId: 'inbox', completed: false, createdAt: Date.now() });
+    });
   });
 }

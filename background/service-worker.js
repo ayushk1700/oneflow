@@ -9,6 +9,8 @@ import { processStudio, scheduleStudio } from './studio.js';
 import { record as recordNotice } from '../core/notifications.js';
 import { initNotesService } from './notes-service.js';
 import { countInterruption } from '../core/work-context.js';
+import { workerMessageAllowed } from '../core/message-policy.js';
+import { notify } from '../core/system-notifications.js';
 initNotesService();
 let creatingAudio, serial = Promise.resolve();
 const enqueue = job => { const work = serial.then(job); serial = work.catch(error => console.error(translate('m0604'), error)); return work; };
@@ -49,13 +51,15 @@ async function schedule() {
   for (const alarm of await chrome.alarms.getAll()) if (alarm.name.startsWith('oneflow-habit-') && !expected.has(alarm.name)) await chrome.alarms.clear(alarm.name);
 }
 async function notifyPhase() {
+  return navigator.locks.request('oneflow-backup', async () => {
   const { timerNotice: notice, timerConfig: c, timer } = storage.get();
   if (!notice) return;
   const next = timer.phase === 'focus' ? translate('m0608') : translate('m0609');
   if (c.notifications) await recordNotice(next, 'success', `oneflow-phase-${notice.id}`);
-  if (c.notifications) await chrome.notifications.create(`oneflow-phase-${notice.id}`, { type: 'basic', iconUrl: chrome.runtime.getURL('assets/icons/icon-128.png'), title: notice.finishedPhase === 'focus' ? translate('m0676') : translate('m0610'), message: next });
+  if (c.notifications) await notify(`oneflow-phase-${notice.id}`, { type: 'basic', iconUrl: chrome.runtime.getURL('assets/icons/icon-128.png'), title: notice.finishedPhase === 'focus' ? translate('m0676') : translate('m0610'), message: next });
   if (c.chime) await audioMessage({ type: 'chime', options: storage.get().settings.studio.interaction });
   await storage.update(d => { if (d.timerNotice?.id === notice.id) d.timerNotice = null; });
+  });
 }
 async function reconcile(action = 'tick', payload = {}) {
   setLanguage(storage.get().settings.language);
@@ -71,6 +75,7 @@ const ready = storage.init().then(recoverFlow).catch(async error => {
 });
 chrome.runtime.onMessage.addListener((message, sender, respond) => {
   if (message?.target !== 'worker' || sender.id !== chrome.runtime.id) return false;
+  if (!workerMessageAllowed(message, sender, chrome.runtime.getURL('/'))) { respond({ ok: false, error: 'This page cannot perform that action.' }); return false; }
   if (message.type === 'pexels-search') {
     if (sender.url !== chrome.runtime.getURL('newtab/index.html')) return false;
     // Network requests must not hold the timer/alarm serialization queue.
@@ -83,7 +88,6 @@ chrome.runtime.onMessage.addListener((message, sender, respond) => {
     if (message.type === 'flow-start') { await startFlow(message.sceneId, Boolean(message.block)); await reconcile(); await syncAudio(); }
     else if (message.type === 'flow-stop') { const summary = await stopFlow(); await reconcile(); await syncAudio(); return { ok: true, summary }; }
     else if (['blocked', 'override'].includes(message.type)) {
-      if (!sender.url?.startsWith(chrome.runtime.getURL('blocked/index.html'))) throw new Error(translate('m0683'));
       return { ok: true, ...await blockedRequest(message.url, message.type === 'override') };
     }
     else if (message.type === 'timer') {
@@ -101,9 +105,11 @@ chrome.alarms.onAlarm.addListener(alarm => enqueue(async () => {
   if (alarm.name.startsWith('oneflow-ritual-') || alarm.name === 'oneflow-backup-reminder') await notifyReminder(alarm.name);
   if (alarm.name === 'oneflow-audio-sleep') { await storage.update(d => { d.audio.playing = false; d.audio.sleepAt = null; }); await syncAudio(); }
   else if (alarm.name.startsWith('oneflow-habit-')) {
+    await navigator.locks.request('oneflow-backup', async () => {
     const habit = storage.get().habits.find(h => `oneflow-habit-${h.id}` === alarm.name);
     if (habit && !habit.dates.includes(dayKey())) await recordNotice(`${translate('m0677')}: ${habit.name}`, 'info', `${alarm.name}-${dayKey()}`);
-    if (habit && !habit.dates.includes(dayKey())) await chrome.notifications.create(alarm.name, { type: 'basic', iconUrl: chrome.runtime.getURL('assets/icons/icon-128.png'), title: translate('m0677'), message: habit.name });
+    if (habit && !habit.dates.includes(dayKey())) await notify(alarm.name, { type: 'basic', iconUrl: chrome.runtime.getURL('assets/icons/icon-128.png'), title: translate('m0677'), message: habit.name });
+    });
   }
   await reconcile();
   await syncAudio();

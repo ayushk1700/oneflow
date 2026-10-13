@@ -25,7 +25,7 @@ export async function open() {
   if (!d.tasks.some(t => !t.completed)) root.append(el('p', {}, translate('m0311')));
   empty.hidden=cards.length>0;
   const nextTask = selected.map(id => d.tasks.find(t => t.id === id && !t.completed)).find(Boolean);
-  if (nextTask) root.prepend(el('button', { class: 'primary', onclick: act(async () => { if (get().timer.sessionId) throw new Error(translate('m0312')); await timerCommand('task', { taskId: nextTask.id }); closePanel(); }) }, translate('m0313', {p0: nextTask.text})));
+  if (nextTask) root.prepend(el('button', { class: 'primary', onclick: act(async () => { if (get().timer.sessionId || get().timer.status !== 'idle') throw new Error(translate('m0312')); await timerCommand('task', { taskId: nextTask.id }); closePanel(); }) }, translate('m0313', {p0: nextTask.text})));
   if (isCurrent()) openPanel(translate('m0314'), 'queue', root);
 }
 export const render = open;

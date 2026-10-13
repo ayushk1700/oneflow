@@ -1,1 +1,1 @@
-.countdown-pin{color:#ecf1e8;border:0;font-size:11px;padding:8px;margin-top:6px;background:#10261d65;border-radius:18px}
+.countdown-pin{color:var(--canvas-ink);border:0;font-size:var(--text-caption);padding:var(--space-sm);margin-top:var(--space-sm);background:var(--canvas-control);border-radius:var(--radius-panel)}

@@ -1,0 +1,102 @@
+{
+  "startedAt": "2026-10-13T06:25:01.934Z",
+  "method": "Sequential installed Chrome acceptance suites, each with a disposable profile. Native/provider fixtures keep their existing limits. Performance is measured separately after all suites close.",
+  "results": [
+    {
+      "name": "syntax",
+      "args": [
+        "scripts/check.js"
+      ],
+      "exitCode": 0,
+      "elapsedMs": 17375,
+      "pass": true,
+      "log": "docs/qa-results/design-stage-9-extra-syntax.log"
+    },
+    {
+      "name": "units",
+      "args": [
+        "--test",
+        "tests/background-presentation.test.js",
+        "tests/calm-migration.test.js",
+        "tests/dictionary.test.js",
+        "tests/integrations.test.js",
+        "tests/journeys.test.js",
+        "tests/market-ready.test.js",
+        "tests/notes-capture.test.js",
+        "tests/notes-checklist.test.js",
+        "tests/pexels-worker.test.js",
+        "tests/pexels.test.js",
+        "tests/schema.test.js",
+        "tests/stage2.test.js",
+        "tests/stage3.test.js",
+        "tests/storage-startup.test.js",
+        "tests/studio.test.js",
+        "tests/task-dates.test.js",
+        "tests/unified-timer.test.js",
+        "tests/work-context.test.js",
+        "tests/youtube-music.test.js",
+        "tests/youtube-search.test.js"
+      ],
+      "exitCode": 0,
+      "elapsedMs": 2310,
+      "pass": true,
+      "log": "docs/qa-results/design-stage-9-extra-units.log"
+    },
+    {
+      "name": "design-foundation",
+      "args": [
+        "tests/design-foundation-browser.js",
+        "chrome"
+      ],
+      "exitCode": 0,
+      "elapsedMs": 66175,
+      "pass": true,
+      "log": "docs/qa-results/design-stage-9-extra-design-foundation.log"
+    },
+    {
+      "name": "calm-home",
+      "args": [
+        "tests/calm-home-browser.js",
+        "chrome"
+      ],
+      "exitCode": 0,
+      "elapsedMs": 85419,
+      "pass": true,
+      "log": "docs/qa-results/design-stage-9-extra-calm-home.log"
+    },
+    {
+      "name": "ambient-clock",
+      "args": [
+        "tests/ambient-clock-browser.js",
+        "chrome"
+      ],
+      "exitCode": 1,
+      "elapsedMs": 93377,
+      "pass": false,
+      "log": "docs/qa-results/design-stage-9-extra-ambient-clock.log"
+    },
+    {
+      "name": "studio",
+      "args": [
+        "tests/studio-browser.js",
+        "chrome"
+      ],
+      "exitCode": 0,
+      "elapsedMs": 60117,
+      "pass": true,
+      "log": "docs/qa-results/design-stage-9-extra-studio.log"
+    },
+    {
+      "name": "ui-refinement",
+      "args": [
+        "tests/ui-refinement-browser.js",
+        "chrome"
+      ],
+      "exitCode": 0,
+      "elapsedMs": 48132,
+      "pass": true,
+      "log": "docs/qa-results/design-stage-9-extra-ui-refinement.log"
+    }
+  ],
+  "finishedAt": "2026-10-13T06:31:14.895Z"
+}

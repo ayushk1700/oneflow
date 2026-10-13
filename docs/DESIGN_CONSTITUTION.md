@@ -127,6 +127,7 @@ This part is the only place that describes where controls live. If another secti
 - Secondary shortcuts share quiet surfaces. The focus action keeps the filled accent.
 - Missing or disabled widgets do not leave empty shortcuts. Extra custom tools wrap on narrow screens.
 - Explicit Studio placements are authoritative and may opt out of the default disclosure. Reverting to the default layout restores those widgets to More.
+- The brand link follows the saved Show brand preference inside More. Provider-required image attribution and current audio status are conditional context, not additional default navigation controls.
 
 ## 2.2 Name of the overflow menu
 
@@ -223,6 +224,8 @@ Internal names are kept. "Display label" is the plain-language name shown in men
 
 Website Blocking remains in Settings.
 
+Notes and Journal remain dedicated workspace shortcuts outside the hubs. Existing Mood and Session reflection remain independent reflection shortcuts below the hubs; they are not merged or counted as new hub admissions. Layout remains a System shortcut into Customize's existing layout view so saved favorites and recent IDs still resolve.
+
 > Display labels are a proposal. Rename in the UI only after the command-search aliases are added, so the old names still find the tools.
 
 ## 4.3 Tool admission rule
@@ -311,7 +314,7 @@ A merge decision is logged in Part 8 with the user-facing impact.
 --weight-heading: 600;
 ```
 
-**Change from v1:** v1 specified heading weight 550. Weight 550 renders only with variable fonts, and Segoe UI is not installed on macOS, Linux or ChromeOS. v2 defines weights as tokens (400 / 500 / 600) and adds a cross-platform fallback chain. Optionally bundle one variable UI font locally; if so, restore a 550 token and log it in Part 8.
+Shared interface weights are 400 / 500 / 600 with cross-platform fallbacks. Saved custom typography remains authoritative. A locally bundled variable UI font is optional; adopting one requires a documented type decision and license record.
 
 ## 5.6 Colors and readability
 
@@ -401,7 +404,7 @@ A merge decision is logged in Part 8 with the user-facing impact.
 
 | Criterion | Target |
 |---|---|
-| Distinct element groups in the first view | At most 9 (*proposed; pending approval*): greeting, clock, date, focus entry, search, quote, Journal, bottom-left group, More. Count semantic groups, not nested controls. Separate branding, Settings, and other visible additions must be reported, not omitted. A dedicated numeric assertion is still needed; `calm-home-browser.js` currently checks selected visible/hidden controls and layout. |
+| Distinct element groups in the default first view | 9 core groups: greeting, clock, date, focus entry, search, quote, Journal, bottom-left group, More. Count semantic groups, not nested controls. Settings and branding are inside More. Disabled widgets reduce the count. Conditional provider attribution/audio status and explicit Studio placements are reported separately. `calm-home-browser.js` and `design-foundation-browser.js` check these groups, hidden secondary controls, and layout. |
 | Interactions from Home to a running focus session | 2 or fewer (*proposed*) |
 | Permanent Home elements added by tools | 0 |
 
@@ -458,6 +461,10 @@ Append-only. Newest entries at the bottom. Format: date, decision, source.
 | 2026-10-11 | Personal workspaces: First Step Mode, Recall Rooms, Idea Garden, Proof of Work, Energy Weather, Afterglow, Career Sprint, Quiet Web, Skill Loops are secondary tools | Personal workspaces |
 | 2026-10-12 | **Constitution v2:** restructured into nine parts; navigation unified on corner layout with "More" as the only overflow name; tool hubs and tool admission rule added; surface families and exception register added; typography weights tokenized (550 replaced by 600 in proposal); measurable criteria added; browser support declared; release process moved to `RELEASE_CHECKLIST.md`; glossary added | Design analysis |
 | 2026-10-12 | Design Stage 0: established canonical release checklist; corrected nine-item Home counting proposal without approving it; recorded source baselines and missing measurement coverage; clarified Studio and Flow from code. Product proposals remain pending; no runtime/UI implementation changed. | DESIGN_STAGE_0_REPORT.md |
+| 2026-10-12 | User authorized design Stages 1 and 2. Implemented shared palette aliases, 400/500/600 weights, typography/spacing/control tokens, and nine-group default Home. Settings and optional branding now live in More; saved appearance/Studio data remain unchanged. Later hub labels and merge proposals remain pending. | DESIGN_STAGE_1_2_REPORT.md |
+| 2026-10-13 | User authorized design Stages 3 and 4 and asked for the best placement of omitted reflection tools. Kept Mood and Session reflection as separate shortcuts below five hubs; kept Notes/Journal dedicated and the existing Layout route into Customize. Shared discovery metadata provides historic and proposed aliases while existing display labels remain. Focus exposes context options; Ambient idle handling resumes after focus/menu changes; standard panels use the shared solid frame and global tool switcher. No tools merged. | DESIGN_STAGE_3_4_REPORT.md |
+| 2026-10-13 | User authorized design Stages 5 and 6. Preserved dedicated workspace surfaces, settings/permission contracts and task/habit data. First Step now leads with saved beginnings; Capsule search has a truthful empty result; Priorities protects paused restored intervals. Shared Journal saves resolve existing entries by date and serialize cross-tool appends while preserving IDs, text and prompts. No hub tools merged or permanent Home controls added. | DESIGN_STAGE_5_6_REPORT.md |
+| 2026-10-13 | User authorized design Stages 7 and 8. Stats now keeps its live range/context, refreshes history on resume, and resizes after keyboard tab changes. Recall/Skills expose semantic groups and explicit confidence/review text. Sounds refreshes on resume; pending Music loads are invalidated on exit; Customize serializes concurrent opens, rejects late openings and restores visible focus. Existing collections, explicit evidence approval, privacy controls, media ownership, notifications and local exports remain. | DESIGN_STAGE_7_8_REPORT.md |
 
 ---
 

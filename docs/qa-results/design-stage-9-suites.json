@@ -1,0 +1,300 @@
+{
+  "startedAt": "2026-10-13T06:13:08.788Z",
+  "method": "Sequential installed Chrome acceptance suites, each with a disposable profile. Native/provider fixtures keep their existing limits. Performance is measured separately after all suites close.",
+  "results": [
+    {
+      "name": "syntax",
+      "args": [
+        "scripts/check.js"
+      ],
+      "exitCode": 0,
+      "elapsedMs": 30713,
+      "pass": true,
+      "log": "docs/qa-results/design-stage-9-syntax.log"
+    },
+    {
+      "name": "units",
+      "args": [
+        "--test",
+        "tests/background-presentation.test.js",
+        "tests/calm-migration.test.js",
+        "tests/dictionary.test.js",
+        "tests/integrations.test.js",
+        "tests/journeys.test.js",
+        "tests/market-ready.test.js",
+        "tests/notes-capture.test.js",
+        "tests/notes-checklist.test.js",
+        "tests/pexels-worker.test.js",
+        "tests/pexels.test.js",
+        "tests/schema.test.js",
+        "tests/stage2.test.js",
+        "tests/stage3.test.js",
+        "tests/storage-startup.test.js",
+        "tests/studio.test.js",
+        "tests/task-dates.test.js",
+        "tests/unified-timer.test.js",
+        "tests/work-context.test.js",
+        "tests/youtube-music.test.js",
+        "tests/youtube-search.test.js"
+      ],
+      "exitCode": 0,
+      "elapsedMs": 2958,
+      "pass": true,
+      "log": "docs/qa-results/design-stage-9-units.log"
+    },
+    {
+      "name": "design-foundation",
+      "args": [
+        "tests/design-foundation-browser.js",
+        "chrome"
+      ],
+      "exitCode": 0,
+      "elapsedMs": 62823,
+      "pass": true,
+      "log": "docs/qa-results/design-stage-9-design-foundation.log"
+    },
+    {
+      "name": "calm-home",
+      "args": [
+        "tests/calm-home-browser.js",
+        "chrome"
+      ],
+      "exitCode": 0,
+      "elapsedMs": 59062,
+      "pass": true,
+      "log": "docs/qa-results/design-stage-9-calm-home.log"
+    },
+    {
+      "name": "unified-timer",
+      "args": [
+        "tests/unified-timer-browser.js",
+        "chrome"
+      ],
+      "exitCode": 0,
+      "elapsedMs": 57545,
+      "pass": true,
+      "log": "docs/qa-results/design-stage-9-unified-timer.log"
+    },
+    {
+      "name": "ambient-redesign",
+      "args": [
+        "tests/ambient-redesign-browser.js",
+        "chrome"
+      ],
+      "exitCode": 0,
+      "elapsedMs": 71833,
+      "pass": true,
+      "log": "docs/qa-results/design-stage-9-ambient-redesign.log"
+    },
+    {
+      "name": "design-stage-3-4",
+      "args": [
+        "tests/design-stage-3-4-browser.js",
+        "chrome"
+      ],
+      "exitCode": 0,
+      "elapsedMs": 25610,
+      "pass": true,
+      "log": "docs/qa-results/design-stage-9-design-stage-3-4.log"
+    },
+    {
+      "name": "design-stage-5-6",
+      "args": [
+        "tests/design-stage-5-6-browser.js",
+        "chrome"
+      ],
+      "exitCode": 0,
+      "elapsedMs": 34965,
+      "pass": true,
+      "log": "docs/qa-results/design-stage-9-design-stage-5-6.log"
+    },
+    {
+      "name": "design-stage-7-8",
+      "args": [
+        "tests/design-stage-7-8-browser.js",
+        "chrome"
+      ],
+      "exitCode": 0,
+      "elapsedMs": 78094,
+      "pass": true,
+      "log": "docs/qa-results/design-stage-9-design-stage-7-8.log"
+    },
+    {
+      "name": "panel-redesign",
+      "args": [
+        "tests/panel-redesign-browser.js",
+        "chrome"
+      ],
+      "exitCode": 0,
+      "elapsedMs": 52156,
+      "pass": true,
+      "log": "docs/qa-results/design-stage-9-panel-redesign.log"
+    },
+    {
+      "name": "panel-entry",
+      "args": [
+        "tests/panel-entry-browser.js",
+        "chrome"
+      ],
+      "exitCode": 0,
+      "elapsedMs": 46016,
+      "pass": true,
+      "log": "docs/qa-results/design-stage-9-panel-entry.log"
+    },
+    {
+      "name": "panel-planning",
+      "args": [
+        "tests/panel-planning-browser.js",
+        "chrome"
+      ],
+      "exitCode": 0,
+      "elapsedMs": 118079,
+      "pass": true,
+      "log": "docs/qa-results/design-stage-9-panel-planning.log"
+    },
+    {
+      "name": "panel-environment",
+      "args": [
+        "tests/panel-environment-browser.js",
+        "chrome"
+      ],
+      "exitCode": 0,
+      "elapsedMs": 69956,
+      "pass": true,
+      "log": "docs/qa-results/design-stage-9-panel-environment.log"
+    },
+    {
+      "name": "panel-remaining",
+      "args": [
+        "tests/panel-remaining-browser.js",
+        "chrome"
+      ],
+      "exitCode": 0,
+      "elapsedMs": 88005,
+      "pass": true,
+      "log": "docs/qa-results/design-stage-9-panel-remaining.log"
+    },
+    {
+      "name": "work-context",
+      "args": [
+        "tests/work-context-browser.js",
+        "chrome"
+      ],
+      "exitCode": 0,
+      "elapsedMs": 107029,
+      "pass": true,
+      "log": "docs/qa-results/design-stage-9-work-context.log"
+    },
+    {
+      "name": "journeys-tabs",
+      "args": [
+        "tests/journeys-tabs-browser.js",
+        "chrome"
+      ],
+      "exitCode": 1,
+      "elapsedMs": 11705,
+      "pass": false,
+      "log": "docs/qa-results/design-stage-9-journeys-tabs.log"
+    },
+    {
+      "name": "panel-boundaries",
+      "args": [
+        "tests/panel-boundaries-browser.js",
+        "chrome"
+      ],
+      "exitCode": 0,
+      "elapsedMs": 11027,
+      "pass": true,
+      "log": "docs/qa-results/design-stage-9-panel-boundaries.log"
+    },
+    {
+      "name": "combined-notes",
+      "args": [
+        "tests/combined-notes-browser.js",
+        "chrome"
+      ],
+      "exitCode": 0,
+      "elapsedMs": 38090,
+      "pass": true,
+      "log": "docs/qa-results/design-stage-9-combined-notes.log"
+    },
+    {
+      "name": "notes-capture",
+      "args": [
+        "tests/notes-capture-browser.js",
+        "chrome"
+      ],
+      "exitCode": 0,
+      "elapsedMs": 42447,
+      "pass": true,
+      "log": "docs/qa-results/design-stage-9-notes-capture.log"
+    },
+    {
+      "name": "notes-overlay",
+      "args": [
+        "tests/notes-overlay-browser.js",
+        "chrome"
+      ],
+      "exitCode": 0,
+      "elapsedMs": 53837,
+      "pass": true,
+      "log": "docs/qa-results/design-stage-9-notes-overlay.log"
+    },
+    {
+      "name": "journal-fullscreen",
+      "args": [
+        "tests/journal-fullscreen-browser.js",
+        "chrome"
+      ],
+      "exitCode": 0,
+      "elapsedMs": 52880,
+      "pass": true,
+      "log": "docs/qa-results/design-stage-9-journal-fullscreen.log"
+    },
+    {
+      "name": "settings-page",
+      "args": [
+        "tests/settings-page-browser.js",
+        "chrome"
+      ],
+      "exitCode": 0,
+      "elapsedMs": 96702,
+      "pass": true,
+      "log": "docs/qa-results/design-stage-9-settings-page.log"
+    },
+    {
+      "name": "stats-notifications",
+      "args": [
+        "tests/stats-notifications-browser.js",
+        "chrome"
+      ],
+      "exitCode": 0,
+      "elapsedMs": 72910,
+      "pass": true,
+      "log": "docs/qa-results/design-stage-9-stats-notifications.log"
+    },
+    {
+      "name": "music-api",
+      "args": [
+        "tests/music-api-browser.js",
+        "chrome"
+      ],
+      "exitCode": 0,
+      "elapsedMs": 63392,
+      "pass": true,
+      "log": "docs/qa-results/design-stage-9-music-api.log"
+    },
+    {
+      "name": "edge-launch",
+      "args": [
+        "tests/design-stage-7-8-browser.js",
+        "edge"
+      ],
+      "exitCode": 1,
+      "elapsedMs": 3618,
+      "pass": false,
+      "log": "docs/qa-results/design-stage-9-edge-launch.log"
+    }
+  ],
+  "finishedAt": "2026-10-13T06:35:40.375Z"
+}

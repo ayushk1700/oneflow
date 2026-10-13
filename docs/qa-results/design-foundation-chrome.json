@@ -1,0 +1,12 @@
+{
+  "checks": [
+    "Shared font stack, supported weights, panel radius and original default shading resolve correctly",
+    "Nine core Home groups, quiet menu-only Settings/brand, 44px targets and fitting corners at 1440/390/320px in both themes",
+    "Workspace Settings, Paper Journal and Calm Sounds retain their dedicated surfaces; Settings restores focus to More",
+    "Notes light/dark base aliases resolve and the iframe workspace fits desktop and narrow mobile",
+    "Task/custom draft and duration controls work; Ambient Settings and returning to focus preserve timer identity/deadline",
+    "Disabled tools leave no shortcut; saved Studio typography/placement and custom accent survive offline reload; disabling Studio restores disclosure; auto theme and reduced motion work"
+  ],
+  "errors": [],
+  "requests": []
+}

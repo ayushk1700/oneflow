@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import {createRequire} from 'node:module';
 const require=createRequire(import.meta.url),{chromium}=require(`${process.env.ONEFLOW_NODE_MODULES}/playwright`),browser=process.argv[2]||'chrome',checks=[],errors=[];
 const root=path.resolve('.test-profile',`boundaries-${browser}-${Date.now()}`),fixture=path.join(root,'extension');await fs.mkdir(fixture,{recursive:true});
-for(const dir of ['newtab','core','components','background','data','assets','vendor','wallpaper','livewallpaper','blocked'])await fs.symlink(path.resolve(dir),path.join(fixture,dir),'junction');
+for(const dir of ['newtab','core','components','background','data','assets','vendor','wallpaper','livewallpaper','blocked']){try{await fs.symlink(path.resolve(dir),path.join(fixture,dir),'junction');}catch(error){if(!['EPERM','EACCES'].includes(error.code))throw error;await fs.cp(path.resolve(dir),path.join(fixture,dir),{recursive:true});}}
 // Only this isolated fixture pre-grants hosts; the production manifest remains optional.
 const manifest=JSON.parse(await fs.readFile('manifest.json','utf8'));assert(!manifest.host_permissions);manifest.host_permissions=['http://*/*','https://*/*'];await fs.writeFile(path.join(fixture,'manifest.json'),JSON.stringify(manifest));
 const context=await chromium.launchPersistentContext(path.join(root,'profile'),{executablePath:browser==='edge'?'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe':'C:/Program Files/Google/Chrome/Application/chrome.exe',headless:true,viewport:{width:1440,height:900},args:['--enable-unsafe-extension-debugging'],ignoreDefaultArgs:['--disable-extensions']});const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));

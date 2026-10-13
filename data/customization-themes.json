@@ -1,0 +1,74 @@
+[
+  {
+    "name": "Cozy",
+    "mode": "dark",
+    "accent": "#edbd91",
+    "palette": {
+      "background": "#211811",
+      "surface": "#33261e",
+      "text": "#fff6e9",
+      "muted": "#dcc8b5",
+      "border": "#977e65"
+    }
+  },
+  {
+    "name": "Minimal",
+    "mode": "dark",
+    "accent": "#c9d9b5",
+    "palette": {
+      "background": "#111a17",
+      "surface": "#1c2522",
+      "text": "#f5f3ea",
+      "muted": "#c4cfc6",
+      "border": "#526259"
+    }
+  },
+  {
+    "name": "Neon",
+    "mode": "dark",
+    "accent": "#96f6d1",
+    "palette": {
+      "background": "#111522",
+      "surface": "#1c2439",
+      "text": "#f2f5ff",
+      "muted": "#bdc9e7",
+      "border": "#617496"
+    }
+  },
+  {
+    "name": "Pastel",
+    "mode": "light",
+    "accent": "#694c8e",
+    "palette": {
+      "background": "#f4edf7",
+      "surface": "#fff8fc",
+      "text": "#332a3e",
+      "muted": "#65566f",
+      "border": "#9e8ba6"
+    }
+  },
+  {
+    "name": "Forest",
+    "mode": "dark",
+    "accent": "#b8dda8",
+    "palette": {
+      "background": "#101d14",
+      "surface": "#1c2c20",
+      "text": "#f0f7ea",
+      "muted": "#bcd0b8",
+      "border": "#607a60"
+    }
+  },
+  {
+    "name": "Paper",
+    "mode": "light",
+    "accent": "#375c49",
+    "palette": {
+      "background": "#edf0e7",
+      "surface": "#fcfcf3",
+      "text": "#27352a",
+      "muted": "#51624f",
+      "border": "#80947b"
+    }
+  }
+]

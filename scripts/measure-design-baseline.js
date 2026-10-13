@@ -6,6 +6,10 @@ import { createHash } from 'node:crypto';
 import { createRequire } from 'node:module';
 
 const root = process.cwd();
+const args = process.argv.slice(2);
+const output = args.find(arg => arg.startsWith('--output='))?.slice(9) || 'design-stage-0-baseline.json';
+if (!/^[a-z0-9-]+\.json$/.test(output)) throw new Error('Output must be a simple JSON filename.');
+const browsers = args.filter(arg => !arg.startsWith('--output='));
 const seen = new Set();
 const modules = [];
 /** Measure the same uncompressed static import graph as scripts/check.js. */
@@ -28,10 +32,10 @@ const report = {
 };
 const require = createRequire(import.meta.url);
 const { chromium } = require(process.env.ONEFLOW_NODE_MODULES ? path.join(process.env.ONEFLOW_NODE_MODULES, 'playwright') : 'playwright');
-for (const browser of process.argv.slice(2).length ? process.argv.slice(2) : ['chrome', 'edge']) {
+for (const browser of browsers.length ? browsers : ['chrome', 'edge']) {
   if (!['chrome', 'edge'].includes(browser)) throw new Error('Use chrome or edge.');
   const executablePath = browser === 'edge' ? 'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe' : 'C:/Program Files/Google/Chrome/Application/chrome.exe';
-  const result = { browser, executablePath, timingsMs: [], errors: [], externalRequests: [] };
+  const result = { browser, executablePath, timingsMs: [], stages: [], errors: [], externalRequests: [] };
   report.browsers.push(result);
   let context;
   try {
@@ -63,6 +67,7 @@ for (const browser of process.argv.slice(2).length ? process.argv.slice(2) : ['c
       await page.reload();
       await page.locator('html[data-ready=true]').waitFor();
       result.timingsMs.push(await page.evaluate(() => performance.getEntriesByName('oneflow-ready')[0].startTime));
+      result.stages.push(await page.evaluate(() => ({ marks: Object.fromEntries(performance.getEntriesByType('mark').filter(m => m.name.startsWith('oneflow-')).map(m => [m.name, m.startTime])), navigation: performance.getEntriesByType('navigation')[0].toJSON() })));
     }
     const sorted = [...result.timingsMs].sort((a, b) => a - b);
     result.medianMs = (sorted[3] + sorted[4]) / 2;
@@ -78,6 +83,6 @@ for (const browser of process.argv.slice(2).length ? process.argv.slice(2) : ['c
   }
 }
 await fs.mkdir(path.join(root, 'docs/qa-results'), { recursive: true });
-await fs.writeFile(path.join(root, 'docs/qa-results/design-stage-0-baseline.json'), JSON.stringify(report, null, 2) + '\n');
+await fs.writeFile(path.join(root, 'docs/qa-results', output), JSON.stringify(report, null, 2) + '\n');
 console.log(`Initial static JavaScript: ${jsBytes} bytes (${(jsBytes / 1024).toFixed(2)} KiB).`);
 if (!report.javascript.pass || report.browsers.some(item => !item.startupPass || !item.loadPass)) process.exitCode = 1;

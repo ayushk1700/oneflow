@@ -8,6 +8,8 @@
     "check": "node scripts/check.js",
     "preview": "node scripts/preview.js",
     "wallpapers": "node scripts/index-wallpapers.js",
-    "package": "node scripts/package.js"
+    "package": "node scripts/package.js",
+    "design:lint": "node scripts/design-lint.js",
+    "design:qa": "node scripts/preview.js"
   }
 }

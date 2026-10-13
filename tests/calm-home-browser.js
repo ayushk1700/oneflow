@@ -43,6 +43,12 @@ try {
   assert(!await page.locator('#weather').isVisible());
   assert(await page.locator('#quotes blockquote').isVisible());
   assert.equal(await menu.getAttribute('open'),null);
+  const homeGroups = ['.greeting','.clock-time','.date-label','#focus','#search','#quotes blockquote','#journal-button','#dock','#home-menu > summary'];
+  for (const selector of homeGroups) assert(await page.locator(selector).isVisible(), `Missing Home group: ${selector}`);
+  const visibleGroups = await page.locator('.greeting,.clock-time,.date-label,#focus,#search,#quotes,#timer,#journal-button,#focus-exit,#dock,#home-menu > summary,#settings-button,.brand,#weather,#links,#countdowns').evaluateAll(nodes=>nodes.filter(node=>node.checkVisibility({visibilityProperty:true})).length);
+  assert.equal(visibleGroups,9);
+  assert(!await page.locator('#settings-button').isVisible());
+  assert(!await page.locator('.brand').isVisible());
   await fits(); await shot('home-1440');
   pass('Fresh Home shows light clock, daily quote, one focus prompt and two dock shortcuts and a top-right Journal button');
 
@@ -127,7 +133,7 @@ try {
   });
   await page.waitForFunction(()=>document.documentElement.dataset.background==='upload' && document.querySelector('#landscape').dataset.load==='ready');
   await shot('white-upload');
-  const points=await page.locator('.greeting,.date-label,.session-setup > input,.brand,#web-search,.session-duration > select').evaluateAll(nodes=>nodes.map(n=>{
+  const points=await page.locator('.greeting,.date-label,.session-setup > input,#web-search,.session-duration > select').evaluateAll(nodes=>nodes.map(n=>{
     const r=n.getBoundingClientRect(),c=getComputedStyle(n,n.matches('input')?'::placeholder':null).color.match(/[\d.]+/g).slice(0,3).map(Number);
     return {x:Math.floor(r.x+r.width/2),y:Math.floor(r.y+r.height/2),c};
   }));

@@ -1,0 +1,10 @@
+{
+  "checks": [
+    "Dated Journal appends preserve text/ID/prompt and reject oversized writes; session reflection restores saved text for the latest recorded session",
+    "First Step leads with searchable saved beginnings, discloses new entry, and retains editable next actions",
+    "Priorities cannot replace a paused restored interval without a session ID",
+    "Milestones sort/search and retain live filters; updated Journal persists offline with no page errors or remote calls"
+  ],
+  "errors": [],
+  "requests": []
+}

@@ -23,6 +23,8 @@ export function renderSettings(body) {
   form.addEventListener('input', () => { dirty = true; });
   form.addEventListener('change', () => { dirty = true; });
   form.addEventListener('submit', act(async event => {
+    event.preventDefault();
+    if (flags.notifications && globalThis.chrome?.permissions && !await chrome.permissions.request({ permissions: ['notifications'] })) { flags.notifications = false; emit('toast', 'System notices were declined. In-app notices and the timer still work.'); }
     event.preventDefault(); await update(d => { d.timerConfig = { ...d.timerConfig, ...flags, ...Object.fromEntries(Object.entries(controls).map(([key, input]) => [key, Number(input.value)])) }; if (d.timer.status === 'idle') { d.timer.duration = d.timerConfig[d.timer.phase] * 60000; d.timer.remaining = d.timer.duration; } }); dirty = false; await backgroundSync(); emit('toast', translate('m0529'));
   }));
   settings.append(form); body.append(settings, el('p', { class: 'muted' }, translate('m0530')));

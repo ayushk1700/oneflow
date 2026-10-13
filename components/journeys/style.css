@@ -1,10 +1,10 @@
 .concept-map{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,16rem),1fr));gap:var(--space-3)}
-.concept-card{border-block-start:1px solid var(--border);padding-block:var(--space-3);min-width:0}
+.concept-card{border-block-start:var(--stroke) solid var(--border);padding-block:var(--space-3);min-width:0}
 .concept-card>summary{cursor:pointer;overflow-wrap:anywhere}
 .concept-card[open]{display:flex;flex-direction:column;gap:var(--space-3)}
 .energy-arc{display:flex;gap:var(--space-3);flex-wrap:wrap}
 .energy-arc meter{width:100%;accent-color:var(--accent)}
-.idea-sketch{display:block;width:100%;height:auto;border:1px solid var(--border);border-radius:var(--radius-small);background:var(--surface);touch-action:none}
+.idea-sketch{display:block;width:100%;height:auto;border:var(--stroke) solid var(--border);border-radius:var(--radius-small);background:var(--surface);touch-action:none}
 .workbench p,.workbench a{overflow-wrap:anywhere;white-space:pre-line}
 .workbench input[type=file]{max-width:100%}
 .capsule-scenery{width:100%;height:6rem;object-fit:cover;border-radius:var(--radius-small)}

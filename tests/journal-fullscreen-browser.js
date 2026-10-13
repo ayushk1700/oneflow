@@ -7,7 +7,7 @@ const { chromium } = require(process.env.ONEFLOW_NODE_MODULES + '/playwright');
 const browser = process.argv[2] || 'chrome', checks = [], errors = [], requests = [];
 const context = await chromium.launchPersistentContext(path.resolve('.test-profile',`journal-page-${browser}-${Date.now()}`),{
   executablePath:browser === 'edge' ? 'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe' : 'C:/Program Files/Google/Chrome/Application/chrome.exe',
-  headless:true,acceptDownloads:true,viewport:{width:1440,height:900},timezoneId:'Asia/Kolkata',
+  headless:true,acceptDownloads:true,downloadsPath:path.resolve('test-results','journal-downloads'),viewport:{width:1440,height:900},timezoneId:'Asia/Kolkata',
   args:['--enable-unsafe-extension-debugging'],ignoreDefaultArgs:['--disable-extensions']
 });
 const page = await context.newPage();

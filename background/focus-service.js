@@ -5,6 +5,7 @@ import { snapshot, applySnapshot, sceneById } from '../core/scenes.js';
 import { rulesFor, blockerOrigins, blockedHost } from '../core/blocker-logic.js';
 import { getAll } from '../core/db.js';
 import { dayKey } from '../core/utils.js';
+import { notify } from '../core/system-notifications.js';
 /** Reconcile rules against both the saved deadline and a browser-session lease. */
 export async function syncBlocker() {
   const d = storage.get(),
@@ -172,6 +173,7 @@ export async function scheduleReminders() {
   } else await chrome.alarms.clear('oneflow-backup-reminder');
 }
 export async function notifyReminder(name) {
+  return navigator.locks.request('oneflow-backup', async () => {
   const d = storage.get();
   let title, message;
   if (name.startsWith('oneflow-ritual-')) {
@@ -191,10 +193,11 @@ export async function notifyReminder(name) {
     });
   }
   if (message) await (await import('../core/notifications.js')).record(`${title}: ${message}`, 'info', `${name}-${dayKey()}`);
-  if (message) await chrome.notifications.create(name, {
+  if (message) await notify(name, {
     type: 'basic',
     iconUrl: chrome.runtime.getURL('assets/icons/icon-128.png'),
     title,
     message
+  });
   });
 }

@@ -1,5 +1,5 @@
 /* Notes renders its card collection inside the isolated capture workspace. */
-.notes-workspace-frame { display:block; width:100%; height:min(760px,74dvh); border:0; border-radius:var(--radius-control); }
+.notes-workspace-frame { display:block; width:100%; height:min(calc(var(--space-xs) * 190),74dvh); border:0; border-radius:var(--radius-control); }
 .markdown-preview { overflow-wrap:anywhere; padding:var(--space-md); }
 .markdown-preview p { white-space:pre-wrap; margin:0 0 var(--space-sm); }
 .markdown-preview code { background:var(--panel); padding:var(--space-xs); border-radius:var(--radius-small); }

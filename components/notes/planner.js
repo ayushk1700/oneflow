@@ -1,11 +1,11 @@
 import { el, uid, dayKey } from '../../core/utils.js';
-import { get, update } from '../../core/storage.js';
+import { get, update, sessionGet } from '../../core/storage.js';
 import { getAll } from '../../core/db.js';
 import { streak, shiftDay } from '../../core/stats-logic.js';
 import { timerCommand, backgroundSync } from '../../core/timer-client.js';
 
 /** Live task/habit editors share Notes without copying IDs or completion history. */
-export function createPlanner({ editor, button, message, leave, show }) {
+export function createPlanner({ editor, button, message, leave, show, dataGeneration }) {
   let active = false, work = Promise.resolve(), error, busy = 0, taskView='Today';
   const changes = [];
   const commit = change => {
@@ -13,7 +13,10 @@ export function createPlanner({ editor, button, message, leave, show }) {
     busy++; message('Saving…');
     work = work.catch(() => {}).then(async () => {
       const batch = changes.slice();
-      if (batch.length) await update(data => batch.forEach(edit => edit(data)), { sync: false });
+      if (batch.length) await navigator.locks.request('oneflow-backup', async () => {
+        if (dataGeneration !== undefined && (await sessionGet('data-generation') || '') !== dataGeneration) throw new Error('Data was replaced. Reload Notes before saving.');
+        await update(data => batch.forEach(edit => edit(data)), { sync: false });
+      });
       changes.splice(0, batch.length);
     })
       .then(() => { error = null; message('Saved on this device'); })

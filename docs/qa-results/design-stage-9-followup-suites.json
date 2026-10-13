@@ -1,0 +1,81 @@
+{
+  "startedAt": "2026-10-13T06:45:49.813Z",
+  "method": "Sequential installed Chrome acceptance suites, each with a disposable profile. Native/provider fixtures keep their existing limits. Performance is measured separately after all suites close.",
+  "results": [
+    {
+      "name": "syntax",
+      "args": [
+        "scripts/check.js"
+      ],
+      "exitCode": 0,
+      "elapsedMs": 10693,
+      "pass": true,
+      "log": "docs/qa-results/design-stage-9-followup-syntax.log"
+    },
+    {
+      "name": "units",
+      "args": [
+        "--test",
+        "tests/background-presentation.test.js",
+        "tests/calm-migration.test.js",
+        "tests/dictionary.test.js",
+        "tests/integrations.test.js",
+        "tests/journeys.test.js",
+        "tests/market-ready.test.js",
+        "tests/notes-capture.test.js",
+        "tests/notes-checklist.test.js",
+        "tests/pexels-worker.test.js",
+        "tests/pexels.test.js",
+        "tests/schema.test.js",
+        "tests/stage2.test.js",
+        "tests/stage3.test.js",
+        "tests/storage-startup.test.js",
+        "tests/studio.test.js",
+        "tests/tab-restoration.test.js",
+        "tests/task-dates.test.js",
+        "tests/unified-timer.test.js",
+        "tests/work-context.test.js",
+        "tests/youtube-music.test.js",
+        "tests/youtube-search.test.js"
+      ],
+      "exitCode": 0,
+      "elapsedMs": 4873,
+      "pass": true,
+      "log": "docs/qa-results/design-stage-9-followup-units.log"
+    },
+    {
+      "name": "journeys-tabs",
+      "args": [
+        "tests/journeys-tabs-browser.js",
+        "chrome"
+      ],
+      "exitCode": 0,
+      "elapsedMs": 16725,
+      "pass": true,
+      "log": "docs/qa-results/design-stage-9-followup-journeys-tabs.log"
+    },
+    {
+      "name": "work-context",
+      "args": [
+        "tests/work-context-browser.js",
+        "chrome"
+      ],
+      "exitCode": 0,
+      "elapsedMs": 100225,
+      "pass": true,
+      "log": "docs/qa-results/design-stage-9-followup-work-context.log"
+    },
+    {
+      "name": "ambient-clock",
+      "args": [
+        "tests/ambient-clock-browser.js",
+        "chrome"
+      ],
+      "exitCode": 0,
+      "elapsedMs": 55740,
+      "pass": true,
+      "log": "docs/qa-results/design-stage-9-followup-ambient-clock.log"
+    }
+  ],
+  "finishedAt": "2026-10-13T06:48:58.115Z"
+}

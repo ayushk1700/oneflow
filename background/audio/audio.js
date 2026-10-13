@@ -1,7 +1,9 @@
 import { SoundEngine } from '../../core/audio-engine.js';
+import { documentPath } from '../../core/message-policy.js';
 const engine = new SoundEngine();
 chrome.runtime.onMessage.addListener((message, sender, respond) => {
   if (message?.target !== 'audio' || sender.id !== chrome.runtime.id) return false;
+  if (documentPath(sender, chrome.runtime.getURL('/')) !== '/background/service-worker.js') return false;
   const run = async () => {
     if (message.type === 'mix') await engine.mix(message.config, () => chrome.runtime.sendMessage({ target: 'worker', type: 'audio-slept' }));
     if (message.type === 'stop') engine.stop();

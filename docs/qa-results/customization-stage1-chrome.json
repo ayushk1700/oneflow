@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-13T19:34:54.209Z",
+  "checks": [
+    "Settings opens with S and a named modal",
+    "Keyboard focus stays inside the modal",
+    "Accent previews synchronously and persists",
+    "Undo, Redo and session Revert restore values",
+    "Six presets and custom theme save/apply/delete work",
+    "Glass blur, typography and density change consumed CSS tokens",
+    "Search filters labels and reports empty results",
+    "Zen hides other widgets and restores them after a saved change",
+    "Accessibility controls apply and OpenDyslexic loads locally",
+    "Export downloads the versioned settings JSON",
+    "Malformed, unknown-key, prototype, future-version and oversize files are rejected without mutation",
+    "Valid settings file imports",
+    "Drawer fits 320px without horizontal overflow",
+    "Settings survive a complete browser process restart",
+    "Settings survive new-tab reload",
+    "Existing background controls feed the canonical object and survive reload",
+    "Clear-all-data requires confirmation and cancellation preserves settings",
+    "Corrupt canonical settings recover without breaking the dashboard",
+    "Corrupt application storage recovers and preserves its original",
+    "No uncaught browser errors"
+  ],
+  "errors": []
+}

@@ -1,0 +1,6602 @@
+[
+  {
+    "file": "newtab/dashboard.css",
+    "property": "background",
+    "before": "linear-gradient(90deg,transparent 0%,rgb(var(--shade-rgb) / max(var(--shade-text-min),calc(var(--home-shade) * var(--shade-center-strength)))) max(0px,calc(50% - var(--shade-text-width) / 2)),rgb(var(--shade-rgb) / max(var(--shade-text-min),calc(var(--home-shade) * var(--shade-center-strength)))) min(100%,calc(50% + var(--shade-text-width) / 2)),transparent 100%),linear-gradient(rgb(var(--shade-rgb) / calc(var(--home-shade) * var(--shade-overall-strength))),rgb(var(--shade-rgb) / calc(var(--home-shade) * var(--shade-overall-strength))))",
+    "after": "linear-gradient(90deg,transparent 0%,rgb(var(--shade-rgb) / max(var(--shade-text-min),calc(var(--home-shade) * var(--shade-center-strength)))) max(0,calc(50% - var(--shade-text-width) / 2)),rgb(var(--shade-rgb) / max(var(--shade-text-min),calc(var(--home-shade) * var(--shade-center-strength)))) min(100%,calc(50% + var(--shade-text-width) / 2)),transparent 100%),linear-gradient(rgb(var(--shade-rgb) / calc(var(--home-shade) * var(--shade-overall-strength))),rgb(var(--shade-rgb) / calc(var(--home-shade) * var(--shade-overall-strength))))"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "min-height",
+    "before": "72px",
+    "after": "calc(var(--space-xs) * 18)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "z-index",
+    "before": "1",
+    "after": "var(--layer-widget)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "letter-spacing",
+    "before": "-.5px",
+    "after": "var(--tracking-heading)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "width",
+    "before": "24px",
+    "after": "var(--space-lg)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "line-height",
+    "before": "1.6",
+    "after": "var(--leading-body)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "transition",
+    "before": "opacity var(--ease)",
+    "after": "opacity var(--var(--easing-standard))"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "padding",
+    "before": "112px var(--space-lg) 176px",
+    "after": "calc(var(--space-xs) * 28) var(--space-lg) calc(var(--space-xs) * 44)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "width",
+    "before": "min(640px,100%)",
+    "after": "min(calc(var(--space-xs) * 160),100%)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "max-width",
+    "before": "640px",
+    "after": "calc(var(--space-xs) * 160)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "font-size",
+    "before": "clamp(20px,2vw,var(--text-title))",
+    "after": "clamp(var(--text-input),2vw,var(--text-title))"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "letter-spacing",
+    "before": "-.4px",
+    "after": "var(--tracking-heading)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "line-height",
+    "before": "1.4",
+    "after": "var(--leading-heading)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "font-size",
+    "before": "clamp(80px,12vw,var(--clock-size))",
+    "after": "clamp(var(--text-display),12vw,var(--clock-size))"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "line-height",
+    "before": "1",
+    "after": "var(--leading-display)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "letter-spacing",
+    "before": ".04em",
+    "after": "var(--tracking-label)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "width",
+    "before": "min(460px,100%)",
+    "after": "min(calc(var(--space-xs) * 115),100%)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "border",
+    "before": "1px solid var(--canvas-line)",
+    "after": "var(--stroke) solid var(--canvas-line)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "transition",
+    "before": "background var(--ease),border-color var(--ease)",
+    "after": "background var(--var(--easing-standard)),border-color var(--var(--easing-standard))"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "max-width",
+    "before": "330px",
+    "after": "calc(var(--space-xs) * 83)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "width",
+    "before": "1px",
+    "after": "var(--stroke)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "height",
+    "before": "1px",
+    "after": "var(--stroke)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "width",
+    "before": "68px",
+    "after": "calc(var(--space-xs) * 17)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "min-width",
+    "before": "122px",
+    "after": "calc(var(--space-xs) * 31)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "width",
+    "before": "30px",
+    "after": "var(--space-5)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "height",
+    "before": "30px",
+    "after": "var(--space-5)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "min-height",
+    "before": "30px",
+    "after": "var(--space-5)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "min-height",
+    "before": "30px",
+    "after": "var(--space-5)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "font-size",
+    "before": "clamp(23px,2.7vw,32px)",
+    "after": "clamp(var(--text-input),2.7vw,var(--text-title))"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "line-height",
+    "before": "1.35",
+    "after": "var(--leading-heading)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "font-size",
+    "before": "64px",
+    "after": "var(--text-display)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "line-height",
+    "before": "1",
+    "after": "var(--leading-display)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "letter-spacing",
+    "before": "-.065em",
+    "after": "var(--tracking-heading)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "width",
+    "before": "170px",
+    "after": "calc(var(--space-xs) * 43)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "height",
+    "before": "3px",
+    "after": "var(--stroke)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "min-height",
+    "before": "30px",
+    "after": "var(--space-5)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "border",
+    "before": "1px solid var(--canvas-line)",
+    "after": "var(--stroke) solid var(--canvas-line)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "min-height",
+    "before": "32px",
+    "after": "var(--space-5)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "min-width",
+    "before": "110px",
+    "after": "calc(var(--space-xs) * 28)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "min-height",
+    "before": "38px",
+    "after": "calc(var(--space-xs) * 10)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "border",
+    "before": "1px solid var(--canvas-line)",
+    "after": "var(--stroke) solid var(--canvas-line)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "font-size",
+    "before": "clamp(96px,15vw,180px)",
+    "after": "clamp(var(--text-display),15vw,var(--clock-size))"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "letter-spacing",
+    "before": "-.065em",
+    "after": "var(--tracking-heading)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "line-height",
+    "before": "1",
+    "after": "var(--leading-display)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "width",
+    "before": "min(680px,100%)",
+    "after": "min(calc(var(--space-xs) * 170),100%)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "font-size",
+    "before": "clamp(96px,15vw,180px)",
+    "after": "clamp(var(--text-display),15vw,var(--clock-size))"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "max-width",
+    "before": "440px",
+    "after": "calc(var(--space-xs) * 110)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "max-width",
+    "before": "480px",
+    "after": "calc(var(--space-xs) * 120)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "bottom",
+    "before": "86px",
+    "after": "calc(var(--space-xs) * 22)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "border",
+    "before": "1px solid var(--canvas-line)",
+    "after": "var(--stroke) solid var(--canvas-line)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "width",
+    "before": "min(350px,100%)",
+    "after": "min(calc(var(--space-xs) * 88),100%)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "width",
+    "before": "min(520px,100%)",
+    "after": "min(calc(var(--space-xs) * 130),100%)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "min-height",
+    "before": "80px",
+    "after": "calc(var(--space-xs) * 20)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "line-height",
+    "before": "1.5",
+    "after": "var(--leading-body)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "border",
+    "before": "1px solid transparent",
+    "after": "var(--stroke) solid transparent"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "z-index",
+    "before": "2",
+    "after": "var(--layer-widget)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "z-index",
+    "before": "10",
+    "after": "var(--layer-modal)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "border",
+    "before": "1px solid var(--canvas-line)",
+    "after": "var(--stroke) solid var(--canvas-line)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "height",
+    "before": "52px",
+    "after": "calc(var(--space-xs) * 13)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "border",
+    "before": "1px solid transparent",
+    "after": "var(--stroke) solid transparent"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "width",
+    "before": "min(360px,calc(100vw - 32px))",
+    "after": "min(calc(var(--space-xs) * 90),calc(100vw - var(--space-5)))"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "max-height",
+    "before": "calc(100svh - 180px)",
+    "after": "calc(100svh - calc(var(--space-xs) * 45))"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "border",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "width",
+    "before": "16px",
+    "after": "var(--space-md)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "height",
+    "before": "16px",
+    "after": "var(--space-md)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "border",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "max-width",
+    "before": "calc(100% - 48px)",
+    "after": "calc(100% - var(--space-2xl))"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "bottom",
+    "before": "100px",
+    "after": "calc(var(--space-xs) * 25)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "max-width",
+    "before": "calc(100% - 32px)",
+    "after": "calc(100% - var(--space-5))"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "border",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "inset",
+    "before": "auto auto 86px 36px",
+    "after": "auto auto calc(var(--space-xs) * 22) calc(var(--space-xs) * 9)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "width",
+    "before": "460px",
+    "after": "calc(var(--space-xs) * 115)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "max-width",
+    "before": "calc(100% - 48px)",
+    "after": "calc(100% - var(--space-2xl))"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "max-height",
+    "before": "calc(100svh - 116px)",
+    "after": "calc(100svh - calc(var(--space-xs) * 29))"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "width",
+    "before": "650px",
+    "after": "calc(var(--space-xs) * 163)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "max-height",
+    "before": "calc(100svh - 280px)",
+    "after": "calc(100svh - calc(var(--space-xs) * 70))"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "letter-spacing",
+    "before": "-.5px",
+    "after": "var(--tracking-heading)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "border-bottom",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "border-radius",
+    "before": "9px",
+    "after": "var(--radius-md)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "width",
+    "before": "490px",
+    "after": "calc(var(--space-xs) * 123)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "max-height",
+    "before": "min(620px,calc(100svh - 116px))",
+    "after": "min(calc(var(--space-xs) * 155),calc(100svh - calc(var(--space-xs) * 29)))"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "border-width",
+    "before": "0 0 1px",
+    "after": "0 0 var(--stroke)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "padding",
+    "before": "var(--space-3) 2px",
+    "after": "var(--space-3) var(--space-xs)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "bottom",
+    "before": "94px",
+    "after": "calc(var(--space-xs) * 24)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "min-height",
+    "before": "64px",
+    "after": "var(--space-3xl)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "padding",
+    "before": "80px var(--space-lg) 120px",
+    "after": "calc(var(--space-xs) * 20) var(--space-lg) calc(var(--space-xs) * 30)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "font-size",
+    "before": "140px",
+    "after": "var(--clock-size)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "min-height",
+    "before": "64px",
+    "after": "var(--space-3xl)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "padding",
+    "before": "96px var(--space-lg) 140px",
+    "after": "calc(var(--space-xs) * 24) var(--space-lg) calc(var(--space-xs) * 35)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "left",
+    "before": "24px",
+    "after": "var(--space-lg)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "min-height",
+    "before": "64px",
+    "after": "var(--space-3xl)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "padding",
+    "before": "80px var(--space-lg) 140px",
+    "after": "calc(var(--space-xs) * 20) var(--space-lg) calc(var(--space-xs) * 35)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "font-size",
+    "before": "clamp(64px,23vw,var(--clock-size))",
+    "after": "clamp(var(--text-display),23vw,var(--clock-size))"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "font-size",
+    "before": "clamp(82px,25vw,130px)",
+    "after": "clamp(var(--text-display),25vw,var(--clock-size))"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "width",
+    "before": "min(304px,100%)",
+    "after": "min(calc(var(--space-xs) * 76),100%)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "padding-bottom",
+    "before": "200px",
+    "after": "calc(var(--space-xs) * 50)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "bottom",
+    "before": "104px",
+    "after": "calc(var(--space-xs) * 26)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "inset",
+    "before": "12px",
+    "after": "var(--space-3)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "width",
+    "before": "calc(100% - 24px)",
+    "after": "calc(100% - var(--space-lg))"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "height",
+    "before": "calc(100svh - 24px)",
+    "after": "calc(100svh - var(--space-lg))"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "max-height",
+    "before": "calc(100svh - 24px)",
+    "after": "calc(100svh - var(--space-lg))"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "inset",
+    "before": "auto 12px 12px",
+    "after": "auto var(--space-3) var(--space-3)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "max-height",
+    "before": "calc(100svh - 176px)",
+    "after": "calc(100svh - calc(var(--space-xs) * 44))"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "bottom",
+    "before": "138px",
+    "after": "calc(var(--space-xs) * 35)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "filter",
+    "before": "blur(45px)",
+    "after": "blur(calc(var(--space-xs) * 11))"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "animation",
+    "before": "wallpaper-drift var(--motion-speed) ease-in-out infinite alternate",
+    "after": "wallpaper-drift var(--motion-speed) var(--easing-standard) infinite alternate"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "transition",
+    "before": "opacity var(--ease)",
+    "after": "opacity var(--var(--easing-standard))"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "min-height",
+    "before": "110px",
+    "after": "calc(var(--space-xs) * 28)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "border",
+    "before": "1px solid var(--canvas-line)",
+    "after": "var(--stroke) solid var(--canvas-line)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "border-radius",
+    "before": "6px",
+    "after": "var(--radius-sm)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "min-width",
+    "before": "32px",
+    "after": "var(--space-5)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "grid-template-columns",
+    "before": "minmax(0,1fr) 40px",
+    "after": "minmax(0,1fr) calc(var(--space-xs) * 10)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "width",
+    "before": "min(1080px,calc(100% - 48px))",
+    "after": "min(calc(var(--space-xs) * 270),calc(100% - var(--space-2xl)))"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "grid-template-columns",
+    "before": "176px minmax(0,1fr)",
+    "after": "calc(var(--space-xs) * 44) minmax(0,1fr)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "min-height",
+    "before": "44px",
+    "after": "calc(var(--space-xs) * 11)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "border",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "border-bottom",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "outline",
+    "before": "2px solid var(--accent)",
+    "after": "var(--stroke-strong) solid var(--accent)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "outline-offset",
+    "before": "4px",
+    "after": "var(--space-xs)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "line-height",
+    "before": "1.5",
+    "after": "var(--leading-body)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "min-height",
+    "before": "44px",
+    "after": "calc(var(--space-xs) * 11)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "max-width",
+    "before": "100px",
+    "after": "calc(var(--space-xs) * 25)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "min-height",
+    "before": "44px",
+    "after": "calc(var(--space-xs) * 11)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "min-height",
+    "before": "44px",
+    "after": "calc(var(--space-xs) * 11)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "min-height",
+    "before": "120px",
+    "after": "calc(var(--space-xs) * 30)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "width",
+    "before": "calc(100% - 24px)",
+    "after": "calc(100% - var(--space-lg))"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "min-height",
+    "before": "110px",
+    "after": "calc(var(--space-xs) * 28)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "outline",
+    "before": "3px solid Highlight",
+    "after": "var(--focus-width) solid Highlight"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "border",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "min-height",
+    "before": "44px",
+    "after": "calc(var(--space-xs) * 11)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "border",
+    "before": "1px solid var(--canvas-line)",
+    "after": "var(--stroke) solid var(--canvas-line)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "width",
+    "before": "16px",
+    "after": "var(--space-md)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "height",
+    "before": "16px",
+    "after": "var(--space-md)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "line-height",
+    "before": "1",
+    "after": "var(--leading-display)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "padding-top",
+    "before": "96px",
+    "after": "calc(var(--space-xs) * 24)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "padding-bottom",
+    "before": "96px",
+    "after": "calc(var(--space-xs) * 24)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "width",
+    "before": "min(820px,100%)",
+    "after": "min(calc(var(--space-xs) * 205),100%)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "max-width",
+    "before": "820px",
+    "after": "calc(var(--space-xs) * 205)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "width",
+    "before": "min(820px,100%)",
+    "after": "min(calc(var(--space-xs) * 205),100%)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "width",
+    "before": "1px",
+    "after": "var(--stroke)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "height",
+    "before": "1px",
+    "after": "var(--stroke)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "max-width",
+    "before": "min(760px,92vw)",
+    "after": "min(calc(var(--space-xs) * 190),92vw)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "font-size",
+    "before": "clamp(24px,3vw,36px)",
+    "after": "clamp(var(--text-input),3vw,var(--text-metric))"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "line-height",
+    "before": "1.2",
+    "after": "var(--leading-display)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "letter-spacing",
+    "before": "-.03em",
+    "after": "var(--tracking-heading)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "font-size",
+    "before": "clamp(112px,18vw,220px) !important",
+    "after": "clamp(var(--clock-size),18vw,var(--clock-size)) !important"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "line-height",
+    "before": ".9",
+    "after": "var(--leading-display)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "letter-spacing",
+    "before": "-.08em",
+    "after": "var(--tracking-heading)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "width",
+    "before": "min(340px,72vw)",
+    "after": "min(calc(var(--space-xs) * 85),72vw)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "height",
+    "before": "4px",
+    "after": "var(--space-xs)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "min-width",
+    "before": "124px",
+    "after": "calc(var(--space-xs) * 31)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "min-height",
+    "before": "46px",
+    "after": "var(--space-2xl)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "border-radius",
+    "before": "999px",
+    "after": "var(--radius-full)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "min-height",
+    "before": "38px",
+    "after": "calc(var(--space-xs) * 10)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "transform",
+    "before": "translateY(8px)",
+    "after": "translateY(var(--space-sm))"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "transition",
+    "before": "opacity var(--ease), transform var(--ease), visibility var(--ease)",
+    "after": "opacity var(--var(--easing-standard)), transform var(--var(--easing-standard)), visibility var(--var(--easing-standard))"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "border",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "padding-top",
+    "before": "80px",
+    "after": "calc(var(--space-xs) * 20)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "padding-bottom",
+    "before": "80px",
+    "after": "calc(var(--space-xs) * 20)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "font-size",
+    "before": "clamp(23px,7vw,34px)",
+    "after": "clamp(var(--text-input),7vw,var(--text-title))"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "font-size",
+    "before": "clamp(88px,27vw,146px) !important",
+    "after": "clamp(var(--text-display),27vw,var(--clock-size)) !important"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "width",
+    "before": "min(940px,calc(100% - 48px))",
+    "after": "min(calc(var(--space-xs) * 235),calc(100% - var(--space-2xl)))"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "height",
+    "before": "min(760px,calc(100svh - 64px))",
+    "after": "min(calc(var(--space-xs) * 190),calc(100svh - var(--space-3xl)))"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "max-height",
+    "before": "calc(100svh - 64px)",
+    "after": "calc(100svh - var(--space-3xl))"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "border",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "min-height",
+    "before": "44px",
+    "after": "calc(var(--space-xs) * 11)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "max-width",
+    "before": "1040px",
+    "after": "calc(var(--space-xs) * 260)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "min-height",
+    "before": "116px",
+    "after": "calc(var(--space-xs) * 29)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "min-height",
+    "before": "120px",
+    "after": "calc(var(--space-xs) * 30)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "z-index",
+    "before": "20",
+    "after": "var(--layer-toast)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "right",
+    "before": "16px",
+    "after": "var(--space-md)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "top",
+    "before": "16px",
+    "after": "var(--space-md)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "bottom",
+    "before": "16px",
+    "after": "var(--space-md)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "width",
+    "before": "370px",
+    "after": "calc(var(--space-xs) * 93)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "border",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "font-size",
+    "before": "17px",
+    "after": "var(--text-subheading)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "min-height",
+    "before": "40px",
+    "after": "calc(var(--space-xs) * 10)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "padding",
+    "before": "2px var(--space-sm) var(--space-sm) 0",
+    "after": "var(--space-xs) var(--space-sm) var(--space-sm) 0"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "line-height",
+    "before": "1.6",
+    "after": "var(--leading-body)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "min-height",
+    "before": "44px",
+    "after": "calc(var(--space-xs) * 11)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "line-height",
+    "before": "1.5",
+    "after": "var(--leading-body)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "min-height",
+    "before": "44px",
+    "after": "calc(var(--space-xs) * 11)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "outline",
+    "before": "2px solid var(--accent)",
+    "after": "var(--stroke-strong) solid var(--accent)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "outline",
+    "before": "2px dashed var(--accent)",
+    "after": "var(--stroke-strong) dashed var(--accent)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "outline-offset",
+    "before": "6px",
+    "after": "var(--space-sm)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "transition-duration",
+    "before": "clamp(150ms,var(--studio-motion),250ms)",
+    "after": "clamp(var(--motion-base),var(--studio-motion),var(--motion-base))"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "min-width",
+    "before": "64px",
+    "after": "var(--space-3xl)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "transition",
+    "before": "opacity var(--ease)",
+    "after": "opacity var(--var(--easing-standard))"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "height",
+    "before": "10px",
+    "after": "var(--space-3)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "width",
+    "before": "min(320px,80vw)",
+    "after": "min(calc(var(--space-xs) * 80),80vw)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "min-width",
+    "before": "min(320px,80vw)",
+    "after": "min(calc(var(--space-xs) * 80),80vw)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "min-height",
+    "before": "min(320px,80vw)",
+    "after": "min(calc(var(--space-xs) * 80),80vw)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "font-size",
+    "before": "clamp(48px,8vw,100px)!important",
+    "after": "clamp(var(--text-metric),8vw,var(--clock-size))!important"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "border",
+    "before": "8px solid transparent",
+    "after": "var(--space-sm) solid transparent"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "border-radius",
+    "before": "50%",
+    "after": "var(--radius-full)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "min-height",
+    "before": "48px!important",
+    "after": "var(--space-2xl)!important"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "outline",
+    "before": "3px solid var(--accent)",
+    "after": "var(--focus-width) solid var(--accent)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "outline-offset",
+    "before": "3px",
+    "after": "var(--focus-width)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "max-width",
+    "before": "160px!important",
+    "after": "calc(var(--space-xs) * 40)!important"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "z-index",
+    "before": "30",
+    "after": "var(--layer-toast)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "animation",
+    "before": "studio-burst var(--ease) forwards",
+    "after": "studio-burst var(--var(--easing-standard)) forwards"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "transform",
+    "before": "rotate(var(--angle)) translateX(180px)",
+    "after": "rotate(var(--angle)) translateX(calc(var(--space-xs) * 45))"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "inset",
+    "before": "auto 8px 8px",
+    "after": "auto var(--space-sm) var(--space-sm)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "width",
+    "before": "calc(100% - 16px)",
+    "after": "calc(100% - var(--space-md))"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "max-width",
+    "before": "calc(100vw - 74px)",
+    "after": "calc(100vw - calc(var(--space-xs) * 19))"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "min-width",
+    "before": "52px",
+    "after": "calc(var(--space-xs) * 13)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "bottom",
+    "before": "94px",
+    "after": "calc(var(--space-xs) * 24)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "transition-duration",
+    "before": "0ms!important",
+    "after": "var(--motion-base)!important"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "border",
+    "before": "1px solid var(--canvas-line)",
+    "after": "var(--stroke) solid var(--canvas-line)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "transition",
+    "before": "border-color var(--ease),background var(--ease)",
+    "after": "border-color var(--var(--easing-standard)),background var(--var(--easing-standard))"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "outline",
+    "before": "2px solid var(--canvas-ink)",
+    "after": "var(--stroke-strong) solid var(--canvas-ink)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "border",
+    "before": "1px solid var(--canvas-line)",
+    "after": "var(--stroke) solid var(--canvas-line)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "border",
+    "before": "1px solid var(--canvas-line)",
+    "after": "var(--stroke) solid var(--canvas-line)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "border-top",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "min-width",
+    "before": "112px",
+    "after": "calc(var(--space-xs) * 28)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "transition",
+    "before": "background var(--ease),border-color var(--ease)",
+    "after": "background var(--var(--easing-standard)),border-color var(--var(--easing-standard))"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "bottom",
+    "before": "96px",
+    "after": "calc(var(--space-xs) * 24)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "width",
+    "before": "min(520px,calc(100% - 48px))",
+    "after": "min(calc(var(--space-xs) * 130),calc(100% - var(--space-2xl)))"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "padding-top",
+    "before": "104px",
+    "after": "calc(var(--space-xs) * 26)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "padding-bottom",
+    "before": "112px",
+    "after": "calc(var(--space-xs) * 28)"
+  },
+  {
+    "file": "newtab/dashboard.css",
+    "property": "padding-top",
+    "before": "88px",
+    "after": "calc(var(--space-xs) * 22)"
+  },
+  {
+    "file": "newtab/foundation.css",
+    "property": "padding",
+    "before": "var(--space-5) clamp(var(--space-lg),5vw,80px)",
+    "after": "var(--space-5) clamp(var(--space-lg),5vw,calc(var(--space-xs) * 20))"
+  },
+  {
+    "file": "newtab/foundation.css",
+    "property": "min-height",
+    "before": "88px",
+    "after": "calc(var(--space-xs) * 22)"
+  },
+  {
+    "file": "newtab/foundation.css",
+    "property": "letter-spacing",
+    "before": ".22em",
+    "after": "var(--tracking-label)"
+  },
+  {
+    "file": "newtab/foundation.css",
+    "property": "width",
+    "before": "28px",
+    "after": "calc(var(--space-xs) * 7)"
+  },
+  {
+    "file": "newtab/foundation.css",
+    "property": "transition",
+    "before": "opacity var(--ease)",
+    "after": "opacity var(--var(--easing-standard))"
+  },
+  {
+    "file": "newtab/foundation.css",
+    "property": "padding",
+    "before": "var(--space-lg) clamp(var(--space-lg),7vw,112px) var(--space-5)",
+    "after": "var(--space-lg) clamp(var(--space-lg),7vw,calc(var(--space-xs) * 28)) var(--space-5)"
+  },
+  {
+    "file": "newtab/foundation.css",
+    "property": "max-width",
+    "before": "500px",
+    "after": "calc(var(--space-xs) * 125)"
+  },
+  {
+    "file": "newtab/foundation.css",
+    "property": "letter-spacing",
+    "before": ".06em",
+    "after": "var(--tracking-label)"
+  },
+  {
+    "file": "newtab/foundation.css",
+    "property": "border-top",
+    "before": "1px solid var(--canvas-line)",
+    "after": "var(--stroke) solid var(--canvas-line)"
+  },
+  {
+    "file": "newtab/foundation.css",
+    "property": "transition",
+    "before": "opacity var(--ease)",
+    "after": "opacity var(--var(--easing-standard))"
+  },
+  {
+    "file": "newtab/foundation.css",
+    "property": "letter-spacing",
+    "before": ".24em",
+    "after": "var(--tracking-label)"
+  },
+  {
+    "file": "newtab/foundation.css",
+    "property": "font-size",
+    "before": "clamp(88px,10vw,150px)",
+    "after": "clamp(var(--text-display),10vw,var(--clock-size))"
+  },
+  {
+    "file": "newtab/foundation.css",
+    "property": "letter-spacing",
+    "before": "-.075em",
+    "after": "var(--tracking-heading)"
+  },
+  {
+    "file": "newtab/foundation.css",
+    "property": "line-height",
+    "before": "1",
+    "after": "var(--leading-display)"
+  },
+  {
+    "file": "newtab/foundation.css",
+    "property": "letter-spacing",
+    "before": ".04em",
+    "after": "var(--tracking-label)"
+  },
+  {
+    "file": "newtab/foundation.css",
+    "property": "letter-spacing",
+    "before": "-.02em",
+    "after": "var(--tracking-heading)"
+  },
+  {
+    "file": "newtab/foundation.css",
+    "property": "border",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "newtab/foundation.css",
+    "property": "letter-spacing",
+    "before": ".18em",
+    "after": "var(--tracking-label)"
+  },
+  {
+    "file": "newtab/foundation.css",
+    "property": "font-size",
+    "before": "64px",
+    "after": "var(--text-display)"
+  },
+  {
+    "file": "newtab/foundation.css",
+    "property": "line-height",
+    "before": "1.1",
+    "after": "var(--leading-display)"
+  },
+  {
+    "file": "newtab/foundation.css",
+    "property": "border-width",
+    "before": "0 0 1px",
+    "after": "0 0 var(--stroke)"
+  },
+  {
+    "file": "newtab/foundation.css",
+    "property": "font-size",
+    "before": "64px",
+    "after": "var(--text-display)"
+  },
+  {
+    "file": "newtab/foundation.css",
+    "property": "max-width",
+    "before": "640px",
+    "after": "calc(var(--space-xs) * 160)"
+  },
+  {
+    "file": "newtab/foundation.css",
+    "property": "padding",
+    "before": "var(--space-md) clamp(var(--space-lg),5vw,80px) var(--space-lg)",
+    "after": "var(--space-md) clamp(var(--space-lg),5vw,calc(var(--space-xs) * 20)) var(--space-lg)"
+  },
+  {
+    "file": "newtab/foundation.css",
+    "property": "border",
+    "before": "1px solid var(--canvas-line)",
+    "after": "var(--stroke) solid var(--canvas-line)"
+  },
+  {
+    "file": "newtab/foundation.css",
+    "property": "min-width",
+    "before": "66px",
+    "after": "calc(var(--space-xs) * 17)"
+  },
+  {
+    "file": "newtab/foundation.css",
+    "property": "backdrop-filter",
+    "before": "blur(4px)",
+    "after": "blur(var(--space-xs))"
+  },
+  {
+    "file": "newtab/foundation.css",
+    "property": "max-width",
+    "before": "520px",
+    "after": "calc(var(--space-xs) * 130)"
+  },
+  {
+    "file": "newtab/foundation.css",
+    "property": "min-height",
+    "before": "76px",
+    "after": "calc(var(--space-xs) * 19)"
+  },
+  {
+    "file": "newtab/foundation.css",
+    "property": "letter-spacing",
+    "before": ".15em",
+    "after": "var(--tracking-label)"
+  },
+  {
+    "file": "newtab/foundation.css",
+    "property": "width",
+    "before": "24px",
+    "after": "var(--space-lg)"
+  },
+  {
+    "file": "newtab/foundation.css",
+    "property": "font-size",
+    "before": "92px",
+    "after": "var(--text-display)"
+  },
+  {
+    "file": "newtab/foundation.css",
+    "property": "font-size",
+    "before": "54px",
+    "after": "var(--text-display)"
+  },
+  {
+    "file": "newtab/foundation.css",
+    "property": "min-width",
+    "before": "64px",
+    "after": "var(--space-3xl)"
+  },
+  {
+    "file": "newtab/foundation.css",
+    "property": "min-height",
+    "before": "68px",
+    "after": "calc(var(--space-xs) * 17)"
+  },
+  {
+    "file": "newtab/foundation.css",
+    "property": "font-size",
+    "before": "90px",
+    "after": "var(--text-display)"
+  },
+  {
+    "file": "newtab/foundation.css",
+    "property": "border",
+    "before": "1px solid var(--canvas-line)",
+    "after": "var(--stroke) solid var(--canvas-line)"
+  },
+  {
+    "file": "newtab/foundation.css",
+    "property": "border",
+    "before": "1px solid var(--canvas-line)",
+    "after": "var(--stroke) solid var(--canvas-line)"
+  },
+  {
+    "file": "newtab/foundation.css",
+    "property": "padding",
+    "before": "var(--space-5) clamp(var(--space-lg),4vw,64px)",
+    "after": "var(--space-5) clamp(var(--space-lg),4vw,var(--space-3xl))"
+  },
+  {
+    "file": "newtab/foundation.css",
+    "property": "letter-spacing",
+    "before": ".18em",
+    "after": "var(--tracking-label)"
+  },
+  {
+    "file": "newtab/foundation.css",
+    "property": "max-width",
+    "before": "680px",
+    "after": "calc(var(--space-xs) * 170)"
+  },
+  {
+    "file": "newtab/foundation.css",
+    "property": "font-size",
+    "before": "clamp(26px,4vw,44px)",
+    "after": "clamp(var(--text-title),4vw,var(--text-metric))"
+  },
+  {
+    "file": "newtab/foundation.css",
+    "property": "line-height",
+    "before": "1.2",
+    "after": "var(--leading-display)"
+  },
+  {
+    "file": "newtab/foundation.css",
+    "property": "letter-spacing",
+    "before": ".22em",
+    "after": "var(--tracking-label)"
+  },
+  {
+    "file": "newtab/foundation.css",
+    "property": "font-size",
+    "before": "clamp(80px,18vw,180px)",
+    "after": "clamp(var(--text-display),18vw,var(--clock-size))"
+  },
+  {
+    "file": "newtab/foundation.css",
+    "property": "letter-spacing",
+    "before": "-.07em",
+    "after": "var(--tracking-heading)"
+  },
+  {
+    "file": "newtab/foundation.css",
+    "property": "line-height",
+    "before": "1",
+    "after": "var(--leading-display)"
+  },
+  {
+    "file": "newtab/foundation.css",
+    "property": "height",
+    "before": "3px",
+    "after": "var(--stroke)"
+  },
+  {
+    "file": "newtab/foundation.css",
+    "property": "min-width",
+    "before": "110px",
+    "after": "calc(var(--space-xs) * 28)"
+  },
+  {
+    "file": "newtab/foundation.css",
+    "property": "line-height",
+    "before": "1.5",
+    "after": "var(--leading-body)"
+  },
+  {
+    "file": "newtab/foundation.css",
+    "property": "letter-spacing",
+    "before": "-.055em",
+    "after": "var(--tracking-heading)"
+  },
+  {
+    "file": "newtab/foundation.css",
+    "property": "height",
+    "before": "3px",
+    "after": "var(--stroke)"
+  },
+  {
+    "file": "newtab/foundation.css",
+    "property": "margin",
+    "before": "2px 0 var(--space-sm)",
+    "after": "var(--space-xs) 0 var(--space-sm)"
+  },
+  {
+    "file": "newtab/foundation.css",
+    "property": "font-size",
+    "before": "8px",
+    "after": "var(--text-small)"
+  },
+  {
+    "file": "newtab/foundation.css",
+    "property": "width",
+    "before": "min(320px,100%)",
+    "after": "min(calc(var(--space-xs) * 80),100%)"
+  },
+  {
+    "file": "newtab/foundation.css",
+    "property": "min-height",
+    "before": "40px",
+    "after": "calc(var(--space-xs) * 10)"
+  },
+  {
+    "file": "newtab/foundation.css",
+    "property": "font-size",
+    "before": "8px",
+    "after": "var(--text-small)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "letter-spacing",
+    "before": ".01em",
+    "after": "var(--tracking-label)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "border",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "transition",
+    "before": "background var(--ease), color var(--ease), transform var(--ease), box-shadow var(--ease)",
+    "after": "background var(--var(--easing-standard)), color var(--var(--easing-standard)), transform var(--var(--easing-standard)), box-shadow var(--var(--easing-standard))"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "transform",
+    "before": "translate(1px, 2px)",
+    "after": "translate(var(--stroke), var(--stroke))"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "border",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "width",
+    "before": "20px",
+    "after": "calc(var(--space-xs) * 5)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "height",
+    "before": "20px",
+    "after": "calc(var(--space-xs) * 5)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "border",
+    "before": "1.5px solid var(--muted)",
+    "after": "var(--stroke-strong) solid var(--muted)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "border-radius",
+    "before": "4px",
+    "after": "var(--radius-sm)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "width",
+    "before": "9px",
+    "after": "var(--space-sm)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "height",
+    "before": "5px",
+    "after": "var(--space-xs)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "border-width",
+    "before": "0 0 2px 2px",
+    "after": "0 0 var(--stroke-strong) var(--stroke-strong)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "transform",
+    "before": "translateY(-1px) rotate(-45deg)",
+    "after": "translateY(calc(-1 * var(--stroke))) rotate(-45deg)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "min-height",
+    "before": "28px",
+    "after": "calc(var(--space-xs) * 7)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "height",
+    "before": "42px",
+    "after": "calc(var(--space-xs) * 11)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "width",
+    "before": "64px",
+    "after": "var(--space-3xl)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "outline",
+    "before": "3px solid var(--focus-ring)",
+    "after": "var(--focus-width) solid var(--focus-ring)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "outline-offset",
+    "before": "3px",
+    "after": "var(--focus-width)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "letter-spacing",
+    "before": "-.04em",
+    "after": "var(--tracking-heading)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "border",
+    "before": "1px solid var(--action-ink)",
+    "after": "var(--stroke) solid var(--action-ink)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "border-top",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "width",
+    "before": "1px",
+    "after": "var(--stroke)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "height",
+    "before": "1px",
+    "after": "var(--stroke)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "margin",
+    "before": "-1px",
+    "after": "calc(-1 * var(--space-xs))"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "z-index",
+    "before": "-3",
+    "after": "var(--layer-scenery)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "transition",
+    "before": "filter var(--ease)",
+    "after": "filter var(--var(--easing-standard))"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "filter",
+    "before": "blur(calc(var(--background-blur) + 6px))",
+    "after": "blur(calc(var(--background-blur) + var(--space-sm)))"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "z-index",
+    "before": "-2",
+    "after": "var(--layer-shade)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "min-height",
+    "before": "90px",
+    "after": "calc(var(--space-xs) * 23)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "letter-spacing",
+    "before": ".22em",
+    "after": "var(--tracking-label)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "min-width",
+    "before": "140px",
+    "after": "calc(var(--space-xs) * 35)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "width",
+    "before": "min(680px,100%)",
+    "after": "min(calc(var(--space-xs) * 170),100%)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "border",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "padding",
+    "before": "var(--space-lg) 38px var(--space-lg)",
+    "after": "var(--space-lg) var(--space-5) var(--space-lg)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "border",
+    "before": "1px solid transparent",
+    "after": "var(--stroke) solid transparent"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "min-width",
+    "before": "70px",
+    "after": "calc(var(--space-xs) * 18)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "height",
+    "before": "28px",
+    "after": "calc(var(--space-xs) * 7)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "width",
+    "before": "1px",
+    "after": "var(--stroke)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "margin",
+    "before": "0 3px",
+    "after": "0 var(--space-xs)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "margin-top",
+    "before": "3px",
+    "after": "var(--space-xs)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "border",
+    "before": "1px solid var(--canvas-line)",
+    "after": "var(--stroke) solid var(--canvas-line)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "min-width",
+    "before": "24px",
+    "after": "var(--space-lg)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "border-radius",
+    "before": "5px",
+    "after": "var(--radius-sm)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "font-family",
+    "before": "inherit",
+    "after": "var(--font)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "padding",
+    "before": "1px var(--space-xs)",
+    "after": "var(--space-xs) var(--space-xs)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "width",
+    "before": "min(620px, calc(100% - 40px))",
+    "after": "min(calc(var(--space-xs) * 155), calc(100% - calc(var(--space-xs) * 10)))"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "height",
+    "before": "min(640px, calc(100svh - 64px))",
+    "after": "min(calc(var(--space-xs) * 160), calc(100svh - var(--space-3xl)))"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "border",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "outline",
+    "before": "1px solid var(--shadow-ink)",
+    "after": "var(--stroke) solid var(--shadow-ink)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "box-shadow",
+    "before": "var(--shadow), inset 0 1px 0 var(--highlight-line)",
+    "after": "var(--shadow), inset 0 var(--stroke) 0 var(--highlight-line)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "animation",
+    "before": "panel-enter var(--ease)",
+    "after": "panel-enter var(--var(--easing-standard))"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "width",
+    "before": "min(760px, calc(100% - 40px))",
+    "after": "min(calc(var(--space-xs) * 190), calc(100% - calc(var(--space-xs) * 10)))"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "backdrop-filter",
+    "before": "blur(3px)",
+    "after": "blur(var(--focus-width))"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "margin-top",
+    "before": "3px",
+    "after": "var(--space-xs)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "border",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "border-radius",
+    "before": "50%",
+    "after": "var(--radius-full)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "gap",
+    "before": "3px",
+    "after": "var(--space-xs)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "border",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "border",
+    "before": "1px solid transparent",
+    "after": "var(--stroke) solid transparent"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "padding",
+    "before": "var(--space-sm) 3px",
+    "after": "var(--space-sm) var(--space-xs)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "animation",
+    "before": "content-enter var(--ease)",
+    "after": "content-enter var(--var(--easing-standard))"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "border",
+    "before": "1px solid var(--danger)",
+    "after": "var(--stroke) solid var(--danger)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "bottom",
+    "before": "112px",
+    "after": "calc(var(--space-xs) * 28)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "max-width",
+    "before": "min(500px,90vw)",
+    "after": "min(calc(var(--space-xs) * 125),90vw)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "border",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "z-index",
+    "before": "10",
+    "after": "var(--layer-modal)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "line-height",
+    "before": "1.45",
+    "after": "var(--leading-body)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "width",
+    "before": "32px",
+    "after": "var(--space-5)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "min-height",
+    "before": "32px",
+    "after": "var(--space-5)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "top",
+    "before": "-100px",
+    "after": "calc(-1 * calc(var(--space-xs) * 25))"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "left",
+    "before": "20px",
+    "after": "calc(var(--space-xs) * 5)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "z-index",
+    "before": "20",
+    "after": "var(--layer-toast)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "top",
+    "before": "15px",
+    "after": "var(--space-md)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "min-height",
+    "before": "104px",
+    "after": "calc(var(--space-xs) * 26)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "border",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "border-radius",
+    "before": "40px",
+    "after": "var(--radius-full)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "height",
+    "before": "5px",
+    "after": "var(--space-xs)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "transform",
+    "before": "translateY(8px) scale(.985)",
+    "after": "translateY(var(--space-sm)) scale(.985)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "transform",
+    "before": "translateY(3px)",
+    "after": "translateY(var(--stroke))"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "min-height",
+    "before": "76px",
+    "after": "calc(var(--space-xs) * 19)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "gap",
+    "before": "1px",
+    "after": "var(--space-xs)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "width",
+    "before": "calc(100% - 24px)",
+    "after": "calc(100% - var(--space-lg))"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "height",
+    "before": "min(700px, calc(100svh - 32px))",
+    "after": "min(calc(var(--space-xs) * 175), calc(100svh - var(--space-5)))"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "min-height",
+    "before": "65px",
+    "after": "var(--space-3xl)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "height",
+    "before": "calc(100svh - 32px)",
+    "after": "calc(100svh - var(--space-5))"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "max-height",
+    "before": "calc(100svh - 64px)",
+    "after": "calc(100svh - var(--space-3xl))"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "min-height",
+    "before": "280px",
+    "after": "calc(var(--space-xs) * 70)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "z-index",
+    "before": "3",
+    "after": "var(--layer-dropdown)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "border",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "min-width",
+    "before": "190px",
+    "after": "calc(var(--space-xs) * 48)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "text-shadow",
+    "before": "0 2px 6px var(--color-black)",
+    "after": "0 var(--stroke-strong) var(--space-sm) var(--color-black)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "min-width",
+    "before": "88px",
+    "after": "calc(var(--space-xs) * 22)"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "max-height",
+    "before": "calc(100svh - 32px)",
+    "after": "calc(100svh - var(--space-5))"
+  },
+  {
+    "file": "newtab/newtab.css",
+    "property": "height",
+    "before": "160px",
+    "after": "calc(var(--space-xs) * 40)"
+  },
+  {
+    "file": "newtab/panels.css",
+    "property": "width",
+    "before": "min(760px,calc(100% - 48px))",
+    "after": "min(calc(var(--space-xs) * 190),calc(100% - var(--space-2xl)))"
+  },
+  {
+    "file": "newtab/panels.css",
+    "property": "height",
+    "before": "min(760px,calc(100svh - 64px))",
+    "after": "min(calc(var(--space-xs) * 190),calc(100svh - var(--space-3xl)))"
+  },
+  {
+    "file": "newtab/panels.css",
+    "property": "max-height",
+    "before": "calc(100svh - 64px)",
+    "after": "calc(100svh - var(--space-3xl))"
+  },
+  {
+    "file": "newtab/panels.css",
+    "property": "width",
+    "before": "min(940px,calc(100% - 48px))",
+    "after": "min(calc(var(--space-xs) * 235),calc(100% - var(--space-2xl)))"
+  },
+  {
+    "file": "newtab/panels.css",
+    "property": "letter-spacing",
+    "before": "-.04em",
+    "after": "var(--tracking-heading)"
+  },
+  {
+    "file": "newtab/panels.css",
+    "property": "line-height",
+    "before": "1.2",
+    "after": "var(--leading-display)"
+  },
+  {
+    "file": "newtab/panels.css",
+    "property": "font-size",
+    "before": "9px",
+    "after": "var(--text-small)"
+  },
+  {
+    "file": "newtab/panels.css",
+    "property": "letter-spacing",
+    "before": ".2em",
+    "after": "var(--tracking-label)"
+  },
+  {
+    "file": "newtab/panels.css",
+    "property": "min-width",
+    "before": "40px",
+    "after": "calc(var(--space-xs) * 10)"
+  },
+  {
+    "file": "newtab/panels.css",
+    "property": "padding",
+    "before": "3px",
+    "after": "var(--space-xs)"
+  },
+  {
+    "file": "newtab/panels.css",
+    "property": "min-height",
+    "before": "42px",
+    "after": "calc(var(--space-xs) * 11)"
+  },
+  {
+    "file": "newtab/panels.css",
+    "property": "padding",
+    "before": "2px var(--space-sm) var(--space-sm) 0",
+    "after": "var(--space-xs) var(--space-sm) var(--space-sm) 0"
+  },
+  {
+    "file": "newtab/panels.css",
+    "property": "letter-spacing",
+    "before": "-.02em",
+    "after": "var(--tracking-heading)"
+  },
+  {
+    "file": "newtab/panels.css",
+    "property": "min-height",
+    "before": "44px",
+    "after": "calc(var(--space-xs) * 11)"
+  },
+  {
+    "file": "newtab/panels.css",
+    "property": "line-height",
+    "before": "1.7",
+    "after": "var(--leading-reading)"
+  },
+  {
+    "file": "newtab/panels.css",
+    "property": "min-height",
+    "before": "120px",
+    "after": "calc(var(--space-xs) * 30)"
+  },
+  {
+    "file": "newtab/panels.css",
+    "property": "border-bottom",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "newtab/panels.css",
+    "property": "min-height",
+    "before": "48px",
+    "after": "var(--space-2xl)"
+  },
+  {
+    "file": "newtab/panels.css",
+    "property": "border-top",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "newtab/panels.css",
+    "property": "min-height",
+    "before": "40px",
+    "after": "calc(var(--space-xs) * 10)"
+  },
+  {
+    "file": "newtab/panels.css",
+    "property": "grid-template-columns",
+    "before": "166px minmax(0,1fr)",
+    "after": "calc(var(--space-xs) * 42) minmax(0,1fr)"
+  },
+  {
+    "file": "newtab/panels.css",
+    "property": "min-height",
+    "before": "44px",
+    "after": "calc(var(--space-xs) * 11)"
+  },
+  {
+    "file": "newtab/panels.css",
+    "property": "border",
+    "before": "1px solid transparent",
+    "after": "var(--stroke) solid transparent"
+  },
+  {
+    "file": "newtab/panels.css",
+    "property": "border-radius",
+    "before": "9px",
+    "after": "var(--radius-md)"
+  },
+  {
+    "file": "newtab/panels.css",
+    "property": "border-bottom",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "newtab/panels.css",
+    "property": "grid-template-columns",
+    "before": "24px minmax(0,1fr)",
+    "after": "var(--space-lg) minmax(0,1fr)"
+  },
+  {
+    "file": "newtab/panels.css",
+    "property": "min-height",
+    "before": "92px",
+    "after": "calc(var(--space-xs) * 23)"
+  },
+  {
+    "file": "newtab/panels.css",
+    "property": "margin-top",
+    "before": "3px",
+    "after": "var(--space-xs)"
+  },
+  {
+    "file": "newtab/panels.css",
+    "property": "line-height",
+    "before": "1.5",
+    "after": "var(--leading-body)"
+  },
+  {
+    "file": "newtab/panels.css",
+    "property": "border-top",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "newtab/panels.css",
+    "property": "width",
+    "before": "36px",
+    "after": "calc(var(--space-xs) * 9)"
+  },
+  {
+    "file": "newtab/panels.css",
+    "property": "height",
+    "before": "36px",
+    "after": "calc(var(--space-xs) * 9)"
+  },
+  {
+    "file": "newtab/panels.css",
+    "property": "line-height",
+    "before": "1.5",
+    "after": "var(--leading-body)"
+  },
+  {
+    "file": "newtab/panels.css",
+    "property": "grid-template-columns",
+    "before": "190px minmax(0,1fr)",
+    "after": "calc(var(--space-xs) * 48) minmax(0,1fr)"
+  },
+  {
+    "file": "newtab/panels.css",
+    "property": "max-height",
+    "before": "420px",
+    "after": "calc(var(--space-xs) * 105)"
+  },
+  {
+    "file": "newtab/panels.css",
+    "property": "border-width",
+    "before": "0 0 1px",
+    "after": "0 0 var(--stroke)"
+  },
+  {
+    "file": "newtab/panels.css",
+    "property": "min-height",
+    "before": "280px",
+    "after": "calc(var(--space-xs) * 70)"
+  },
+  {
+    "file": "newtab/panels.css",
+    "property": "height",
+    "before": "190px",
+    "after": "calc(var(--space-xs) * 48)"
+  },
+  {
+    "file": "newtab/panels.css",
+    "property": "grid-template-columns",
+    "before": "minmax(0,1fr) 120px",
+    "after": "minmax(0,1fr) calc(var(--space-xs) * 30)"
+  },
+  {
+    "file": "newtab/panels.css",
+    "property": "min-height",
+    "before": "180px",
+    "after": "calc(var(--space-xs) * 45)"
+  },
+  {
+    "file": "newtab/panels.css",
+    "property": "border",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "newtab/panels.css",
+    "property": "border-bottom",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "newtab/panels.css",
+    "property": "border",
+    "before": "1px solid transparent",
+    "after": "var(--stroke) solid transparent"
+  },
+  {
+    "file": "newtab/panels.css",
+    "property": "border-radius",
+    "before": "9px",
+    "after": "var(--radius-md)"
+  },
+  {
+    "file": "newtab/panels.css",
+    "property": "border-left",
+    "before": "2px solid var(--action)",
+    "after": "var(--stroke-strong) solid var(--action)"
+  },
+  {
+    "file": "newtab/panels.css",
+    "property": "width",
+    "before": "calc(100% - 24px)",
+    "after": "calc(100% - var(--space-lg))"
+  },
+  {
+    "file": "newtab/panels.css",
+    "property": "height",
+    "before": "calc(100svh - 32px)",
+    "after": "calc(100svh - var(--space-5))"
+  },
+  {
+    "file": "newtab/panels.css",
+    "property": "max-height",
+    "before": "calc(100svh - 32px)",
+    "after": "calc(100svh - var(--space-5))"
+  },
+  {
+    "file": "newtab/panels.css",
+    "property": "padding-right",
+    "before": "2px",
+    "after": "var(--space-xs)"
+  },
+  {
+    "file": "newtab/panels.css",
+    "property": "width",
+    "before": "16px",
+    "after": "var(--space-md)"
+  },
+  {
+    "file": "newtab/panels.css",
+    "property": "max-width",
+    "before": "160px",
+    "after": "calc(var(--space-xs) * 40)"
+  },
+  {
+    "file": "newtab/panels.css",
+    "property": "min-height",
+    "before": "220px",
+    "after": "calc(var(--space-xs) * 55)"
+  },
+  {
+    "file": "newtab/panels.css",
+    "property": "grid-template-columns",
+    "before": "minmax(0,1fr) 95px",
+    "after": "minmax(0,1fr) calc(var(--space-xs) * 24)"
+  },
+  {
+    "file": "newtab/panels.css",
+    "property": "min-height",
+    "before": "124px",
+    "after": "calc(var(--space-xs) * 31)"
+  },
+  {
+    "file": "newtab/panels.css",
+    "property": "width",
+    "before": "96px",
+    "after": "calc(var(--space-xs) * 24)"
+  },
+  {
+    "file": "newtab/panels.css",
+    "property": "height",
+    "before": "54px",
+    "after": "calc(var(--space-xs) * 14)"
+  },
+  {
+    "file": "newtab/panels.css",
+    "property": "border-radius",
+    "before": "6px",
+    "after": "var(--radius-sm)"
+  },
+  {
+    "file": "newtab/panels.css",
+    "property": "width",
+    "before": "64px",
+    "after": "var(--space-3xl)"
+  },
+  {
+    "file": "newtab/panels.css",
+    "property": "height",
+    "before": "48px",
+    "after": "var(--space-2xl)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "--workspace-radius",
+    "before": "20px",
+    "after": "calc(var(--space-xs) * 5)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "--workspace-gap",
+    "before": "24px",
+    "after": "var(--space-lg)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "--shadow",
+    "before": "0 24px 80px #0003",
+    "after": "0 var(--space-lg) calc(var(--space-xs) * 20) var(--shadow-ink)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "padding",
+    "before": "28px 36px",
+    "after": "var(--space-lg) var(--space-5)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "min-height",
+    "before": "84px",
+    "after": "calc(var(--space-xs) * 21)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "font-size",
+    "before": "12px",
+    "after": "var(--text-small)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "letter-spacing",
+    "before": ".18em",
+    "after": "var(--tracking-label)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "padding",
+    "before": "24px 24px 120px",
+    "after": "var(--space-lg) var(--space-lg) calc(var(--space-xs) * 30)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "gap",
+    "before": "18px",
+    "after": "var(--space-md)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "padding",
+    "before": "24px 32px 30px",
+    "after": "var(--space-lg) var(--space-5) var(--space-5)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "border",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "gap",
+    "before": "16px",
+    "after": "var(--space-md)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "margin-bottom",
+    "before": "28px",
+    "after": "var(--space-lg)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "font-size",
+    "before": "11px",
+    "after": "var(--text-small)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "letter-spacing",
+    "before": ".18em",
+    "after": "var(--tracking-label)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "font-size",
+    "before": "12px",
+    "after": "var(--text-small)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "padding",
+    "before": "6px",
+    "after": "var(--space-xs)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "gap",
+    "before": "32px",
+    "after": "var(--space-5)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "min-height",
+    "before": "260px",
+    "after": "calc(var(--space-xs) * 65)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "font-size",
+    "before": "11px",
+    "after": "var(--text-small)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "margin",
+    "before": "0 0 18px",
+    "after": "0 0 var(--space-md)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "letter-spacing",
+    "before": ".12em",
+    "after": "var(--tracking-label)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "font-size",
+    "before": "clamp(56px,6vw,84px)",
+    "after": "clamp(var(--text-display),6vw,var(--text-display))"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "line-height",
+    "before": "1.05",
+    "after": "var(--leading-display)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "letter-spacing",
+    "before": "-.055em",
+    "after": "var(--tracking-heading)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "font-weight",
+    "before": "300",
+    "after": "var(--weight-regular)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "font-size",
+    "before": "12px",
+    "after": "var(--text-small)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "margin-left",
+    "before": "10px",
+    "after": "var(--space-sm)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "font-size",
+    "before": "18px",
+    "after": "var(--text-subheading)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "font-weight",
+    "before": "400",
+    "after": "var(--weight-regular)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "margin",
+    "before": "18px 0 0",
+    "after": "var(--space-md) 0 0"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "padding",
+    "before": "0 0 0 30px",
+    "after": "0 0 0 var(--space-5)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "border-left",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "gap",
+    "before": "12px",
+    "after": "var(--space-3)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "font-size",
+    "before": "11px",
+    "after": "var(--text-small)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "margin-bottom",
+    "before": "18px",
+    "after": "var(--space-md)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "letter-spacing",
+    "before": ".13em",
+    "after": "var(--tracking-label)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "font-size",
+    "before": "16px",
+    "after": "var(--text-subheading)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "font-size",
+    "before": "20px",
+    "after": "var(--text-input)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "line-height",
+    "before": "1.4",
+    "after": "var(--leading-heading)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "margin",
+    "before": "0 0 12px",
+    "after": "0 0 var(--space-3)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "font-size",
+    "before": "clamp(48px,6vw,76px)",
+    "after": "clamp(var(--text-metric),6vw,var(--text-display))"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "font-weight",
+    "before": "300",
+    "after": "var(--weight-regular)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "letter-spacing",
+    "before": "-.045em",
+    "after": "var(--tracking-heading)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "margin",
+    "before": "8px 0 20px",
+    "after": "var(--space-sm) 0 var(--space-md)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "gap",
+    "before": "8px",
+    "after": "var(--space-sm)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "font-size",
+    "before": "12px",
+    "after": "var(--text-small)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "padding",
+    "before": "8px",
+    "after": "var(--space-sm)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "max-width",
+    "before": "88px",
+    "after": "calc(var(--space-xs) * 22)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "margin-top",
+    "before": "16px",
+    "after": "var(--space-md)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "font-size",
+    "before": "12px",
+    "after": "var(--text-small)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "min-height",
+    "before": "42px",
+    "after": "calc(var(--space-xs) * 11)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "font-size",
+    "before": "13px",
+    "after": "var(--text-small)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "padding",
+    "before": "10px 18px",
+    "after": "var(--space-sm) var(--space-md)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "border-radius",
+    "before": "10px",
+    "after": "var(--radius-md)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "width",
+    "before": "min(560px,100%)",
+    "after": "min(calc(var(--space-xs) * 140),100%)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "border-radius",
+    "before": "12px",
+    "after": "var(--radius-md)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "width",
+    "before": "min(560px,100%)",
+    "after": "min(calc(var(--space-xs) * 140),100%)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "font-size",
+    "before": "12px",
+    "after": "var(--text-small)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "padding",
+    "before": "6px",
+    "after": "var(--space-xs)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "z-index",
+    "before": "2",
+    "after": "var(--layer-widget)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "padding",
+    "before": "24px 36px",
+    "after": "var(--space-lg) var(--space-5)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "gap",
+    "before": "12px",
+    "after": "var(--space-3)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "width",
+    "before": "48px",
+    "after": "var(--space-2xl)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "height",
+    "before": "48px",
+    "after": "var(--space-2xl)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "min-width",
+    "before": "48px",
+    "after": "var(--space-2xl)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "border",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "border-radius",
+    "before": "50%",
+    "after": "var(--radius-full)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "padding",
+    "before": "12px",
+    "after": "var(--space-3)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "bottom",
+    "before": "78px",
+    "after": "calc(var(--space-xs) * 20)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "padding",
+    "before": "5px 10px",
+    "after": "var(--space-xs) var(--space-sm)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "border-radius",
+    "before": "8px",
+    "after": "var(--radius-sm)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "font-size",
+    "before": "12px",
+    "after": "var(--text-small)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "transition",
+    "before": "opacity var(--ease)",
+    "after": "opacity var(--var(--easing-standard))"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "font-size",
+    "before": "24px",
+    "after": "var(--text-input)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "width",
+    "before": "min(1100px,calc(100vw - 80px))",
+    "after": "min(calc(var(--space-xs) * 275),calc(100vw - calc(var(--space-xs) * 20)))"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "height",
+    "before": "min(760px,calc(100svh - 96px))",
+    "after": "min(calc(var(--space-xs) * 190),calc(100svh - calc(var(--space-xs) * 24)))"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "padding",
+    "before": "32px",
+    "after": "var(--space-5)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "width",
+    "before": "calc(100vw - 64px)",
+    "after": "calc(100vw - var(--space-3xl))"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "height",
+    "before": "calc(100svh - 64px)",
+    "after": "calc(100svh - var(--space-3xl))"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "max-width",
+    "before": "1400px",
+    "after": "calc(var(--space-xs) * 350)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "padding",
+    "before": "32px",
+    "after": "var(--space-5)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "background",
+    "before": "linear-gradient(135deg,#182b26f5,#142020f5)",
+    "after": "linear-gradient(135deg,var(--surface-1),var(--surface-1))"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "color",
+    "before": "#f6f1e7",
+    "after": "var(--text-primary)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "grid-template-columns",
+    "before": "minmax(0,1fr) 280px",
+    "after": "minmax(0,1fr) calc(var(--space-xs) * 70)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "gap",
+    "before": "48px",
+    "after": "var(--space-2xl)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "gap",
+    "before": "24px",
+    "after": "var(--space-lg)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "font-size",
+    "before": "clamp(32px,5vw,64px)",
+    "after": "clamp(var(--text-title),5vw,var(--text-display))"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "font-weight",
+    "before": "400",
+    "after": "var(--weight-regular)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "letter-spacing",
+    "before": "-.045em",
+    "after": "var(--tracking-heading)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "color",
+    "before": "#cbd3ca",
+    "after": "var(--text-secondary)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "max-width",
+    "before": "420px",
+    "after": "calc(var(--space-xs) * 105)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "max-width",
+    "before": "640px",
+    "after": "calc(var(--space-xs) * 160)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "border-left",
+    "before": "1px solid #ffffff24",
+    "after": "var(--stroke) solid var(--border-subtle)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "padding-left",
+    "before": "28px",
+    "after": "var(--space-lg)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "gap",
+    "before": "14px",
+    "after": "var(--space-3)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "padding",
+    "before": "14px 0",
+    "after": "var(--space-3) 0"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "border",
+    "before": "1px solid #ffffff50",
+    "after": "var(--stroke) solid var(--border-strong)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "border-radius",
+    "before": "50%",
+    "after": "var(--radius-full)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "padding",
+    "before": "9px",
+    "after": "var(--space-sm)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "width",
+    "before": "44px",
+    "after": "calc(var(--space-xs) * 11)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "height",
+    "before": "44px",
+    "after": "calc(var(--space-xs) * 11)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "padding",
+    "before": "20px",
+    "after": "var(--space-md)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "min-height",
+    "before": "76px",
+    "after": "calc(var(--space-xs) * 19)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "letter-spacing",
+    "before": ".1em",
+    "after": "var(--tracking-label)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "padding",
+    "before": "12px 18px 100px",
+    "after": "var(--space-3) var(--space-md) calc(var(--space-xs) * 25)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "padding",
+    "before": "20px",
+    "after": "var(--space-md)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "margin-bottom",
+    "before": "24px",
+    "after": "var(--space-lg)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "gap",
+    "before": "24px",
+    "after": "var(--space-lg)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "font-size",
+    "before": "64px",
+    "after": "var(--text-display)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "font-size",
+    "before": "16px",
+    "after": "var(--text-subheading)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "margin-top",
+    "before": "12px",
+    "after": "var(--space-3)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "border-top",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "padding",
+    "before": "22px 0 0",
+    "after": "var(--space-lg) 0 0"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "font-size",
+    "before": "60px",
+    "after": "var(--text-display)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "padding",
+    "before": "18px 20px",
+    "after": "var(--space-md) var(--space-md)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "width",
+    "before": "calc(100vw - 24px)",
+    "after": "calc(100vw - var(--space-lg))"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "height",
+    "before": "calc(100svh - 32px)",
+    "after": "calc(100svh - var(--space-5))"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "padding",
+    "before": "20px 16px",
+    "after": "var(--space-md) var(--space-md)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "gap",
+    "before": "24px",
+    "after": "var(--space-lg)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "border-top",
+    "before": "1px solid #ffffff24",
+    "after": "var(--stroke) solid var(--border-subtle)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "padding",
+    "before": "20px 0 0",
+    "after": "var(--space-md) 0 0"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "padding",
+    "before": "18px 28px",
+    "after": "var(--space-md) var(--space-lg)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "margin-bottom",
+    "before": "16px",
+    "after": "var(--space-md)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "min-height",
+    "before": "220px",
+    "after": "calc(var(--space-xs) * 55)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "padding-bottom",
+    "before": "90px",
+    "after": "calc(var(--space-xs) * 23)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "font-size",
+    "before": "12px",
+    "after": "var(--text-small)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "margin-top",
+    "before": "16px",
+    "after": "var(--space-md)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "z-index",
+    "before": "-1",
+    "after": "var(--layer-underlay)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "background",
+    "before": "linear-gradient(transparent,#0004)",
+    "after": "linear-gradient(transparent,var(--overlay))"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "font-size",
+    "before": "44px",
+    "after": "var(--text-metric)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "margin-bottom",
+    "before": "10px",
+    "after": "var(--space-sm)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "margin-top",
+    "before": "8px",
+    "after": "var(--space-sm)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "font-size",
+    "before": "14px",
+    "after": "var(--text-body)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "gap",
+    "before": "18px",
+    "after": "var(--space-md)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "padding-bottom",
+    "before": "120px",
+    "after": "calc(var(--space-xs) * 30)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "margin-right",
+    "before": "12px",
+    "after": "var(--space-3)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "width",
+    "before": "48px",
+    "after": "var(--space-2xl)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "height",
+    "before": "48px",
+    "after": "var(--space-2xl)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "padding",
+    "before": "12px",
+    "after": "var(--space-3)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "border",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "border-radius",
+    "before": "50%",
+    "after": "var(--radius-full)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "margin-bottom",
+    "before": "24px",
+    "after": "var(--space-lg)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "font-size",
+    "before": "13px",
+    "after": "var(--text-small)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "min-height",
+    "before": "132px",
+    "after": "calc(var(--space-xs) * 33)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "gap",
+    "before": "12px",
+    "after": "var(--space-3)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "font-size",
+    "before": "12px",
+    "after": "var(--text-small)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "padding",
+    "before": "6px 0",
+    "after": "var(--space-xs) 0"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "margin-bottom",
+    "before": "8px",
+    "after": "var(--space-sm)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "font-size",
+    "before": "16px",
+    "after": "var(--text-subheading)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "margin-top",
+    "before": "8px",
+    "after": "var(--space-sm)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "min-width",
+    "before": "58px",
+    "after": "calc(var(--space-xs) * 15)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "height",
+    "before": "62px",
+    "after": "var(--space-3xl)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "gap",
+    "before": "5px",
+    "after": "var(--space-xs)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "padding",
+    "before": "8px 12px",
+    "after": "var(--space-sm) var(--space-3)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "border-radius",
+    "before": "14px",
+    "after": "var(--radius-md)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "font-size",
+    "before": "11px",
+    "after": "var(--text-small)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "padding",
+    "before": "12px 0",
+    "after": "var(--space-3) 0"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "font-weight",
+    "before": "600",
+    "after": "var(--weight-heading)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "padding",
+    "before": "12px 0",
+    "after": "var(--space-3) 0"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "margin",
+    "before": "0 0 8px",
+    "after": "0 0 var(--space-sm)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "border-bottom",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "font-size",
+    "before": "13px",
+    "after": "var(--text-small)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "margin",
+    "before": "0 0 8px",
+    "after": "0 0 var(--space-sm)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "gap",
+    "before": "8px",
+    "after": "var(--space-sm)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "font-size",
+    "before": "12px",
+    "after": "var(--text-small)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "padding",
+    "before": "12px",
+    "after": "var(--space-3)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "gap",
+    "before": "8px",
+    "after": "var(--space-sm)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "gap",
+    "before": "6px",
+    "after": "var(--space-xs)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "min-width",
+    "before": "52px",
+    "after": "calc(var(--space-xs) * 13)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "padding",
+    "before": "8px",
+    "after": "var(--space-sm)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "width",
+    "before": "40px",
+    "after": "calc(var(--space-xs) * 10)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "height",
+    "before": "40px",
+    "after": "calc(var(--space-xs) * 10)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "min-width",
+    "before": "40px",
+    "after": "calc(var(--space-xs) * 10)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "padding",
+    "before": "9px",
+    "after": "var(--space-sm)"
+  },
+  {
+    "file": "newtab/sketch.css",
+    "property": "padding",
+    "before": "18px",
+    "after": "var(--space-md)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "width",
+    "before": "min(960px,calc(100% - var(--space-2xl)))",
+    "after": "min(calc(var(--space-xs) * 240),calc(100% - var(--space-2xl)))"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "max-width",
+    "before": "1120px",
+    "after": "calc(var(--space-xs) * 280)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "height",
+    "before": "min(820px,calc(100svh - var(--space-2xl)))",
+    "after": "min(calc(var(--space-xs) * 205),calc(100svh - var(--space-2xl)))"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "border",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "border",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "border-bottom",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "line-height",
+    "before": "1.6",
+    "after": "var(--leading-body)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "border",
+    "before": "1px solid transparent",
+    "after": "var(--stroke) solid transparent"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "border-bottom",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "border",
+    "before": "1px dashed var(--border)",
+    "after": "var(--stroke) dashed var(--border)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "border-top",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "border",
+    "before": "1px solid var(--danger)",
+    "after": "var(--stroke) solid var(--danger)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "border-bottom",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "border-left",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "min-height",
+    "before": "96px",
+    "after": "calc(var(--space-xs) * 24)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "scroll-padding-block",
+    "before": "80px 140px",
+    "after": "calc(var(--space-xs) * 20) calc(var(--space-xs) * 35)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "scroll-margin-block",
+    "before": "var(--space-lg) 140px",
+    "after": "var(--space-lg) calc(var(--space-xs) * 35)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "outline",
+    "before": "3px solid var(--focus-ring)",
+    "after": "var(--focus-width) solid var(--focus-ring)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "outline-offset",
+    "before": "3px",
+    "after": "var(--focus-width)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "padding-top",
+    "before": "80px",
+    "after": "calc(var(--space-xs) * 20)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "animation",
+    "before": "notice-in var(--ease)",
+    "after": "notice-in var(--var(--easing-standard))"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "height",
+    "before": "76px",
+    "after": "calc(var(--space-xs) * 19)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "min-height",
+    "before": "76px",
+    "after": "calc(var(--space-xs) * 19)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "padding",
+    "before": "0 clamp(var(--space-lg),4vw,56px)",
+    "after": "0 clamp(var(--space-lg),4vw,var(--space-2xl))"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "border-bottom",
+    "before": "1px solid var(--settings-line)",
+    "after": "var(--stroke) solid var(--settings-line)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "letter-spacing",
+    "before": "-.035em",
+    "after": "var(--tracking-heading)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "height",
+    "before": "calc(100dvh - 76px)",
+    "after": "calc(100dvh - calc(var(--space-xs) * 19))"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "grid-template-columns",
+    "before": "248px minmax(0,1fr)",
+    "after": "calc(var(--space-xs) * 62) minmax(0,1fr)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "padding",
+    "before": "38px var(--space-md) var(--space-lg)",
+    "after": "var(--space-5) var(--space-md) var(--space-lg)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "border-right",
+    "before": "1px solid var(--settings-line)",
+    "after": "var(--stroke) solid var(--settings-line)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "gap",
+    "before": "2px",
+    "after": "var(--space-xs)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "padding",
+    "before": "0 var(--space-md) 25px",
+    "after": "0 var(--space-md) var(--space-lg)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "letter-spacing",
+    "before": "-.02em",
+    "after": "var(--tracking-heading)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "min-height",
+    "before": "46px",
+    "after": "var(--space-2xl)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "border",
+    "before": "1px solid transparent",
+    "after": "var(--stroke) solid transparent"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "width",
+    "before": "19px",
+    "after": "calc(var(--space-xs) * 5)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "height",
+    "before": "19px",
+    "after": "calc(var(--space-xs) * 5)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "padding",
+    "before": "42px clamp(var(--space-lg),5vw,74px) 88px",
+    "after": "var(--space-2xl) clamp(var(--space-lg),5vw,calc(var(--space-xs) * 19)) calc(var(--space-xs) * 22)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "max-width",
+    "before": "880px",
+    "after": "calc(var(--space-xs) * 220)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "letter-spacing",
+    "before": ".2em",
+    "after": "var(--tracking-label)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "font-size",
+    "before": "clamp(29px,3vw,38px)",
+    "after": "clamp(var(--text-title),3vw,var(--text-metric))"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "line-height",
+    "before": "1.1",
+    "after": "var(--leading-display)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "letter-spacing",
+    "before": "-.055em",
+    "after": "var(--tracking-heading)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "max-width",
+    "before": "600px",
+    "after": "calc(var(--space-xs) * 150)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "line-height",
+    "before": "1.6",
+    "after": "var(--leading-body)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "padding",
+    "before": "23px var(--space-lg)",
+    "after": "var(--space-lg) var(--space-lg)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "border",
+    "before": "1px solid var(--settings-line)",
+    "after": "var(--stroke) solid var(--settings-line)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "border",
+    "before": "1px solid var(--settings-line)",
+    "after": "var(--stroke) solid var(--settings-line)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "line-height",
+    "before": "1",
+    "after": "var(--leading-display)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "border",
+    "before": "1px solid var(--settings-line)",
+    "after": "var(--stroke) solid var(--settings-line)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "max-width",
+    "before": "400px",
+    "after": "calc(var(--space-xs) * 100)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "line-height",
+    "before": "1.55",
+    "after": "var(--leading-body)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "width",
+    "before": "17px",
+    "after": "var(--space-md)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "height",
+    "before": "17px",
+    "after": "var(--space-md)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "min-height",
+    "before": "36px",
+    "after": "calc(var(--space-xs) * 9)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "border",
+    "before": "1px solid var(--settings-line)",
+    "after": "var(--stroke) solid var(--settings-line)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "border-radius",
+    "before": "999px",
+    "after": "var(--radius-full)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "border-bottom",
+    "before": "1px solid var(--settings-line)",
+    "after": "var(--stroke) solid var(--settings-line)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "margin",
+    "before": "0 0 3px",
+    "after": "0 0 var(--space-xs)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "font-size",
+    "before": "19px",
+    "after": "var(--text-input)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "border",
+    "before": "1px solid var(--settings-line)",
+    "after": "var(--stroke) solid var(--settings-line)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "border-bottom",
+    "before": "1px solid var(--settings-line)",
+    "after": "var(--stroke) solid var(--settings-line)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "margin",
+    "before": "3px 0 0",
+    "after": "var(--space-xs) 0 0"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "border",
+    "before": "1px solid var(--settings-line)",
+    "after": "var(--stroke) solid var(--settings-line)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "height",
+    "before": "44px",
+    "after": "calc(var(--space-xs) * 11)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "border",
+    "before": "1px solid var(--settings-line)",
+    "after": "var(--stroke) solid var(--settings-line)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "min-height",
+    "before": "50px",
+    "after": "calc(var(--space-xs) * 13)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "border-bottom",
+    "before": "1px solid var(--settings-line)",
+    "after": "var(--stroke) solid var(--settings-line)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "border",
+    "before": "1px solid var(--settings-line)",
+    "after": "var(--stroke) solid var(--settings-line)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "border-bottom",
+    "before": "1px solid var(--settings-line)",
+    "after": "var(--stroke) solid var(--settings-line)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "padding",
+    "before": "var(--space-5) var(--space-lg) 70px",
+    "after": "var(--space-5) var(--space-lg) calc(var(--space-xs) * 18)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "height",
+    "before": "62px",
+    "after": "var(--space-3xl)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "min-height",
+    "before": "62px",
+    "after": "var(--space-3xl)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "height",
+    "before": "calc(100dvh - 62px)",
+    "after": "calc(100dvh - var(--space-3xl))"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "min-height",
+    "before": "44px",
+    "after": "calc(var(--space-xs) * 11)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "border",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "border",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "max-width",
+    "before": "640px",
+    "after": "calc(var(--space-xs) * 160)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "border-inline-start",
+    "before": "2px solid var(--border)",
+    "after": "var(--stroke-strong) solid var(--border)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "border",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "max-width",
+    "before": "600px",
+    "after": "calc(var(--space-xs) * 150)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "transition",
+    "before": "opacity var(--ease)",
+    "after": "opacity var(--var(--easing-standard))"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "min-height",
+    "before": "44px",
+    "after": "calc(var(--space-xs) * 11)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "grid-template-columns",
+    "before": "repeat(auto-fit,minmax(100px,1fr))",
+    "after": "repeat(auto-fit,minmax(calc(var(--space-xs) * 25),1fr))"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "min-height",
+    "before": "80px",
+    "after": "calc(var(--space-xs) * 20)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "border",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "newtab/system.css",
+    "property": "border",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "components/workbench/style.css",
+    "property": "border-bottom",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "components/workbench/style.css",
+    "property": "border-bottom",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "components/workbench/style.css",
+    "property": "flex",
+    "before": "1 1 180px",
+    "after": "1 1 calc(var(--space-xs) * 45)"
+  },
+  {
+    "file": "components/workbench/style.css",
+    "property": "grid-template-columns",
+    "before": "repeat(auto-fit,minmax(140px,1fr))",
+    "after": "repeat(auto-fit,minmax(calc(var(--space-xs) * 35),1fr))"
+  },
+  {
+    "file": "components/workbench/style.css",
+    "property": "min-height",
+    "before": "44px",
+    "after": "calc(var(--space-xs) * 11)"
+  },
+  {
+    "file": "components/workbench/style.css",
+    "property": "min-height",
+    "before": "44px",
+    "after": "calc(var(--space-xs) * 11)"
+  },
+  {
+    "file": "components/weather/style.css",
+    "property": "line-height",
+    "before": "1.3",
+    "after": "var(--leading-heading)"
+  },
+  {
+    "file": "components/weather/style.css",
+    "property": "margin-top",
+    "before": "3px",
+    "after": "var(--space-xs)"
+  },
+  {
+    "file": "components/weather/style.css",
+    "property": "max-width",
+    "before": "160px",
+    "after": "calc(var(--space-xs) * 40)"
+  },
+  {
+    "file": "components/unsplash/style.css",
+    "property": "bottom",
+    "before": "112px",
+    "after": "calc(var(--space-xs) * 28)"
+  },
+  {
+    "file": "components/unsplash/style.css",
+    "property": "left",
+    "before": "38px",
+    "after": "calc(var(--space-xs) * 10)"
+  },
+  {
+    "file": "components/unsplash/style.css",
+    "property": "max-width",
+    "before": "280px",
+    "after": "calc(var(--space-xs) * 70)"
+  },
+  {
+    "file": "components/timer/style.css",
+    "property": "width",
+    "before": "min(350px, 100%)",
+    "after": "min(calc(var(--space-xs) * 88), 100%)"
+  },
+  {
+    "file": "components/timer/style.css",
+    "property": "border",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "components/timer/style.css",
+    "property": "font-size",
+    "before": "9px",
+    "after": "var(--text-small)"
+  },
+  {
+    "file": "components/timer/style.css",
+    "property": "letter-spacing",
+    "before": ".16em",
+    "after": "var(--tracking-label)"
+  },
+  {
+    "file": "components/timer/style.css",
+    "property": "font-size",
+    "before": "34px",
+    "after": "var(--text-title)"
+  },
+  {
+    "file": "components/timer/style.css",
+    "property": "letter-spacing",
+    "before": "-.04em",
+    "after": "var(--tracking-heading)"
+  },
+  {
+    "file": "components/timer/style.css",
+    "property": "line-height",
+    "before": "1.2",
+    "after": "var(--leading-display)"
+  },
+  {
+    "file": "components/timer/style.css",
+    "property": "min-width",
+    "before": "72px",
+    "after": "calc(var(--space-xs) * 18)"
+  },
+  {
+    "file": "components/timer/style.css",
+    "property": "letter-spacing",
+    "before": ".18em",
+    "after": "var(--tracking-label)"
+  },
+  {
+    "file": "components/timer/style.css",
+    "property": "font-size",
+    "before": "76px",
+    "after": "var(--text-display)"
+  },
+  {
+    "file": "components/timer/style.css",
+    "property": "line-height",
+    "before": "1.1",
+    "after": "var(--leading-display)"
+  },
+  {
+    "file": "components/timer/style.css",
+    "property": "letter-spacing",
+    "before": "-.06em",
+    "after": "var(--tracking-heading)"
+  },
+  {
+    "file": "components/tasks/style.css",
+    "property": "border",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "components/tasks/style.css",
+    "property": "width",
+    "before": "28px",
+    "after": "calc(var(--space-xs) * 7)"
+  },
+  {
+    "file": "components/tasks/style.css",
+    "property": "height",
+    "before": "34px",
+    "after": "calc(var(--space-xs) * 9)"
+  },
+  {
+    "file": "components/tasks/style.css",
+    "property": "flex",
+    "before": "1 0 calc(100% - 60px)",
+    "after": "1 0 calc(100% - calc(var(--space-xs) * 15))"
+  },
+  {
+    "file": "components/tasks/style.css",
+    "property": "width",
+    "before": "36px",
+    "after": "calc(var(--space-xs) * 9)"
+  },
+  {
+    "file": "components/tasks/style.css",
+    "property": "height",
+    "before": "36px",
+    "after": "calc(var(--space-xs) * 9)"
+  },
+  {
+    "file": "components/tasks/style.css",
+    "property": "min-width",
+    "before": "90px",
+    "after": "calc(var(--space-xs) * 23)"
+  },
+  {
+    "file": "components/stats/style.css",
+    "property": "line-height",
+    "before": "1.6",
+    "after": "var(--leading-body)"
+  },
+  {
+    "file": "components/stats/style.css",
+    "property": "border-left",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "components/stats/style.css",
+    "property": "line-height",
+    "before": "1.1",
+    "after": "var(--leading-display)"
+  },
+  {
+    "file": "components/stats/style.css",
+    "property": "height",
+    "before": "240px",
+    "after": "calc(var(--space-xs) * 60)"
+  },
+  {
+    "file": "components/stats/style.css",
+    "property": "width",
+    "before": "1px",
+    "after": "var(--stroke)"
+  },
+  {
+    "file": "components/stats/style.css",
+    "property": "height",
+    "before": "1px",
+    "after": "var(--stroke)"
+  },
+  {
+    "file": "components/stats/style.css",
+    "property": "border-bottom",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "components/stats/style.css",
+    "property": "border-top",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "components/sounds/style.css",
+    "property": "border",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "components/sounds/style.css",
+    "property": "padding",
+    "before": "3px 0",
+    "after": "var(--space-xs) 0"
+  },
+  {
+    "file": "components/settings/style.css",
+    "property": "gap",
+    "before": "3px",
+    "after": "var(--space-xs)"
+  },
+  {
+    "file": "components/settings/style.css",
+    "property": "border",
+    "before": "2px solid var(--accent)",
+    "after": "var(--stroke-strong) solid var(--accent)"
+  },
+  {
+    "file": "components/settings/style.css",
+    "property": "border",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "components/settings/style.css",
+    "property": "border-width",
+    "before": "2px",
+    "after": "var(--stroke-strong)"
+  },
+  {
+    "file": "components/search/style.css",
+    "property": "padding",
+    "before": "var(--space-xs) var(--space-sm) var(--space-xs) 17px",
+    "after": "var(--space-xs) var(--space-sm) var(--space-xs) var(--space-md)"
+  },
+  {
+    "file": "components/search/style.css",
+    "property": "max-width",
+    "before": "430px",
+    "after": "calc(var(--space-xs) * 108)"
+  },
+  {
+    "file": "components/quotes/style.css",
+    "property": "max-width",
+    "before": "800px",
+    "after": "calc(var(--space-xs) * 200)"
+  },
+  {
+    "file": "components/quotes/style.css",
+    "property": "padding",
+    "before": "var(--space-sm) 25px 0",
+    "after": "var(--space-sm) var(--space-lg) 0"
+  },
+  {
+    "file": "components/quotes/style.css",
+    "property": "letter-spacing",
+    "before": ".01em",
+    "after": "var(--tracking-label)"
+  },
+  {
+    "file": "components/quotes/style.css",
+    "property": "font-size",
+    "before": "9px",
+    "after": "var(--text-small)"
+  },
+  {
+    "file": "components/quotes/style.css",
+    "property": "letter-spacing",
+    "before": ".12em",
+    "after": "var(--tracking-label)"
+  },
+  {
+    "file": "components/quotes/style.css",
+    "property": "width",
+    "before": "25px",
+    "after": "var(--space-lg)"
+  },
+  {
+    "file": "components/quotes/style.css",
+    "property": "height",
+    "before": "25px",
+    "after": "var(--space-lg)"
+  },
+  {
+    "file": "components/quotes/style.css",
+    "property": "gap",
+    "before": "3px",
+    "after": "var(--space-xs)"
+  },
+  {
+    "file": "components/panel-design/style.css",
+    "property": "z-index",
+    "before": "5",
+    "after": "var(--layer-drawer)"
+  },
+  {
+    "file": "components/panel-design/style.css",
+    "property": "width",
+    "before": "min(400px,calc(100vw - 80px))",
+    "after": "min(calc(var(--space-xs) * 100),calc(100vw - calc(var(--space-xs) * 20)))"
+  },
+  {
+    "file": "components/panel-design/style.css",
+    "property": "max-height",
+    "before": "min(480px,60svh)",
+    "after": "min(calc(var(--space-xs) * 120),60svh)"
+  },
+  {
+    "file": "components/panel-design/style.css",
+    "property": "border",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "components/panel-design/style.css",
+    "property": "z-index",
+    "before": "1",
+    "after": "var(--layer-widget)"
+  },
+  {
+    "file": "components/panel-design/style.css",
+    "property": "grid-template-columns",
+    "before": "230px minmax(0,1fr)",
+    "after": "calc(var(--space-xs) * 58) minmax(0,1fr)"
+  },
+  {
+    "file": "components/panel-design/style.css",
+    "property": "border",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "components/panel-design/style.css",
+    "property": "height",
+    "before": "96px",
+    "after": "calc(var(--space-xs) * 24)"
+  },
+  {
+    "file": "components/panel-design/style.css",
+    "property": "grid-template-columns",
+    "before": "minmax(260px,1fr) minmax(0,1.2fr)",
+    "after": "minmax(calc(var(--space-xs) * 65),1fr) minmax(0,1.2fr)"
+  },
+  {
+    "file": "components/panel-design/style.css",
+    "property": "border-bottom",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "components/panel-design/style.css",
+    "property": "grid-template-columns",
+    "before": "repeat(auto-fit,minmax(min(100%,260px),1fr))",
+    "after": "repeat(auto-fit,minmax(min(100%,calc(var(--space-xs) * 65)),1fr))"
+  },
+  {
+    "file": "components/panel-design/style.css",
+    "property": "border",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "components/panel-design/style.css",
+    "property": "min-width",
+    "before": "150px",
+    "after": "calc(var(--space-xs) * 38)"
+  },
+  {
+    "file": "components/panel-design/style.css",
+    "property": "border",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "components/panel-design/style.css",
+    "property": "line-height",
+    "before": "1.5",
+    "after": "var(--leading-body)"
+  },
+  {
+    "file": "components/panel-design/style.css",
+    "property": "z-index",
+    "before": "1",
+    "after": "var(--layer-widget)"
+  },
+  {
+    "file": "components/panel-design/style.css",
+    "property": "min-width",
+    "before": "160px",
+    "after": "calc(var(--space-xs) * 40)"
+  },
+  {
+    "file": "components/panel-design/style.css",
+    "property": "max-width",
+    "before": "220px",
+    "after": "calc(var(--space-xs) * 55)"
+  },
+  {
+    "file": "components/panel-design/style.css",
+    "property": "height",
+    "before": "64px",
+    "after": "var(--space-3xl)"
+  },
+  {
+    "file": "components/onboarding/style.css",
+    "property": "font-size",
+    "before": "44px",
+    "after": "var(--text-metric)"
+  },
+  {
+    "file": "components/onboarding/style.css",
+    "property": "line-height",
+    "before": "1",
+    "after": "var(--leading-display)"
+  },
+  {
+    "file": "components/onboarding/style.css",
+    "property": "line-height",
+    "before": "1.2",
+    "after": "var(--leading-display)"
+  },
+  {
+    "file": "components/onboarding/style.css",
+    "property": "letter-spacing",
+    "before": "-.04em",
+    "after": "var(--tracking-heading)"
+  },
+  {
+    "file": "components/onboarding/style.css",
+    "property": "border-top",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "components/onboarding/style.css",
+    "property": "border-bottom",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "components/onboarding/style.css",
+    "property": "border",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "components/onboarding/style.css",
+    "property": "outline",
+    "before": "2px solid var(--text)",
+    "after": "var(--stroke-strong) solid var(--text)"
+  },
+  {
+    "file": "components/onboarding/style.css",
+    "property": "outline-offset",
+    "before": "2px",
+    "after": "var(--stroke-strong)"
+  },
+  {
+    "file": "components/onboarding/style.css",
+    "property": "height",
+    "before": "80px",
+    "after": "calc(var(--space-xs) * 20)"
+  },
+  {
+    "file": "components/onboarding/style.css",
+    "property": "grid-template-columns",
+    "before": "20px 64px 1fr",
+    "after": "calc(var(--space-xs) * 5) var(--space-3xl) 1fr"
+  },
+  {
+    "file": "components/onboarding/style.css",
+    "property": "height",
+    "before": "52px",
+    "after": "calc(var(--space-xs) * 13)"
+  },
+  {
+    "file": "components/notifications/style.css",
+    "property": "border-bottom",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "components/notifications/style.css",
+    "property": "border-bottom",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "components/notifications/style.css",
+    "property": "border-radius",
+    "before": "50%",
+    "after": "var(--radius-full)"
+  },
+  {
+    "file": "components/notifications/style.css",
+    "property": "line-height",
+    "before": "1.6",
+    "after": "var(--leading-body)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "width",
+    "before": "19px",
+    "after": "calc(var(--space-xs) * 5)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "height",
+    "before": "19px",
+    "after": "calc(var(--space-xs) * 5)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "min-height",
+    "before": "220px",
+    "after": "calc(var(--space-xs) * 55)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "outline",
+    "before": "2px solid var(--notes-focus)",
+    "after": "var(--stroke-strong) solid var(--notes-focus)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "outline-offset",
+    "before": "3px",
+    "after": "var(--focus-width)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "grid-template-columns",
+    "before": "250px minmax(0,1fr)",
+    "after": "calc(var(--space-xs) * 63) minmax(0,1fr)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "padding",
+    "before": "29px var(--space-md) var(--space-lg)",
+    "after": "var(--space-5) var(--space-md) var(--space-lg)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "border-right",
+    "before": "1px solid var(--notes-line)",
+    "after": "var(--stroke) solid var(--notes-line)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "letter-spacing",
+    "before": "-.035em",
+    "after": "var(--tracking-heading)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "width",
+    "before": "34px",
+    "after": "calc(var(--space-xs) * 9)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "height",
+    "before": "34px",
+    "after": "calc(var(--space-xs) * 9)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "width",
+    "before": "19px",
+    "after": "calc(var(--space-xs) * 5)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "height",
+    "before": "19px",
+    "after": "calc(var(--space-xs) * 5)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "gap",
+    "before": "3px",
+    "after": "var(--space-xs)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "min-height",
+    "before": "44px",
+    "after": "calc(var(--space-xs) * 11)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "min-width",
+    "before": "27px",
+    "after": "calc(var(--space-xs) * 7)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "height",
+    "before": "26px",
+    "after": "calc(var(--space-xs) * 7)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "border-top",
+    "before": "1px solid var(--notes-line)",
+    "after": "var(--stroke) solid var(--notes-line)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "border",
+    "before": "1px solid var(--notes-line)",
+    "after": "var(--stroke) solid var(--notes-line)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "gap",
+    "before": "1px",
+    "after": "var(--space-xs)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "min-height",
+    "before": "41px",
+    "after": "calc(var(--space-xs) * 10)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "width",
+    "before": "14px",
+    "after": "var(--space-md)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "height",
+    "before": "14px",
+    "after": "var(--space-md)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "border-radius",
+    "before": "50%",
+    "after": "var(--radius-full)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "height",
+    "before": "72px",
+    "after": "calc(var(--space-xs) * 18)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "border-bottom",
+    "before": "1px solid var(--notes-line)",
+    "after": "var(--stroke) solid var(--notes-line)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "width",
+    "before": "min(620px,100%)",
+    "after": "min(calc(var(--space-xs) * 155),100%)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "height",
+    "before": "44px",
+    "after": "calc(var(--space-xs) * 11)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "border-radius",
+    "before": "25px",
+    "after": "var(--radius-lg)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "width",
+    "before": "19px",
+    "after": "calc(var(--space-xs) * 5)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "height",
+    "before": "19px",
+    "after": "calc(var(--space-xs) * 5)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "outline",
+    "before": "2px solid var(--notes-focus)",
+    "after": "var(--stroke-strong) solid var(--notes-focus)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "z-index",
+    "before": "12",
+    "after": "var(--layer-modal)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "top",
+    "before": "49px",
+    "after": "var(--space-2xl)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "width",
+    "before": "min(330px,calc(100vw - 24px))",
+    "after": "min(calc(var(--space-xs) * 83),calc(100vw - var(--space-lg)))"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "border",
+    "before": "1px solid var(--notes-line)",
+    "after": "var(--stroke) solid var(--notes-line)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "min-height",
+    "before": "36px",
+    "after": "calc(var(--space-xs) * 9)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "border",
+    "before": "1px solid var(--notes-line)",
+    "after": "var(--stroke) solid var(--notes-line)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "width",
+    "before": "32px",
+    "after": "var(--space-5)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "height",
+    "before": "32px",
+    "after": "var(--space-5)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "width",
+    "before": "min(850px,calc(100% - 64px))",
+    "after": "min(calc(var(--space-xs) * 213),calc(100% - var(--space-3xl)))"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "min-height",
+    "before": "58px",
+    "after": "calc(var(--space-xs) * 15)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "border",
+    "before": "1px solid var(--notes-line)",
+    "after": "var(--stroke) solid var(--notes-line)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "border-radius",
+    "before": "13px",
+    "after": "var(--radius-md)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "height",
+    "before": "44px",
+    "after": "calc(var(--space-xs) * 11)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "padding",
+    "before": "0 var(--space-5) 90px",
+    "after": "0 var(--space-5) calc(var(--space-xs) * 23)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "margin",
+    "before": "17px 0 27px",
+    "after": "var(--space-md) 0 var(--space-lg)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "width",
+    "before": "17px",
+    "after": "var(--space-md)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "height",
+    "before": "17px",
+    "after": "var(--space-md)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "width",
+    "before": "16px",
+    "after": "var(--space-md)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "height",
+    "before": "16px",
+    "after": "var(--space-md)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "max-width",
+    "before": "120px",
+    "after": "calc(var(--space-xs) * 30)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "min-height",
+    "before": "36px",
+    "after": "calc(var(--space-xs) * 9)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "padding",
+    "before": "var(--space-xs) 25px var(--space-xs) var(--space-sm)",
+    "after": "var(--space-xs) var(--space-lg) var(--space-xs) var(--space-sm)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "border",
+    "before": "1px solid var(--notes-line)",
+    "after": "var(--stroke) solid var(--notes-line)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "border-radius",
+    "before": "9px",
+    "after": "var(--radius-md)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "width",
+    "before": "35px",
+    "after": "calc(var(--space-xs) * 9)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "height",
+    "before": "35px",
+    "after": "calc(var(--space-xs) * 9)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "max-width",
+    "before": "135px",
+    "after": "calc(var(--space-xs) * 34)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "grid-template-columns",
+    "before": "repeat(auto-fill,minmax(min(100%,230px),1fr))",
+    "after": "repeat(auto-fill,minmax(min(100%,calc(var(--space-xs) * 58)),1fr))"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "min-height",
+    "before": "190px",
+    "after": "calc(var(--space-xs) * 48)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "border",
+    "before": "1px solid var(--notes-card-line)",
+    "after": "var(--stroke) solid var(--notes-card-line)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "border-radius",
+    "before": "13px",
+    "after": "var(--radius-md)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "transition",
+    "before": "transform var(--ease),box-shadow var(--ease)",
+    "after": "transform var(--var(--easing-standard)),box-shadow var(--var(--easing-standard))"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "transform",
+    "before": "translateY(-2px)",
+    "after": "translateY(calc(-1 * var(--stroke)))"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "max-height",
+    "before": "150px",
+    "after": "calc(var(--space-xs) * 38)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "padding",
+    "before": "var(--space-md) 17px var(--space-md)",
+    "after": "var(--space-md) var(--space-md) var(--space-md)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "line-height",
+    "before": "1.3",
+    "after": "var(--leading-heading)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "width",
+    "before": "17px",
+    "after": "var(--space-md)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "height",
+    "before": "17px",
+    "after": "var(--space-md)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "line-height",
+    "before": "1.43",
+    "after": "var(--leading-body)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "line-height",
+    "before": "1.35",
+    "after": "var(--leading-heading)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "width",
+    "before": "17px",
+    "after": "var(--space-md)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "height",
+    "before": "17px",
+    "after": "var(--space-md)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "margin-top",
+    "before": "2px",
+    "after": "var(--space-xs)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "border",
+    "before": "1.5px solid var(--notes-checkbox)",
+    "after": "var(--stroke-strong) solid var(--notes-checkbox)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "border-radius",
+    "before": "4px",
+    "after": "var(--radius-sm)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "line-height",
+    "before": "1",
+    "after": "var(--leading-display)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "padding",
+    "before": "3px var(--space-sm)",
+    "after": "var(--space-xs) var(--space-sm)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "padding",
+    "before": "55px var(--space-md)",
+    "after": "var(--space-2xl) var(--space-md)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "width",
+    "before": "34px",
+    "after": "calc(var(--space-xs) * 9)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "height",
+    "before": "34px",
+    "after": "calc(var(--space-xs) * 9)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "right",
+    "before": "30px",
+    "after": "var(--space-5)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "bottom",
+    "before": "30px",
+    "after": "var(--space-5)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "z-index",
+    "before": "9",
+    "after": "var(--layer-modal)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "width",
+    "before": "60px",
+    "after": "calc(var(--space-xs) * 15)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "height",
+    "before": "60px",
+    "after": "calc(var(--space-xs) * 15)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "border-radius",
+    "before": "50%",
+    "after": "var(--radius-full)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "width",
+    "before": "29px",
+    "after": "calc(var(--space-xs) * 7)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "height",
+    "before": "29px",
+    "after": "calc(var(--space-xs) * 7)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "bottom",
+    "before": "70px",
+    "after": "calc(var(--space-xs) * 18)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "gap",
+    "before": "3px",
+    "after": "var(--space-xs)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "width",
+    "before": "172px",
+    "after": "calc(var(--space-xs) * 43)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "border",
+    "before": "1px solid var(--notes-line)",
+    "after": "var(--stroke) solid var(--notes-line)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "border-radius",
+    "before": "13px",
+    "after": "var(--radius-md)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "min-height",
+    "before": "42px",
+    "after": "calc(var(--space-xs) * 11)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "min-height",
+    "before": "24px",
+    "after": "var(--space-lg)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "padding",
+    "before": "2px var(--space-5) var(--space-xs)",
+    "after": "var(--space-xs) var(--space-5) var(--space-xs)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "gap",
+    "before": "17px",
+    "after": "var(--space-md)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "width",
+    "before": "min(790px,100%)",
+    "after": "min(calc(var(--space-xs) * 198),100%)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "border",
+    "before": "1px solid var(--notes-line)",
+    "after": "var(--stroke) solid var(--notes-line)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "min-height",
+    "before": "42px",
+    "after": "calc(var(--space-xs) * 11)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "border",
+    "before": "1px solid var(--notes-line)",
+    "after": "var(--stroke) solid var(--notes-line)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "border-radius",
+    "before": "9px",
+    "after": "var(--radius-md)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "outline-offset",
+    "before": "3px",
+    "after": "var(--focus-width)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "min-height",
+    "before": "260px",
+    "after": "calc(var(--space-xs) * 65)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "min-height",
+    "before": "38px",
+    "after": "calc(var(--space-xs) * 10)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "border",
+    "before": "1px solid var(--notes-line)",
+    "after": "var(--stroke) solid var(--notes-line)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "border-top",
+    "before": "1px solid var(--notes-line)",
+    "after": "var(--stroke) solid var(--notes-line)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "border-top",
+    "before": "1px solid var(--notes-line)",
+    "after": "var(--stroke) solid var(--notes-line)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "grid-template-columns",
+    "before": "22px minmax(0,1fr) 38px 38px 38px",
+    "after": "var(--space-lg) minmax(0,1fr) calc(var(--space-xs) * 10) calc(var(--space-xs) * 10) calc(var(--space-xs) * 10)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "max-height",
+    "before": "280px",
+    "after": "calc(var(--space-xs) * 70)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "grid-template-columns",
+    "before": "repeat(auto-fit,minmax(66px,1fr))",
+    "after": "repeat(auto-fit,minmax(calc(var(--space-xs) * 17),1fr))"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "grid-template-columns",
+    "before": "24px minmax(0,1fr) auto auto",
+    "after": "var(--space-lg) minmax(0,1fr) auto auto"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "border-bottom",
+    "before": "1px solid var(--notes-line)",
+    "after": "var(--stroke) solid var(--notes-line)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "border-bottom",
+    "before": "1px solid var(--notes-line)",
+    "after": "var(--stroke) solid var(--notes-line)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "min-width",
+    "before": "44px",
+    "after": "calc(var(--space-xs) * 11)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "min-height",
+    "before": "44px",
+    "after": "calc(var(--space-xs) * 11)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "outline",
+    "before": "2px solid var(--notes-ink)",
+    "after": "var(--stroke-strong) solid var(--notes-ink)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "outline-offset",
+    "before": "-2px",
+    "after": "var(--stroke-strong)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "grid-template-columns",
+    "before": "24px minmax(0,1fr) auto",
+    "after": "var(--space-lg) minmax(0,1fr) auto"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "min-width",
+    "before": "430px",
+    "after": "calc(var(--space-xs) * 108)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "height",
+    "before": "220px",
+    "after": "calc(var(--space-xs) * 55)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "border",
+    "before": "1px solid var(--notes-line)",
+    "after": "var(--stroke) solid var(--notes-line)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "grid-template-columns",
+    "before": "190px minmax(0,1fr)",
+    "after": "calc(var(--space-xs) * 48) minmax(0,1fr)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "padding",
+    "before": "0 var(--space-md) 80px",
+    "after": "0 var(--space-md) calc(var(--space-xs) * 20)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "width",
+    "before": "calc(100% - 36px)",
+    "after": "calc(100% - calc(var(--space-xs) * 9))"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "border-bottom",
+    "before": "1px solid var(--notes-line)",
+    "after": "var(--stroke) solid var(--notes-line)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "gap",
+    "before": "3px",
+    "after": "var(--space-xs)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "min-height",
+    "before": "40px",
+    "after": "calc(var(--space-xs) * 10)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "width",
+    "before": "17px",
+    "after": "var(--space-md)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "height",
+    "before": "17px",
+    "after": "var(--space-md)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "height",
+    "before": "58px",
+    "after": "calc(var(--space-xs) * 15)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "height",
+    "before": "39px",
+    "after": "calc(var(--space-xs) * 10)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "min-height",
+    "before": "50px",
+    "after": "calc(var(--space-xs) * 13)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "padding",
+    "before": "0 var(--space-3) 80px",
+    "after": "0 var(--space-3) calc(var(--space-xs) * 20)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "gap",
+    "before": "3px",
+    "after": "var(--space-xs)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "max-width",
+    "before": "95px",
+    "after": "calc(var(--space-xs) * 24)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "min-height",
+    "before": "160px",
+    "after": "calc(var(--space-xs) * 40)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "right",
+    "before": "18px",
+    "after": "calc(var(--space-xs) * 5)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "bottom",
+    "before": "19px",
+    "after": "calc(var(--space-xs) * 5)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "width",
+    "before": "54px",
+    "after": "calc(var(--space-xs) * 14)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "height",
+    "before": "54px",
+    "after": "calc(var(--space-xs) * 14)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "grid-template-columns",
+    "before": "22px minmax(0,1fr) repeat(3,var(--control-height))",
+    "after": "var(--space-lg) minmax(0,1fr) repeat(3,var(--control-height))"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "min-height",
+    "before": "140px",
+    "after": "calc(var(--space-xs) * 35)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "width",
+    "before": "16px",
+    "after": "var(--space-md)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "height",
+    "before": "16px",
+    "after": "var(--space-md)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "max-width",
+    "before": "77px",
+    "after": "calc(var(--space-xs) * 19)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "max-height",
+    "before": "145px",
+    "after": "calc(var(--space-xs) * 36)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "min-height",
+    "before": "34px",
+    "after": "calc(var(--space-xs) * 9)"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "grid-template-columns",
+    "before": "22px minmax(0,1fr) repeat(3,var(--control-height))",
+    "after": "var(--space-lg) minmax(0,1fr) repeat(3,var(--control-height))"
+  },
+  {
+    "file": "components/notes/capture.css",
+    "property": "grid-template-columns",
+    "before": "22px minmax(0,1fr) repeat(3,var(--control-height))",
+    "after": "var(--space-lg) minmax(0,1fr) repeat(3,var(--control-height))"
+  },
+  {
+    "file": "components/notes/style.css",
+    "property": "height",
+    "before": "min(760px,74dvh)",
+    "after": "min(calc(var(--space-xs) * 190),74dvh)"
+  },
+  {
+    "file": "components/music/style.css",
+    "property": "border",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "components/music/style.css",
+    "property": "max-height",
+    "before": "300px",
+    "after": "calc(var(--space-xs) * 75)"
+  },
+  {
+    "file": "components/music/style.css",
+    "property": "min-height",
+    "before": "200px",
+    "after": "calc(var(--space-xs) * 50)"
+  },
+  {
+    "file": "components/mood/style.css",
+    "property": "width",
+    "before": "110px",
+    "after": "calc(var(--space-xs) * 28)"
+  },
+  {
+    "file": "components/mood/style.css",
+    "property": "font-size",
+    "before": "30px",
+    "after": "var(--text-title)"
+  },
+  {
+    "file": "components/links/style.css",
+    "property": "max-width",
+    "before": "550px",
+    "after": "calc(var(--space-xs) * 138)"
+  },
+  {
+    "file": "components/links/style.css",
+    "property": "min-height",
+    "before": "44px",
+    "after": "calc(var(--space-xs) * 11)"
+  },
+  {
+    "file": "components/links/style.css",
+    "property": "width",
+    "before": "48px",
+    "after": "var(--space-2xl)"
+  },
+  {
+    "file": "components/links/style.css",
+    "property": "font-size",
+    "before": "9px",
+    "after": "var(--text-small)"
+  },
+  {
+    "file": "components/links/style.css",
+    "property": "max-width",
+    "before": "65px",
+    "after": "var(--space-3xl)"
+  },
+  {
+    "file": "components/links/style.css",
+    "property": "width",
+    "before": "32px",
+    "after": "var(--space-5)"
+  },
+  {
+    "file": "components/links/style.css",
+    "property": "height",
+    "before": "32px",
+    "after": "var(--space-5)"
+  },
+  {
+    "file": "components/links/style.css",
+    "property": "border",
+    "before": "1px solid var(--canvas-line)",
+    "after": "var(--stroke) solid var(--canvas-line)"
+  },
+  {
+    "file": "components/links/style.css",
+    "property": "border",
+    "before": "1px dashed var(--canvas-line)",
+    "after": "var(--stroke) dashed var(--canvas-line)"
+  },
+  {
+    "file": "components/links/style.css",
+    "property": "width",
+    "before": "32px",
+    "after": "var(--space-5)"
+  },
+  {
+    "file": "components/links/style.css",
+    "property": "height",
+    "before": "32px",
+    "after": "var(--space-5)"
+  },
+  {
+    "file": "components/layout/style.css",
+    "property": "height",
+    "before": "560px",
+    "after": "calc(var(--space-xs) * 140)"
+  },
+  {
+    "file": "components/layout/style.css",
+    "property": "border",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "components/layout/style.css",
+    "property": "background",
+    "before": "repeating-linear-gradient(0deg,transparent 0 17px,var(--surface) 17px 18px)",
+    "after": "repeating-linear-gradient(0deg,transparent 0 var(--space-md),var(--surface) var(--space-md) calc(var(--space-xs) * 5))"
+  },
+  {
+    "file": "components/layout/style.css",
+    "property": "min-height",
+    "before": "18px",
+    "after": "calc(var(--space-xs) * 5)"
+  },
+  {
+    "file": "components/layout/style.css",
+    "property": "border",
+    "before": "1px solid var(--muted)",
+    "after": "var(--stroke) solid var(--muted)"
+  },
+  {
+    "file": "components/layout/style.css",
+    "property": "padding",
+    "before": "3px",
+    "after": "var(--space-xs)"
+  },
+  {
+    "file": "components/layout/style.css",
+    "property": "padding",
+    "before": "2px",
+    "after": "var(--space-xs)"
+  },
+  {
+    "file": "components/layout/style.css",
+    "property": "grid-auto-rows",
+    "before": "minmax(20px,auto)",
+    "after": "minmax(calc(var(--space-xs) * 5),auto)"
+  },
+  {
+    "file": "components/layout/style.css",
+    "property": "max-width",
+    "before": "1100px",
+    "after": "calc(var(--space-xs) * 275)"
+  },
+  {
+    "file": "components/journeys/style.css",
+    "property": "border-block-start",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "components/journeys/style.css",
+    "property": "border",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "components/journal/style.css",
+    "property": "grid-template-columns",
+    "before": "272px minmax(0,1fr)",
+    "after": "calc(var(--space-xs) * 68) minmax(0,1fr)"
+  },
+  {
+    "file": "components/journal/style.css",
+    "property": "outline",
+    "before": "2px solid var(--journal-muted)",
+    "after": "var(--stroke-strong) solid var(--journal-muted)"
+  },
+  {
+    "file": "components/journal/style.css",
+    "property": "outline-offset",
+    "before": "3px",
+    "after": "var(--focus-width)"
+  },
+  {
+    "file": "components/journal/style.css",
+    "property": "border-right",
+    "before": "1px solid var(--journal-border)",
+    "after": "var(--stroke) solid var(--journal-border)"
+  },
+  {
+    "file": "components/journal/style.css",
+    "property": "border-top",
+    "before": "1px solid var(--journal-border)",
+    "after": "var(--stroke) solid var(--journal-border)"
+  },
+  {
+    "file": "components/journal/style.css",
+    "property": "grid-template-columns",
+    "before": "28px minmax(0,1fr) 68px 28px",
+    "after": "calc(var(--space-xs) * 7) minmax(0,1fr) calc(var(--space-xs) * 17) calc(var(--space-xs) * 7)"
+  },
+  {
+    "file": "components/journal/style.css",
+    "property": "min-height",
+    "before": "28px",
+    "after": "calc(var(--space-xs) * 7)"
+  },
+  {
+    "file": "components/journal/style.css",
+    "property": "width",
+    "before": "3px",
+    "after": "var(--stroke)"
+  },
+  {
+    "file": "components/journal/style.css",
+    "property": "height",
+    "before": "3px",
+    "after": "var(--stroke)"
+  },
+  {
+    "file": "components/journal/style.css",
+    "property": "border-radius",
+    "before": "50%",
+    "after": "var(--radius-full)"
+  },
+  {
+    "file": "components/journal/style.css",
+    "property": "bottom",
+    "before": "2px",
+    "after": "var(--stroke)"
+  },
+  {
+    "file": "components/journal/style.css",
+    "property": "left",
+    "before": "calc(50% - 1px)",
+    "after": "calc(50% - var(--stroke))"
+  },
+  {
+    "file": "components/journal/style.css",
+    "property": "left",
+    "before": "calc(272px + var(--space-lg))",
+    "after": "calc(calc(var(--space-xs) * 68) + var(--space-lg))"
+  },
+  {
+    "file": "components/journal/style.css",
+    "property": "z-index",
+    "before": "4",
+    "after": "var(--layer-dropdown)"
+  },
+  {
+    "file": "components/journal/style.css",
+    "property": "max-width",
+    "before": "calc(var(--journal-width,780px) + 96px)",
+    "after": "calc(var(--journal-width,calc(var(--space-xs) * 195)) + calc(var(--space-xs) * 24))"
+  },
+  {
+    "file": "components/journal/style.css",
+    "property": "padding",
+    "before": "112px var(--space-2xl) var(--space-2xl)",
+    "after": "calc(var(--space-xs) * 28) var(--space-2xl) var(--space-2xl)"
+  },
+  {
+    "file": "components/journal/style.css",
+    "property": "line-height",
+    "before": "1.4",
+    "after": "var(--leading-heading)"
+  },
+  {
+    "file": "components/journal/style.css",
+    "property": "min-height",
+    "before": "180px",
+    "after": "calc(var(--space-xs) * 45)"
+  },
+  {
+    "file": "components/journal/style.css",
+    "property": "font-size",
+    "before": "var(--journal-size,18px)",
+    "after": "var(--journal-size,var(--text-subheading))"
+  },
+  {
+    "file": "components/journal/style.css",
+    "property": "line-height",
+    "before": "1.85",
+    "after": "var(--leading-reading)"
+  },
+  {
+    "file": "components/journal/style.css",
+    "property": "font-family",
+    "before": "var(--font-serif)",
+    "after": "var(--font)"
+  },
+  {
+    "file": "components/journal/style.css",
+    "property": "font-family",
+    "before": "var(--font-mono)",
+    "after": "var(--font)"
+  },
+  {
+    "file": "components/journal/style.css",
+    "property": "max-height",
+    "before": "200px",
+    "after": "calc(var(--space-xs) * 50)"
+  },
+  {
+    "file": "components/journal/style.css",
+    "property": "background-image",
+    "before": "repeating-linear-gradient(transparent,transparent calc(1.85em - 1px),var(--journal-border) calc(1.85em - 1px),var(--journal-border) 1.85em)!important",
+    "after": "repeating-linear-gradient(transparent,transparent calc(1.85em - var(--stroke)),var(--journal-border) calc(1.85em - var(--stroke)),var(--journal-border) 1.85em)!important"
+  },
+  {
+    "file": "components/journal/style.css",
+    "property": "background-image",
+    "before": "radial-gradient(var(--journal-border) 1px,transparent 1px)!important",
+    "after": "radial-gradient(var(--journal-border) var(--stroke),transparent var(--stroke))!important"
+  },
+  {
+    "file": "components/journal/style.css",
+    "property": "background-size",
+    "before": "20px 20px!important",
+    "after": "calc(var(--space-xs) * 5) calc(var(--space-xs) * 5)!important"
+  },
+  {
+    "file": "components/journal/style.css",
+    "property": "z-index",
+    "before": "3",
+    "after": "var(--layer-dropdown)"
+  },
+  {
+    "file": "components/journal/style.css",
+    "property": "width",
+    "before": "min(272px,100%)",
+    "after": "min(calc(var(--space-xs) * 68),100%)"
+  },
+  {
+    "file": "components/journal/style.css",
+    "property": "padding-top",
+    "before": "80px",
+    "after": "calc(var(--space-xs) * 20)"
+  },
+  {
+    "file": "components/journal/style.css",
+    "property": "padding",
+    "before": "96px var(--space-lg) var(--space-lg)",
+    "after": "calc(var(--space-xs) * 24) var(--space-lg) var(--space-lg)"
+  },
+  {
+    "file": "components/habits/style.css",
+    "property": "font-size",
+    "before": "17px",
+    "after": "var(--text-subheading)"
+  },
+  {
+    "file": "components/focus/style.css",
+    "property": "max-width",
+    "before": "580px",
+    "after": "calc(var(--space-xs) * 145)"
+  },
+  {
+    "file": "components/focus/style.css",
+    "property": "min-height",
+    "before": "88px",
+    "after": "calc(var(--space-xs) * 22)"
+  },
+  {
+    "file": "components/focus/style.css",
+    "property": "border",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "components/focus/style.css",
+    "property": "letter-spacing",
+    "before": ".18em",
+    "after": "var(--tracking-label)"
+  },
+  {
+    "file": "components/focus/style.css",
+    "property": "font-size",
+    "before": "19px",
+    "after": "var(--text-input)"
+  },
+  {
+    "file": "components/focus/style.css",
+    "property": "font-size",
+    "before": "19px",
+    "after": "var(--text-input)"
+  },
+  {
+    "file": "components/focus/style.css",
+    "property": "font-size",
+    "before": "17px",
+    "after": "var(--text-subheading)"
+  },
+  {
+    "file": "components/focus/style.css",
+    "property": "font-size",
+    "before": "clamp(48px,7vw,76px)",
+    "after": "clamp(var(--text-metric),7vw,var(--text-display))"
+  },
+  {
+    "file": "components/focus/style.css",
+    "property": "height",
+    "before": "6px",
+    "after": "var(--space-sm)"
+  },
+  {
+    "file": "components/focus/style.css",
+    "property": "transition",
+    "before": "transform var(--ease),opacity var(--ease)",
+    "after": "transform var(--var(--easing-standard)),opacity var(--var(--easing-standard))"
+  },
+  {
+    "file": "components/focus/style.css",
+    "property": "font-size",
+    "before": "clamp(64px,7vw,98px)",
+    "after": "clamp(var(--text-display),7vw,var(--clock-size))"
+  },
+  {
+    "file": "components/focus/style.css",
+    "property": "max-width",
+    "before": "140px",
+    "after": "calc(var(--space-xs) * 35)"
+  },
+  {
+    "file": "components/focus/style.css",
+    "property": "width",
+    "before": "min(100%,400px)",
+    "after": "min(100%,calc(var(--space-xs) * 100))"
+  },
+  {
+    "file": "components/focus/style.css",
+    "property": "width",
+    "before": "min(100%,420px)",
+    "after": "min(100%,calc(var(--space-xs) * 105))"
+  },
+  {
+    "file": "components/focus/style.css",
+    "property": "font-size",
+    "before": "clamp(48px,6vw,64px)",
+    "after": "clamp(var(--text-metric),6vw,var(--text-display))"
+  },
+  {
+    "file": "components/focus/style.css",
+    "property": "line-height",
+    "before": "1.15",
+    "after": "var(--leading-display)"
+  },
+  {
+    "file": "components/focus/style.css",
+    "property": "font-size",
+    "before": "clamp(60px,6vw,80px)",
+    "after": "clamp(var(--text-display),6vw,var(--text-display))"
+  },
+  {
+    "file": "components/flow/style.css",
+    "property": "max-width",
+    "before": "720px",
+    "after": "calc(var(--space-xs) * 180)"
+  },
+  {
+    "file": "components/flow/style.css",
+    "property": "font-size",
+    "before": "clamp(24px,4vw,46px)",
+    "after": "clamp(var(--text-input),4vw,var(--text-metric))"
+  },
+  {
+    "file": "components/flow/style.css",
+    "property": "font-size",
+    "before": "clamp(70px,15vw,160px)",
+    "after": "clamp(var(--text-display),15vw,var(--clock-size))"
+  },
+  {
+    "file": "components/flow/style.css",
+    "property": "line-height",
+    "before": "1.2",
+    "after": "var(--leading-display)"
+  },
+  {
+    "file": "components/flow/style.css",
+    "property": "width",
+    "before": "min(100%,320px)",
+    "after": "min(100%,calc(var(--space-xs) * 80))"
+  },
+  {
+    "file": "components/dictionary/style.css",
+    "property": "max-width",
+    "before": "760px",
+    "after": "calc(var(--space-xs) * 190)"
+  },
+  {
+    "file": "components/dictionary/style.css",
+    "property": "max-width",
+    "before": "560px",
+    "after": "calc(var(--space-xs) * 140)"
+  },
+  {
+    "file": "components/dictionary/style.css",
+    "property": "font-size",
+    "before": "clamp(24px, 4vw, 36px)",
+    "after": "clamp(var(--text-input), 4vw, var(--text-metric))"
+  },
+  {
+    "file": "components/dictionary/style.css",
+    "property": "letter-spacing",
+    "before": ".08em",
+    "after": "var(--tracking-label)"
+  },
+  {
+    "file": "components/clock/style.css",
+    "property": "letter-spacing",
+    "before": ".3em",
+    "after": "var(--tracking-label)"
+  },
+  {
+    "file": "components/clock/style.css",
+    "property": "margin",
+    "before": "0 0 2px",
+    "after": "0 0 var(--space-xs)"
+  },
+  {
+    "file": "components/clock/style.css",
+    "property": "font-size",
+    "before": "clamp(82px,10vw,144px)",
+    "after": "clamp(var(--text-display),10vw,var(--clock-size))"
+  },
+  {
+    "file": "components/clock/style.css",
+    "property": "letter-spacing",
+    "before": "-.065em",
+    "after": "var(--tracking-heading)"
+  },
+  {
+    "file": "components/clock/style.css",
+    "property": "line-height",
+    "before": "1.2",
+    "after": "var(--leading-display)"
+  },
+  {
+    "file": "components/clock/style.css",
+    "property": "letter-spacing",
+    "before": ".05em",
+    "after": "var(--tracking-label)"
+  },
+  {
+    "file": "components/clock/style.css",
+    "property": "right",
+    "before": "-32px",
+    "after": "calc(-1 * var(--space-5))"
+  },
+  {
+    "file": "components/clock/style.css",
+    "property": "bottom",
+    "before": "26px",
+    "after": "calc(var(--space-xs) * 7)"
+  },
+  {
+    "file": "components/clock/style.css",
+    "property": "font-size",
+    "before": "clamp(24px,3vw,34px)",
+    "after": "clamp(var(--text-input),3vw,var(--text-title))"
+  },
+  {
+    "file": "components/clock/style.css",
+    "property": "letter-spacing",
+    "before": "-.04em",
+    "after": "var(--tracking-heading)"
+  },
+  {
+    "file": "components/clock/style.css",
+    "property": "font-size",
+    "before": "90px",
+    "after": "var(--text-display)"
+  },
+  {
+    "file": "components/break/style.css",
+    "property": "border",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "components/break/style.css",
+    "property": "width",
+    "before": "64px",
+    "after": "var(--space-3xl)"
+  },
+  {
+    "file": "components/break/style.css",
+    "property": "height",
+    "before": "64px",
+    "after": "var(--space-3xl)"
+  },
+  {
+    "file": "components/break/style.css",
+    "property": "border-radius",
+    "before": "50%",
+    "after": "var(--radius-full)"
+  },
+  {
+    "file": "components/ambient-clock/style.css",
+    "property": "z-index",
+    "before": "3",
+    "after": "var(--layer-dropdown)"
+  },
+  {
+    "file": "components/ambient-clock/style.css",
+    "property": "bottom",
+    "before": "136px",
+    "after": "calc(var(--space-xs) * 34)"
+  },
+  {
+    "file": "components/ambient-clock/style.css",
+    "property": "width",
+    "before": "160px",
+    "after": "calc(var(--space-xs) * 40)"
+  },
+  {
+    "file": "components/ambient-clock/style.css",
+    "property": "width",
+    "before": "min(280px,calc(100vw - 32px))",
+    "after": "min(calc(var(--space-xs) * 70),calc(100vw - var(--space-5)))"
+  },
+  {
+    "file": "components/ambient-clock/style.css",
+    "property": "border-radius",
+    "before": "50%",
+    "after": "var(--radius-full)"
+  },
+  {
+    "file": "components/ambient-clock/style.css",
+    "property": "border-radius",
+    "before": "50%",
+    "after": "var(--radius-full)"
+  },
+  {
+    "file": "components/ambient-clock/style.css",
+    "property": "width",
+    "before": "2px",
+    "after": "var(--stroke)"
+  },
+  {
+    "file": "components/ambient-clock/style.css",
+    "property": "width",
+    "before": "6px",
+    "after": "var(--space-sm)"
+  },
+  {
+    "file": "components/ambient-clock/style.css",
+    "property": "height",
+    "before": "6px",
+    "after": "var(--space-sm)"
+  },
+  {
+    "file": "components/ambient-clock/style.css",
+    "property": "border-radius",
+    "before": "50%",
+    "after": "var(--radius-full)"
+  },
+  {
+    "file": "components/ambient-clock/style.css",
+    "property": "width",
+    "before": "1px",
+    "after": "var(--stroke)"
+  },
+  {
+    "file": "components/ambient-clock/style.css",
+    "property": "height",
+    "before": "5px",
+    "after": "var(--space-xs)"
+  },
+  {
+    "file": "components/ambient-clock/style.css",
+    "property": "width",
+    "before": "1px",
+    "after": "var(--stroke)"
+  },
+  {
+    "file": "components/ambient-clock/style.css",
+    "property": "right",
+    "before": "-36px",
+    "after": "calc(-1 * calc(var(--space-xs) * 9))"
+  },
+  {
+    "file": "components/ambient-clock/style.css",
+    "property": "bottom",
+    "before": "210px",
+    "after": "calc(var(--space-xs) * 53)"
+  },
+  {
+    "file": "components/ambient-clock/style.css",
+    "property": "width",
+    "before": "112px",
+    "after": "calc(var(--space-xs) * 28)"
+  },
+  {
+    "file": "components/ambient-clock/style.css",
+    "property": "width",
+    "before": "190px",
+    "after": "calc(var(--space-xs) * 48)"
+  },
+  {
+    "file": "components/ambient-clock/style.css",
+    "property": "bottom",
+    "before": "96px",
+    "after": "calc(var(--space-xs) * 24)"
+  },
+  {
+    "file": "components/ambient-clock/style.css",
+    "property": "width",
+    "before": "100px",
+    "after": "calc(var(--space-xs) * 25)"
+  },
+  {
+    "file": "components/ambient-clock/style.css",
+    "property": "width",
+    "before": "150px",
+    "after": "calc(var(--space-xs) * 38)"
+  },
+  {
+    "file": "components/ambient/style.css",
+    "property": "z-index",
+    "before": "4",
+    "after": "var(--layer-dropdown)"
+  },
+  {
+    "file": "components/ambient/style.css",
+    "property": "border",
+    "before": "1px solid var(--canvas-line)",
+    "after": "var(--stroke) solid var(--canvas-line)"
+  },
+  {
+    "file": "components/ambient/style.css",
+    "property": "max-width",
+    "before": "240px",
+    "after": "calc(var(--space-xs) * 60)"
+  },
+  {
+    "file": "components/ambient/style.css",
+    "property": "width",
+    "before": "min(460px,calc(100vw - 620px))",
+    "after": "min(calc(var(--space-xs) * 115),calc(100vw - calc(var(--space-xs) * 155)))"
+  },
+  {
+    "file": "components/ambient/style.css",
+    "property": "border",
+    "before": "1px solid var(--canvas-line)",
+    "after": "var(--stroke) solid var(--canvas-line)"
+  },
+  {
+    "file": "components/ambient/style.css",
+    "property": "max-width",
+    "before": "170px",
+    "after": "calc(var(--space-xs) * 43)"
+  },
+  {
+    "file": "components/ambient/style.css",
+    "property": "width",
+    "before": "90px",
+    "after": "calc(var(--space-xs) * 23)"
+  },
+  {
+    "file": "components/ambient/style.css",
+    "property": "min-width",
+    "before": "48px",
+    "after": "var(--space-2xl)"
+  },
+  {
+    "file": "components/ambient/style.css",
+    "property": "right",
+    "before": "80px",
+    "after": "calc(var(--space-xs) * 20)"
+  },
+  {
+    "file": "components/ambient/style.css",
+    "property": "border",
+    "before": "1px solid var(--border)",
+    "after": "var(--stroke) solid var(--border)"
+  },
+  {
+    "file": "components/ambient/style.css",
+    "property": "outline",
+    "before": "2px solid var(--accent)",
+    "after": "var(--stroke-strong) solid var(--accent)"
+  },
+  {
+    "file": "components/ambient/style.css",
+    "property": "outline-offset",
+    "before": "2px",
+    "after": "var(--stroke-strong)"
+  },
+  {
+    "file": "components/ambient/style.css",
+    "property": "bottom",
+    "before": "112px",
+    "after": "calc(var(--space-xs) * 28)"
+  },
+  {
+    "file": "components/ambient/style.css",
+    "property": "z-index",
+    "before": "5",
+    "after": "var(--layer-drawer)"
+  },
+  {
+    "file": "components/ambient/style.css",
+    "property": "transition",
+    "before": "opacity var(--ease)",
+    "after": "opacity var(--var(--easing-standard))"
+  },
+  {
+    "file": "components/ambient/style.css",
+    "property": "width",
+    "before": "380px",
+    "after": "calc(var(--space-xs) * 95)"
+  },
+  {
+    "file": "components/ambient/style.css",
+    "property": "bottom",
+    "before": "88px",
+    "after": "calc(var(--space-xs) * 22)"
+  },
+  {
+    "file": "components/ambient/style.css",
+    "property": "bottom",
+    "before": "166px",
+    "after": "calc(var(--space-xs) * 42)"
+  },
+  {
+    "file": "components/ambient/style.css",
+    "property": "bottom",
+    "before": "176px",
+    "after": "calc(var(--space-xs) * 44)"
+  },
+  {
+    "file": "components/ambient/style.css",
+    "property": "max-width",
+    "before": "calc(100vw - 190px)",
+    "after": "calc(100vw - calc(var(--space-xs) * 48))"
+  },
+  {
+    "file": "components/ambient/style.css",
+    "property": "right",
+    "before": "72px",
+    "after": "calc(var(--space-xs) * 18)"
+  },
+  {
+    "file": "components/ambient/style.css",
+    "property": "bottom",
+    "before": "84px",
+    "after": "calc(var(--space-xs) * 21)"
+  },
+  {
+    "file": "components/ambient/style.css",
+    "property": "width",
+    "before": "calc(100vw - 32px)",
+    "after": "calc(100vw - var(--space-5))"
+  },
+  {
+    "file": "components/ambient/style.css",
+    "property": "max-width",
+    "before": "120px",
+    "after": "calc(var(--space-xs) * 30)"
+  },
+  {
+    "file": "components/ambient/style.css",
+    "property": "width",
+    "before": "62px",
+    "after": "var(--space-3xl)"
+  },
+  {
+    "file": "components/ambient/style.css",
+    "property": "bottom",
+    "before": "224px",
+    "after": "calc(var(--space-xs) * 56)"
+  },
+  {
+    "file": "components/ambient/style.css",
+    "property": "bottom",
+    "before": "166px",
+    "after": "calc(var(--space-xs) * 42)"
+  },
+  {
+    "file": "components/ambient/style.css",
+    "property": "max-width",
+    "before": "calc(100vw - 32px)",
+    "after": "calc(100vw - var(--space-5))"
+  },
+  {
+    "file": "blocked/style.css",
+    "property": "background",
+    "before": "#172b22",
+    "after": "var(--bg)"
+  },
+  {
+    "file": "blocked/style.css",
+    "property": "color",
+    "before": "#f6f1e7",
+    "after": "var(--text-primary)"
+  },
+  {
+    "file": "blocked/style.css",
+    "property": "font",
+    "before": "18px/1.6 'Segoe UI',sans-serif",
+    "after": "var(--text-subheading)/1.6 var(--font)"
+  },
+  {
+    "file": "blocked/style.css",
+    "property": "width",
+    "before": "min(680px,86vw)",
+    "after": "min(calc(var(--space-xs) * 170),86vw)"
+  },
+  {
+    "file": "blocked/style.css",
+    "property": "font-size",
+    "before": "clamp(30px,5vw,48px)",
+    "after": "clamp(var(--text-title),5vw,var(--text-metric))"
+  },
+  {
+    "file": "blocked/style.css",
+    "property": "padding",
+    "before": "14px 20px",
+    "after": "var(--space-3) var(--space-md)"
+  },
+  {
+    "file": "blocked/style.css",
+    "property": "border",
+    "before": "1px solid #cad8c7",
+    "after": "var(--stroke) solid var(--border-strong)"
+  },
+  {
+    "file": "blocked/style.css",
+    "property": "border-radius",
+    "before": "12px",
+    "after": "var(--radius-md)"
+  },
+  {
+    "file": "blocked/style.css",
+    "property": "background",
+    "before": "#c9d9b5",
+    "after": "var(--accent)"
+  },
+  {
+    "file": "blocked/style.css",
+    "property": "color",
+    "before": "#142118",
+    "after": "var(--accent-contrast)"
+  },
+  {
+    "file": "blocked/style.css",
+    "property": "margin",
+    "before": "8px",
+    "after": "var(--space-sm)"
+  },
+  {
+    "file": "blocked/style.css",
+    "property": "outline",
+    "before": "3px solid #ffe68c",
+    "after": "var(--focus-width) solid var(--focus-ring)"
+  },
+  {
+    "file": "blocked/style.css",
+    "property": "outline-offset",
+    "before": "4px",
+    "after": "var(--space-xs)"
+  },
+  {
+    "file": "blocked/style.css",
+    "property": "letter-spacing",
+    "before": ".3em",
+    "after": "var(--tracking-label)"
+  },
+  {
+    "file": "blocked/style.css",
+    "property": "font-size",
+    "before": "12px",
+    "after": "var(--text-small)"
+  },
+  {
+    "file": "blocked/style.css",
+    "property": "color",
+    "before": "#ffb5ac",
+    "after": "var(--danger)"
+  }
+]

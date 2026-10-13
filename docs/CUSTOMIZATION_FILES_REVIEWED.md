@@ -1,0 +1,403 @@
+# Stage 1 files reviewed
+
+The inventory records complete byte reads of the current source tree. Text coverage includes source and automated consistency checks; binary coverage is hashing, not individual image/video inspection. Manually traced the settings/storage/schema/theme/token/UI entry points, existing customization controls, widget visibility, data reset/import/export, design constitution, and QA/release scripts. This is not a claim of exhaustive semantic review of every vendor/minified line.
+
+- core/audio-engine.js — source/text read
+- core/background-presentation.js — source/text read
+- core/backup-limits.js — source/text read
+- core/backup.js — source/text read
+- core/blocker-logic.js — source/text read
+- core/config.js — source/text read
+- core/crypto-backup.js — source/text read
+- core/customization-runtime.js — source/text read
+- core/customization-schema.js — source/text read
+- core/customization.js — source/text read
+- core/dashboard-view.js — source/text read
+- core/db.js — source/text read
+- core/design-system.js — source/text read
+- core/diagnostics.js — source/text read
+- core/drafts.js — source/text read
+- core/events.js — source/text read
+- core/features.js — source/text read
+- core/home-menu.js — source/text read
+- core/i18n.js — source/text read
+- core/image-preview.js — source/text read
+- core/journal.js — source/text read
+- core/journeys-logic.js — source/text read
+- core/journeys-schema.js — source/text read
+- core/journeys.js — source/text read
+- core/layout.js — source/text read
+- core/lazy-widgets.js — source/text read
+- core/live-wallpaper.js — source/text read
+- core/media-validation.js — source/text read
+- core/message-policy.js — source/text read
+- core/network.js — source/text read
+- core/notes-preferences.js — source/text read
+- core/notes-schema.js — source/text read
+- core/notes.js — source/text read
+- core/notifications.js — source/text read
+- core/panel-navigation.js — source/text read
+- core/pexels-credit.js — source/text read
+- core/publisher.js — source/text read
+- core/refinement-schema.js — source/text read
+- core/scenes.js — source/text read
+- core/schema.js — source/text read
+- core/search.js — source/text read
+- core/stage2-schema.js — source/text read
+- core/stage3-schema.js — source/text read
+- core/state.js — source/text read
+- core/stats-logic.js — source/text read
+- core/storage-recovery.js — source/text read
+- core/storage.js — source/text read
+- core/studio-logic.js — source/text read
+- core/studio-presets.js — source/text read
+- core/studio-runtime.js — source/text read
+- core/studio-schema.js — source/text read
+- core/suggestions.js — source/text read
+- core/system-notifications.js — source/text read
+- core/theme.js — source/text read
+- core/timer-client.js — source/text read
+- core/timer-engine.js — source/text read
+- core/timer-logic.js — source/text read
+- core/toaster.js — source/text read
+- core/tool-catalog.js — source/text read
+- core/tool-preferences.js — source/text read
+- core/ui.js — source/text read
+- core/utils.js — source/text read
+- core/work-context.js — source/text read
+- core/work-logic.js — source/text read
+- core/work-monitor.js — source/text read
+- core/work-schema.js — source/text read
+- components/afterglow/index.js — source/text read
+- components/ambient/index.js — source/text read
+- components/ambient/style.css — source/text read
+- components/ambient-clock/index.js — source/text read
+- components/ambient-clock/style.css — source/text read
+- components/blocker/index.js — source/text read
+- components/break/index.js — source/text read
+- components/break/style.css — source/text read
+- components/capsules/index.js — source/text read
+- components/career/index.js — source/text read
+- components/career/view.js — source/text read
+- components/clock/index.js — source/text read
+- components/clock/style.css — source/text read
+- components/commands/index.js — source/text read
+- components/compiler/index.js — source/text read
+- components/countdowns/index.js — source/text read
+- components/countdowns/style.css — source/text read
+- components/customization/index.js — source/text read
+- components/customization/style.css — source/text read
+- components/customizer/index.js — source/text read
+- components/dictionary/api.js — source/text read
+- components/dictionary/index.js — source/text read
+- components/dictionary/style.css — source/text read
+- components/dna/index.js — source/text read
+- components/energy/index.js — source/text read
+- components/energyweather/index.js — source/text read
+- components/firststep/index.js — source/text read
+- components/flow/index.js — source/text read
+- components/flow/style.css — source/text read
+- components/focus/index.js — source/text read
+- components/focus/style.css — source/text read
+- components/garden/index.js — source/text read
+- components/habits/index.js — source/text read
+- components/habits/style.css — source/text read
+- components/journal/index.js — source/text read
+- components/journal/settings.js — source/text read
+- components/journal/style.css — source/text read
+- components/journal/workspace.js — source/text read
+- components/journeys/shared.js — source/text read
+- components/journeys/style.css — source/text read
+- components/layout/index.js — source/text read
+- components/layout/style.css — source/text read
+- components/links/index.js — source/text read
+- components/links/style.css — source/text read
+- components/mood/index.js — source/text read
+- components/mood/style.css — source/text read
+- components/music/index.js — source/text read
+- components/music/style.css — source/text read
+- components/music/youtube-player.js — source/text read
+- components/music/youtube-search.js — source/text read
+- components/notes/capture.css — source/text read
+- components/notes/capture.html — source/text read
+- components/notes/capture.js — source/text read
+- components/notes/checklist.js — source/text read
+- components/notes/index.js — source/text read
+- components/notes/planner.js — source/text read
+- components/notes/style.css — source/text read
+- components/notifications/index.js — source/text read
+- components/notifications/style.css — source/text read
+- components/onboarding/index.js — source/text read
+- components/onboarding/style.css — source/text read
+- components/onboarding/wizard.js — source/text read
+- components/panel-design/index.js — source/text read
+- components/panel-design/style.css — source/text read
+- components/pexels/index.js — source/text read
+- components/proof/index.js — source/text read
+- components/queue/index.js — source/text read
+- components/quietweb/index.js — source/text read
+- components/quotes/index.js — source/text read
+- components/quotes/style.css — source/text read
+- components/recall/index.js — source/text read
+- components/recall/review.js — source/text read
+- components/recovery/index.js — source/text read
+- components/reflection/index.js — source/text read
+- components/rituals/index.js — source/text read
+- components/scenes/index.js — source/text read
+- components/search/index.js — source/text read
+- components/search/style.css — source/text read
+- components/session-enhancements/index.js — source/text read
+- components/session-view/index.js — source/text read
+- components/settings/customization.js — source/text read
+- components/settings/data-tools.js — source/text read
+- components/settings/index.js — source/text read
+- components/settings/style.css — source/text read
+- components/skills/index.js — source/text read
+- components/sounds/index.js — source/text read
+- components/sounds/style.css — source/text read
+- components/stats/index.js — source/text read
+- components/stats/style.css — source/text read
+- components/suggestions/index.js — source/text read
+- components/support/index.js — source/text read
+- components/tasks/index.js — source/text read
+- components/tasks/style.css — source/text read
+- components/timer/index.js — source/text read
+- components/timer/preferences.js — source/text read
+- components/timer/style.css — source/text read
+- components/tools/index.js — source/text read
+- components/unsplash/index.js — source/text read
+- components/unsplash/style.css — source/text read
+- components/weather/index.js — source/text read
+- components/weather/style.css — source/text read
+- components/websearch/index.js — source/text read
+- components/workbench/shared.js — source/text read
+- components/workbench/style.css — source/text read
+- components/workspace/index.js — source/text read
+- newtab/app.css — source/text read
+- newtab/components.css — source/text read
+- newtab/dashboard.css — source/text read
+- newtab/foundation.css — source/text read
+- newtab/index.html — source/text read
+- newtab/newtab.css — source/text read
+- newtab/newtab.js — source/text read
+- newtab/panels.css — source/text read
+- newtab/sketch.css — source/text read
+- newtab/system.css — source/text read
+- newtab/tokens.css — source/text read
+- newtab/widgets.css — source/text read
+- background/audio/audio.js — source/text read
+- background/audio/index.html — source/text read
+- background/focus-service.js — source/text read
+- background/notes-service.js — source/text read
+- background/pexels.js — source/text read
+- background/service-worker.js — source/text read
+- background/studio.js — source/text read
+- blocked/index.html — source/text read
+- blocked/index.js — source/text read
+- blocked/style.css — source/text read
+- data/backgrounds.json — source/text read
+- data/customization-defaults.json — source/text read
+- data/customization-themes.json — source/text read
+- data/livewallpapers.json — source/text read
+- data/prompts.json — source/text read
+- data/quotes.json — source/text read
+- data/scenes.json — source/text read
+- assets/backgrounds/alpine-thumb.webp — binary hash; not visually reviewed
+- assets/backgrounds/alpine.svg — source/text read
+- assets/backgrounds/alpine.webp — binary hash; not visually reviewed
+- assets/backgrounds/cozy-thumb.webp — binary hash; not visually reviewed
+- assets/backgrounds/cozy.svg — source/text read
+- assets/backgrounds/cozy.webp — binary hash; not visually reviewed
+- assets/backgrounds/dark-thumb.webp — binary hash; not visually reviewed
+- assets/backgrounds/dark.svg — source/text read
+- assets/backgrounds/dark.webp — binary hash; not visually reviewed
+- assets/backgrounds/LICENSES.md — source/text read
+- assets/backgrounds/lofi-thumb.webp — binary hash; not visually reviewed
+- assets/backgrounds/lofi.svg — source/text read
+- assets/backgrounds/lofi.webp — binary hash; not visually reviewed
+- assets/backgrounds/minimal-thumb.webp — binary hash; not visually reviewed
+- assets/backgrounds/minimal.svg — source/text read
+- assets/backgrounds/minimal.webp — binary hash; not visually reviewed
+- assets/backgrounds/summit-thumb.webp — binary hash; not visually reviewed
+- assets/backgrounds/summit.svg — source/text read
+- assets/backgrounds/summit.webp — binary hash; not visually reviewed
+- assets/fonts/ATKINSON-OFL.txt — source/text read
+- assets/fonts/atkinson.woff2 — binary hash; not visually reviewed
+- assets/fonts/OPENDYSLEXIC-OFL.txt — source/text read
+- assets/fonts/opendyslexic.woff2 — binary hash; not visually reviewed
+- assets/fonts/README.md — source/text read
+- assets/icons/icon-128.png — binary hash; not visually reviewed
+- assets/icons/icon-16.png — binary hash; not visually reviewed
+- assets/icons/icon-32.png — binary hash; not visually reviewed
+- assets/icons/icon-48.png — binary hash; not visually reviewed
+- assets/icons/lucide.svg — source/text read
+- assets/sounds/brown.wav — binary hash; not visually reviewed
+- assets/sounds/cafe.wav — binary hash; not visually reviewed
+- assets/sounds/fireplace.wav — binary hash; not visually reviewed
+- assets/sounds/forest.wav — binary hash; not visually reviewed
+- assets/sounds/LICENSES.md — source/text read
+- assets/sounds/ocean.wav — binary hash; not visually reviewed
+- assets/sounds/rain.wav — binary hash; not visually reviewed
+- assets/sounds/white.wav — binary hash; not visually reviewed
+- vendor/canvas-confetti/1.9.3/confetti.browser.min.js — source/text read
+- vendor/canvas-confetti/1.9.3/LICENSE — binary hash; not visually reviewed
+- vendor/chart.js/4.4.8/chart.umd.js — source/text read
+- vendor/chart.js/4.4.8/LICENSE.md — source/text read
+- vendor/integrity.json — source/text read
+- vendor/lucide/0.468.0/LICENSE — binary hash; not visually reviewed
+- vendor/lucide/0.468.0/lucide.min.js — source/text read
+- vendor/README.md — source/text read
+- vendor/sortablejs/1.15.6/LICENSE — binary hash; not visually reviewed
+- vendor/sortablejs/1.15.6/Sortable.min.js — source/text read
+- vendor/tailwindcss/3.4.17/LICENSE — binary hash; not visually reviewed
+- vendor/tailwindcss/3.4.17/tailwind.min.css — source/text read
+- scripts/assets.js — source/text read
+- scripts/audit-design-release.js — source/text read
+- scripts/check-vendor.js — source/text read
+- scripts/check.js — source/text read
+- scripts/data.js — source/text read
+- scripts/design-inventory.js — source/text read
+- scripts/design-lint.js — source/text read
+- scripts/icons.js — source/text read
+- scripts/index-wallpapers.js — source/text read
+- scripts/launch-captures.js — source/text read
+- scripts/launch-demo.js — source/text read
+- scripts/launch-pages.js — source/text read
+- scripts/localize.js — source/text read
+- scripts/measure-design-baseline.js — source/text read
+- scripts/package.js — source/text read
+- scripts/preview.js — source/text read
+- scripts/refresh-wallpapers.js — source/text read
+- scripts/release-files.js — source/text read
+- scripts/release-files.json — source/text read
+- scripts/stage2-assets.js — source/text read
+- scripts/styles.js — source/text read
+- scripts/tailwind.config.cjs — binary hash; not visually reviewed
+- scripts/tailwind.input.css — source/text read
+- scripts/unify-source-styles.js — source/text read
+- scripts/widget-styles.json — source/text read
+- tests/ambient-clock-browser.js — source/text read
+- tests/ambient-redesign-browser.js — source/text read
+- tests/background-presentation.test.js — source/text read
+- tests/backgrounds-browser.js — source/text read
+- tests/browser.js — source/text read
+- tests/calm-corners-browser.js — source/text read
+- tests/calm-home-browser.js — source/text read
+- tests/calm-migration.test.js — source/text read
+- tests/combined-notes-browser.js — source/text read
+- tests/customization-accessibility.js — source/text read
+- tests/customization-browser.js — source/text read
+- tests/customization.test.js — source/text read
+- tests/dashboard-browser.js — source/text read
+- tests/design-browser.js — source/text read
+- tests/design-foundation-browser.js — source/text read
+- tests/design-lint.test.js — source/text read
+- tests/design-stage-3-4-browser.js — source/text read
+- tests/design-stage-5-6-browser.js — source/text read
+- tests/design-stage-7-8-browser.js — source/text read
+- tests/design-stage-9-browser.js — source/text read
+- tests/design-unification-browser.js — source/text read
+- tests/dictionary.test.js — source/text read
+- tests/home-foundation-browser.js — source/text read
+- tests/integrations.test.js — source/text read
+- tests/journal-fullscreen-browser.js — source/text read
+- tests/journal-wallpapers-browser.js — source/text read
+- tests/journeys-browser.js — source/text read
+- tests/journeys-media-browser.js — source/text read
+- tests/journeys-tabs-browser.js — source/text read
+- tests/journeys.test.js — source/text read
+- tests/lookup-browser.js — source/text read
+- tests/market-browser.js — source/text read
+- tests/market-ready.test.js — source/text read
+- tests/music-api-browser.js — source/text read
+- tests/notes-capture-browser.js — source/text read
+- tests/notes-capture.test.js — source/text read
+- tests/notes-checklist.test.js — source/text read
+- tests/notes-overlay-browser.js — source/text read
+- tests/package-browser.js — source/text read
+- tests/panel-boundaries-browser.js — source/text read
+- tests/panel-entry-browser.js — source/text read
+- tests/panel-environment-browser.js — source/text read
+- tests/panel-planning-browser.js — source/text read
+- tests/panel-redesign-browser.js — source/text read
+- tests/panel-remaining-browser.js — source/text read
+- tests/panels-browser.js — source/text read
+- tests/pexels-browser.js — source/text read
+- tests/pexels-worker.test.js — source/text read
+- tests/pexels.test.js — source/text read
+- tests/refinement-browser.js — source/text read
+- tests/release-audit-browser.js — source/text read
+- tests/resilience.js — source/text read
+- tests/schema.test.js — source/text read
+- tests/security-browser.js — source/text read
+- tests/security.test.js — source/text read
+- tests/settings-page-browser.js — source/text read
+- tests/sketch-browser.js — source/text read
+- tests/stage2-browser.js — source/text read
+- tests/stage2-integrations.js — source/text read
+- tests/stage2.test.js — source/text read
+- tests/stage3-browser.js — source/text read
+- tests/stage3.test.js — source/text read
+- tests/stage34-browser.js — source/text read
+- tests/stage7-browser.js — source/text read
+- tests/stats-notifications-browser.js — source/text read
+- tests/storage-startup.test.js — source/text read
+- tests/studio-browser.js — source/text read
+- tests/studio.test.js — source/text read
+- tests/tab-restoration.test.js — source/text read
+- tests/task-dates.test.js — source/text read
+- tests/ui-refinement-browser.js — source/text read
+- tests/unified-timer-browser.js — source/text read
+- tests/unified-timer.test.js — source/text read
+- tests/work-context-browser.js — source/text read
+- tests/work-context.test.js — source/text read
+- tests/work-tabs-browser.js — source/text read
+- tests/workflow-completion-browser.js — source/text read
+- tests/workspace-browser.js — source/text read
+- tests/youtube-live-browser.js — source/text read
+- tests/youtube-music.test.js — source/text read
+- tests/youtube-search.test.js — source/text read
+- wallpaper/1198589-2048x1128-desktop-hd-studio-ghibli-wallpaper-photo.jpg — binary hash; not visually reviewed
+- wallpaper/1198594-3200x1680-desktop-hd-studio-ghibli-background.jpg — binary hash; not visually reviewed
+- wallpaper/1198609-2560x1440-desktop-hd-studio-ghibli-background.jpg — binary hash; not visually reviewed
+- wallpaper/1198615-2560x1440-desktop-hd-studio-ghibli-background.jpg — binary hash; not visually reviewed
+- wallpaper/1198627-2080x1319-desktop-hd-studio-ghibli-wallpaper.jpg — binary hash; not visually reviewed
+- wallpaper/1198712-3840x2160-desktop-4k-studio-ghibli-wallpaper.jpg — binary hash; not visually reviewed
+- wallpaper/1198775-3200x1720-desktop-hd-studio-ghibli-wallpaper-photo.jpg — binary hash; not visually reviewed
+- wallpaper/1198790-3840x2160-desktop-4k-studio-ghibli-wallpaper.jpg — binary hash; not visually reviewed
+- wallpaper/1198793-3054x1666-desktop-hd-studio-ghibli-wallpaper.jpg — binary hash; not visually reviewed
+- wallpaper/1198875-2560x1440-desktop-hd-studio-ghibli-background-image.jpg — binary hash; not visually reviewed
+- wallpaper/1198882-2560x1440-desktop-hd-studio-ghibli-wallpaper.jpg — binary hash; not visually reviewed
+- wallpaper/1198883-2166x1278-desktop-hd-studio-ghibli-background-photo.jpg — binary hash; not visually reviewed
+- wallpaper/122083-2404x1704-desktop-hd-the-garden-of-words-background-image.jpg — binary hash; not visually reviewed
+- wallpaper/33038-1920x1080-desktop-1080p-the-garden-of-words-wallpaper-image.jpg — binary hash; not visually reviewed
+- wallpaper/alpine-thumb.webp — binary hash; not visually reviewed
+- wallpaper/alpine.svg — source/text read
+- wallpaper/alpine.webp — binary hash; not visually reviewed
+- wallpaper/cozy-thumb.webp — binary hash; not visually reviewed
+- wallpaper/cozy.svg — source/text read
+- wallpaper/cozy.webp — binary hash; not visually reviewed
+- wallpaper/dark-thumb.webp — binary hash; not visually reviewed
+- wallpaper/dark.svg — source/text read
+- wallpaper/dark.webp — binary hash; not visually reviewed
+- wallpaper/lofi-thumb.webp — binary hash; not visually reviewed
+- wallpaper/lofi.svg — source/text read
+- wallpaper/lofi.webp — binary hash; not visually reviewed
+- wallpaper/minimal-thumb.webp — binary hash; not visually reviewed
+- wallpaper/minimal.svg — source/text read
+- wallpaper/minimal.webp — binary hash; not visually reviewed
+- wallpaper/pexels-jan-van-der-wolf-11680885-10267558.jpg — binary hash; not visually reviewed
+- wallpaper/README.md — source/text read
+- wallpaper/summit-thumb.webp — binary hash; not visually reviewed
+- wallpaper/summit.svg — source/text read
+- wallpaper/summit.webp — binary hash; not visually reviewed
+- livewallpaper/ghibli-coffee-shop-1920x1080.mp4 — binary hash; not visually reviewed
+- livewallpaper/ghibli-cottage-meadow.mp4 — binary hash; not visually reviewed
+- livewallpaper/peaceful-mountain-meadow-live-wallpaper-wallsflow-com.mp4 — binary hash; not visually reviewed
+- livewallpaper/README.md — source/text read
+- AGENTS.md — source/text read
+- manifest.json — source/text read
+- package.json — source/text read
+- README.md — source/text read
+- docs/DESIGN_CONSTITUTION.md — source/text read
+- docs/CALM_HOME_STAGE_1_2_REPORT.md — source/text read

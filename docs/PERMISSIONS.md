@@ -7,10 +7,10 @@
 | `contextMenus` | Optional | Requested only by Notes → Options & privacy → Enable capture context menu. Captures the selected link/text/page on an explicit menu click. Disable removes the menu and revokes permission. |
 | `search` | Yes | Both search forms call `chrome.search.query` only on explicit submission, honoring the browser’s default search provider. No query history is stored or provider setting changed. |
 | `alarms` | Yes | Timer deadlines/badge, audio sleep, optional habit/ritual/backup reminders and override expiry. |
-| `notifications` | Yes | Timer notices and configured reminders. Timer notices can be disabled; OS settings can suppress display. |
+| `notifications` | Optional | Explicit reminder/system-notice controls request it. Denial retains in-app reminders and keeps the timer usable. |
 | `offscreen` | Yes | One local AUDIO_PLAYBACK owner for requested sounds/chime after tabs close, created only when needed. |
 | `declarativeNetRequest` | Yes | Session-scoped navigation redirects during explicitly started Flow focus. No persistent dynamic/static rules or feedback permission. |
-| `geolocation` | Optional | Explicit Use my location, rounded coordinates; denial leaves city search available. |
+| Device geolocation | Not requested | City search supplies weather coordinates. Chrome does not support optional extension geolocation, so no required location permission is added. |
 | Open-Meteo API/geocoding hosts | Optional | Weather setup; selected coordinates/city search and expired-cache refresh while enabled. |
 | Pexels API/image/video hosts | Optional | Explicit personal-key photo/video background search. Selected files cache offline with attribution. Background selection supports the productivity dashboard. |
 | `http://*/*`, `https://*/*` | Optional declaration | Arbitrary user-selected blocker domains. Blocklist requests only selected domain patterns/subdomains. Allow-only requests all HTTP/HTTPS sites to redirect anything outside the allowlist. No broad host grant at installation. |
@@ -33,7 +33,7 @@ Browser rules have no built-in expiry field. OS sleep or a failed alarm can dela
 
 ## CSP and optional services
 
-Dictionary lookup requests optional `https://api.dictionaryapi.dev/*` access when the user submits a word. Only that English word is sent, without credentials or a referrer. Definitions remain in memory for this dashboard tab (up to 30 words), and no startup request is made. Clear words & disconnect clears that cache and requests access revocation. Web search uses an explicit search-provider form in a new tab and needs no host permission. Its query is sent to the selected Google, Bing or DuckDuckGo provider only on submit.
+Dictionary lookup requests optional `https://api.dictionaryapi.dev/*` access when the user submits a word. Only that English word is sent, without credentials or a referrer. Definitions remain in memory for this dashboard tab (up to 30 words), and no startup request is made. Clear words & disconnect clears that cache and requests access revocation. Web search intercepts its form and uses chrome.search.query with the browser default provider only on submit; no provider host grant or native form navigation is needed.
 
 YouTube song search requests optional `https://www.googleapis.com/*` access only on Search songs. The YouTube Data API receives the search query and user-supplied API key. Forget search key clears its saved configuration and requests revocation. CSP permits this API connection but retains local-only extension scripts. Playback uses the existing visible YouTube iframe and requires no search key.
 
@@ -45,7 +45,7 @@ Notes reminders reuse `alarms` and `notifications`. One-shot alarms are reconstr
 
 The external AI connection and its API origin are excluded by user choice. Music loads only after Connect & load playlist; closing/switching removes it. weather forget-location clears data/grants. Full delete clears both storage backends, synced preferences and optional grants.
 
-Readable backups include private records/keys; encryption is optional and local. No backup, diagnostic, blocker log or session history is sent to a developer service. See [PRIVACY_POLICY.md](PRIVACY_POLICY.md).
+Readable backups include private records and exclude keys by default. Explicit inclusion of saved keys requires local encryption; session-only keys are never exported. No backup, diagnostic, blocker log or session history is sent to a developer service. See [PRIVACY_POLICY.md](PRIVACY_POLICY.md).
 
 References: [DNR/session rules](https://developer.chrome.com/docs/extensions/reference/api/declarativeNetRequest), [optional permissions](https://developer.chrome.com/docs/extensions/reference/api/permissions), [alarms](https://developer.chrome.com/docs/extensions/reference/api/alarms), [offscreen](https://developer.chrome.com/docs/extensions/reference/api/offscreen), [CSP](https://developer.chrome.com/docs/extensions/reference/manifest/content-security-policy), [Pexels](https://www.pexels.com/api/documentation/), [Spotify](https://developer.spotify.com/documentation/embeds).
 
@@ -55,3 +55,6 @@ Pexels backgrounds: api.pexels.com, images.pexels.com and videos.pexels.com are 
 
 The nine new workspace tools add no required permissions. Quiet Web reuses optional `tabs`, requested from Review current-window tabs. It enables explicit categorization, inactive-tab parking after saving a capsule, and duplicate-free reopening. Private tabs and privileged/executable URLs are excluded. Website blocking retains its existing explicit controls. Meeting owners never trigger messages or third-party calls.
 
+
+
+Security update 1.0.1: blocker messages require the exact top-level interstitial and matching target. Generic worker/audio actions have owner-document allowlists. Local/sync storage access is restricted to trusted extension contexts. Capture launch tokens expire after one minute, are consumed once, and are cleaned on tab-close/expiry. Full reset clears session capture/key data, menus, displayed notifications and all granted supported optional permissions. Media imports validate content and dimensions, and provider JSON is capped before parsing.

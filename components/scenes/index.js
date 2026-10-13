@@ -113,7 +113,7 @@ export async function open() {
       const image = el('img', { src: backgroundSource(artwork,true), alt: `${scene.name} atmosphere`, loading: 'lazy', decoding: 'async', width: 384, height: 216, class: 'scene-preview-image' });
       image.style.objectPosition = artwork.position.map(n => `${n}%`).join(' '); preview.prepend(image);
     }
-    if (background.kind === 'solid' || background.kind === 'gradient') { const swatch = el('div', { class: 'scene-preview-image', role: 'img', 'aria-label': `${scene.name} atmosphere` }); swatch.style.background = background.kind === 'solid' ? background.color : `linear-gradient(135deg, ${background.color}, #203c36)`; preview.append(swatch); }
+    if (background.kind === 'solid' || background.kind === 'gradient') { const swatch = el('div', { class: 'scene-preview-image', role: 'img', 'aria-label': `${scene.name} atmosphere` }); swatch.style.background = background.kind === 'solid' ? background.color : `linear-gradient(135deg, ${background.color}, var(--scene-gradient-end))`; preview.append(swatch); }
     if (background.kind === 'upload') {
       let pending = false;
       preview.addEventListener('toggle', act(async () => {

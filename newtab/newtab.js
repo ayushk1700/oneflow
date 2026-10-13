@@ -17,7 +17,7 @@ import * as layout from '../core/layout.js';
 import { recordDiagnostic } from '../core/diagnostics.js';
 import * as dashboard from '../core/dashboard-view.js';
 import { init as initHomeMenu } from '../core/home-menu.js';
-import * as notifications from '../core/notifications.js';
+
 const modules = { clock, focus, search, links, quotes, weather, tasks, timer, countdowns }, mounted = new Set();
 let previousWidgets = '';
 let secondaryReady = false;
@@ -79,7 +79,8 @@ async function start() {
   performance.mark('oneflow-script-ready');
   initUI();
   await storage.init();
-  notifications.init();
+  import('../core/notifications.js').then(m => m.init()).catch(error => emit('error', error));
+  if (storage.get().settings.customization) await (await import('../core/customization-runtime.js')).init();
   performance.mark('oneflow-storage-ready');
   setLanguage(storage.get().settings.language); translateShell();
   flow.init(); layout.init(); on('flow:enter', act(flow.enter));
@@ -102,7 +103,7 @@ async function start() {
   on('focus:exit', () => dashboard.setView('home'));
   document.querySelector('#focus-exit').onclick = () => emit('focus:exit');
   document.querySelector('#settings-button > span').replaceChildren(icon('sliders-horizontal'));
-  document.querySelector('#settings-button').onclick = () => emit('settings:open', 'appearance');
+  document.querySelector('#settings-button').onclick = act(async () => (await import('../components/customization/index.js')).open());
   document.querySelector('#background-button').onclick = () => emit('settings:open', 'backgrounds');
   document.querySelector('#shortcuts-button').onclick = shortcuts;
   const fullscreen = document.querySelector('#fullscreen-button');
@@ -114,6 +115,7 @@ async function start() {
   document.addEventListener('keydown', event => {
     if (event.defaultPrevented || event.repeat || event.isComposing) return;
     const modal = document.querySelector('dialog[open]');
+    if (!modal && !event.ctrlKey && !event.metaKey && !event.altKey && !inputActive(event.target) && event.key.toLowerCase() === 's') { event.preventDefault(); import('../components/customization/index.js').then(m => m.open()).catch(error => emit('error', error)); return; }
     if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'k' && !modal && !inputActive(event.target)) { event.preventDefault(); openFeature('commands').catch(error => emit('error', error)); return; }
     if (event.ctrlKey || event.metaKey || event.altKey || inputActive(event.target) || modal && modal.id !== 'flow-view') return;
     const keys = storage.get().settings.studio.interaction.keys, key = event.code === 'Space' ? 'Space' : event.key.toLowerCase();

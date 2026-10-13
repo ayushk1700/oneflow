@@ -1,0 +1,90 @@
+{
+  "browser": "chrome",
+  "phase": "before",
+  "panels": [
+    {
+      "name": "countdowns",
+      "theme": "dark",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-before-chrome/countdowns-dark-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "customizer",
+      "theme": "dark",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-before-chrome/customizer-dark-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "layout",
+      "theme": "dark",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-before-chrome/layout-dark-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "settings",
+      "theme": "dark",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-before-chrome/settings-dark-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "weather",
+      "theme": "dark",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-before-chrome/weather-dark-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "countdowns",
+      "theme": "light",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-before-chrome/countdowns-light-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "customizer",
+      "theme": "light",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-before-chrome/customizer-light-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "layout",
+      "theme": "light",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-before-chrome/layout-light-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "settings",
+      "theme": "light",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-before-chrome/settings-light-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "weather",
+      "theme": "light",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-before-chrome/weather-light-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    }
+  ],
+  "errors": [
+    "links/dark: page.evaluate: TypeError: widget.open is not a function\n    at eval (eval at evaluate (:311:30), <anonymous>:1:508)\n    at async <anonymous>:337:30",
+    "links/light: page.evaluate: TypeError: widget.open is not a function\n    at eval (eval at evaluate (:311:30), <anonymous>:1:508)\n    at async <anonymous>:337:30"
+  ]
+}

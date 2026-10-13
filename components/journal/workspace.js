@@ -1,7 +1,8 @@
 import { get, subscribe } from '../../core/storage.js';
 import { readDraft, saveDraft } from '../../core/drafts.js';
-import { getAll, put } from '../../core/db.js';
-import { el, uid, dayKey, download } from '../../core/utils.js';
+import { getAll } from '../../core/db.js';
+import { updateJournal } from '../../core/journal.js';
+import { el, dayKey, download } from '../../core/utils.js';
 import { resumePanel, panelRequest, openPanel, closePanel, icon, act } from '../../core/ui.js';
 import { journalSettings } from './settings.js';
 let root, refresh;
@@ -29,11 +30,8 @@ export async function open() {
   } },icon('layout-grid'));
   async function persist(date,text,promptValue,token) {
     if (!text.trim()) { if (token === generation) status.textContent = 'Empty draft retained. Saved entry kept.'; return; }
-    await navigator.locks.request('oneflow-journal-' + date,async () => {
-      const existing = (await getAll('journal')).find(entry => entry.date === date);
-      await put('journal',{ id:existing?.id || uid(),date,text:text.trim(),prompt:promptValue,updatedAt:Date.now() });
-      if (readDraft('journal:' + date) === text) await saveDraft('journal:' + date,'');
-    });
+    await updateJournal(date,() => ({text:text.trim(),prompt:promptValue}));
+    if (readDraft('journal:' + date) === text) await saveDraft('journal:' + date,'');
     entries = await getAll('journal'); if (token === generation) status.textContent = 'Saved locally'; drawCalendar(); drawResults();
   }
   async function flush() { if (saveTimer) { clearTimeout(saveTimer); saveTimer = null; await persist(selected,editor.value,promptValue,generation); } }

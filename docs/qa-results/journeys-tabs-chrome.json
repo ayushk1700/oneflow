@@ -1,6 +1,7 @@
 {
   "checks": [
-    "PASS: Real tab categorization, capsule-before-close parking, active-tab protection and duplicate-free restoration. Native permission dialog is a separate manual check."
+    "PASS: Actual tab IDs prove capsule-before-close parking, active-tab protection and duplicate-free restoration, including pending navigation.",
+    "PASS: A URL omitted during capture prevents closing the tab; the failure is visible. Native permission dialogs remain a manual gate."
   ],
   "errors": [],
   "permissionFixture": true

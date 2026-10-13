@@ -4,12 +4,13 @@ import * as storage from '../../core/storage.js';
 import { noteURL, MEDIA_LIMIT } from '../../core/notes-schema.js';
 import { prepareImage } from '../../core/backup.js';
 import { createPlanner } from './planner.js';
+import { validateAttachment } from '../../core/media-validation.js';
 
 const app = document.querySelector('#app'), params = new URLSearchParams(location.hash.slice(1));
 const embedded = top !== self, token = params.get('token');
 let board, pinnedBoard, pinnedSection, collectionTitle, sidebarLabels, nav, editor, content, status, search, stateFilter, kindFilter, labelFilter, prefs, current, channel, planner, storageOff;
 let chain = Promise.resolve(), pending = 0, failed = false, mediaURLs = [], recorder, stream, recordingTimer, source, recordingBusy = false;
-let cardURLs = [], section = 'notes', sortOrder = 'recent';
+let cardURLs = [], section = 'notes', sortOrder = 'recent', dataGeneration;
 const unsavedMedia = new Map();
 const button = (text, run, attrs = {}) => el('button', { type: 'button', ...attrs, onclick: () => action(run) }, text);
 const icon = name => {
@@ -58,7 +59,7 @@ function save(attachments = []) {
   chain = chain.catch(() => {}).then(async () => {
     draft.revision = owner.revision;
     const media = draft.media.map(id => unsavedMedia.get(id)).filter(Boolean);
-    const saved = await notes.saveNote(draft, media);
+    const saved = await notes.saveNote(draft, media, dataGeneration);
     media.forEach(m => unsavedMedia.delete(m.id));
     owner.revision = saved.revision; owner.updatedAt = saved.updatedAt;
     failed = false;
@@ -130,7 +131,7 @@ async function create(kind) {
   await leaveEditor();
   section = 'notes'; stateFilter.value = 'active'; kindFilter.value = ''; labelFilter.value = '';
   if (kind === 'task' || kind === 'habit') return planner.create(kind);
-  const n = await notes.saveNote(notes.makeNote({ kind, items: kind === 'note' ? [] : [{ text: '', checked: false }] }));
+  const n = await notes.saveNote(notes.makeNote({ kind, items: kind === 'note' ? [] : [{ text: '', checked: false }] }), [], dataGeneration);
   await edit(n.id);
 }
 
@@ -162,7 +163,7 @@ async function edit(id) {
       const old = unsavedMedia.get(id) || await notes.getMedia(id); if (!old) continue;
       const attachment = { ...old, id: crypto.randomUUID(), noteId: copy.id }; media.push(attachment); copy.media.push(attachment.id);
     }
-    const saved = await notes.saveNote(copy, media); failed = false; unsavedMedia.clear(); current = null; await edit(saved.id);
+    const saved = await notes.saveNote(copy, media, dataGeneration); failed = false; unsavedMedia.clear(); current = null; await edit(saved.id);
   })), title);
   if (owner.kind === 'note') {
     const text = el('textarea', { maxlength: 50000, placeholder: 'Take a note…', 'aria-label': 'Note text', oninput: e => { owner.text = e.target.value; save(); } }); text.value = owner.text; editor.append(text);
@@ -185,11 +186,12 @@ async function edit(id) {
   } });
   const link = el('a', { href: owner.url || '#', target: '_blank', rel: 'noopener noreferrer', hidden: !owner.url }, 'Open source ↗');
   const labels = el('input', { value: owner.labels.join(', '), maxlength: 820, placeholder: 'work, ideas', 'aria-label': 'Labels separated by commas', onchange: () => { owner.labels = [...new Set(labels.value.split(',').map(v => v.trim()).filter(Boolean))]; save(); } });
-  const date = el('input', { type: 'datetime-local', 'aria-label': 'Reminder date and time', onchange: () => {
+  const date = el('input', { type: 'datetime-local', 'aria-label': 'Reminder date and time', onchange: () => action(async () => {
     const when = date.value ? new Date(date.value).getTime() : null;
     if (when && when <= Date.now()) { message('Choose a future reminder time.', true); return; }
-    owner.reminderAt = when; save();
-  } });
+    if (when && globalThis.chrome?.permissions && !await chrome.permissions.request({ permissions: ['notifications'] })) message('System notices were declined. The reminder will appear in Notifications.', true);
+    owner.reminderAt = when; await save();
+  }) });
   if (owner.reminderAt) { const d = new Date(owner.reminderAt); date.value = new Date(d.getTime() - d.getTimezoneOffset() * 60000).toISOString().slice(0, 16); }
   const details = el('details', {}, el('summary', {}, 'Labels, link & reminder'), el('div', {}, el('label', {}, 'Labels', labels), el('label', {}, 'Source link', url), link, el('label', {}, 'Remind me (local time)', date), el('small', {}, 'Reminders appear while this browser is running. Missed reminders return when it opens.')));
   editor.append(details);
@@ -198,6 +200,7 @@ async function edit(id) {
     if (current !== owner) return;
     if (owner.media.length >= 20) throw new Error('Maximum 20 attachments per note.');
     if (!blob || !blob.size || blob.size > MEDIA_LIMIT) throw new Error('Attachment must contain data and be no larger than 8 MB.');
+    await validateAttachment(blob);
     const attachment = { id: crypto.randomUUID(), noteId: owner.id, blob, name };
     owner.media.push(attachment.id); await save([attachment]);
     if (failed) { await drawMedia(media, owner); message('Attachment is still in memory. Keep this editor open and use Retry save.', true); return; }
@@ -238,7 +241,7 @@ async function edit(id) {
   editor.append(attachments);
   const pin = button(owner.pinned ? 'Unpin' : 'Pin', () => { owner.pinned = !owner.pinned; pin.textContent = owner.pinned ? 'Unpin' : 'Pin'; save(); });
   const setState = async value => { if (recordingBusy) throw new Error('Stop and save your recording first.'); owner.state = value; if (value === 'trash') owner.reminderAt = null; await save(); if (!failed) await leaveEditor(); };
-  editor.append(el('div', { class: 'editor-actions' }, pin, button('Add to Tasks', async () => { await notes.sendToTasks(owner); message('Added to your ONEFLOW task inbox'); }),
+  editor.append(el('div', { class: 'editor-actions' }, pin, button('Add to Tasks', async () => { await notes.sendToTasks(owner, dataGeneration); message('Added to your ONEFLOW task inbox'); }),
     button(owner.state === 'archive' ? 'Unarchive' : 'Archive', () => setState(owner.state === 'archive' ? 'active' : 'archive'))));
   if (owner.state === 'trash') {
     const confirm = el('div', { hidden: true }, el('p', {}, 'Permanently delete this note and its attachments?'), button('Delete permanently', async () => { if (recordingBusy) throw new Error('Stop and save your recording first.'); await chain; await notes.deleteNote(owner); failed = false; await leaveEditor(); }), button('Cancel deletion', () => { confirm.hidden = true; }));
@@ -257,6 +260,7 @@ function gesture(control, type) {
 
 /** Initialize after validating an injected-frame capability, never from webpage input. */
 export async function init() {
+  dataGeneration = await storage.sessionGet('data-generation') || '';
   if (embedded && token) source = (await worker({ type: 'authorize', token })).capture;
   else if (embedded) {
     // The only token-free parent allowed is our own dashboard.
@@ -274,7 +278,7 @@ export async function init() {
   collectionTitle = el('h2', {}, 'All notes');
   editor = el('section', { class: 'editor', hidden: true, 'aria-label': 'Note editor' });
   content = el('div', { class: 'content' }, pinnedSection, el('section', { class: 'collection all-section' }, el('div', { class: 'collection-heading' }, collectionTitle), board), editor);
-  planner = createPlanner({ editor, button, message, leave: leaveEditor, show: () => { board.hidden = true; pinnedSection.hidden = true; editor.hidden = false; app.classList.add('editing'); content.scrollTop = 0; } });
+  planner = createPlanner({ editor, button, message, dataGeneration, leave: leaveEditor, show: () => { board.hidden = true; pinnedSection.hidden = true; editor.hidden = false; app.classList.add('editing'); content.scrollTop = 0; } });
   const drag = button('⠿', () => {}, { class: 'drag', 'aria-label': 'Move panel with arrow keys or drag', hidden: !token }); gesture(drag, 'move');
   const layout = iconButton('layout-grid', prefs.view === 'grid' ? 'List view' : 'Grid view', async () => { prefs.view = prefs.view === 'grid' ? 'list' : 'grid'; await storage.setNotesPreferences(prefs); layout.setAttribute('aria-label', prefs.view === 'grid' ? 'List view' : 'Grid view'); layout.title = layout.getAttribute('aria-label'); await render(); }, { class: 'icon-button view-button' });
   const menu = el('details', { class: 'preferences' }, el('summary', { 'aria-label': 'Options & privacy', title: 'Options & privacy' }, icon('sliders-horizontal')), el('div', {},
@@ -283,7 +287,7 @@ export async function init() {
     button('Disable capture context menu', async () => { if (await chrome.permissions.contains({ permissions: ['contextMenus'] })) { await worker({ type: 'context-menu', enabled: false }); await chrome.permissions.remove({ permissions: ['contextMenus'] }); } message('Capture context menu disabled'); }),
     el('p', {}, 'Notes, images, sketches and audio stay on this device. Export them through ONEFLOW Settings → Data. Collaboration and cross-device note sync are not connected.'),
     el('p', {}, 'Suggested shortcut: Alt+Shift+N. Assign or change it in your browser’s Extension shortcuts settings if unavailable. Ctrl/Cmd+Enter creates a note; Esc returns to the collection, then closes. Move and resize controls also work with arrow keys.')));
-  const capture = button('Capture page', async () => { await leaveEditor(); const n = await notes.captureNote(source); await edit(n.id); }, { hidden: !source });
+  const capture = button('Capture page', async () => { await leaveEditor(); const n = await notes.captureNote(source, dataGeneration); await edit(n.id); }, { hidden: !source });
   const resize = button('↘', () => {}, { class: 'resize', 'aria-label': 'Resize panel with arrow keys or drag', hidden: !token }); gesture(resize, 'resize');
   const createMenu = el('details', { class:'create-menu' }, el('summary', { 'aria-label':'Create new', title:'Create new' }, icon('plus')));
   const choices = ['Note', 'Checklist', 'Task', 'Habit'].map(label => [label, () => create(label.toLowerCase())]);
@@ -329,7 +333,10 @@ export async function init() {
   app.replaceChildren(workspace);
   if (token) { app.setAttribute('role', 'dialog'); app.setAttribute('aria-label', 'Notes and quick capture'); }
   storageOff = storage.subscribe(() => action(render));
-  channel = new BroadcastChannel('oneflow-notes'); channel.onmessage = () => action(async () => { await render(); if (current && !pending && (await notes.getNote(current.id))?.revision !== current.revision) message('This note changed in another window. Finish or copy your draft, then reopen it.', true); });
+  channel = new BroadcastChannel('oneflow-notes'); channel.onmessage = event => {
+    if (event.data === 'replaced') { destroy(); source = null; current = null; unsavedMedia.clear(); app.replaceChildren(el('p', { role: 'alert' }, 'Data was replaced. Reload Notes to continue.')); return; }
+    action(async () => { await render(); if (current && !pending && (await notes.getNote(current.id))?.revision !== current.revision) message('This note changed in another window. Finish or copy your draft, then reopen it.', true); });
+  };
   document.addEventListener('keydown', event => {
     if (event.key === 'Escape' && createMenu.open) { event.preventDefault(); createMenu.open=false; createMenu.querySelector('summary').focus(); return; }
     if (event.key === 'Escape') { event.preventDefault(); action(current || planner.active ? leaveEditor : close); }

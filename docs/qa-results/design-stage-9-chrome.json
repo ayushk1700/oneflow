@@ -1,0 +1,6876 @@
+{
+  "checks": [
+    "All five hubs contain at most six tools; every enabled catalog tool is discoverable by its current command name.",
+    "All bundled scenes, white upload, strong contrast, white/black canvases meet sampled Home AA thresholds at desktop and compact widths; panel semantic text/action/focus colors pass.",
+    "Offline integrated audit has no page errors or external requests."
+  ],
+  "errors": [],
+  "requests": [],
+  "contrast": [
+    {
+      "scene": "alpine",
+      "width": 1440,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 8.954144472102199,
+      "pass": true
+    },
+    {
+      "scene": "alpine",
+      "width": 1440,
+      "selector": ".clock-period",
+      "limit": 4.5,
+      "minimum": 8.481484537557627,
+      "pass": true
+    },
+    {
+      "scene": "alpine",
+      "width": 1440,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 9.401820364658494,
+      "pass": true
+    },
+    {
+      "scene": "alpine",
+      "width": 1440,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 8.358530919967452,
+      "pass": true
+    },
+    {
+      "scene": "alpine",
+      "width": 1440,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 11.873834105211857,
+      "pass": true
+    },
+    {
+      "scene": "alpine",
+      "width": 1440,
+      "selector": "#focus .session-duration select",
+      "limit": 4.5,
+      "minimum": 14.009680422665669,
+      "pass": true
+    },
+    {
+      "scene": "alpine",
+      "width": 1440,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 12.767937388029177,
+      "pass": true
+    },
+    {
+      "scene": "alpine",
+      "width": 1440,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 13.525994277146175,
+      "pass": true
+    },
+    {
+      "scene": "alpine",
+      "width": 1440,
+      "selector": "#quotes .quote-details > summary",
+      "limit": 4.5,
+      "minimum": 13.119169019725906,
+      "pass": true
+    },
+    {
+      "scene": "alpine",
+      "width": 1440,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 10.124977870122974,
+      "pass": true
+    },
+    {
+      "scene": "alpine",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 14.299462015789414,
+      "pass": true
+    },
+    {
+      "scene": "alpine",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 14.478363620483712,
+      "pass": true
+    },
+    {
+      "scene": "alpine",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 10.440047648457787,
+      "pass": true
+    },
+    {
+      "scene": "alpine",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 14.299462015789414,
+      "pass": true
+    },
+    {
+      "scene": "alpine",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 14.45259715867518,
+      "pass": true
+    },
+    {
+      "scene": "alpine",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 14.120094235498899,
+      "pass": true
+    },
+    {
+      "scene": "cozy",
+      "width": 1440,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 8.725518140938643,
+      "pass": true
+    },
+    {
+      "scene": "cozy",
+      "width": 1440,
+      "selector": ".clock-period",
+      "limit": 4.5,
+      "minimum": 8.145112400297236,
+      "pass": true
+    },
+    {
+      "scene": "cozy",
+      "width": 1440,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 8.909754097952499,
+      "pass": true
+    },
+    {
+      "scene": "cozy",
+      "width": 1440,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 8.119263044521551,
+      "pass": true
+    },
+    {
+      "scene": "cozy",
+      "width": 1440,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 11.85607922642183,
+      "pass": true
+    },
+    {
+      "scene": "cozy",
+      "width": 1440,
+      "selector": "#focus .session-duration select",
+      "limit": 4.5,
+      "minimum": 13.058887340200878,
+      "pass": true
+    },
+    {
+      "scene": "cozy",
+      "width": 1440,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 11.85607922642183,
+      "pass": true
+    },
+    {
+      "scene": "cozy",
+      "width": 1440,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 10.869577287433716,
+      "pass": true
+    },
+    {
+      "scene": "cozy",
+      "width": 1440,
+      "selector": "#quotes .quote-details > summary",
+      "limit": 4.5,
+      "minimum": 10.760703376235535,
+      "pass": true
+    },
+    {
+      "scene": "cozy",
+      "width": 1440,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 9.7195340276652,
+      "pass": true
+    },
+    {
+      "scene": "cozy",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 13.413471551894853,
+      "pass": true
+    },
+    {
+      "scene": "cozy",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 13.746090091852665,
+      "pass": true
+    },
+    {
+      "scene": "cozy",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 10.02516719189071,
+      "pass": true
+    },
+    {
+      "scene": "cozy",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 13.234077466859107,
+      "pass": true
+    },
+    {
+      "scene": "cozy",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 13.593144054602009,
+      "pass": true
+    },
+    {
+      "scene": "cozy",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 12.836889010972975,
+      "pass": true
+    },
+    {
+      "scene": "lofi",
+      "width": 1440,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 9.260095648527273,
+      "pass": true
+    },
+    {
+      "scene": "lofi",
+      "width": 1440,
+      "selector": ".clock-period",
+      "limit": 4.5,
+      "minimum": 8.743512734165265,
+      "pass": true
+    },
+    {
+      "scene": "lofi",
+      "width": 1440,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 9.722096513710962,
+      "pass": true
+    },
+    {
+      "scene": "lofi",
+      "width": 1440,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 8.644130775555778,
+      "pass": true
+    },
+    {
+      "scene": "lofi",
+      "width": 1440,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 12.000175346111028,
+      "pass": true
+    },
+    {
+      "scene": "lofi",
+      "width": 1440,
+      "selector": "#focus .session-duration select",
+      "limit": 4.5,
+      "minimum": 13.21442239492148,
+      "pass": true
+    },
+    {
+      "scene": "lofi",
+      "width": 1440,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 12.196390510735242,
+      "pass": true
+    },
+    {
+      "scene": "lofi",
+      "width": 1440,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 12.045808835073448,
+      "pass": true
+    },
+    {
+      "scene": "lofi",
+      "width": 1440,
+      "selector": "#quotes .quote-details > summary",
+      "limit": 4.5,
+      "minimum": 11.909707397947866,
+      "pass": true
+    },
+    {
+      "scene": "lofi",
+      "width": 1440,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 10.32348740687947,
+      "pass": true
+    },
+    {
+      "scene": "lofi",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 13.6102332383702,
+      "pass": true
+    },
+    {
+      "scene": "lofi",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 13.971401810033285,
+      "pass": true
+    },
+    {
+      "scene": "lofi",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 10.643681236116667,
+      "pass": true
+    },
+    {
+      "scene": "lofi",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 13.596839617778548,
+      "pass": true
+    },
+    {
+      "scene": "lofi",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 13.92852950731352,
+      "pass": true
+    },
+    {
+      "scene": "lofi",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 13.099306217484878,
+      "pass": true
+    },
+    {
+      "scene": "minimal",
+      "width": 1440,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 8.66050337615388,
+      "pass": true
+    },
+    {
+      "scene": "minimal",
+      "width": 1440,
+      "selector": ".clock-period",
+      "limit": 4.5,
+      "minimum": 8.117174024186903,
+      "pass": true
+    },
+    {
+      "scene": "minimal",
+      "width": 1440,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 8.963581290421091,
+      "pass": true
+    },
+    {
+      "scene": "minimal",
+      "width": 1440,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 8.084422300489155,
+      "pass": true
+    },
+    {
+      "scene": "minimal",
+      "width": 1440,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 11.71902490397252,
+      "pass": true
+    },
+    {
+      "scene": "minimal",
+      "width": 1440,
+      "selector": "#focus .session-duration select",
+      "limit": 4.5,
+      "minimum": 13.058887340200878,
+      "pass": true
+    },
+    {
+      "scene": "minimal",
+      "width": 1440,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 11.88505256840932,
+      "pass": true
+    },
+    {
+      "scene": "minimal",
+      "width": 1440,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 9.804113673428926,
+      "pass": true
+    },
+    {
+      "scene": "minimal",
+      "width": 1440,
+      "selector": "#quotes .quote-details > summary",
+      "limit": 4.5,
+      "minimum": 11.151556398179462,
+      "pass": true
+    },
+    {
+      "scene": "minimal",
+      "width": 1440,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 9.801303624784424,
+      "pass": true
+    },
+    {
+      "scene": "minimal",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 12.91185235642656,
+      "pass": true
+    },
+    {
+      "scene": "minimal",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 13.409979935260507,
+      "pass": true
+    },
+    {
+      "scene": "minimal",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 10.081234426967637,
+      "pass": true
+    },
+    {
+      "scene": "minimal",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 12.87277077796748,
+      "pass": true
+    },
+    {
+      "scene": "minimal",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 13.230446214975661,
+      "pass": true
+    },
+    {
+      "scene": "minimal",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 12.529130198759026,
+      "pass": true
+    },
+    {
+      "scene": "dark",
+      "width": 1440,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 12.152196709355342,
+      "pass": true
+    },
+    {
+      "scene": "dark",
+      "width": 1440,
+      "selector": ".clock-period",
+      "limit": 4.5,
+      "minimum": 11.495734091785254,
+      "pass": true
+    },
+    {
+      "scene": "dark",
+      "width": 1440,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 12.89081057595917,
+      "pass": true
+    },
+    {
+      "scene": "dark",
+      "width": 1440,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 11.343854486281963,
+      "pass": true
+    },
+    {
+      "scene": "dark",
+      "width": 1440,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 12.897614016931634,
+      "pass": true
+    },
+    {
+      "scene": "dark",
+      "width": 1440,
+      "selector": "#focus .session-duration select",
+      "limit": 4.5,
+      "minimum": 13.99724413510712,
+      "pass": true
+    },
+    {
+      "scene": "dark",
+      "width": 1440,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 12.936353411318766,
+      "pass": true
+    },
+    {
+      "scene": "dark",
+      "width": 1440,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 14.33300116008116,
+      "pass": true
+    },
+    {
+      "scene": "dark",
+      "width": 1440,
+      "selector": "#quotes .quote-details > summary",
+      "limit": 4.5,
+      "minimum": 13.688321045456,
+      "pass": true
+    },
+    {
+      "scene": "dark",
+      "width": 1440,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 13.320614632266832,
+      "pass": true
+    },
+    {
+      "scene": "dark",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 14.605959129952929,
+      "pass": true
+    },
+    {
+      "scene": "dark",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 14.75806084001076,
+      "pass": true
+    },
+    {
+      "scene": "dark",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 13.361341904891637,
+      "pass": true
+    },
+    {
+      "scene": "dark",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 14.59281491255881,
+      "pass": true
+    },
+    {
+      "scene": "dark",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 14.605959129952929,
+      "pass": true
+    },
+    {
+      "scene": "dark",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 14.414053590657574,
+      "pass": true
+    },
+    {
+      "scene": "summit",
+      "width": 1440,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 9.13168039072016,
+      "pass": true
+    },
+    {
+      "scene": "summit",
+      "width": 1440,
+      "selector": ".clock-period",
+      "limit": 4.5,
+      "minimum": 8.580949512044448,
+      "pass": true
+    },
+    {
+      "scene": "summit",
+      "width": 1440,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 9.443779644897452,
+      "pass": true
+    },
+    {
+      "scene": "summit",
+      "width": 1440,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 8.552754433135384,
+      "pass": true
+    },
+    {
+      "scene": "summit",
+      "width": 1440,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 11.993182672037406,
+      "pass": true
+    },
+    {
+      "scene": "summit",
+      "width": 1440,
+      "selector": "#focus .session-duration select",
+      "limit": 4.5,
+      "minimum": 13.207043645254553,
+      "pass": true
+    },
+    {
+      "scene": "summit",
+      "width": 1440,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 11.86698785573723,
+      "pass": true
+    },
+    {
+      "scene": "summit",
+      "width": 1440,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 9.762137061444026,
+      "pass": true
+    },
+    {
+      "scene": "summit",
+      "width": 1440,
+      "selector": "#quotes .quote-details > summary",
+      "limit": 4.5,
+      "minimum": 9.255266929910457,
+      "pass": true
+    },
+    {
+      "scene": "summit",
+      "width": 1440,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 10.052179389005358,
+      "pass": true
+    },
+    {
+      "scene": "summit",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 12.437572210454972,
+      "pass": true
+    },
+    {
+      "scene": "summit",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 12.961416951796506,
+      "pass": true
+    },
+    {
+      "scene": "summit",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 10.397342172967122,
+      "pass": true
+    },
+    {
+      "scene": "summit",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 12.392454932409017,
+      "pass": true
+    },
+    {
+      "scene": "summit",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 12.826928769120498,
+      "pass": true
+    },
+    {
+      "scene": "summit",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 12.051964606140512,
+      "pass": true
+    },
+    {
+      "scene": "still-efe29597ad8dfe46",
+      "width": 1440,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 7.5786208830781705,
+      "pass": true
+    },
+    {
+      "scene": "still-efe29597ad8dfe46",
+      "width": 1440,
+      "selector": ".clock-period",
+      "limit": 4.5,
+      "minimum": 8.173355343485945,
+      "pass": true
+    },
+    {
+      "scene": "still-efe29597ad8dfe46",
+      "width": 1440,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 8.608738429793641,
+      "pass": true
+    },
+    {
+      "scene": "still-efe29597ad8dfe46",
+      "width": 1440,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 7.186056171552043,
+      "pass": true
+    },
+    {
+      "scene": "still-efe29597ad8dfe46",
+      "width": 1440,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 11.070075410206448,
+      "pass": true
+    },
+    {
+      "scene": "still-efe29597ad8dfe46",
+      "width": 1440,
+      "selector": "#focus .session-duration select",
+      "limit": 4.5,
+      "minimum": 13.184640345427278,
+      "pass": true
+    },
+    {
+      "scene": "still-efe29597ad8dfe46",
+      "width": 1440,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 13.153371487504943,
+      "pass": true
+    },
+    {
+      "scene": "still-efe29597ad8dfe46",
+      "width": 1440,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 6.624504826294261,
+      "pass": true
+    },
+    {
+      "scene": "still-efe29597ad8dfe46",
+      "width": 1440,
+      "selector": "#quotes .quote-details > summary",
+      "limit": 4.5,
+      "minimum": 7.357729955705674,
+      "pass": true
+    },
+    {
+      "scene": "still-efe29597ad8dfe46",
+      "width": 1440,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 8.100671052136287,
+      "pass": true
+    },
+    {
+      "scene": "still-efe29597ad8dfe46",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 9.411855443063496,
+      "pass": true
+    },
+    {
+      "scene": "still-efe29597ad8dfe46",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 11.460474680784953,
+      "pass": true
+    },
+    {
+      "scene": "still-efe29597ad8dfe46",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 8.491889648018763,
+      "pass": true
+    },
+    {
+      "scene": "still-efe29597ad8dfe46",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 10.156184852250307,
+      "pass": true
+    },
+    {
+      "scene": "still-efe29597ad8dfe46",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 11.200663636535326,
+      "pass": true
+    },
+    {
+      "scene": "still-efe29597ad8dfe46",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 10.063445108977469,
+      "pass": true
+    },
+    {
+      "scene": "still-f08fc60ebdbf23bf",
+      "width": 1440,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 8.840764008045925,
+      "pass": true
+    },
+    {
+      "scene": "still-f08fc60ebdbf23bf",
+      "width": 1440,
+      "selector": ".clock-period",
+      "limit": 4.5,
+      "minimum": 12.001656556402637,
+      "pass": true
+    },
+    {
+      "scene": "still-f08fc60ebdbf23bf",
+      "width": 1440,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 12.589503339053358,
+      "pass": true
+    },
+    {
+      "scene": "still-f08fc60ebdbf23bf",
+      "width": 1440,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 12.494937675496026,
+      "pass": true
+    },
+    {
+      "scene": "still-f08fc60ebdbf23bf",
+      "width": 1440,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 13.27287941474949,
+      "pass": true
+    },
+    {
+      "scene": "still-f08fc60ebdbf23bf",
+      "width": 1440,
+      "selector": "#focus .session-duration select",
+      "limit": 4.5,
+      "minimum": 13.716868444510817,
+      "pass": true
+    },
+    {
+      "scene": "still-f08fc60ebdbf23bf",
+      "width": 1440,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 13.268398098449905,
+      "pass": true
+    },
+    {
+      "scene": "still-f08fc60ebdbf23bf",
+      "width": 1440,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 8.346130151635933,
+      "pass": true
+    },
+    {
+      "scene": "still-f08fc60ebdbf23bf",
+      "width": 1440,
+      "selector": "#quotes .quote-details > summary",
+      "limit": 4.5,
+      "minimum": 11.05467879494084,
+      "pass": true
+    },
+    {
+      "scene": "still-f08fc60ebdbf23bf",
+      "width": 1440,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 12.895723083596824,
+      "pass": true
+    },
+    {
+      "scene": "still-f08fc60ebdbf23bf",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 11.405054684588753,
+      "pass": true
+    },
+    {
+      "scene": "still-f08fc60ebdbf23bf",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 11.864491542738659,
+      "pass": true
+    },
+    {
+      "scene": "still-f08fc60ebdbf23bf",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 12.895723083596824,
+      "pass": true
+    },
+    {
+      "scene": "still-f08fc60ebdbf23bf",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 11.046533550607078,
+      "pass": true
+    },
+    {
+      "scene": "still-f08fc60ebdbf23bf",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 11.735601278346355,
+      "pass": true
+    },
+    {
+      "scene": "still-f08fc60ebdbf23bf",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 14.85789011480177,
+      "pass": true
+    },
+    {
+      "scene": "still-585cd0c8fcdc6730",
+      "width": 1440,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 7.307834018962244,
+      "pass": true
+    },
+    {
+      "scene": "still-585cd0c8fcdc6730",
+      "width": 1440,
+      "selector": ".clock-period",
+      "limit": 4.5,
+      "minimum": 8.474779411144226,
+      "pass": true
+    },
+    {
+      "scene": "still-585cd0c8fcdc6730",
+      "width": 1440,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 14.717665627842496,
+      "pass": true
+    },
+    {
+      "scene": "still-585cd0c8fcdc6730",
+      "width": 1440,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 7.178824257635915,
+      "pass": true
+    },
+    {
+      "scene": "still-585cd0c8fcdc6730",
+      "width": 1440,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 10.93130035467989,
+      "pass": true
+    },
+    {
+      "scene": "still-585cd0c8fcdc6730",
+      "width": 1440,
+      "selector": "#focus .session-duration select",
+      "limit": 4.5,
+      "minimum": 12.395441871541637,
+      "pass": true
+    },
+    {
+      "scene": "still-585cd0c8fcdc6730",
+      "width": 1440,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 12.572219034046876,
+      "pass": true
+    },
+    {
+      "scene": "still-585cd0c8fcdc6730",
+      "width": 1440,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 6.857113396670728,
+      "pass": true
+    },
+    {
+      "scene": "still-585cd0c8fcdc6730",
+      "width": 1440,
+      "selector": "#quotes .quote-details > summary",
+      "limit": 4.5,
+      "minimum": 6.854814733588467,
+      "pass": true
+    },
+    {
+      "scene": "still-585cd0c8fcdc6730",
+      "width": 1440,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 9.769465089202813,
+      "pass": true
+    },
+    {
+      "scene": "still-585cd0c8fcdc6730",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 14.074256270824021,
+      "pass": true
+    },
+    {
+      "scene": "still-585cd0c8fcdc6730",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 13.990645282135707,
+      "pass": true
+    },
+    {
+      "scene": "still-585cd0c8fcdc6730",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 9.99109957406807,
+      "pass": true
+    },
+    {
+      "scene": "still-585cd0c8fcdc6730",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 13.730628459547994,
+      "pass": true
+    },
+    {
+      "scene": "still-585cd0c8fcdc6730",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 14.285607384818782,
+      "pass": true
+    },
+    {
+      "scene": "still-585cd0c8fcdc6730",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 13.311903524929038,
+      "pass": true
+    },
+    {
+      "scene": "still-54b7319536a12df4",
+      "width": 1440,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 7.192813244452197,
+      "pass": true
+    },
+    {
+      "scene": "still-54b7319536a12df4",
+      "width": 1440,
+      "selector": ".clock-period",
+      "limit": 4.5,
+      "minimum": 7.258528482663406,
+      "pass": true
+    },
+    {
+      "scene": "still-54b7319536a12df4",
+      "width": 1440,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 7.532120571442438,
+      "pass": true
+    },
+    {
+      "scene": "still-54b7319536a12df4",
+      "width": 1440,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 9.447920584969902,
+      "pass": true
+    },
+    {
+      "scene": "still-54b7319536a12df4",
+      "width": 1440,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 11.486581710898825,
+      "pass": true
+    },
+    {
+      "scene": "still-54b7319536a12df4",
+      "width": 1440,
+      "selector": "#focus .session-duration select",
+      "limit": 4.5,
+      "minimum": 13.027118556134763,
+      "pass": true
+    },
+    {
+      "scene": "still-54b7319536a12df4",
+      "width": 1440,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 12.488074991447947,
+      "pass": true
+    },
+    {
+      "scene": "still-54b7319536a12df4",
+      "width": 1440,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 13.650416000698602,
+      "pass": true
+    },
+    {
+      "scene": "still-54b7319536a12df4",
+      "width": 1440,
+      "selector": "#quotes .quote-details > summary",
+      "limit": 4.5,
+      "minimum": 14.17331776590509,
+      "pass": true
+    },
+    {
+      "scene": "still-54b7319536a12df4",
+      "width": 1440,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 12.854184419001394,
+      "pass": true
+    },
+    {
+      "scene": "still-54b7319536a12df4",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 14.450964137838593,
+      "pass": true
+    },
+    {
+      "scene": "still-54b7319536a12df4",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 14.497607185437456,
+      "pass": true
+    },
+    {
+      "scene": "still-54b7319536a12df4",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 13.185353737700073,
+      "pass": true
+    },
+    {
+      "scene": "still-54b7319536a12df4",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 14.294189449635653,
+      "pass": true
+    },
+    {
+      "scene": "still-54b7319536a12df4",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 14.48241110270469,
+      "pass": true
+    },
+    {
+      "scene": "still-54b7319536a12df4",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 14.006139896313432,
+      "pass": true
+    },
+    {
+      "scene": "still-085fc81103c532c6",
+      "width": 1440,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 11.938325104131133,
+      "pass": true
+    },
+    {
+      "scene": "still-085fc81103c532c6",
+      "width": 1440,
+      "selector": ".clock-period",
+      "limit": 4.5,
+      "minimum": 13.906921366257563,
+      "pass": true
+    },
+    {
+      "scene": "still-085fc81103c532c6",
+      "width": 1440,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 13.48414041295581,
+      "pass": true
+    },
+    {
+      "scene": "still-085fc81103c532c6",
+      "width": 1440,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 14.042790692419745,
+      "pass": true
+    },
+    {
+      "scene": "still-085fc81103c532c6",
+      "width": 1440,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 13.888467189965484,
+      "pass": true
+    },
+    {
+      "scene": "still-085fc81103c532c6",
+      "width": 1440,
+      "selector": "#focus .session-duration select",
+      "limit": 4.5,
+      "minimum": 15.219740170957028,
+      "pass": true
+    },
+    {
+      "scene": "still-085fc81103c532c6",
+      "width": 1440,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 13.248957686747838,
+      "pass": true
+    },
+    {
+      "scene": "still-085fc81103c532c6",
+      "width": 1440,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 12.993206127052876,
+      "pass": true
+    },
+    {
+      "scene": "still-085fc81103c532c6",
+      "width": 1440,
+      "selector": "#quotes .quote-details > summary",
+      "limit": 4.5,
+      "minimum": 15.050927099872903,
+      "pass": true
+    },
+    {
+      "scene": "still-085fc81103c532c6",
+      "width": 1440,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 11.890707539120175,
+      "pass": true
+    },
+    {
+      "scene": "still-085fc81103c532c6",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 12.914195835836406,
+      "pass": true
+    },
+    {
+      "scene": "still-085fc81103c532c6",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 13.260908174660331,
+      "pass": true
+    },
+    {
+      "scene": "still-085fc81103c532c6",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 11.930103490440573,
+      "pass": true
+    },
+    {
+      "scene": "still-085fc81103c532c6",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 13.050529929528164,
+      "pass": true
+    },
+    {
+      "scene": "still-085fc81103c532c6",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 13.10801362115625,
+      "pass": true
+    },
+    {
+      "scene": "still-085fc81103c532c6",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 12.786825534073522,
+      "pass": true
+    },
+    {
+      "scene": "still-ec30a7337910c6ec",
+      "width": 1440,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 7.306880539760447,
+      "pass": true
+    },
+    {
+      "scene": "still-ec30a7337910c6ec",
+      "width": 1440,
+      "selector": ".clock-period",
+      "limit": 4.5,
+      "minimum": 11.136555930546345,
+      "pass": true
+    },
+    {
+      "scene": "still-ec30a7337910c6ec",
+      "width": 1440,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 10.3267198739596,
+      "pass": true
+    },
+    {
+      "scene": "still-ec30a7337910c6ec",
+      "width": 1440,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 7.7936158484813065,
+      "pass": true
+    },
+    {
+      "scene": "still-ec30a7337910c6ec",
+      "width": 1440,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 11.000588182255035,
+      "pass": true
+    },
+    {
+      "scene": "still-ec30a7337910c6ec",
+      "width": 1440,
+      "selector": "#focus .session-duration select",
+      "limit": 4.5,
+      "minimum": 12.554101081526195,
+      "pass": true
+    },
+    {
+      "scene": "still-ec30a7337910c6ec",
+      "width": 1440,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 12.950984441255974,
+      "pass": true
+    },
+    {
+      "scene": "still-ec30a7337910c6ec",
+      "width": 1440,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 12.571336644665179,
+      "pass": true
+    },
+    {
+      "scene": "still-ec30a7337910c6ec",
+      "width": 1440,
+      "selector": "#quotes .quote-details > summary",
+      "limit": 4.5,
+      "minimum": 11.589251878350659,
+      "pass": true
+    },
+    {
+      "scene": "still-ec30a7337910c6ec",
+      "width": 1440,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 10.903541670268295,
+      "pass": true
+    },
+    {
+      "scene": "still-ec30a7337910c6ec",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 12.563576805287022,
+      "pass": true
+    },
+    {
+      "scene": "still-ec30a7337910c6ec",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 13.065329242561889,
+      "pass": true
+    },
+    {
+      "scene": "still-ec30a7337910c6ec",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 11.211207381305826,
+      "pass": true
+    },
+    {
+      "scene": "still-ec30a7337910c6ec",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 12.408421221362348,
+      "pass": true
+    },
+    {
+      "scene": "still-ec30a7337910c6ec",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 12.889480534172106,
+      "pass": true
+    },
+    {
+      "scene": "still-ec30a7337910c6ec",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 12.09651241114977,
+      "pass": true
+    },
+    {
+      "scene": "still-0e4855219f32f3cb",
+      "width": 1440,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 6.777462585809186,
+      "pass": true
+    },
+    {
+      "scene": "still-0e4855219f32f3cb",
+      "width": 1440,
+      "selector": ".clock-period",
+      "limit": 4.5,
+      "minimum": 7.037899722323733,
+      "pass": true
+    },
+    {
+      "scene": "still-0e4855219f32f3cb",
+      "width": 1440,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 6.93494606104105,
+      "pass": true
+    },
+    {
+      "scene": "still-0e4855219f32f3cb",
+      "width": 1440,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 6.848021471315629,
+      "pass": true
+    },
+    {
+      "scene": "still-0e4855219f32f3cb",
+      "width": 1440,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 11.197680925604464,
+      "pass": true
+    },
+    {
+      "scene": "still-0e4855219f32f3cb",
+      "width": 1440,
+      "selector": "#focus .session-duration select",
+      "limit": 4.5,
+      "minimum": 12.448817128734886,
+      "pass": true
+    },
+    {
+      "scene": "still-0e4855219f32f3cb",
+      "width": 1440,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 12.167394791421074,
+      "pass": true
+    },
+    {
+      "scene": "still-0e4855219f32f3cb",
+      "width": 1440,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 6.8310694531031135,
+      "pass": true
+    },
+    {
+      "scene": "still-0e4855219f32f3cb",
+      "width": 1440,
+      "selector": "#quotes .quote-details > summary",
+      "limit": 4.5,
+      "minimum": 6.932249891825842,
+      "pass": true
+    },
+    {
+      "scene": "still-0e4855219f32f3cb",
+      "width": 1440,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 11.262503373401598,
+      "pass": true
+    },
+    {
+      "scene": "still-0e4855219f32f3cb",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 11.071443487141309,
+      "pass": true
+    },
+    {
+      "scene": "still-0e4855219f32f3cb",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 11.432010666103555,
+      "pass": true
+    },
+    {
+      "scene": "still-0e4855219f32f3cb",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 11.44303186240863,
+      "pass": true
+    },
+    {
+      "scene": "still-0e4855219f32f3cb",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 11.123275446408213,
+      "pass": true
+    },
+    {
+      "scene": "still-0e4855219f32f3cb",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 11.460474680784953,
+      "pass": true
+    },
+    {
+      "scene": "still-0e4855219f32f3cb",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 10.649378129479093,
+      "pass": true
+    },
+    {
+      "scene": "still-a6fbba24c95b0620",
+      "width": 1440,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 7.936090297700813,
+      "pass": true
+    },
+    {
+      "scene": "still-a6fbba24c95b0620",
+      "width": 1440,
+      "selector": ".clock-period",
+      "limit": 4.5,
+      "minimum": 9.422241541254749,
+      "pass": true
+    },
+    {
+      "scene": "still-a6fbba24c95b0620",
+      "width": 1440,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 11.770370781569587,
+      "pass": true
+    },
+    {
+      "scene": "still-a6fbba24c95b0620",
+      "width": 1440,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 8.181706111034414,
+      "pass": true
+    },
+    {
+      "scene": "still-a6fbba24c95b0620",
+      "width": 1440,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 11.86698785573723,
+      "pass": true
+    },
+    {
+      "scene": "still-a6fbba24c95b0620",
+      "width": 1440,
+      "selector": "#focus .session-duration select",
+      "limit": 4.5,
+      "minimum": 13.841268242707653,
+      "pass": true
+    },
+    {
+      "scene": "still-a6fbba24c95b0620",
+      "width": 1440,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 13.11649511626115,
+      "pass": true
+    },
+    {
+      "scene": "still-a6fbba24c95b0620",
+      "width": 1440,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 9.802858215580471,
+      "pass": true
+    },
+    {
+      "scene": "still-a6fbba24c95b0620",
+      "width": 1440,
+      "selector": "#quotes .quote-details > summary",
+      "limit": 4.5,
+      "minimum": 10.894323906817814,
+      "pass": true
+    },
+    {
+      "scene": "still-a6fbba24c95b0620",
+      "width": 1440,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 13.32145608400565,
+      "pass": true
+    },
+    {
+      "scene": "still-a6fbba24c95b0620",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 12.886717903845053,
+      "pass": true
+    },
+    {
+      "scene": "still-a6fbba24c95b0620",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 13.18681916970921,
+      "pass": true
+    },
+    {
+      "scene": "still-a6fbba24c95b0620",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 14.034859644760994,
+      "pass": true
+    },
+    {
+      "scene": "still-a6fbba24c95b0620",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 12.728810916948158,
+      "pass": true
+    },
+    {
+      "scene": "still-a6fbba24c95b0620",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 13.18681916970921,
+      "pass": true
+    },
+    {
+      "scene": "still-a6fbba24c95b0620",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 12.304642574290574,
+      "pass": true
+    },
+    {
+      "scene": "still-991a7d9c9316d34e",
+      "width": 1440,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 6.870534910693931,
+      "pass": true
+    },
+    {
+      "scene": "still-991a7d9c9316d34e",
+      "width": 1440,
+      "selector": ".clock-period",
+      "limit": 4.5,
+      "minimum": 13.560849069132333,
+      "pass": true
+    },
+    {
+      "scene": "still-991a7d9c9316d34e",
+      "width": 1440,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 6.577179546132828,
+      "pass": true
+    },
+    {
+      "scene": "still-991a7d9c9316d34e",
+      "width": 1440,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 6.741389432512983,
+      "pass": true
+    },
+    {
+      "scene": "still-991a7d9c9316d34e",
+      "width": 1440,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 11.081306467187215,
+      "pass": true
+    },
+    {
+      "scene": "still-991a7d9c9316d34e",
+      "width": 1440,
+      "selector": "#focus .session-duration select",
+      "limit": 4.5,
+      "minimum": 12.353034463250326,
+      "pass": true
+    },
+    {
+      "scene": "still-991a7d9c9316d34e",
+      "width": 1440,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 12.594634135227547,
+      "pass": true
+    },
+    {
+      "scene": "still-991a7d9c9316d34e",
+      "width": 1440,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 6.954857837932294,
+      "pass": true
+    },
+    {
+      "scene": "still-991a7d9c9316d34e",
+      "width": 1440,
+      "selector": "#quotes .quote-details > summary",
+      "limit": 4.5,
+      "minimum": 8.344151023093378,
+      "pass": true
+    },
+    {
+      "scene": "still-991a7d9c9316d34e",
+      "width": 1440,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 8.065187614712794,
+      "pass": true
+    },
+    {
+      "scene": "still-991a7d9c9316d34e",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 14.021794697181209,
+      "pass": true
+    },
+    {
+      "scene": "still-991a7d9c9316d34e",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 13.017583897077138,
+      "pass": true
+    },
+    {
+      "scene": "still-991a7d9c9316d34e",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 10.651938159341691,
+      "pass": true
+    },
+    {
+      "scene": "still-991a7d9c9316d34e",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 13.882238901928886,
+      "pass": true
+    },
+    {
+      "scene": "still-991a7d9c9316d34e",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 13.550213734578483,
+      "pass": true
+    },
+    {
+      "scene": "still-991a7d9c9316d34e",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 12.658438387675819,
+      "pass": true
+    },
+    {
+      "scene": "still-477c20f3f04f5cfd",
+      "width": 1440,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 6.813427325971493,
+      "pass": true
+    },
+    {
+      "scene": "still-477c20f3f04f5cfd",
+      "width": 1440,
+      "selector": ".clock-period",
+      "limit": 4.5,
+      "minimum": 6.403279380767058,
+      "pass": true
+    },
+    {
+      "scene": "still-477c20f3f04f5cfd",
+      "width": 1440,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 6.891788005841361,
+      "pass": true
+    },
+    {
+      "scene": "still-477c20f3f04f5cfd",
+      "width": 1440,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 13.39215190094109,
+      "pass": true
+    },
+    {
+      "scene": "still-477c20f3f04f5cfd",
+      "width": 1440,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 11.064289427160373,
+      "pass": true
+    },
+    {
+      "scene": "still-477c20f3f04f5cfd",
+      "width": 1440,
+      "selector": "#focus .session-duration select",
+      "limit": 4.5,
+      "minimum": 12.377144246072428,
+      "pass": true
+    },
+    {
+      "scene": "still-477c20f3f04f5cfd",
+      "width": 1440,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 12.528627193522052,
+      "pass": true
+    },
+    {
+      "scene": "still-477c20f3f04f5cfd",
+      "width": 1440,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 7.972118695398904,
+      "pass": true
+    },
+    {
+      "scene": "still-477c20f3f04f5cfd",
+      "width": 1440,
+      "selector": "#quotes .quote-details > summary",
+      "limit": 4.5,
+      "minimum": 12.138604514921527,
+      "pass": true
+    },
+    {
+      "scene": "still-477c20f3f04f5cfd",
+      "width": 1440,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 14.844088154216474,
+      "pass": true
+    },
+    {
+      "scene": "still-477c20f3f04f5cfd",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 14.918282996243772,
+      "pass": true
+    },
+    {
+      "scene": "still-477c20f3f04f5cfd",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 14.945738260159084,
+      "pass": true
+    },
+    {
+      "scene": "still-477c20f3f04f5cfd",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 14.70316226958914,
+      "pass": true
+    },
+    {
+      "scene": "still-477c20f3f04f5cfd",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 14.58971128689707,
+      "pass": true
+    },
+    {
+      "scene": "still-477c20f3f04f5cfd",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 14.945738260159084,
+      "pass": true
+    },
+    {
+      "scene": "still-477c20f3f04f5cfd",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 13.584270417754286,
+      "pass": true
+    },
+    {
+      "scene": "still-30bb8a4e5ee2183a",
+      "width": 1440,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 6.9795468109803664,
+      "pass": true
+    },
+    {
+      "scene": "still-30bb8a4e5ee2183a",
+      "width": 1440,
+      "selector": ".clock-period",
+      "limit": 4.5,
+      "minimum": 8.000596290433373,
+      "pass": true
+    },
+    {
+      "scene": "still-30bb8a4e5ee2183a",
+      "width": 1440,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 7.55653970812877,
+      "pass": true
+    },
+    {
+      "scene": "still-30bb8a4e5ee2183a",
+      "width": 1440,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 7.069266510413611,
+      "pass": true
+    },
+    {
+      "scene": "still-30bb8a4e5ee2183a",
+      "width": 1440,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 12.080138676492366,
+      "pass": true
+    },
+    {
+      "scene": "still-30bb8a4e5ee2183a",
+      "width": 1440,
+      "selector": "#focus .session-duration select",
+      "limit": 4.5,
+      "minimum": 13.509641327675897,
+      "pass": true
+    },
+    {
+      "scene": "still-30bb8a4e5ee2183a",
+      "width": 1440,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 12.145909249882484,
+      "pass": true
+    },
+    {
+      "scene": "still-30bb8a4e5ee2183a",
+      "width": 1440,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 6.737093795428619,
+      "pass": true
+    },
+    {
+      "scene": "still-30bb8a4e5ee2183a",
+      "width": 1440,
+      "selector": "#quotes .quote-details > summary",
+      "limit": 4.5,
+      "minimum": 7.230440831057024,
+      "pass": true
+    },
+    {
+      "scene": "still-30bb8a4e5ee2183a",
+      "width": 1440,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 11.658383174856287,
+      "pass": true
+    },
+    {
+      "scene": "still-30bb8a4e5ee2183a",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 10.07009671508144,
+      "pass": true
+    },
+    {
+      "scene": "still-30bb8a4e5ee2183a",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 10.882459612466757,
+      "pass": true
+    },
+    {
+      "scene": "still-30bb8a4e5ee2183a",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 11.963059418864148,
+      "pass": true
+    },
+    {
+      "scene": "still-30bb8a4e5ee2183a",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 9.917551679223596,
+      "pass": true
+    },
+    {
+      "scene": "still-30bb8a4e5ee2183a",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 10.591292305848855,
+      "pass": true
+    },
+    {
+      "scene": "still-30bb8a4e5ee2183a",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 9.822365543565448,
+      "pass": true
+    },
+    {
+      "scene": "still-9df1f9015a5f6659",
+      "width": 1440,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 6.611830673014819,
+      "pass": true
+    },
+    {
+      "scene": "still-9df1f9015a5f6659",
+      "width": 1440,
+      "selector": ".clock-period",
+      "limit": 4.5,
+      "minimum": 7.082205609006618,
+      "pass": true
+    },
+    {
+      "scene": "still-9df1f9015a5f6659",
+      "width": 1440,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 6.80748740920532,
+      "pass": true
+    },
+    {
+      "scene": "still-9df1f9015a5f6659",
+      "width": 1440,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 8.429587233108887,
+      "pass": true
+    },
+    {
+      "scene": "still-9df1f9015a5f6659",
+      "width": 1440,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 11.053342470089131,
+      "pass": true
+    },
+    {
+      "scene": "still-9df1f9015a5f6659",
+      "width": 1440,
+      "selector": "#focus .session-duration select",
+      "limit": 4.5,
+      "minimum": 12.542126335767922,
+      "pass": true
+    },
+    {
+      "scene": "still-9df1f9015a5f6659",
+      "width": 1440,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 12.347218321394683,
+      "pass": true
+    },
+    {
+      "scene": "still-9df1f9015a5f6659",
+      "width": 1440,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 6.6870218174292395,
+      "pass": true
+    },
+    {
+      "scene": "still-9df1f9015a5f6659",
+      "width": 1440,
+      "selector": "#quotes .quote-details > summary",
+      "limit": 4.5,
+      "minimum": 6.217195736059508,
+      "pass": true
+    },
+    {
+      "scene": "still-9df1f9015a5f6659",
+      "width": 1440,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 13.216881989921557,
+      "pass": true
+    },
+    {
+      "scene": "still-9df1f9015a5f6659",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 11.55439784176301,
+      "pass": true
+    },
+    {
+      "scene": "still-9df1f9015a5f6659",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 12.157871375167517,
+      "pass": true
+    },
+    {
+      "scene": "still-9df1f9015a5f6659",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 13.605471876717361,
+      "pass": true
+    },
+    {
+      "scene": "still-9df1f9015a5f6659",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 11.55439784176301,
+      "pass": true
+    },
+    {
+      "scene": "still-9df1f9015a5f6659",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 11.821002505060314,
+      "pass": true
+    },
+    {
+      "scene": "still-9df1f9015a5f6659",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 10.415804501306978,
+      "pass": true
+    },
+    {
+      "scene": "still-5fd0bc0d1743fc06",
+      "width": 1440,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 6.64426086288452,
+      "pass": true
+    },
+    {
+      "scene": "still-5fd0bc0d1743fc06",
+      "width": 1440,
+      "selector": ".clock-period",
+      "limit": 4.5,
+      "minimum": 7.623568651606084,
+      "pass": true
+    },
+    {
+      "scene": "still-5fd0bc0d1743fc06",
+      "width": 1440,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 6.751021963273691,
+      "pass": true
+    },
+    {
+      "scene": "still-5fd0bc0d1743fc06",
+      "width": 1440,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 6.731389980145966,
+      "pass": true
+    },
+    {
+      "scene": "still-5fd0bc0d1743fc06",
+      "width": 1440,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 11.033182029238256,
+      "pass": true
+    },
+    {
+      "scene": "still-5fd0bc0d1743fc06",
+      "width": 1440,
+      "selector": "#focus .session-duration select",
+      "limit": 4.5,
+      "minimum": 12.752365647727661,
+      "pass": true
+    },
+    {
+      "scene": "still-5fd0bc0d1743fc06",
+      "width": 1440,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 12.482321192486827,
+      "pass": true
+    },
+    {
+      "scene": "still-5fd0bc0d1743fc06",
+      "width": 1440,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 7.047258223564728,
+      "pass": true
+    },
+    {
+      "scene": "still-5fd0bc0d1743fc06",
+      "width": 1440,
+      "selector": "#quotes .quote-details > summary",
+      "limit": 4.5,
+      "minimum": 7.053468914257909,
+      "pass": true
+    },
+    {
+      "scene": "still-5fd0bc0d1743fc06",
+      "width": 1440,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 8.661091671824371,
+      "pass": true
+    },
+    {
+      "scene": "still-5fd0bc0d1743fc06",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 14.311727225625066,
+      "pass": true
+    },
+    {
+      "scene": "still-5fd0bc0d1743fc06",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 13.834338219945977,
+      "pass": true
+    },
+    {
+      "scene": "still-5fd0bc0d1743fc06",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 8.893806667022865,
+      "pass": true
+    },
+    {
+      "scene": "still-5fd0bc0d1743fc06",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 14.336993403232949,
+      "pass": true
+    },
+    {
+      "scene": "still-5fd0bc0d1743fc06",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 14.346534542772824,
+      "pass": true
+    },
+    {
+      "scene": "still-5fd0bc0d1743fc06",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 10.185140840706785,
+      "pass": true
+    },
+    {
+      "scene": "still-4dd1c2193ceaa5fb",
+      "width": 1440,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 6.612811006166494,
+      "pass": true
+    },
+    {
+      "scene": "still-4dd1c2193ceaa5fb",
+      "width": 1440,
+      "selector": ".clock-period",
+      "limit": 4.5,
+      "minimum": 7.317859489814804,
+      "pass": true
+    },
+    {
+      "scene": "still-4dd1c2193ceaa5fb",
+      "width": 1440,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 6.821729881280069,
+      "pass": true
+    },
+    {
+      "scene": "still-4dd1c2193ceaa5fb",
+      "width": 1440,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 6.95087078580353,
+      "pass": true
+    },
+    {
+      "scene": "still-4dd1c2193ceaa5fb",
+      "width": 1440,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 11.417796624752384,
+      "pass": true
+    },
+    {
+      "scene": "still-4dd1c2193ceaa5fb",
+      "width": 1440,
+      "selector": "#focus .session-duration select",
+      "limit": 4.5,
+      "minimum": 13.81135963739159,
+      "pass": true
+    },
+    {
+      "scene": "still-4dd1c2193ceaa5fb",
+      "width": 1440,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 12.350088750217981,
+      "pass": true
+    },
+    {
+      "scene": "still-4dd1c2193ceaa5fb",
+      "width": 1440,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 8.381163101439617,
+      "pass": true
+    },
+    {
+      "scene": "still-4dd1c2193ceaa5fb",
+      "width": 1440,
+      "selector": "#quotes .quote-details > summary",
+      "limit": 4.5,
+      "minimum": 11.361337244224172,
+      "pass": true
+    },
+    {
+      "scene": "still-4dd1c2193ceaa5fb",
+      "width": 1440,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 14.18906660382207,
+      "pass": true
+    },
+    {
+      "scene": "still-4dd1c2193ceaa5fb",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 13.108102445481748,
+      "pass": true
+    },
+    {
+      "scene": "still-4dd1c2193ceaa5fb",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 13.43251198300198,
+      "pass": true
+    },
+    {
+      "scene": "still-4dd1c2193ceaa5fb",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 14.320287612696255,
+      "pass": true
+    },
+    {
+      "scene": "still-4dd1c2193ceaa5fb",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 13.287897460986517,
+      "pass": true
+    },
+    {
+      "scene": "still-4dd1c2193ceaa5fb",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 13.364382316073316,
+      "pass": true
+    },
+    {
+      "scene": "still-4dd1c2193ceaa5fb",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 9.926565152479482,
+      "pass": true
+    },
+    {
+      "scene": "still-f8ad5325ae74b1f5",
+      "width": 1440,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 7.145645412895541,
+      "pass": true
+    },
+    {
+      "scene": "still-f8ad5325ae74b1f5",
+      "width": 1440,
+      "selector": ".clock-period",
+      "limit": 4.5,
+      "minimum": 7.548681586929913,
+      "pass": true
+    },
+    {
+      "scene": "still-f8ad5325ae74b1f5",
+      "width": 1440,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 7.2271096491495275,
+      "pass": true
+    },
+    {
+      "scene": "still-f8ad5325ae74b1f5",
+      "width": 1440,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 7.302677390884265,
+      "pass": true
+    },
+    {
+      "scene": "still-f8ad5325ae74b1f5",
+      "width": 1440,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 11.542708376753348,
+      "pass": true
+    },
+    {
+      "scene": "still-f8ad5325ae74b1f5",
+      "width": 1440,
+      "selector": "#focus .session-duration select",
+      "limit": 4.5,
+      "minimum": 12.891270617926994,
+      "pass": true
+    },
+    {
+      "scene": "still-f8ad5325ae74b1f5",
+      "width": 1440,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 12.622119407368407,
+      "pass": true
+    },
+    {
+      "scene": "still-f8ad5325ae74b1f5",
+      "width": 1440,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 9.031554793346755,
+      "pass": true
+    },
+    {
+      "scene": "still-f8ad5325ae74b1f5",
+      "width": 1440,
+      "selector": "#quotes .quote-details > summary",
+      "limit": 4.5,
+      "minimum": 8.672465450357429,
+      "pass": true
+    },
+    {
+      "scene": "still-f8ad5325ae74b1f5",
+      "width": 1440,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 11.250640525924842,
+      "pass": true
+    },
+    {
+      "scene": "still-f8ad5325ae74b1f5",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 10.79573239644451,
+      "pass": true
+    },
+    {
+      "scene": "still-f8ad5325ae74b1f5",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 11.446135053583212,
+      "pass": true
+    },
+    {
+      "scene": "still-f8ad5325ae74b1f5",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 11.028418804855125,
+      "pass": true
+    },
+    {
+      "scene": "still-f8ad5325ae74b1f5",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 10.947089795397577,
+      "pass": true
+    },
+    {
+      "scene": "still-f8ad5325ae74b1f5",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 11.30416797378118,
+      "pass": true
+    },
+    {
+      "scene": "still-f8ad5325ae74b1f5",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 12.387753422744117,
+      "pass": true
+    },
+    {
+      "scene": "white-upload",
+      "width": 1440,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 5.472189374295193,
+      "pass": true
+    },
+    {
+      "scene": "white-upload",
+      "width": 1440,
+      "selector": ".clock-period",
+      "limit": 4.5,
+      "minimum": 5.108189199701989,
+      "pass": true
+    },
+    {
+      "scene": "white-upload",
+      "width": 1440,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 5.472189374295193,
+      "pass": true
+    },
+    {
+      "scene": "white-upload",
+      "width": 1440,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 5.108189199701989,
+      "pass": true
+    },
+    {
+      "scene": "white-upload",
+      "width": 1440,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 10.262793907399956,
+      "pass": true
+    },
+    {
+      "scene": "white-upload",
+      "width": 1440,
+      "selector": "#focus .session-duration select",
+      "limit": 4.5,
+      "minimum": 11.798516159053728,
+      "pass": true
+    },
+    {
+      "scene": "white-upload",
+      "width": 1440,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 10.262793907399956,
+      "pass": true
+    },
+    {
+      "scene": "white-upload",
+      "width": 1440,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 5.472189374295193,
+      "pass": true
+    },
+    {
+      "scene": "white-upload",
+      "width": 1440,
+      "selector": "#quotes .quote-details > summary",
+      "limit": 4.5,
+      "minimum": 5.108189199701989,
+      "pass": true
+    },
+    {
+      "scene": "white-upload",
+      "width": 1440,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 10.994101740384215,
+      "pass": true
+    },
+    {
+      "scene": "white-upload",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 10.994101740384215,
+      "pass": true
+    },
+    {
+      "scene": "white-upload",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 10.994101740384215,
+      "pass": true
+    },
+    {
+      "scene": "white-upload",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 10.994101740384215,
+      "pass": true
+    },
+    {
+      "scene": "white-upload",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 10.994101740384215,
+      "pass": true
+    },
+    {
+      "scene": "white-upload",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 10.994101740384215,
+      "pass": true
+    },
+    {
+      "scene": "white-upload",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 10.994101740384215,
+      "pass": true
+    },
+    {
+      "scene": "white-upload-strong",
+      "width": 1440,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 11.077004763643634,
+      "pass": true
+    },
+    {
+      "scene": "white-upload-strong",
+      "width": 1440,
+      "selector": ".clock-period",
+      "limit": 4.5,
+      "minimum": 10.340182370969156,
+      "pass": true
+    },
+    {
+      "scene": "white-upload-strong",
+      "width": 1440,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 11.077004763643634,
+      "pass": true
+    },
+    {
+      "scene": "white-upload-strong",
+      "width": 1440,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 10.340182370969156,
+      "pass": true
+    },
+    {
+      "scene": "white-upload-strong",
+      "width": 1440,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 12.74067329155978,
+      "pass": true
+    },
+    {
+      "scene": "white-upload-strong",
+      "width": 1440,
+      "selector": "#focus .session-duration select",
+      "limit": 4.5,
+      "minimum": 13.829129024915032,
+      "pass": true
+    },
+    {
+      "scene": "white-upload-strong",
+      "width": 1440,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 12.74067329155978,
+      "pass": true
+    },
+    {
+      "scene": "white-upload-strong",
+      "width": 1440,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 11.077004763643634,
+      "pass": true
+    },
+    {
+      "scene": "white-upload-strong",
+      "width": 1440,
+      "selector": "#quotes .quote-details > summary",
+      "limit": 4.5,
+      "minimum": 10.340182370969156,
+      "pass": true
+    },
+    {
+      "scene": "white-upload-strong",
+      "width": 1440,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 13.648550255638026,
+      "pass": true
+    },
+    {
+      "scene": "white-upload-strong",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 13.648550255638026,
+      "pass": true
+    },
+    {
+      "scene": "white-upload-strong",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 13.648550255638026,
+      "pass": true
+    },
+    {
+      "scene": "white-upload-strong",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 13.648550255638026,
+      "pass": true
+    },
+    {
+      "scene": "white-upload-strong",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 13.648550255638026,
+      "pass": true
+    },
+    {
+      "scene": "white-upload-strong",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 13.648550255638026,
+      "pass": true
+    },
+    {
+      "scene": "white-upload-strong",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 13.648550255638026,
+      "pass": true
+    },
+    {
+      "scene": "#ffffff",
+      "width": 1440,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 17.9278402530276,
+      "pass": true
+    },
+    {
+      "scene": "#ffffff",
+      "width": 1440,
+      "selector": ".clock-period",
+      "limit": 4.5,
+      "minimum": 6.5496681618541075,
+      "pass": true
+    },
+    {
+      "scene": "#ffffff",
+      "width": 1440,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 17.9278402530276,
+      "pass": true
+    },
+    {
+      "scene": "#ffffff",
+      "width": 1440,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 9.739769120526205,
+      "pass": true
+    },
+    {
+      "scene": "#ffffff",
+      "width": 1440,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 5.970238280245053,
+      "pass": true
+    },
+    {
+      "scene": "#ffffff",
+      "width": 1440,
+      "selector": "#focus .session-duration select",
+      "limit": 4.5,
+      "minimum": 12.194129969638999,
+      "pass": true
+    },
+    {
+      "scene": "#ffffff",
+      "width": 1440,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 5.970238280245053,
+      "pass": true
+    },
+    {
+      "scene": "#ffffff",
+      "width": 1440,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 13.37760757186685,
+      "pass": true
+    },
+    {
+      "scene": "#ffffff",
+      "width": 1440,
+      "selector": "#quotes .quote-details > summary",
+      "limit": 4.5,
+      "minimum": 6.5496681618541075,
+      "pass": true
+    },
+    {
+      "scene": "#ffffff",
+      "width": 1440,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 12.194129969638999,
+      "pass": true
+    },
+    {
+      "scene": "#ffffff",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 12.194129969638999,
+      "pass": true
+    },
+    {
+      "scene": "#ffffff",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 12.194129969638999,
+      "pass": true
+    },
+    {
+      "scene": "#ffffff",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 12.194129969638999,
+      "pass": true
+    },
+    {
+      "scene": "#ffffff",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 12.194129969638999,
+      "pass": true
+    },
+    {
+      "scene": "#ffffff",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 12.194129969638999,
+      "pass": true
+    },
+    {
+      "scene": "#ffffff",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 12.194129969638999,
+      "pass": true
+    },
+    {
+      "scene": "#000000",
+      "width": 1440,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 19.541996451832723,
+      "pass": true
+    },
+    {
+      "scene": "#000000",
+      "width": 1440,
+      "selector": ".clock-period",
+      "limit": 4.5,
+      "minimum": 18.242098068604154,
+      "pass": true
+    },
+    {
+      "scene": "#000000",
+      "width": 1440,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 19.541996451832723,
+      "pass": true
+    },
+    {
+      "scene": "#000000",
+      "width": 1440,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 18.242098068604154,
+      "pass": true
+    },
+    {
+      "scene": "#000000",
+      "width": 1440,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 15.566089529424984,
+      "pass": true
+    },
+    {
+      "scene": "#000000",
+      "width": 1440,
+      "selector": "#focus .session-duration select",
+      "limit": 4.5,
+      "minimum": 16.354980056356474,
+      "pass": true
+    },
+    {
+      "scene": "#000000",
+      "width": 1440,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 15.566089529424984,
+      "pass": true
+    },
+    {
+      "scene": "#000000",
+      "width": 1440,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 19.541996451832723,
+      "pass": true
+    },
+    {
+      "scene": "#000000",
+      "width": 1440,
+      "selector": "#quotes .quote-details > summary",
+      "limit": 4.5,
+      "minimum": 18.242098068604154,
+      "pass": true
+    },
+    {
+      "scene": "#000000",
+      "width": 1440,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 16.67530046209261,
+      "pass": true
+    },
+    {
+      "scene": "#000000",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 16.67530046209261,
+      "pass": true
+    },
+    {
+      "scene": "#000000",
+      "width": 1440,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 16.67530046209261,
+      "pass": true
+    },
+    {
+      "scene": "#000000",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 16.67530046209261,
+      "pass": true
+    },
+    {
+      "scene": "#000000",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 16.67530046209261,
+      "pass": true
+    },
+    {
+      "scene": "#000000",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 16.67530046209261,
+      "pass": true
+    },
+    {
+      "scene": "#000000",
+      "width": 1440,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 16.67530046209261,
+      "pass": true
+    },
+    {
+      "scene": "alpine",
+      "width": 320,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 9.26606101909237,
+      "pass": true
+    },
+    {
+      "scene": "alpine",
+      "width": 320,
+      "selector": ".clock-period",
+      "limit": 4.5,
+      "minimum": 8.750943209205206,
+      "pass": true
+    },
+    {
+      "scene": "alpine",
+      "width": 320,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 9.688661169646565,
+      "pass": true
+    },
+    {
+      "scene": "alpine",
+      "width": 320,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 8.615273916254397,
+      "pass": true
+    },
+    {
+      "scene": "alpine",
+      "width": 320,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 11.91337797965438,
+      "pass": true
+    },
+    {
+      "scene": "alpine",
+      "width": 320,
+      "selector": "#focus .session-duration select",
+      "limit": 4.5,
+      "minimum": 13.120237061274468,
+      "pass": true
+    },
+    {
+      "scene": "alpine",
+      "width": 320,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 12.275108043883655,
+      "pass": true
+    },
+    {
+      "scene": "alpine",
+      "width": 320,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 10.572727247204321,
+      "pass": true
+    },
+    {
+      "scene": "alpine",
+      "width": 320,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 10.829411369327504,
+      "pass": true
+    },
+    {
+      "scene": "alpine",
+      "width": 320,
+      "selector": "#quotes .quote-details > summary",
+      "limit": 4.5,
+      "minimum": 9.853353604128296,
+      "pass": true
+    },
+    {
+      "scene": "alpine",
+      "width": 320,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 13.149809684023525,
+      "pass": true
+    },
+    {
+      "scene": "alpine",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 14.960369275946455,
+      "pass": true
+    },
+    {
+      "scene": "alpine",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 14.960369275946455,
+      "pass": true
+    },
+    {
+      "scene": "alpine",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 13.149809684023525,
+      "pass": true
+    },
+    {
+      "scene": "alpine",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 14.960369275946455,
+      "pass": true
+    },
+    {
+      "scene": "alpine",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 14.960369275946455,
+      "pass": true
+    },
+    {
+      "scene": "alpine",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 14.960369275946455,
+      "pass": true
+    },
+    {
+      "scene": "cozy",
+      "width": 320,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 8.882354774997548,
+      "pass": true
+    },
+    {
+      "scene": "cozy",
+      "width": 320,
+      "selector": ".clock-period",
+      "limit": 4.5,
+      "minimum": 8.317093313500948,
+      "pass": true
+    },
+    {
+      "scene": "cozy",
+      "width": 320,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 9.155830128627661,
+      "pass": true
+    },
+    {
+      "scene": "cozy",
+      "width": 320,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 8.291516544126871,
+      "pass": true
+    },
+    {
+      "scene": "cozy",
+      "width": 320,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 11.85607922642183,
+      "pass": true
+    },
+    {
+      "scene": "cozy",
+      "width": 320,
+      "selector": "#focus .session-duration select",
+      "limit": 4.5,
+      "minimum": 13.089928295866615,
+      "pass": true
+    },
+    {
+      "scene": "cozy",
+      "width": 320,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 11.85607922642183,
+      "pass": true
+    },
+    {
+      "scene": "cozy",
+      "width": 320,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 8.357916460988706,
+      "pass": true
+    },
+    {
+      "scene": "cozy",
+      "width": 320,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 8.349417497529107,
+      "pass": true
+    },
+    {
+      "scene": "cozy",
+      "width": 320,
+      "selector": "#quotes .quote-details > summary",
+      "limit": 4.5,
+      "minimum": 8.431280064313473,
+      "pass": true
+    },
+    {
+      "scene": "cozy",
+      "width": 320,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 12.940947157824631,
+      "pass": true
+    },
+    {
+      "scene": "cozy",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 14.43808538093109,
+      "pass": true
+    },
+    {
+      "scene": "cozy",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 14.425961072030862,
+      "pass": true
+    },
+    {
+      "scene": "cozy",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 12.940947157824631,
+      "pass": true
+    },
+    {
+      "scene": "cozy",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 14.43808538093109,
+      "pass": true
+    },
+    {
+      "scene": "cozy",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 14.425961072030862,
+      "pass": true
+    },
+    {
+      "scene": "cozy",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 14.218680409083298,
+      "pass": true
+    },
+    {
+      "scene": "lofi",
+      "width": 320,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 9.572005830519668,
+      "pass": true
+    },
+    {
+      "scene": "lofi",
+      "width": 320,
+      "selector": ".clock-period",
+      "limit": 4.5,
+      "minimum": 9.020544232433409,
+      "pass": true
+    },
+    {
+      "scene": "lofi",
+      "width": 320,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 10.005187600386105,
+      "pass": true
+    },
+    {
+      "scene": "lofi",
+      "width": 320,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 8.898206208868418,
+      "pass": true
+    },
+    {
+      "scene": "lofi",
+      "width": 320,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 12.040566646789827,
+      "pass": true
+    },
+    {
+      "scene": "lofi",
+      "width": 320,
+      "selector": "#focus .session-duration select",
+      "limit": 4.5,
+      "minimum": 13.257701198738562,
+      "pass": true
+    },
+    {
+      "scene": "lofi",
+      "width": 320,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 12.000175346111028,
+      "pass": true
+    },
+    {
+      "scene": "lofi",
+      "width": 320,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 9.553882831779926,
+      "pass": true
+    },
+    {
+      "scene": "lofi",
+      "width": 320,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 9.553882831779926,
+      "pass": true
+    },
+    {
+      "scene": "lofi",
+      "width": 320,
+      "selector": "#quotes .quote-details > summary",
+      "limit": 4.5,
+      "minimum": 9.37156166953138,
+      "pass": true
+    },
+    {
+      "scene": "lofi",
+      "width": 320,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 13.275450879995391,
+      "pass": true
+    },
+    {
+      "scene": "lofi",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 14.357715684717002,
+      "pass": true
+    },
+    {
+      "scene": "lofi",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 14.357715684717002,
+      "pass": true
+    },
+    {
+      "scene": "lofi",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 13.275450879995391,
+      "pass": true
+    },
+    {
+      "scene": "lofi",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 14.357715684717002,
+      "pass": true
+    },
+    {
+      "scene": "lofi",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 14.357715684717002,
+      "pass": true
+    },
+    {
+      "scene": "lofi",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 14.357715684717002,
+      "pass": true
+    },
+    {
+      "scene": "minimal",
+      "width": 320,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 8.963581290421091,
+      "pass": true
+    },
+    {
+      "scene": "minimal",
+      "width": 320,
+      "selector": ".clock-period",
+      "limit": 4.5,
+      "minimum": 8.36734001813985,
+      "pass": true
+    },
+    {
+      "scene": "minimal",
+      "width": 320,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 9.131895309113874,
+      "pass": true
+    },
+    {
+      "scene": "minimal",
+      "width": 320,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 8.237089781998229,
+      "pass": true
+    },
+    {
+      "scene": "minimal",
+      "width": 320,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 11.88505256840932,
+      "pass": true
+    },
+    {
+      "scene": "minimal",
+      "width": 320,
+      "selector": "#focus .session-duration select",
+      "limit": 4.5,
+      "minimum": 13.089928295866615,
+      "pass": true
+    },
+    {
+      "scene": "minimal",
+      "width": 320,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 11.71902490397252,
+      "pass": true
+    },
+    {
+      "scene": "minimal",
+      "width": 320,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 8.13222491552631,
+      "pass": true
+    },
+    {
+      "scene": "minimal",
+      "width": 320,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 8.972869676547454,
+      "pass": true
+    },
+    {
+      "scene": "minimal",
+      "width": 320,
+      "selector": "#quotes .quote-details > summary",
+      "limit": 4.5,
+      "minimum": 8.350988163256655,
+      "pass": true
+    },
+    {
+      "scene": "minimal",
+      "width": 320,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 12.97056915895014,
+      "pass": true
+    },
+    {
+      "scene": "minimal",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 14.23080737248266,
+      "pass": true
+    },
+    {
+      "scene": "minimal",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 14.23080737248266,
+      "pass": true
+    },
+    {
+      "scene": "minimal",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 12.97056915895014,
+      "pass": true
+    },
+    {
+      "scene": "minimal",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 14.23080737248266,
+      "pass": true
+    },
+    {
+      "scene": "minimal",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 14.23080737248266,
+      "pass": true
+    },
+    {
+      "scene": "minimal",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 14.202128927660032,
+      "pass": true
+    },
+    {
+      "scene": "dark",
+      "width": 320,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 12.847523951141989,
+      "pass": true
+    },
+    {
+      "scene": "dark",
+      "width": 320,
+      "selector": ".clock-period",
+      "limit": 4.5,
+      "minimum": 12.02097451019358,
+      "pass": true
+    },
+    {
+      "scene": "dark",
+      "width": 320,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 13.553422074979176,
+      "pass": true
+    },
+    {
+      "scene": "dark",
+      "width": 320,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 11.854434059167204,
+      "pass": true
+    },
+    {
+      "scene": "dark",
+      "width": 320,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 13.093058579875532,
+      "pass": true
+    },
+    {
+      "scene": "dark",
+      "width": 320,
+      "selector": "#focus .session-duration select",
+      "limit": 4.5,
+      "minimum": 14.177644148284868,
+      "pass": true
+    },
+    {
+      "scene": "dark",
+      "width": 320,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 12.897614016931634,
+      "pass": true
+    },
+    {
+      "scene": "dark",
+      "width": 320,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 11.82134383610094,
+      "pass": true
+    },
+    {
+      "scene": "dark",
+      "width": 320,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 11.661979498506472,
+      "pass": true
+    },
+    {
+      "scene": "dark",
+      "width": 320,
+      "selector": "#quotes .quote-details > summary",
+      "limit": 4.5,
+      "minimum": 11.208815987686389,
+      "pass": true
+    },
+    {
+      "scene": "dark",
+      "width": 320,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 14.565334134628923,
+      "pass": true
+    },
+    {
+      "scene": "dark",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 15.085868738294948,
+      "pass": true
+    },
+    {
+      "scene": "dark",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 15.085868738294948,
+      "pass": true
+    },
+    {
+      "scene": "dark",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 14.565334134628923,
+      "pass": true
+    },
+    {
+      "scene": "dark",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 15.085868738294948,
+      "pass": true
+    },
+    {
+      "scene": "dark",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 15.085868738294948,
+      "pass": true
+    },
+    {
+      "scene": "dark",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 15.085868738294948,
+      "pass": true
+    },
+    {
+      "scene": "summit",
+      "width": 320,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 9.33739628500086,
+      "pass": true
+    },
+    {
+      "scene": "summit",
+      "width": 320,
+      "selector": ".clock-period",
+      "limit": 4.5,
+      "minimum": 8.815596443543027,
+      "pass": true
+    },
+    {
+      "scene": "summit",
+      "width": 320,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 9.613718310058108,
+      "pass": true
+    },
+    {
+      "scene": "summit",
+      "width": 320,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 8.7162895130109,
+      "pass": true
+    },
+    {
+      "scene": "summit",
+      "width": 320,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 11.993182672037406,
+      "pass": true
+    },
+    {
+      "scene": "summit",
+      "width": 320,
+      "selector": "#focus .session-duration select",
+      "limit": 4.5,
+      "minimum": 13.207043645254553,
+      "pass": true
+    },
+    {
+      "scene": "summit",
+      "width": 320,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 11.993182672037406,
+      "pass": true
+    },
+    {
+      "scene": "summit",
+      "width": 320,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 8.720250862069866,
+      "pass": true
+    },
+    {
+      "scene": "summit",
+      "width": 320,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 8.650191102204595,
+      "pass": true
+    },
+    {
+      "scene": "summit",
+      "width": 320,
+      "selector": "#quotes .quote-details > summary",
+      "limit": 4.5,
+      "minimum": 8.532772233496404,
+      "pass": true
+    },
+    {
+      "scene": "summit",
+      "width": 320,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 13.226754749610352,
+      "pass": true
+    },
+    {
+      "scene": "summit",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 13.961497260487242,
+      "pass": true
+    },
+    {
+      "scene": "summit",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 13.780641567226635,
+      "pass": true
+    },
+    {
+      "scene": "summit",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 13.226754749610352,
+      "pass": true
+    },
+    {
+      "scene": "summit",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 13.961497260487242,
+      "pass": true
+    },
+    {
+      "scene": "summit",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 13.930108472206529,
+      "pass": true
+    },
+    {
+      "scene": "summit",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 13.430894035862043,
+      "pass": true
+    },
+    {
+      "scene": "still-efe29597ad8dfe46",
+      "width": 320,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 7.062929308149681,
+      "pass": true
+    },
+    {
+      "scene": "still-efe29597ad8dfe46",
+      "width": 320,
+      "selector": ".clock-period",
+      "limit": 4.5,
+      "minimum": 8.160380665634499,
+      "pass": true
+    },
+    {
+      "scene": "still-efe29597ad8dfe46",
+      "width": 320,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 6.94919218166251,
+      "pass": true
+    },
+    {
+      "scene": "still-efe29597ad8dfe46",
+      "width": 320,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 7.252386506678321,
+      "pass": true
+    },
+    {
+      "scene": "still-efe29597ad8dfe46",
+      "width": 320,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 11.465382751232372,
+      "pass": true
+    },
+    {
+      "scene": "still-efe29597ad8dfe46",
+      "width": 320,
+      "selector": "#focus .session-duration select",
+      "limit": 4.5,
+      "minimum": 13.095380540860063,
+      "pass": true
+    },
+    {
+      "scene": "still-efe29597ad8dfe46",
+      "width": 320,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 12.172260076672062,
+      "pass": true
+    },
+    {
+      "scene": "still-efe29597ad8dfe46",
+      "width": 320,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 7.192552846817799,
+      "pass": true
+    },
+    {
+      "scene": "still-efe29597ad8dfe46",
+      "width": 320,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 7.376074102300462,
+      "pass": true
+    },
+    {
+      "scene": "still-efe29597ad8dfe46",
+      "width": 320,
+      "selector": "#quotes .quote-details > summary",
+      "limit": 4.5,
+      "minimum": 6.748876524222032,
+      "pass": true
+    },
+    {
+      "scene": "still-efe29597ad8dfe46",
+      "width": 320,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 12.014552835728301,
+      "pass": true
+    },
+    {
+      "scene": "still-efe29597ad8dfe46",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 13.587763609217008,
+      "pass": true
+    },
+    {
+      "scene": "still-efe29597ad8dfe46",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 13.509641327675897,
+      "pass": true
+    },
+    {
+      "scene": "still-efe29597ad8dfe46",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 12.002503542551509,
+      "pass": true
+    },
+    {
+      "scene": "still-efe29597ad8dfe46",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 13.046865889088664,
+      "pass": true
+    },
+    {
+      "scene": "still-efe29597ad8dfe46",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 12.97056915895014,
+      "pass": true
+    },
+    {
+      "scene": "still-efe29597ad8dfe46",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 14.449873552203444,
+      "pass": true
+    },
+    {
+      "scene": "still-f08fc60ebdbf23bf",
+      "width": 320,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 10.3685015061596,
+      "pass": true
+    },
+    {
+      "scene": "still-f08fc60ebdbf23bf",
+      "width": 320,
+      "selector": ".clock-period",
+      "limit": 4.5,
+      "minimum": 15.172565810844333,
+      "pass": true
+    },
+    {
+      "scene": "still-f08fc60ebdbf23bf",
+      "width": 320,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 11.574912827169044,
+      "pass": true
+    },
+    {
+      "scene": "still-f08fc60ebdbf23bf",
+      "width": 320,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 10.280371550528889,
+      "pass": true
+    },
+    {
+      "scene": "still-f08fc60ebdbf23bf",
+      "width": 320,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 12.732255728165304,
+      "pass": true
+    },
+    {
+      "scene": "still-f08fc60ebdbf23bf",
+      "width": 320,
+      "selector": "#focus .session-duration select",
+      "limit": 4.5,
+      "minimum": 14.889904425632443,
+      "pass": true
+    },
+    {
+      "scene": "still-f08fc60ebdbf23bf",
+      "width": 320,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 13.676530352249443,
+      "pass": true
+    },
+    {
+      "scene": "still-f08fc60ebdbf23bf",
+      "width": 320,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 7.500443066216845,
+      "pass": true
+    },
+    {
+      "scene": "still-f08fc60ebdbf23bf",
+      "width": 320,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 7.6284761057840935,
+      "pass": true
+    },
+    {
+      "scene": "still-f08fc60ebdbf23bf",
+      "width": 320,
+      "selector": "#quotes .quote-details > summary",
+      "limit": 4.5,
+      "minimum": 6.7364107739946455,
+      "pass": true
+    },
+    {
+      "scene": "still-f08fc60ebdbf23bf",
+      "width": 320,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 14.973639264792244,
+      "pass": true
+    },
+    {
+      "scene": "still-f08fc60ebdbf23bf",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 14.513987212435074,
+      "pass": true
+    },
+    {
+      "scene": "still-f08fc60ebdbf23bf",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 14.821075303150366,
+      "pass": true
+    },
+    {
+      "scene": "still-f08fc60ebdbf23bf",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 15.273814956822825,
+      "pass": true
+    },
+    {
+      "scene": "still-f08fc60ebdbf23bf",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 14.502450286198094,
+      "pass": true
+    },
+    {
+      "scene": "still-f08fc60ebdbf23bf",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 14.655074669916532,
+      "pass": true
+    },
+    {
+      "scene": "still-f08fc60ebdbf23bf",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 15.11047472599044,
+      "pass": true
+    },
+    {
+      "scene": "still-585cd0c8fcdc6730",
+      "width": 320,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 8.004695443269402,
+      "pass": true
+    },
+    {
+      "scene": "still-585cd0c8fcdc6730",
+      "width": 320,
+      "selector": ".clock-period",
+      "limit": 4.5,
+      "minimum": 14.177855975438721,
+      "pass": true
+    },
+    {
+      "scene": "still-585cd0c8fcdc6730",
+      "width": 320,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 10.276032551758606,
+      "pass": true
+    },
+    {
+      "scene": "still-585cd0c8fcdc6730",
+      "width": 320,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 10.045864449220282,
+      "pass": true
+    },
+    {
+      "scene": "still-585cd0c8fcdc6730",
+      "width": 320,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 11.406665876462425,
+      "pass": true
+    },
+    {
+      "scene": "still-585cd0c8fcdc6730",
+      "width": 320,
+      "selector": "#focus .session-duration select",
+      "limit": 4.5,
+      "minimum": 12.71994170193909,
+      "pass": true
+    },
+    {
+      "scene": "still-585cd0c8fcdc6730",
+      "width": 320,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 12.275108043883655,
+      "pass": true
+    },
+    {
+      "scene": "still-585cd0c8fcdc6730",
+      "width": 320,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 6.777462585809186,
+      "pass": true
+    },
+    {
+      "scene": "still-585cd0c8fcdc6730",
+      "width": 320,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 6.748436186560052,
+      "pass": true
+    },
+    {
+      "scene": "still-585cd0c8fcdc6730",
+      "width": 320,
+      "selector": "#quotes .quote-details > summary",
+      "limit": 4.5,
+      "minimum": 6.453025251847686,
+      "pass": true
+    },
+    {
+      "scene": "still-585cd0c8fcdc6730",
+      "width": 320,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 13.221731459660646,
+      "pass": true
+    },
+    {
+      "scene": "still-585cd0c8fcdc6730",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 14.84070258059347,
+      "pass": true
+    },
+    {
+      "scene": "still-585cd0c8fcdc6730",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 15.055487877160205,
+      "pass": true
+    },
+    {
+      "scene": "still-585cd0c8fcdc6730",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 13.427511251258663,
+      "pass": true
+    },
+    {
+      "scene": "still-585cd0c8fcdc6730",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 14.798457740371388,
+      "pass": true
+    },
+    {
+      "scene": "still-585cd0c8fcdc6730",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 15.08345095412478,
+      "pass": true
+    },
+    {
+      "scene": "still-585cd0c8fcdc6730",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 15.219740170957028,
+      "pass": true
+    },
+    {
+      "scene": "still-54b7319536a12df4",
+      "width": 320,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 7.223244265671231,
+      "pass": true
+    },
+    {
+      "scene": "still-54b7319536a12df4",
+      "width": 320,
+      "selector": ".clock-period",
+      "limit": 4.5,
+      "minimum": 8.55419621145225,
+      "pass": true
+    },
+    {
+      "scene": "still-54b7319536a12df4",
+      "width": 320,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 13.026283985751753,
+      "pass": true
+    },
+    {
+      "scene": "still-54b7319536a12df4",
+      "width": 320,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 7.097523782926648,
+      "pass": true
+    },
+    {
+      "scene": "still-54b7319536a12df4",
+      "width": 320,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 12.07353281582049,
+      "pass": true
+    },
+    {
+      "scene": "still-54b7319536a12df4",
+      "width": 320,
+      "selector": "#focus .session-duration select",
+      "limit": 4.5,
+      "minimum": 12.554101081526195,
+      "pass": true
+    },
+    {
+      "scene": "still-54b7319536a12df4",
+      "width": 320,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 12.17147949650098,
+      "pass": true
+    },
+    {
+      "scene": "still-54b7319536a12df4",
+      "width": 320,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 9.181809684199651,
+      "pass": true
+    },
+    {
+      "scene": "still-54b7319536a12df4",
+      "width": 320,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 10.457677362574708,
+      "pass": true
+    },
+    {
+      "scene": "still-54b7319536a12df4",
+      "width": 320,
+      "selector": "#quotes .quote-details > summary",
+      "limit": 4.5,
+      "minimum": 12.17101025805482,
+      "pass": true
+    },
+    {
+      "scene": "still-54b7319536a12df4",
+      "width": 320,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 14.497672947228294,
+      "pass": true
+    },
+    {
+      "scene": "still-54b7319536a12df4",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 15.161068818752238,
+      "pass": true
+    },
+    {
+      "scene": "still-54b7319536a12df4",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 15.173677877659392,
+      "pass": true
+    },
+    {
+      "scene": "still-54b7319536a12df4",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 14.497672947228294,
+      "pass": true
+    },
+    {
+      "scene": "still-54b7319536a12df4",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 15.298770707409448,
+      "pass": true
+    },
+    {
+      "scene": "still-54b7319536a12df4",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 15.173677877659392,
+      "pass": true
+    },
+    {
+      "scene": "still-54b7319536a12df4",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 15.148092229906966,
+      "pass": true
+    },
+    {
+      "scene": "still-085fc81103c532c6",
+      "width": 320,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 12.66980129505123,
+      "pass": true
+    },
+    {
+      "scene": "still-085fc81103c532c6",
+      "width": 320,
+      "selector": ".clock-period",
+      "limit": 4.5,
+      "minimum": 11.815346836082087,
+      "pass": true
+    },
+    {
+      "scene": "still-085fc81103c532c6",
+      "width": 320,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 12.785847895422721,
+      "pass": true
+    },
+    {
+      "scene": "still-085fc81103c532c6",
+      "width": 320,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 11.95237085218011,
+      "pass": true
+    },
+    {
+      "scene": "still-085fc81103c532c6",
+      "width": 320,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 13.417941020663841,
+      "pass": true
+    },
+    {
+      "scene": "still-085fc81103c532c6",
+      "width": 320,
+      "selector": "#focus .session-duration select",
+      "limit": 4.5,
+      "minimum": 15.406501764476012,
+      "pass": true
+    },
+    {
+      "scene": "still-085fc81103c532c6",
+      "width": 320,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 14.678263479289884,
+      "pass": true
+    },
+    {
+      "scene": "still-085fc81103c532c6",
+      "width": 320,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 10.404887469388969,
+      "pass": true
+    },
+    {
+      "scene": "still-085fc81103c532c6",
+      "width": 320,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 10.21748467992272,
+      "pass": true
+    },
+    {
+      "scene": "still-085fc81103c532c6",
+      "width": 320,
+      "selector": "#quotes .quote-details > summary",
+      "limit": 4.5,
+      "minimum": 12.330326404568222,
+      "pass": true
+    },
+    {
+      "scene": "still-085fc81103c532c6",
+      "width": 320,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 14.565480305425961,
+      "pass": true
+    },
+    {
+      "scene": "still-085fc81103c532c6",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 14.067591572160712,
+      "pass": true
+    },
+    {
+      "scene": "still-085fc81103c532c6",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 14.067591572160712,
+      "pass": true
+    },
+    {
+      "scene": "still-085fc81103c532c6",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 14.41218244211357,
+      "pass": true
+    },
+    {
+      "scene": "still-085fc81103c532c6",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 14.207281653590789,
+      "pass": true
+    },
+    {
+      "scene": "still-085fc81103c532c6",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 14.067591572160712,
+      "pass": true
+    },
+    {
+      "scene": "still-085fc81103c532c6",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 14.40052350334888,
+      "pass": true
+    },
+    {
+      "scene": "still-ec30a7337910c6ec",
+      "width": 320,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 10.3267198739596,
+      "pass": true
+    },
+    {
+      "scene": "still-ec30a7337910c6ec",
+      "width": 320,
+      "selector": ".clock-period",
+      "limit": 4.5,
+      "minimum": 9.78511592530679,
+      "pass": true
+    },
+    {
+      "scene": "still-ec30a7337910c6ec",
+      "width": 320,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 10.770966027020116,
+      "pass": true
+    },
+    {
+      "scene": "still-ec30a7337910c6ec",
+      "width": 320,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 9.624255688659717,
+      "pass": true
+    },
+    {
+      "scene": "still-ec30a7337910c6ec",
+      "width": 320,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 12.258716494340696,
+      "pass": true
+    },
+    {
+      "scene": "still-ec30a7337910c6ec",
+      "width": 320,
+      "selector": "#focus .session-duration select",
+      "limit": 4.5,
+      "minimum": 13.440385882315994,
+      "pass": true
+    },
+    {
+      "scene": "still-ec30a7337910c6ec",
+      "width": 320,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 12.989201915305852,
+      "pass": true
+    },
+    {
+      "scene": "still-ec30a7337910c6ec",
+      "width": 320,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 10.906998027438796,
+      "pass": true
+    },
+    {
+      "scene": "still-ec30a7337910c6ec",
+      "width": 320,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 12.648312625623891,
+      "pass": true
+    },
+    {
+      "scene": "still-ec30a7337910c6ec",
+      "width": 320,
+      "selector": "#quotes .quote-details > summary",
+      "limit": 4.5,
+      "minimum": 11.968943895931584,
+      "pass": true
+    },
+    {
+      "scene": "still-ec30a7337910c6ec",
+      "width": 320,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 13.641460302370096,
+      "pass": true
+    },
+    {
+      "scene": "still-ec30a7337910c6ec",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 14.346783356986885,
+      "pass": true
+    },
+    {
+      "scene": "still-ec30a7337910c6ec",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 14.191210871988975,
+      "pass": true
+    },
+    {
+      "scene": "still-ec30a7337910c6ec",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 13.641460302370096,
+      "pass": true
+    },
+    {
+      "scene": "still-ec30a7337910c6ec",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 14.346783356986885,
+      "pass": true
+    },
+    {
+      "scene": "still-ec30a7337910c6ec",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 14.333379205806608,
+      "pass": true
+    },
+    {
+      "scene": "still-ec30a7337910c6ec",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 14.191210871988975,
+      "pass": true
+    },
+    {
+      "scene": "still-0e4855219f32f3cb",
+      "width": 320,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 6.920584085491565,
+      "pass": true
+    },
+    {
+      "scene": "still-0e4855219f32f3cb",
+      "width": 320,
+      "selector": ".clock-period",
+      "limit": 4.5,
+      "minimum": 6.686887039141279,
+      "pass": true
+    },
+    {
+      "scene": "still-0e4855219f32f3cb",
+      "width": 320,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 10.125981176242847,
+      "pass": true
+    },
+    {
+      "scene": "still-0e4855219f32f3cb",
+      "width": 320,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 6.528910521621217,
+      "pass": true
+    },
+    {
+      "scene": "still-0e4855219f32f3cb",
+      "width": 320,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 11.081306467187215,
+      "pass": true
+    },
+    {
+      "scene": "still-0e4855219f32f3cb",
+      "width": 320,
+      "selector": "#focus .session-duration select",
+      "limit": 4.5,
+      "minimum": 12.65729457825494,
+      "pass": true
+    },
+    {
+      "scene": "still-0e4855219f32f3cb",
+      "width": 320,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 11.593043737062322,
+      "pass": true
+    },
+    {
+      "scene": "still-0e4855219f32f3cb",
+      "width": 320,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 6.726649731012943,
+      "pass": true
+    },
+    {
+      "scene": "still-0e4855219f32f3cb",
+      "width": 320,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 6.980727730480885,
+      "pass": true
+    },
+    {
+      "scene": "still-0e4855219f32f3cb",
+      "width": 320,
+      "selector": "#quotes .quote-details > summary",
+      "limit": 4.5,
+      "minimum": 10.662302954499904,
+      "pass": true
+    },
+    {
+      "scene": "still-0e4855219f32f3cb",
+      "width": 320,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 13.593215228483965,
+      "pass": true
+    },
+    {
+      "scene": "still-0e4855219f32f3cb",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 13.42139414235027,
+      "pass": true
+    },
+    {
+      "scene": "still-0e4855219f32f3cb",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 13.280532540355962,
+      "pass": true
+    },
+    {
+      "scene": "still-0e4855219f32f3cb",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 13.593215228483965,
+      "pass": true
+    },
+    {
+      "scene": "still-0e4855219f32f3cb",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 13.42139414235027,
+      "pass": true
+    },
+    {
+      "scene": "still-0e4855219f32f3cb",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 13.307316751310635,
+      "pass": true
+    },
+    {
+      "scene": "still-0e4855219f32f3cb",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 13.252995745378257,
+      "pass": true
+    },
+    {
+      "scene": "still-a6fbba24c95b0620",
+      "width": 320,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 7.936090297700813,
+      "pass": true
+    },
+    {
+      "scene": "still-a6fbba24c95b0620",
+      "width": 320,
+      "selector": ".clock-period",
+      "limit": 4.5,
+      "minimum": 12.642695741469112,
+      "pass": true
+    },
+    {
+      "scene": "still-a6fbba24c95b0620",
+      "width": 320,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 12.128746478515664,
+      "pass": true
+    },
+    {
+      "scene": "still-a6fbba24c95b0620",
+      "width": 320,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 9.355185499399452,
+      "pass": true
+    },
+    {
+      "scene": "still-a6fbba24c95b0620",
+      "width": 320,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 11.6605251120636,
+      "pass": true
+    },
+    {
+      "scene": "still-a6fbba24c95b0620",
+      "width": 320,
+      "selector": "#focus .session-duration select",
+      "limit": 4.5,
+      "minimum": 13.618551344415609,
+      "pass": true
+    },
+    {
+      "scene": "still-a6fbba24c95b0620",
+      "width": 320,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 13.048754484693747,
+      "pass": true
+    },
+    {
+      "scene": "still-a6fbba24c95b0620",
+      "width": 320,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 9.927720060237116,
+      "pass": true
+    },
+    {
+      "scene": "still-a6fbba24c95b0620",
+      "width": 320,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 9.513768719252537,
+      "pass": true
+    },
+    {
+      "scene": "still-a6fbba24c95b0620",
+      "width": 320,
+      "selector": "#quotes .quote-details > summary",
+      "limit": 4.5,
+      "minimum": 8.716710693051004,
+      "pass": true
+    },
+    {
+      "scene": "still-a6fbba24c95b0620",
+      "width": 320,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 14.830379811363494,
+      "pass": true
+    },
+    {
+      "scene": "still-a6fbba24c95b0620",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 14.417073166390786,
+      "pass": true
+    },
+    {
+      "scene": "still-a6fbba24c95b0620",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 14.273248046370146,
+      "pass": true
+    },
+    {
+      "scene": "still-a6fbba24c95b0620",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 14.860603004091486,
+      "pass": true
+    },
+    {
+      "scene": "still-a6fbba24c95b0620",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 14.417073166390786,
+      "pass": true
+    },
+    {
+      "scene": "still-a6fbba24c95b0620",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 14.417073166390786,
+      "pass": true
+    },
+    {
+      "scene": "still-a6fbba24c95b0620",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 13.941747989244302,
+      "pass": true
+    },
+    {
+      "scene": "still-991a7d9c9316d34e",
+      "width": 320,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 6.577179546132828,
+      "pass": true
+    },
+    {
+      "scene": "still-991a7d9c9316d34e",
+      "width": 320,
+      "selector": ".clock-period",
+      "limit": 4.5,
+      "minimum": 8.038572529379236,
+      "pass": true
+    },
+    {
+      "scene": "still-991a7d9c9316d34e",
+      "width": 320,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 6.577179546132828,
+      "pass": true
+    },
+    {
+      "scene": "still-991a7d9c9316d34e",
+      "width": 320,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 11.431457182488105,
+      "pass": true
+    },
+    {
+      "scene": "still-991a7d9c9316d34e",
+      "width": 320,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 11.484454872780049,
+      "pass": true
+    },
+    {
+      "scene": "still-991a7d9c9316d34e",
+      "width": 320,
+      "selector": "#focus .session-duration select",
+      "limit": 4.5,
+      "minimum": 12.707648646826812,
+      "pass": true
+    },
+    {
+      "scene": "still-991a7d9c9316d34e",
+      "width": 320,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 12.734973605133781,
+      "pass": true
+    },
+    {
+      "scene": "still-991a7d9c9316d34e",
+      "width": 320,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 7.167047959452751,
+      "pass": true
+    },
+    {
+      "scene": "still-991a7d9c9316d34e",
+      "width": 320,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 8.426462417813212,
+      "pass": true
+    },
+    {
+      "scene": "still-991a7d9c9316d34e",
+      "width": 320,
+      "selector": "#quotes .quote-details > summary",
+      "limit": 4.5,
+      "minimum": 7.872975519034783,
+      "pass": true
+    },
+    {
+      "scene": "still-991a7d9c9316d34e",
+      "width": 320,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 14.291490421853299,
+      "pass": true
+    },
+    {
+      "scene": "still-991a7d9c9316d34e",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 14.918282996243772,
+      "pass": true
+    },
+    {
+      "scene": "still-991a7d9c9316d34e",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 14.768170840062368,
+      "pass": true
+    },
+    {
+      "scene": "still-991a7d9c9316d34e",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 13.778352768284833,
+      "pass": true
+    },
+    {
+      "scene": "still-991a7d9c9316d34e",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 14.711643594771758,
+      "pass": true
+    },
+    {
+      "scene": "still-991a7d9c9316d34e",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 14.918282996243772,
+      "pass": true
+    },
+    {
+      "scene": "still-991a7d9c9316d34e",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 14.670217161589514,
+      "pass": true
+    },
+    {
+      "scene": "still-477c20f3f04f5cfd",
+      "width": 320,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 6.6670110547555765,
+      "pass": true
+    },
+    {
+      "scene": "still-477c20f3f04f5cfd",
+      "width": 320,
+      "selector": ".clock-period",
+      "limit": 4.5,
+      "minimum": 7.620918672637224,
+      "pass": true
+    },
+    {
+      "scene": "still-477c20f3f04f5cfd",
+      "width": 320,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 6.702247692358358,
+      "pass": true
+    },
+    {
+      "scene": "still-477c20f3f04f5cfd",
+      "width": 320,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 7.9381878457232435,
+      "pass": true
+    },
+    {
+      "scene": "still-477c20f3f04f5cfd",
+      "width": 320,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 13.795109766697173,
+      "pass": true
+    },
+    {
+      "scene": "still-477c20f3f04f5cfd",
+      "width": 320,
+      "selector": "#focus .session-duration select",
+      "limit": 4.5,
+      "minimum": 12.873604624253336,
+      "pass": true
+    },
+    {
+      "scene": "still-477c20f3f04f5cfd",
+      "width": 320,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 11.844851023507596,
+      "pass": true
+    },
+    {
+      "scene": "still-477c20f3f04f5cfd",
+      "width": 320,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 7.201084079408231,
+      "pass": true
+    },
+    {
+      "scene": "still-477c20f3f04f5cfd",
+      "width": 320,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 7.983581659491658,
+      "pass": true
+    },
+    {
+      "scene": "still-477c20f3f04f5cfd",
+      "width": 320,
+      "selector": "#quotes .quote-details > summary",
+      "limit": 4.5,
+      "minimum": 7.156207919080169,
+      "pass": true
+    },
+    {
+      "scene": "still-477c20f3f04f5cfd",
+      "width": 320,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 14.628675974512216,
+      "pass": true
+    },
+    {
+      "scene": "still-477c20f3f04f5cfd",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 15.724209559262464,
+      "pass": true
+    },
+    {
+      "scene": "still-477c20f3f04f5cfd",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 15.433619962148557,
+      "pass": true
+    },
+    {
+      "scene": "still-477c20f3f04f5cfd",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 14.449873552203444,
+      "pass": true
+    },
+    {
+      "scene": "still-477c20f3f04f5cfd",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 15.579790810981743,
+      "pass": true
+    },
+    {
+      "scene": "still-477c20f3f04f5cfd",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 15.44510692626249,
+      "pass": true
+    },
+    {
+      "scene": "still-477c20f3f04f5cfd",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 15.231671851650784,
+      "pass": true
+    },
+    {
+      "scene": "still-30bb8a4e5ee2183a",
+      "width": 320,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 7.431151401246085,
+      "pass": true
+    },
+    {
+      "scene": "still-30bb8a4e5ee2183a",
+      "width": 320,
+      "selector": ".clock-period",
+      "limit": 4.5,
+      "minimum": 8.658798187081914,
+      "pass": true
+    },
+    {
+      "scene": "still-30bb8a4e5ee2183a",
+      "width": 320,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 7.081007732193422,
+      "pass": true
+    },
+    {
+      "scene": "still-30bb8a4e5ee2183a",
+      "width": 320,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 7.060962408935042,
+      "pass": true
+    },
+    {
+      "scene": "still-30bb8a4e5ee2183a",
+      "width": 320,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 11.249001227844976,
+      "pass": true
+    },
+    {
+      "scene": "still-30bb8a4e5ee2183a",
+      "width": 320,
+      "selector": "#focus .session-duration select",
+      "limit": 4.5,
+      "minimum": 13.509641327675897,
+      "pass": true
+    },
+    {
+      "scene": "still-30bb8a4e5ee2183a",
+      "width": 320,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 12.637715710023434,
+      "pass": true
+    },
+    {
+      "scene": "still-30bb8a4e5ee2183a",
+      "width": 320,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 7.4593800374707495,
+      "pass": true
+    },
+    {
+      "scene": "still-30bb8a4e5ee2183a",
+      "width": 320,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 7.18676630846005,
+      "pass": true
+    },
+    {
+      "scene": "still-30bb8a4e5ee2183a",
+      "width": 320,
+      "selector": "#quotes .quote-details > summary",
+      "limit": 4.5,
+      "minimum": 8.564109778136809,
+      "pass": true
+    },
+    {
+      "scene": "still-30bb8a4e5ee2183a",
+      "width": 320,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 12.750228204929918,
+      "pass": true
+    },
+    {
+      "scene": "still-30bb8a4e5ee2183a",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 12.745476201313242,
+      "pass": true
+    },
+    {
+      "scene": "still-30bb8a4e5ee2183a",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 12.878842061935245,
+      "pass": true
+    },
+    {
+      "scene": "still-30bb8a4e5ee2183a",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 12.542126335767922,
+      "pass": true
+    },
+    {
+      "scene": "still-30bb8a4e5ee2183a",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 12.745476201313242,
+      "pass": true
+    },
+    {
+      "scene": "still-30bb8a4e5ee2183a",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 12.878842061935245,
+      "pass": true
+    },
+    {
+      "scene": "still-30bb8a4e5ee2183a",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 13.047389349702279,
+      "pass": true
+    },
+    {
+      "scene": "still-9df1f9015a5f6659",
+      "width": 320,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 6.694999257494424,
+      "pass": true
+    },
+    {
+      "scene": "still-9df1f9015a5f6659",
+      "width": 320,
+      "selector": ".clock-period",
+      "limit": 4.5,
+      "minimum": 6.792444105213962,
+      "pass": true
+    },
+    {
+      "scene": "still-9df1f9015a5f6659",
+      "width": 320,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 7.201084079408231,
+      "pass": true
+    },
+    {
+      "scene": "still-9df1f9015a5f6659",
+      "width": 320,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 6.268777495199286,
+      "pass": true
+    },
+    {
+      "scene": "still-9df1f9015a5f6659",
+      "width": 320,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 11.215366435051578,
+      "pass": true
+    },
+    {
+      "scene": "still-9df1f9015a5f6659",
+      "width": 320,
+      "selector": "#focus .session-duration select",
+      "limit": 4.5,
+      "minimum": 13.353064833405757,
+      "pass": true
+    },
+    {
+      "scene": "still-9df1f9015a5f6659",
+      "width": 320,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 12.70613299543313,
+      "pass": true
+    },
+    {
+      "scene": "still-9df1f9015a5f6659",
+      "width": 320,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 7.517058904940358,
+      "pass": true
+    },
+    {
+      "scene": "still-9df1f9015a5f6659",
+      "width": 320,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 8.202216799690275,
+      "pass": true
+    },
+    {
+      "scene": "still-9df1f9015a5f6659",
+      "width": 320,
+      "selector": "#quotes .quote-details > summary",
+      "limit": 4.5,
+      "minimum": 7.099793402710052,
+      "pass": true
+    },
+    {
+      "scene": "still-9df1f9015a5f6659",
+      "width": 320,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 13.042772600833823,
+      "pass": true
+    },
+    {
+      "scene": "still-9df1f9015a5f6659",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 13.805382279649075,
+      "pass": true
+    },
+    {
+      "scene": "still-9df1f9015a5f6659",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 13.78547520858741,
+      "pass": true
+    },
+    {
+      "scene": "still-9df1f9015a5f6659",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 13.34866448751338,
+      "pass": true
+    },
+    {
+      "scene": "still-9df1f9015a5f6659",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 13.795579816805093,
+      "pass": true
+    },
+    {
+      "scene": "still-9df1f9015a5f6659",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 13.78547520858741,
+      "pass": true
+    },
+    {
+      "scene": "still-9df1f9015a5f6659",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 13.965466687366302,
+      "pass": true
+    },
+    {
+      "scene": "still-5fd0bc0d1743fc06",
+      "width": 320,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 6.611830673014819,
+      "pass": true
+    },
+    {
+      "scene": "still-5fd0bc0d1743fc06",
+      "width": 320,
+      "selector": ".clock-period",
+      "limit": 4.5,
+      "minimum": 6.5696496536221485,
+      "pass": true
+    },
+    {
+      "scene": "still-5fd0bc0d1743fc06",
+      "width": 320,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 6.617120127450384,
+      "pass": true
+    },
+    {
+      "scene": "still-5fd0bc0d1743fc06",
+      "width": 320,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 7.88696909005695,
+      "pass": true
+    },
+    {
+      "scene": "still-5fd0bc0d1743fc06",
+      "width": 320,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 11.405761814849892,
+      "pass": true
+    },
+    {
+      "scene": "still-5fd0bc0d1743fc06",
+      "width": 320,
+      "selector": "#focus .session-duration select",
+      "limit": 4.5,
+      "minimum": 12.9388155375938,
+      "pass": true
+    },
+    {
+      "scene": "still-5fd0bc0d1743fc06",
+      "width": 320,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 12.336716856041958,
+      "pass": true
+    },
+    {
+      "scene": "still-5fd0bc0d1743fc06",
+      "width": 320,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 6.813427325971493,
+      "pass": true
+    },
+    {
+      "scene": "still-5fd0bc0d1743fc06",
+      "width": 320,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 6.844670442935681,
+      "pass": true
+    },
+    {
+      "scene": "still-5fd0bc0d1743fc06",
+      "width": 320,
+      "selector": "#quotes .quote-details > summary",
+      "limit": 4.5,
+      "minimum": 6.577167413312809,
+      "pass": true
+    },
+    {
+      "scene": "still-5fd0bc0d1743fc06",
+      "width": 320,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 14.403891151236355,
+      "pass": true
+    },
+    {
+      "scene": "still-5fd0bc0d1743fc06",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 14.418168295146941,
+      "pass": true
+    },
+    {
+      "scene": "still-5fd0bc0d1743fc06",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 14.013808718723933,
+      "pass": true
+    },
+    {
+      "scene": "still-5fd0bc0d1743fc06",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 14.378388844549084,
+      "pass": true
+    },
+    {
+      "scene": "still-5fd0bc0d1743fc06",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 14.418168295146941,
+      "pass": true
+    },
+    {
+      "scene": "still-5fd0bc0d1743fc06",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 14.167367821361665,
+      "pass": true
+    },
+    {
+      "scene": "still-5fd0bc0d1743fc06",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 13.927368694905134,
+      "pass": true
+    },
+    {
+      "scene": "still-4dd1c2193ceaa5fb",
+      "width": 320,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 6.624504826294261,
+      "pass": true
+    },
+    {
+      "scene": "still-4dd1c2193ceaa5fb",
+      "width": 320,
+      "selector": ".clock-period",
+      "limit": 4.5,
+      "minimum": 6.914931137590954,
+      "pass": true
+    },
+    {
+      "scene": "still-4dd1c2193ceaa5fb",
+      "width": 320,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 6.636832076783779,
+      "pass": true
+    },
+    {
+      "scene": "still-4dd1c2193ceaa5fb",
+      "width": 320,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 6.40749037792399,
+      "pass": true
+    },
+    {
+      "scene": "still-4dd1c2193ceaa5fb",
+      "width": 320,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 10.90340055144022,
+      "pass": true
+    },
+    {
+      "scene": "still-4dd1c2193ceaa5fb",
+      "width": 320,
+      "selector": "#focus .session-duration select",
+      "limit": 4.5,
+      "minimum": 12.703263145121184,
+      "pass": true
+    },
+    {
+      "scene": "still-4dd1c2193ceaa5fb",
+      "width": 320,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 12.379830777762882,
+      "pass": true
+    },
+    {
+      "scene": "still-4dd1c2193ceaa5fb",
+      "width": 320,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 7.23210794162415,
+      "pass": true
+    },
+    {
+      "scene": "still-4dd1c2193ceaa5fb",
+      "width": 320,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 7.2352836254272574,
+      "pass": true
+    },
+    {
+      "scene": "still-4dd1c2193ceaa5fb",
+      "width": 320,
+      "selector": "#quotes .quote-details > summary",
+      "limit": 4.5,
+      "minimum": 6.484852391507249,
+      "pass": true
+    },
+    {
+      "scene": "still-4dd1c2193ceaa5fb",
+      "width": 320,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 14.449873552203444,
+      "pass": true
+    },
+    {
+      "scene": "still-4dd1c2193ceaa5fb",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 15.433619962148557,
+      "pass": true
+    },
+    {
+      "scene": "still-4dd1c2193ceaa5fb",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 14.616956073148566,
+      "pass": true
+    },
+    {
+      "scene": "still-4dd1c2193ceaa5fb",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 14.309056449653443,
+      "pass": true
+    },
+    {
+      "scene": "still-4dd1c2193ceaa5fb",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 15.433619962148557,
+      "pass": true
+    },
+    {
+      "scene": "still-4dd1c2193ceaa5fb",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 14.756226449013282,
+      "pass": true
+    },
+    {
+      "scene": "still-4dd1c2193ceaa5fb",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 14.86889373658196,
+      "pass": true
+    },
+    {
+      "scene": "still-f8ad5325ae74b1f5",
+      "width": 320,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 7.234265355950038,
+      "pass": true
+    },
+    {
+      "scene": "still-f8ad5325ae74b1f5",
+      "width": 320,
+      "selector": ".clock-period",
+      "limit": 4.5,
+      "minimum": 7.356068527573043,
+      "pass": true
+    },
+    {
+      "scene": "still-f8ad5325ae74b1f5",
+      "width": 320,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 7.3920393318919535,
+      "pass": true
+    },
+    {
+      "scene": "still-f8ad5325ae74b1f5",
+      "width": 320,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 6.961533272166269,
+      "pass": true
+    },
+    {
+      "scene": "still-f8ad5325ae74b1f5",
+      "width": 320,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 11.524960326870941,
+      "pass": true
+    },
+    {
+      "scene": "still-f8ad5325ae74b1f5",
+      "width": 320,
+      "selector": "#focus .session-duration select",
+      "limit": 4.5,
+      "minimum": 12.898555298010557,
+      "pass": true
+    },
+    {
+      "scene": "still-f8ad5325ae74b1f5",
+      "width": 320,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 12.512709329313763,
+      "pass": true
+    },
+    {
+      "scene": "still-f8ad5325ae74b1f5",
+      "width": 320,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 8.66179239487364,
+      "pass": true
+    },
+    {
+      "scene": "still-f8ad5325ae74b1f5",
+      "width": 320,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 8.68654909882009,
+      "pass": true
+    },
+    {
+      "scene": "still-f8ad5325ae74b1f5",
+      "width": 320,
+      "selector": "#quotes .quote-details > summary",
+      "limit": 4.5,
+      "minimum": 8.5579969421246,
+      "pass": true
+    },
+    {
+      "scene": "still-f8ad5325ae74b1f5",
+      "width": 320,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 12.523102135096156,
+      "pass": true
+    },
+    {
+      "scene": "still-f8ad5325ae74b1f5",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 13.129457815238752,
+      "pass": true
+    },
+    {
+      "scene": "still-f8ad5325ae74b1f5",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 13.407098866539672,
+      "pass": true
+    },
+    {
+      "scene": "still-f8ad5325ae74b1f5",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 12.357811202864585,
+      "pass": true
+    },
+    {
+      "scene": "still-f8ad5325ae74b1f5",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 13.14132030485152,
+      "pass": true
+    },
+    {
+      "scene": "still-f8ad5325ae74b1f5",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 13.490706432391299,
+      "pass": true
+    },
+    {
+      "scene": "still-f8ad5325ae74b1f5",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 13.553778769361701,
+      "pass": true
+    },
+    {
+      "scene": "white-upload",
+      "width": 320,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 5.472189374295193,
+      "pass": true
+    },
+    {
+      "scene": "white-upload",
+      "width": 320,
+      "selector": ".clock-period",
+      "limit": 4.5,
+      "minimum": 5.108189199701989,
+      "pass": true
+    },
+    {
+      "scene": "white-upload",
+      "width": 320,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 5.472189374295193,
+      "pass": true
+    },
+    {
+      "scene": "white-upload",
+      "width": 320,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 5.108189199701989,
+      "pass": true
+    },
+    {
+      "scene": "white-upload",
+      "width": 320,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 10.262793907399956,
+      "pass": true
+    },
+    {
+      "scene": "white-upload",
+      "width": 320,
+      "selector": "#focus .session-duration select",
+      "limit": 4.5,
+      "minimum": 11.798516159053728,
+      "pass": true
+    },
+    {
+      "scene": "white-upload",
+      "width": 320,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 10.262793907399956,
+      "pass": true
+    },
+    {
+      "scene": "white-upload",
+      "width": 320,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 5.472189374295193,
+      "pass": true
+    },
+    {
+      "scene": "white-upload",
+      "width": 320,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 5.472189374295193,
+      "pass": true
+    },
+    {
+      "scene": "white-upload",
+      "width": 320,
+      "selector": "#quotes .quote-details > summary",
+      "limit": 4.5,
+      "minimum": 5.108189199701989,
+      "pass": true
+    },
+    {
+      "scene": "white-upload",
+      "width": 320,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 10.994101740384215,
+      "pass": true
+    },
+    {
+      "scene": "white-upload",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 10.994101740384215,
+      "pass": true
+    },
+    {
+      "scene": "white-upload",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 10.994101740384215,
+      "pass": true
+    },
+    {
+      "scene": "white-upload",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 10.994101740384215,
+      "pass": true
+    },
+    {
+      "scene": "white-upload",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 10.994101740384215,
+      "pass": true
+    },
+    {
+      "scene": "white-upload",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 10.994101740384215,
+      "pass": true
+    },
+    {
+      "scene": "white-upload",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 10.994101740384215,
+      "pass": true
+    },
+    {
+      "scene": "white-upload-strong",
+      "width": 320,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 11.077004763643634,
+      "pass": true
+    },
+    {
+      "scene": "white-upload-strong",
+      "width": 320,
+      "selector": ".clock-period",
+      "limit": 4.5,
+      "minimum": 10.340182370969156,
+      "pass": true
+    },
+    {
+      "scene": "white-upload-strong",
+      "width": 320,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 11.077004763643634,
+      "pass": true
+    },
+    {
+      "scene": "white-upload-strong",
+      "width": 320,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 10.340182370969156,
+      "pass": true
+    },
+    {
+      "scene": "white-upload-strong",
+      "width": 320,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 12.74067329155978,
+      "pass": true
+    },
+    {
+      "scene": "white-upload-strong",
+      "width": 320,
+      "selector": "#focus .session-duration select",
+      "limit": 4.5,
+      "minimum": 13.829129024915032,
+      "pass": true
+    },
+    {
+      "scene": "white-upload-strong",
+      "width": 320,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 12.74067329155978,
+      "pass": true
+    },
+    {
+      "scene": "white-upload-strong",
+      "width": 320,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 11.077004763643634,
+      "pass": true
+    },
+    {
+      "scene": "white-upload-strong",
+      "width": 320,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 11.077004763643634,
+      "pass": true
+    },
+    {
+      "scene": "white-upload-strong",
+      "width": 320,
+      "selector": "#quotes .quote-details > summary",
+      "limit": 4.5,
+      "minimum": 10.340182370969156,
+      "pass": true
+    },
+    {
+      "scene": "white-upload-strong",
+      "width": 320,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 13.648550255638026,
+      "pass": true
+    },
+    {
+      "scene": "white-upload-strong",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 13.648550255638026,
+      "pass": true
+    },
+    {
+      "scene": "white-upload-strong",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 13.648550255638026,
+      "pass": true
+    },
+    {
+      "scene": "white-upload-strong",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 13.648550255638026,
+      "pass": true
+    },
+    {
+      "scene": "white-upload-strong",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 13.648550255638026,
+      "pass": true
+    },
+    {
+      "scene": "white-upload-strong",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 13.648550255638026,
+      "pass": true
+    },
+    {
+      "scene": "white-upload-strong",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 13.648550255638026,
+      "pass": true
+    },
+    {
+      "scene": "#ffffff",
+      "width": 320,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 17.9278402530276,
+      "pass": true
+    },
+    {
+      "scene": "#ffffff",
+      "width": 320,
+      "selector": ".clock-period",
+      "limit": 4.5,
+      "minimum": 6.5496681618541075,
+      "pass": true
+    },
+    {
+      "scene": "#ffffff",
+      "width": 320,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 17.9278402530276,
+      "pass": true
+    },
+    {
+      "scene": "#ffffff",
+      "width": 320,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 9.739769120526205,
+      "pass": true
+    },
+    {
+      "scene": "#ffffff",
+      "width": 320,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 5.970238280245053,
+      "pass": true
+    },
+    {
+      "scene": "#ffffff",
+      "width": 320,
+      "selector": "#focus .session-duration select",
+      "limit": 4.5,
+      "minimum": 12.194129969638999,
+      "pass": true
+    },
+    {
+      "scene": "#ffffff",
+      "width": 320,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 5.970238280245053,
+      "pass": true
+    },
+    {
+      "scene": "#ffffff",
+      "width": 320,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 13.37760757186685,
+      "pass": true
+    },
+    {
+      "scene": "#ffffff",
+      "width": 320,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 13.37760757186685,
+      "pass": true
+    },
+    {
+      "scene": "#ffffff",
+      "width": 320,
+      "selector": "#quotes .quote-details > summary",
+      "limit": 4.5,
+      "minimum": 6.5496681618541075,
+      "pass": true
+    },
+    {
+      "scene": "#ffffff",
+      "width": 320,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 12.194129969638999,
+      "pass": true
+    },
+    {
+      "scene": "#ffffff",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 12.194129969638999,
+      "pass": true
+    },
+    {
+      "scene": "#ffffff",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 12.194129969638999,
+      "pass": true
+    },
+    {
+      "scene": "#ffffff",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 12.194129969638999,
+      "pass": true
+    },
+    {
+      "scene": "#ffffff",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 12.194129969638999,
+      "pass": true
+    },
+    {
+      "scene": "#ffffff",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 12.194129969638999,
+      "pass": true
+    },
+    {
+      "scene": "#ffffff",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 12.194129969638999,
+      "pass": true
+    },
+    {
+      "scene": "#000000",
+      "width": 320,
+      "selector": ".clock-time",
+      "limit": 3,
+      "minimum": 19.541996451832723,
+      "pass": true
+    },
+    {
+      "scene": "#000000",
+      "width": 320,
+      "selector": ".clock-period",
+      "limit": 4.5,
+      "minimum": 18.242098068604154,
+      "pass": true
+    },
+    {
+      "scene": "#000000",
+      "width": 320,
+      "selector": ".greeting",
+      "limit": 4.5,
+      "minimum": 19.541996451832723,
+      "pass": true
+    },
+    {
+      "scene": "#000000",
+      "width": 320,
+      "selector": ".date-label",
+      "limit": 4.5,
+      "minimum": 18.242098068604154,
+      "pass": true
+    },
+    {
+      "scene": "#000000",
+      "width": 320,
+      "selector": ".session-setup > input",
+      "limit": 4.5,
+      "minimum": 15.566089529424984,
+      "pass": true
+    },
+    {
+      "scene": "#000000",
+      "width": 320,
+      "selector": "#focus .session-duration select",
+      "limit": 4.5,
+      "minimum": 16.354980056356474,
+      "pass": true
+    },
+    {
+      "scene": "#000000",
+      "width": 320,
+      "selector": "#web-search",
+      "limit": 4.5,
+      "minimum": 15.566089529424984,
+      "pass": true
+    },
+    {
+      "scene": "#000000",
+      "width": 320,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 19.541996451832723,
+      "pass": true
+    },
+    {
+      "scene": "#000000",
+      "width": 320,
+      "selector": "#quotes blockquote",
+      "limit": 4.5,
+      "minimum": 19.541996451832723,
+      "pass": true
+    },
+    {
+      "scene": "#000000",
+      "width": 320,
+      "selector": "#quotes .quote-details > summary",
+      "limit": 4.5,
+      "minimum": 18.242098068604154,
+      "pass": true
+    },
+    {
+      "scene": "#000000",
+      "width": 320,
+      "selector": "#journal-button",
+      "limit": 4.5,
+      "minimum": 16.67530046209261,
+      "pass": true
+    },
+    {
+      "scene": "#000000",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 16.67530046209261,
+      "pass": true
+    },
+    {
+      "scene": "#000000",
+      "width": 320,
+      "selector": "#dock button",
+      "limit": 4.5,
+      "minimum": 16.67530046209261,
+      "pass": true
+    },
+    {
+      "scene": "#000000",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 16.67530046209261,
+      "pass": true
+    },
+    {
+      "scene": "#000000",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 16.67530046209261,
+      "pass": true
+    },
+    {
+      "scene": "#000000",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 16.67530046209261,
+      "pass": true
+    },
+    {
+      "scene": "#000000",
+      "width": 320,
+      "selector": "#journal-button svg,#dock svg,#home-menu > summary svg",
+      "limit": 3,
+      "minimum": 16.67530046209261,
+      "pass": true
+    }
+  ],
+  "method": "Minimum contrast against every backing pixel in rendered text ranges (measured placeholder bounds for inputs); foreground hidden, control backgrounds retained. No text-shadow credit. 1440x900 and 320x700.",
+  "panelContrast": [
+    {
+      "theme": "dark",
+      "foreground": "--text",
+      "background": "--panel",
+      "limit": 4.5,
+      "ratio": 14.128202760761756
+    },
+    {
+      "theme": "dark",
+      "foreground": "--muted",
+      "background": "--panel",
+      "limit": 4.5,
+      "ratio": 9.202925781896615
+    },
+    {
+      "theme": "dark",
+      "foreground": "--muted",
+      "background": "--surface",
+      "limit": 4.5,
+      "ratio": 8.024431127172456
+    },
+    {
+      "theme": "dark",
+      "foreground": "--action-ink",
+      "background": "--action",
+      "limit": 4.5,
+      "ratio": 12.097733634133162
+    },
+    {
+      "theme": "dark",
+      "foreground": "--focus-ring",
+      "background": "--panel",
+      "limit": 3,
+      "ratio": 12.33023674995098
+    },
+    {
+      "theme": "light",
+      "foreground": "--text",
+      "background": "--panel",
+      "limit": 4.5,
+      "ratio": 12.087047903606475
+    },
+    {
+      "theme": "light",
+      "foreground": "--muted",
+      "background": "--panel",
+      "limit": 4.5,
+      "ratio": 5.917810968797099
+    },
+    {
+      "theme": "light",
+      "foreground": "--muted",
+      "background": "--surface",
+      "limit": 4.5,
+      "ratio": 5.515513351776226
+    },
+    {
+      "theme": "light",
+      "foreground": "--action-ink",
+      "background": "--action",
+      "limit": 4.5,
+      "ratio": 12.097733634133162
+    },
+    {
+      "theme": "light",
+      "foreground": "--focus-ring",
+      "background": "--panel",
+      "limit": 3,
+      "ratio": 6.91364723944594
+    }
+  ],
+  "catalog": {
+    "hubs": [
+      {
+        "name": "Focus",
+        "count": 6
+      },
+      {
+        "name": "Plan",
+        "count": 3
+      },
+      {
+        "name": "Reflect",
+        "count": 5
+      },
+      {
+        "name": "Learn and Career",
+        "count": 6
+      },
+      {
+        "name": "Environment",
+        "count": 3
+      }
+    ],
+    "tools": [
+      {
+        "id": "capsules",
+        "label": "Focus Capsules",
+        "enabled": true
+      },
+      {
+        "id": "recovery",
+        "label": "Focus Recovery",
+        "enabled": true
+      },
+      {
+        "id": "compiler",
+        "label": "Next-Step Compiler",
+        "enabled": true
+      },
+      {
+        "id": "firststep",
+        "label": "First Step Mode",
+        "enabled": true
+      },
+      {
+        "id": "dna",
+        "label": "Local Focus DNA",
+        "enabled": true
+      },
+      {
+        "id": "quietweb",
+        "label": "Quiet Web",
+        "enabled": true
+      },
+      {
+        "id": "energy",
+        "label": "Energy Planner",
+        "enabled": true
+      },
+      {
+        "id": "queue",
+        "label": "Priorities",
+        "enabled": true
+      },
+      {
+        "id": "countdowns",
+        "label": "Countdowns",
+        "enabled": false
+      },
+      {
+        "id": "rituals",
+        "label": "Daily check-in",
+        "enabled": true
+      },
+      {
+        "id": "energyweather",
+        "label": "Energy Weather",
+        "enabled": true
+      },
+      {
+        "id": "afterglow",
+        "label": "Afterglow",
+        "enabled": true
+      },
+      {
+        "id": "stats",
+        "label": "Stats",
+        "enabled": true
+      },
+      {
+        "id": "suggestions",
+        "label": "Suggestions",
+        "enabled": true
+      },
+      {
+        "id": "recall",
+        "label": "Recall Rooms",
+        "enabled": true
+      },
+      {
+        "id": "garden",
+        "label": "Idea Garden",
+        "enabled": true
+      },
+      {
+        "id": "skills",
+        "label": "Skill Loops",
+        "enabled": true
+      },
+      {
+        "id": "career",
+        "label": "Career Sprint",
+        "enabled": true
+      },
+      {
+        "id": "proof",
+        "label": "Proof of Work",
+        "enabled": true
+      },
+      {
+        "id": "dictionary",
+        "label": "Dictionary",
+        "enabled": true
+      },
+      {
+        "id": "sounds",
+        "label": "Sounds",
+        "enabled": true
+      },
+      {
+        "id": "scenes",
+        "label": "Scenes",
+        "enabled": true
+      },
+      {
+        "id": "music",
+        "label": "Music",
+        "enabled": true
+      },
+      {
+        "id": "notifications",
+        "label": "Notifications",
+        "enabled": true
+      },
+      {
+        "id": "customizer",
+        "label": "Customize",
+        "enabled": true
+      },
+      {
+        "id": "support",
+        "label": "Help & feedback",
+        "enabled": true
+      },
+      {
+        "id": "websearch",
+        "label": "Web search",
+        "enabled": true
+      },
+      {
+        "id": "commands",
+        "label": "Find an action",
+        "enabled": true
+      },
+      {
+        "id": "layout",
+        "label": "Layout",
+        "enabled": true
+      },
+      {
+        "id": "notes",
+        "label": "Notes",
+        "enabled": true
+      },
+      {
+        "id": "journal",
+        "label": "Journal",
+        "enabled": true
+      },
+      {
+        "id": "mood",
+        "label": "Mood",
+        "enabled": true
+      },
+      {
+        "id": "reflection",
+        "label": "Session reflection",
+        "enabled": true
+      }
+    ]
+  },
+  "failedContrast": []
+}

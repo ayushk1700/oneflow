@@ -1,9 +1,9 @@
-import { get, update } from '../../core/storage.js';
+import { get, update, sessionGet, sessionSet } from '../../core/storage.js';
 import { put, getAll } from '../../core/db.js';
 import { el, uid } from '../../core/utils.js';
 import { field, select, act } from '../../core/ui.js';
 import { emit } from '../../core/events.js';
-import { validateVideo } from '../settings/customization.js';
+import { validateVideo, decodeRaster } from '../../core/media-validation.js';
 const origins = ['https://api.pexels.com/*', 'https://images.pexels.com/*', 'https://videos.pexels.com/*'];
 /** Allow only the provider's HTTPS media and attribution origins. */
 export function trusted(value, hosts) {
@@ -14,6 +14,7 @@ export function mediaItems(data, kind) {
   const rows = kind === 'video' ? data.videos : data.photos;
   if (!Array.isArray(rows)) return [];
   return rows.slice(0, 6).flatMap(item => {
+    if (!item || typeof item !== 'object') return [];
     const page = trusted(item.url, ['www.pexels.com', 'pexels.com']);
     const thumb = trusted(kind === 'video' ? item.image : item.src?.medium, ['images.pexels.com']);
     const files = Array.isArray(item.video_files) ? item.video_files : [];
@@ -35,12 +36,13 @@ async function download(source, limit) {
 /** Opt-in background selection for ONEFLOW's productivity dashboard. */
 export function render(container) {
   const key = el('input',{type:'password',autocomplete:'off',maxlength:200,value:get().integrations.pexelsKey || ''});
+  sessionGet('pexels-key').then(value => { if (value && !key.value) key.value = value; }).catch(() => {});
   const query = el('input',{type:'search',required:true,maxlength:100,value:'nature landscape'});
   const kind = select([['photo','Photos'],['video','Videos']],'photo',() => {});
   const status = el('p',{class:'muted',role:'status','aria-live':'polite'}), results = el('div',{class:'background-grid pexels-results'});
   const search = el('button',{type:'submit'},'Search Pexels'); let epoch = 0;
   const form = el('form',{class:'stack',onsubmit:act(async event => {
-    event.preventDefault(); const term = query.value.trim(), apiKey = get().integrations.pexelsKey?.trim();
+    event.preventDefault(); const term = query.value.trim(), apiKey = key.value.trim();
     if (!apiKey || !term) { status.textContent = 'Save your Pexels API key and enter a search first.'; return; }
     const ticket = ++epoch; search.disabled = true; results.replaceChildren(); status.textContent = 'Searching Pexels…';
     try {
@@ -61,7 +63,7 @@ export function render(container) {
             const video = type === 'video', store = video ? 'wallpapers' : 'images';
             const blob = await download(item.source,(video ? 16 : 8)*1024*1024);
             if (video) { if (!['video/mp4','video/webm'].includes(blob.type)) throw new Error('This result is not a supported video.'); await validateVideo(blob); }
-            else { if (!['image/jpeg','image/png','image/webp'].includes(blob.type)) throw new Error('Unsupported photo format.'); const bitmap = await createImageBitmap(blob); bitmap.close(); }
+            else { const bitmap = await decodeRaster(blob); bitmap.close(); }
             if (ticket !== epoch || !container.isConnected) return;
             await navigator.locks.request('oneflow-backup',async () => {
               if ((await getAll(store)).length >= (video ? 2 : 8)) throw new Error(video ? 'Your two-video library is full. Remove a video first.' : 'Your eight-photo library is full. Remove a photo first.');
@@ -75,7 +77,7 @@ export function render(container) {
       }
     } catch(error) { if (ticket === epoch) status.textContent = error.message || 'Search failed. Check your connection.'; } finally { search.disabled = false; }
   })},field('Wallpaper media',kind),field('Search photos or videos',query),search);
-  container.append(el('h4',{},'Pexels backgrounds'),el('a',{href:'https://www.pexels.com',target:'_blank',rel:'noreferrer'},'Photos and videos provided by Pexels'),el('p',{class:'muted'},'Search only when you choose. Selected backgrounds are saved locally. Your key stays on this device; ordinary data backups include it.'),field('Pexels API key',key),el('button',{type:'button',onclick:act(async () => { const value = key.value.trim(); if (!value || /[\r\n]/.test(value)) { status.textContent = 'Enter a valid Pexels API key.'; return; } await update(d => { d.integrations.pexelsKey = value; }); status.textContent = 'API key saved on this device.'; })},'Save Pexels key'),el('a',{href:'https://www.pexels.com/api/',target:'_blank',rel:'noreferrer'},'Get your Pexels API key'),form,status,results,el('button',{type:'button',onclick:act(async () => { ++epoch; await update(d => { d.integrations.pexelsKey = ''; }); key.value = ''; results.replaceChildren(); if (globalThis.chrome?.permissions) await chrome.permissions.remove({origins}); status.textContent = 'Pexels disconnected. Saved wallpapers still work offline.'; })},'Disconnect Pexels'));
+  container.append(el('h4',{},'Pexels backgrounds'),el('a',{href:'https://www.pexels.com',target:'_blank',rel:'noreferrer'},'Photos and videos provided by Pexels'),el('p',{class:'muted'},'Search only when you choose. Selected backgrounds are saved locally. Your key stays on this device; ordinary data backups include it.'),field('Pexels API key',key),el('button',{type:'button',onclick:act(async () => { const value=key.value.trim(); if (!value || /[\r\n]/.test(value)) throw new Error('Enter a valid Pexels API key.'); await sessionSet('pexels-key',value); status.textContent='Key available for this browser session only. It is not included in backups.'; })},'Use key for this session'),el('button',{type:'button',onclick:act(async () => { const value = key.value.trim(); if (!value || /[\r\n]/.test(value)) { status.textContent = 'Enter a valid Pexels API key.'; return; } await sessionSet('pexels-key',null); await update(d => { d.integrations.pexelsKey = value; }); status.textContent = 'API key saved on this device.'; })},'Save Pexels key'),el('a',{href:'https://www.pexels.com/api/',target:'_blank',rel:'noreferrer'},'Get your Pexels API key'),form,status,results,el('button',{type:'button',onclick:act(async () => { ++epoch; await sessionSet('pexels-key',null); await update(d => { d.integrations.pexelsKey = ''; }); key.value = ''; results.replaceChildren(); if (globalThis.chrome?.permissions) await chrome.permissions.remove({origins}); status.textContent = 'Pexels disconnected. Saved wallpapers still work offline.'; })},'Disconnect Pexels'));
 }
 export function init() {}
 export function destroy() {}

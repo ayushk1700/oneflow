@@ -6,7 +6,7 @@ const NS = 'http://www.w3.org/2000/svg';
 /** Render a locally vendored Lucide icon. */
 export function icon(name, size = 20) {
   const svg = document.createElementNS(NS, 'svg');
-  svg.setAttribute('width', size); svg.setAttribute('height', size); svg.setAttribute("viewBox", '0 0 24 24'); svg.setAttribute('aria-hidden', 'true');
+  svg.dataset.size=size<=16?'sm':size>=24?'lg':'md'; size=size<=16?16:size>=24?24:20; svg.setAttribute('width', size); svg.setAttribute('height', size); svg.setAttribute("viewBox", '0 0 24 24'); svg.setAttribute('aria-hidden', 'true');
   const use = document.createElementNS(NS, 'use');
   use.setAttribute('href', `../assets/icons/lucide.svg#${name}`); svg.append(use); return svg;
 }
@@ -34,7 +34,7 @@ export function watch(selector, render) {
 export function act(fn) { return (...args) => { try { Promise.resolve(fn(...args)).catch(error => emit('error', error)); } catch (error) { emit('error', error); } }; }
 let dialog, body, heading, returnFocus, current, navigation = [], requestVersion = 0;
 const suspended = new Map();
-const retained = new Set(['support','energy','energyweather','proof','afterglow','firststep','compiler','recovery','capsules','recall','garden','career','skills','websearch', 'dictionary', 'tasks', 'timer', 'sounds', 'journal', 'notes', 'habits', 'countdowns', 'settings', 'mood', 'music', 'rituals']);
+const retained = new Set(['stats','support','energy','energyweather','proof','afterglow','firststep','compiler','recovery','capsules','recall','garden','career','skills','websearch', 'dictionary', 'tasks', 'timer', 'sounds', 'journal', 'notes', 'habits', 'countdowns', 'settings', 'mood', 'music', 'rituals']);
 const dayTools = new Set(['websearch', 'dictionary', 'countdowns', 'mood', 'support']);
   const toolFor = view => ['tasks','notes','habits'].includes(view?.name) ? 'workspace' : view?.key === 'settings-focus' ? 'timer' : dayTools.has(view?.name) ? 'day' : view?.name;
 
@@ -46,8 +46,10 @@ export function setPanelNavigation(items) { navigation = items; drawNavigation()
 function drawNavigation() {
   const nav = document.querySelector('#panel-nav');
   if (!nav) return;
-  nav.hidden = !current || current.name === 'onboarding' || current.name === 'shortcuts';
-  import('./panel-navigation.js').then(m=>m.draw(nav,navigation,toolFor(current)));
+  nav.hidden = !current || ['onboarding','shortcuts','notes','journal','settings'].includes(current.name);
+  if(nav.hidden)return;
+  const view=current;
+  import('./panel-navigation.js').then(m=>{if(current===view)m.draw(nav,navigation,current?.name);});
 }
 function suspendCurrent() {
   if (!current) return;
@@ -77,7 +79,9 @@ function releasePanels() {
   for (const view of suspended.values()) view.cleanup?.();
   suspended.clear(); body.replaceChildren();
   drawNavigation(); emit('panel:closed');
-  if (returnFocus?.isConnected) returnFocus.focus();
+  // A disclosure may have closed while its panel was open; restore its trigger.
+  const target = returnFocus?.closest('details:not([open])')?.querySelector('summary') || returnFocus;
+  if (target?.isConnected && target.checkVisibility({visibilityProperty:true})) target.focus();
   else document.querySelector('#dock button')?.focus();
 }
 /** Install the shared accessible dialog and toast surfaces. */
@@ -95,7 +99,7 @@ export function initUI() {
     if (!first) { event.preventDefault(); heading.focus(); return; }
     if (event.shiftKey && (document.activeElement === first || document.activeElement === heading)) { event.preventDefault(); last.focus(); }
     else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
-  });
+  }, { capture:true });
   dialog.addEventListener('click', event => { if (event.target === dialog) { const r = dialog.getBoundingClientRect(); if (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom) closePanel(); } });
   dialog.addEventListener('cancel', event => { event.preventDefault(); closePanel(); });
   dialog.addEventListener('close', () => {

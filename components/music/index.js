@@ -56,14 +56,15 @@ export function open() {
   if (resumePanel('music')) return;
   const input = el('input', { type:'url', value:get().music.url, required:true, placeholder:'Paste a YouTube song or playlist link…', 'aria-label':'Song or playlist URL' });
   const player = el('div',{class:'music-player'}), title = el('h3',{class:'music-title'},'Your soundtrack.');
-  let controller, disposed = false;
-  const stop = () => { controller?.destroy(); controller = null; player.replaceChildren();form.querySelector('button').classList.add('primary'); };
+  let controller, disposed = false, loadVersion = 0;
+  const stop = () => { loadVersion++; controller?.destroy(); controller = null; player.replaceChildren();form.querySelector('button').classList.add('primary'); };
   stopPlayback = stop;
   async function load(source, name) {
     const submitted = source.trim(), embed = embedURL(submitted);
     if (!embed) throw new Error('Use a YouTube song or playlist link, or a Spotify playlist.');
+    const version = ++loadVersion;
     await update(d => { d.music.url = submitted; });
-    if (disposed || !isPanel('music') || !player.isConnected) return;
+    if (version !== loadVersion || disposed || !isPanel('music') || !player.isConnected) return;
     root.querySelector('[role=tab]')?.click();stop(); form.querySelector('button').classList.remove('primary');input.value = submitted; title.textContent = name || `${embed.provider} ${embed.kind || 'playlist'}`;
     const url = new URL(embed.url);
     if (embed.provider === 'YouTube') { url.searchParams.set('enablejsapi','1'); url.searchParams.set('origin',location.origin); }
@@ -79,7 +80,7 @@ export function open() {
   const credentials = el('details',{},el('summary',{},'YouTube API key & search connection'),field('YouTube Data API key',key),el('small',{class:'muted'},'Your key stays on this device and is included in exported backups. Search sends your query and key to Google.'),el('button',{type:'button',onclick:act(async()=>{await update(d=>{d.music.youtubeKey=key.value.trim();});keyStatus.textContent='Search key saved on this device.';})},'Save search key'),el('button',{type:'button',onclick:act(async()=>{cancelSearch?.();key.value='';await update(d=>{delete d.music.youtubeKey;});if(globalThis.chrome?.permissions) await chrome.permissions.remove({origins:['https://www.googleapis.com/*']});keyStatus.textContent='Search connection forgotten.';})},'Forget search connection'),keyStatus);
   const searchStatus = el('p',{role:'status',class:'muted'}), results = el('div',{class:'song-results stack'}), searchButton = el('button',{type:'submit'},'Search songs');
   let searchVersion = 0, request;
-  cancelSearch = () => { searchVersion++; request?.abort(); searchButton.disabled = false; };
+  cancelSearch = () => { searchVersion++; request?.abort(); if(searchButton.disabled)searchStatus.textContent='Search paused. Submit again to continue.'; searchButton.disabled = false; };
   const searchForm = el('form',{class:'stack',onsubmit:act(async event=>{
     event.preventDefault(); cancelSearch(); const version = searchVersion, term = query.value, apiKey = key.value.trim();
     if (!apiKey) { searchStatus.textContent = 'Add your YouTube Data API key below. Playback of song links does not require a key.'; credentials.open=true; key.focus(); return; }

@@ -1,0 +1,88 @@
+{
+  "date": "2026-10-13T10:44:34.079Z",
+  "checks": [
+    {
+      "name": "load",
+      "browser": "155.0.8059.40",
+      "extensionLoaded": true
+    },
+    {
+      "name": "seed-blocking",
+      "granted": "Not requested: active blocker state seeded for audit; no API methods mocked"
+    },
+    {
+      "name": "blocked-frame-before",
+      "error": "",
+      "button": "Allow this site for 5 minutes"
+    },
+    {
+      "name": "blocked-frame-after",
+      "overrides": [
+        {
+          "host": "audit-blocked.test",
+          "until": 1791888602865
+        }
+      ],
+      "log": [
+        {
+          "at": 1791888302553,
+          "host": "audit-blocked.test",
+          "id": "b4527f66-5803-4907-afa4-7eb88042a2c5"
+        }
+      ]
+    },
+    {
+      "name": "forged-notes-frame",
+      "text": "Open Notes using the extension toolbar."
+    },
+    {
+      "name": "oversize-encrypted-roundtrip",
+      "bytes": 64312848,
+      "accepted": false,
+      "error": "Encrypted backup is too large."
+    },
+    {
+      "name": "malformed-video-backup",
+      "accepted": true,
+      "bytes": 3
+    },
+    {
+      "name": "reset-session-data",
+      "before": {
+        "origins": [],
+        "permissions": [
+          "activeTab",
+          "alarms",
+          "notifications",
+          "storage",
+          "newTabPageOverride",
+          "declarativeNetRequest",
+          "search",
+          "scripting",
+          "offscreen"
+        ]
+      },
+      "removalErrors": [
+        {
+          "step": "geolocation",
+          "message": "Only permissions specified in the manifest may be requested."
+        }
+      ],
+      "recordRemains": true,
+      "grants": {
+        "origins": [],
+        "permissions": [
+          "activeTab",
+          "alarms",
+          "notifications",
+          "storage",
+          "newTabPageOverride",
+          "declarativeNetRequest",
+          "search",
+          "scripting",
+          "offscreen"
+        ]
+      }
+    }
+  ]
+}

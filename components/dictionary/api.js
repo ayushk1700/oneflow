@@ -1,3 +1,4 @@
+import { readJSON } from '../../core/network.js';
 /** Normalize a single English word for a bounded dictionary request. */
 export function normalizeWord(value) {
   const word = String(value).trim().toLowerCase();
@@ -22,11 +23,11 @@ export function parseEntries(data) {
 export async function lookupWord(word, signal) {
   if (!navigator.onLine) throw new Error('You are offline. Reopen a word looked up in this dashboard session, or try again when connected.');
   let response;
-  try { response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(normalizeWord(word))}`, { signal, credentials: 'omit', referrerPolicy: 'no-referrer' }); }
+  try { response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(normalizeWord(word))}`, { signal, credentials: 'omit', referrerPolicy: 'no-referrer', redirect: 'error' }); }
   catch (error) { if (error.name === 'AbortError') throw error; throw new Error('Could not reach the dictionary. Check your connection and try again.'); }
   if (response.status === 404) throw new Error('No definition was found. Check the spelling or try another word.');
   if (!response.ok) throw new Error('The dictionary is temporarily unavailable. Please try again later.');
   let data;
-  try { data = await response.json(); } catch { throw new Error('The dictionary returned an unreadable response. Try again.'); }
+  try { data = await readJSON(response, 256 * 1024); } catch (error) { if (error.name === 'AbortError') throw error; throw new Error('The dictionary returned an unreadable or oversized response. Try again.'); }
   return parseEntries(data);
 }

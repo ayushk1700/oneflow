@@ -1,0 +1,17 @@
+{
+  "browser": "chrome",
+  "source": "D:\\BOOKS\\ONEFLOW",
+  "date": "2026-10-13T18:50:16.985Z",
+  "checks": [
+    "Extension loads without required notifications, device location or website grants",
+    "Worker and offscreen owner allow legitimate audio messages and stop playback",
+    "Hostile blocker frame cannot log or override; exact top-level page still permits an explicit override (seeded Flow state)",
+    "Forged Notes capability cannot render private records",
+    "Real toolbar gesture still authorizes the isolated capture shell and preserves selected markup as text",
+    "Default backup omits keys, explicit export includes them, malformed video is rejected, and reset clears private session data and blocks stale editors",
+    "Previously failing >60-MiB encrypted envelope now round-trips",
+    "Valid raster import survives; an oversized-dimension image is rejected before native decoding"
+  ],
+  "errors": [],
+  "failure": "page.evaluate: Error: Choose an MP4 or WebM video up to 16 MB.\n    at validateVideo (chrome-extension://agcifphmnedlnmgjlnpkmfkhphfhlfin/core/media-validation.js:51:109)\n    at eval (eval at evaluate (:311:30), <anonymous>:11:86)\n    at async <anonymous>:337:30\n    at D:\\BOOKS\\ONEFLOW\\tests\\security-browser.js:125:31"
+}

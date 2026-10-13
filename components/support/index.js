@@ -1,7 +1,7 @@
 import { el, download, dayKey } from '../../core/utils.js';
 import { act, field, openPanel, select } from '../../core/ui.js';
 import { emit } from '../../core/events.js';
-import { PUBLISHER, publicURL } from '../../core/publisher.js';
+import { PUBLISHER, publicURL, supportLink } from '../../core/publisher.js';
 import { tabs } from '../panel-design/index.js';
 let root;
 
@@ -31,8 +31,7 @@ export function render() {
     el('p', {}, 'ONEFLOW works offline without an account or analytics. Optional weather, photos and music contact their providers only when connected. Search uses your browser’s chosen provider.'),
     el('a', { href: '../../docs/launch/privacy.html', target: '_blank', rel: 'noopener' }, 'Read the privacy policy'),
     el('h3', {}, 'Help improve ONEFLOW'));const help=el('div',{class:'stack'},...root.childNodes);root.replaceChildren();tabs(root,[{label:'Help',content:help},{label:'Feedback',content:form}],'support');
-  for (const [label, value] of [['Contact support', PUBLISHER.supportURL], ['Public privacy policy', PUBLISHER.privacyURL]]) {
-    const href = publicURL(value);
+  for (const [label, href] of [['Contact support', supportLink()], ['Public privacy policy', publicURL(PUBLISHER.privacyURL)]]) {
     if (href) help.append(el('a', { href, target: '_blank', rel: 'noopener noreferrer' }, label));
   }
   openPanel('Help & feedback', 'support', root, destroy);

@@ -5,7 +5,7 @@ import { getAll } from '../../core/db.js';
 import { aggregate } from '../../core/stats-logic.js';
 import { el, loadScript, download } from '../../core/utils.js';
 import { resumePanel, openPanel, select, button, act } from '../../core/ui.js';
-import { emit } from '../../core/events.js';
+import { emit, on } from '../../core/events.js';
 import { reduceMotion } from '../../core/theme.js';
 
 let chart, root, generation = 0, currentRange = 'week';
@@ -29,7 +29,7 @@ export async function render(range = currentRange) {
   let sessions;
   try { sessions = await getAll('sessions'); }
   catch { if (root && version === generation) root.querySelector('.stats-content').replaceChildren(el('p', { role: 'status' }, 'Focus history could not be loaded.'), el('button', { type: 'button', onclick: act(() => render(range)) }, 'Retry')); return; }
-  if (!root || version !== generation) return;
+  if (!root?.isConnected || version !== generation) return;
   chart?.destroy(); chart = null;
   const d = get(), data = aggregate(sessions, d.tasks, d.moods, range), content = root.querySelector('.stats-content');
   const totalMinutes = data.total / 60000, peak = Math.max(...data.minutes, 0), peakIndex = data.minutes.indexOf(peak);
@@ -63,7 +63,7 @@ export async function render(range = currentRange) {
     el('section', { class: 'stats-planning-card', 'aria-labelledby': 'stats-planning-title' }, el('div', {}, el('p', { class: 'eyebrow' }, 'PLANNING · ALL TIME'), el('h3', { id: 'stats-planning-title' }, 'Estimate versus reality')), el('div', { class: 'stats-estimates' })),
     el('p', { class: 'muted stats-method' }, 'Time includes completed and partial sessions, grouped by their start date. Streak counts consecutive days with a completed session, ending today or yesterday. Planning totals include all recorded history.')
   );
-  const patterns=el('div',{class:'stack'});for(const selector of ['.stats-insights','.stats-support-card','.stats-planning-card'])patterns.append(content.querySelector(selector));const overview=el('div',{class:'stack'},...content.childNodes);content.replaceChildren();tabs(content,[{label:'Overview',content:overview},{label:'Patterns',content:patterns}],'stats');content.querySelector('.context-tabs').addEventListener('click',()=>{if(!overview.hidden)chart?.resize();});
+  const patterns=el('div',{class:'stack'});for(const selector of ['.stats-insights','.stats-support-card','.stats-planning-card'])patterns.append(content.querySelector(selector));const overview=el('div',{class:'stack'},...content.childNodes);content.replaceChildren();tabs(content,[{label:'Overview',content:overview},{label:'Patterns',content:patterns}],'stats');content.querySelector('.context-tabs').addEventListener('context:change',()=>{if(!overview.hidden)requestAnimationFrame(()=>{if(canvas.isConnected&&!overview.hidden)chart?.resize();});});
   const estimates = Object.entries(d.planning.estimates).map(([id, estimate]) => {
     const task = d.tasks.find(item => item.id === id), spent = sessions.filter(session => session.taskId === id).reduce((sum, session) => sum + session.duration, 0) / 60000;
     return task ? el('div', { class: 'stats-estimate-row' }, el('span', {}, task.text), el('strong', {}, `${estimate} → ${Math.round(spent)} min`)) : null;
@@ -71,7 +71,7 @@ export async function render(range = currentRange) {
   content.querySelector('.stats-estimates').replaceChildren(...(estimates.length ? estimates : [el('p', { class: 'muted' }, 'Add an estimate to a task to see how your plan compares with your actual focus.')]));
   try { await loadScript('../vendor/chart.js/4.4.8/chart.umd.js'); }
   catch { if (root && version === generation) { canvas.replaceWith(el('p', { role: 'status' }, 'Chart unavailable. Your daily data is available below.')); root.querySelector('.stats-data-disclosure').open = true; } return; }
-  if (!root || version !== generation) return;
+  if (!root?.isConnected || version !== generation) return;
   const color = getComputedStyle(document.documentElement).getPropertyValue('--text').trim();
   const neutral = d.settings.accent.toLowerCase() === '#f5f5f5' ? getComputedStyle(document.documentElement).getPropertyValue('--action').trim() : d.settings.accent;
   const gridColor = getComputedStyle(document.documentElement).getPropertyValue('--border').trim();
@@ -108,7 +108,8 @@ export async function open() {
   range.setAttribute('aria-label', translate('m0474'));
   const toolbar = el('div', { class: 'stats-toolbar' }, el('div', { class: 'stats-range' }, el('span', { class: 'stats-range-label' }, 'Time window'), range), button('Export CSV', 'download', act(async () => { const selected = currentRange; downloadCSV(aggregate(await getAll('sessions'), get().tasks, get().moods, selected), selected); }), 'text-button'));
   root = el('div', { class: 'stats-panel stack' }, toolbar, el('div', { class: 'stats-content stack' }, el('p', { role: 'status' }, 'Loading your progress…')));
-  openPanel(translate('m0475'), 'stats', root, destroy);
+  const offResume=on('panel:resume',name=>{if(name==='stats')render(currentRange).catch(error=>emit('error',error));});
+  openPanel(translate('m0475'), 'stats', root, () => {offResume();destroy();});
   await render(currentRange);
 }
 

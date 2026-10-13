@@ -11,6 +11,7 @@ const send = async type => {
   return result;
 };
 async function begin() {
+  if (top !== self) throw new Error('Open the blocked page directly to change website access.');
   await init();
   setLanguage(get().settings.language);
   translateShell();

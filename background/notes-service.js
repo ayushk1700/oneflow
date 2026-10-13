@@ -1,5 +1,7 @@
-import { captureNote, getNote, listNotes, saveNote } from '../core/notes.js';
+import { captureNote, listNotes, remindNote } from '../core/notes.js';
 import { sessionGet, sessionSet } from '../core/storage.js';
+import { notify } from '../core/system-notifications.js';
+import { record } from '../core/notifications.js';
 const PAGE = 'components/notes/capture.html';
 const PREFIX = 'oneflow-note-';
 let scheduling = Promise.resolve();
@@ -54,7 +56,8 @@ export async function mountCapture(frameURL, token) {
 
 /** Open an in-page workspace where injection is allowed, otherwise a full extension tab. */
 export async function openCapture(tab, capture) {
-  const note = capture ? await captureNote(capture) : null;
+  const generation = await sessionGet('data-generation') || '';
+  const note = capture ? await captureNote(capture, generation) : null;
   const token = crypto.randomUUID();
   const url = chrome.runtime.getURL(PAGE);
   let source;
@@ -64,13 +67,19 @@ export async function openCapture(tab, capture) {
       source = result[0]?.result;
     } catch { /* Protected pages use the full workspace without page capture. */ }
   }
-  await sessionSet(`notes-launch-${tab?.id}`, { token, tabId: tab?.id, expires: Date.now() + 60000, source });
+  const launchKey = `notes-launch-${tab?.id}`;
+  await navigator.locks.request('oneflow-backup', async () => {
+    if ((await sessionGet('data-generation') || '') !== generation) throw new Error('Data was replaced. Invoke capture again.');
+    await sessionSet(launchKey, { token, tabId: tab?.id, expires: Date.now() + 60000, source });
+  });
+  await chrome.alarms.create(`oneflow-capture-expiry-${tab?.id}`, { when: Date.now() + 60000 });
   const suffix = `#token=${token}${note ? `&note=${encodeURIComponent(note.id)}` : ''}`;
   try {
     if (!tab?.id || !/^https?:/.test(tab.url || '')) throw new Error('Protected browser page');
     const result = await chrome.scripting.executeScript({ target: { tabId: tab.id }, func: mountCapture, args: [url + suffix, token] });
     if (!result[0]?.result) throw new Error('Page policy blocked the overlay');
   } catch (error) {
+    await sessionSet(launchKey, null);
     console.warn('Notes overlay unavailable:', error.message);
     await chrome.tabs.create({ url: url + (note ? `#note=${encodeURIComponent(note.id)}&fallback=1` : '#fallback=1') });
   }
@@ -102,11 +111,14 @@ export function initNotesService() {
     if (![chrome.runtime.getURL(PAGE), chrome.runtime.getURL('newtab/index.html')].includes(source)) return false;
     (async () => {
       if (message.type === 'authorize') {
+        return navigator.locks.request('oneflow-backup', async () => {
         const key = `notes-launch-${sender.tab?.id}`;
         const grant = await sessionGet(key);
+        if (grant?.expires < Date.now()) await sessionSet(key, null);
         if (!grant || grant.token !== message.token || grant.tabId !== sender.tab?.id || grant.expires < Date.now()) throw new Error('Open Notes using the extension toolbar.');
         await sessionSet(key, null);
         return { ok: true, capture: grant.source };
+        });
       } else if (message.type === 'schedule') await scheduleNoteReminders();
       else if (message.type === 'context-menu') {
         if (!await chrome.permissions.contains({ permissions: ['contextMenus'] })) throw new Error('Context menu permission is required.');
@@ -122,14 +134,22 @@ export function initNotesService() {
   bindContextMenu();
   chrome.permissions.onAdded.addListener(bindContextMenu);
   chrome.alarms.onAlarm.addListener(async alarm => {
+    if (alarm.name.startsWith('oneflow-capture-expiry-')) {
+      const key = `notes-launch-${alarm.name.slice('oneflow-capture-expiry-'.length)}`, grant = await sessionGet(key);
+      if (grant && grant.expires <= Date.now()) await sessionSet(key, null);
+      return;
+    }
     if (!alarm.name.startsWith(PREFIX)) return;
     try {
-      const note = await getNote(alarm.name.slice(PREFIX.length));
-      if (!note || note.state === 'trash' || !note.reminderAt || note.reminderAt > Date.now() + 1000) return;
-      await chrome.notifications.create(alarm.name, { type: 'basic', iconUrl: chrome.runtime.getURL('assets/icons/icon-128.png'), title: 'ONEFLOW note reminder', message: note.title || 'A saved note is ready to revisit.' });
-      await saveNote({ ...note, reminderAt: null });
+      await remindNote(alarm.name.slice(PREFIX.length), async note => {
+        await record(`Note reminder: ${note.title || 'A saved note is ready to revisit.'}`, 'info', `${alarm.name}-${note.reminderAt}`);
+        await notify(alarm.name, { type: 'basic', iconUrl: chrome.runtime.getURL('assets/icons/icon-128.png'), title: 'ONEFLOW note reminder', message: note.title || 'A saved note is ready to revisit.' });
+      });
     } catch (error) { console.warn('Note reminder:', error.message); await scheduleNoteReminders(); }
   });
-  chrome.notifications.onClicked.addListener(id => { if (id.startsWith(PREFIX)) chrome.tabs.create({ url: chrome.runtime.getURL(PAGE) + '#note=' + encodeURIComponent(id.slice(PREFIX.length)) }); });
+  const openReminder = id => { if (id.startsWith(PREFIX)) chrome.tabs.create({ url: chrome.runtime.getURL(PAGE) + '#note=' + encodeURIComponent(id.slice(PREFIX.length)) }); };
+  const bindNotifications = () => { const clicked = chrome.notifications?.onClicked; if (clicked && !clicked.hasListener(openReminder)) clicked.addListener(openReminder); };
+  bindNotifications(); chrome.permissions.onAdded.addListener(bindNotifications);
+  chrome.tabs.onRemoved.addListener(tabId => sessionSet(`notes-launch-${tabId}`, null).catch(() => {}));
   scheduleNoteReminders().catch(error => console.warn('Note alarms:', error.message));
 }

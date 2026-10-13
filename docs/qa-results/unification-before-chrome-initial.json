@@ -1,0 +1,23 @@
+{
+  "browser": "chrome",
+  "phase": "before",
+  "panels": [
+    {
+      "name": "links",
+      "theme": "dark",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-before-chrome/links-dark-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    },
+    {
+      "name": "links",
+      "theme": "light",
+      "width": 1440,
+      "screenshot": "docs/screenshots/unification-before-chrome/links-light-1440.png",
+      "overflow": false,
+      "panelOverflow": false
+    }
+  ],
+  "errors": []
+}

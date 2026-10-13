@@ -1,7 +1,7 @@
 import { t as translate } from '../../core/i18n.js';
 import { bindDraft, saveDraft } from '../../core/drafts.js';
 import { get, update } from '../../core/storage.js';
-import { getAll, put } from '../../core/db.js';
+import { updateJournal } from '../../core/journal.js';
 import { el, dayKey, uid } from '../../core/utils.js';
 import { streak, shiftDay } from '../../core/stats-logic.js';
 import { openPanel, field, select, act, isPanel } from '../../core/ui.js';
@@ -43,50 +43,48 @@ export function open(kind = new Date().getHours() < 12 ? 'morning' : new Date().
     class: 'stack',
     onsubmit: act(async e => {
       e.preventDefault();
-      if (!text.value.trim()) throw new Error(translate('m0326'));
-      if (kind === 'evening') {
-        const existing = (await getAll('journal')).find(x => x.date === today);
-        const previousBlock = saved?.text ? `\n\n${saved.text}` : '';
-        const base = existing && previousBlock && existing.text.endsWith(previousBlock) ? existing.text.slice(0, -previousBlock.length) : existing?.text === saved?.text ? '' : existing?.text || '';
-        const value = base ? `${base}\n\n${text.value.trim()}` : text.value.trim();
-        if (value.length > 20000) throw new Error(translate('m0682'));
-        await put('journal', {
-          id: existing?.id || uid(),
-          date: today,
-          prompt: existing?.prompt || translate('m0327'),
-          text: value,
-          updatedAt: Date.now()
-        });
-      }
-      await update(next => {
-        const record = {
-          id: saved?.id || `${today}-${kind}`,
-          kind,
-          date: today,
-          text: text.value.trim(),
-          focus: focus.value.trim(),
-          top: top.map(x => x.value.trim()).filter(Boolean),
-          at: Date.now()
-        };
-        next.rituals = next.rituals.filter(r => r.id !== record.id);
-        next.rituals.push(record);
-        if (kind === 'morning') {
-          if (record.focus) next.focus = {
-            date: today,
-            text: record.focus,
-            completed: false
-          };
-          if (!saved) for (const value of record.top) next.tasks.push({
-            id: uid(),
-            text: value,
-            listId: next.lists[0].id,
-            completed: false
+      const submit = e.currentTarget.querySelector('button[type=submit]');
+      if (submit.disabled) return;
+      submit.disabled = true;
+      try {
+        if (!text.value.trim()) throw new Error(translate('m0326'));
+        if (kind === 'evening') {
+          await updateJournal(today,existing=>{
+            const previousBlock = saved?.text ? '\n\n'+saved.text : '';
+            const base = existing && previousBlock && existing.text.endsWith(previousBlock) ? existing.text.slice(0,-previousBlock.length) : existing?.text === saved?.text ? '' : existing?.text || '';
+            return {text:[base,text.value.trim()].filter(Boolean).join('\n\n'),prompt:existing?.prompt || translate('m0327')};
           });
         }
-      });
-      for (const key of draftKeys) await saveDraft(key, '');
-      emit('toast', translate('m0658'));
-      if (isPanel('rituals')) open(kind);
+        await update(next => {
+          const record = {
+            id: saved?.id || `${today}-${kind}`,
+            kind,
+            date: today,
+            text: text.value.trim(),
+            focus: focus.value.trim(),
+            top: top.map(x => x.value.trim()).filter(Boolean),
+            at: Date.now()
+          };
+          next.rituals = next.rituals.filter(r => r.id !== record.id);
+          next.rituals.push(record);
+          if (kind === 'morning') {
+            if (record.focus) next.focus = {
+              date: today,
+              text: record.focus,
+              completed: false
+            };
+            if (!saved) for (const value of record.top) next.tasks.push({
+              id: uid(),
+              text: value,
+              listId: next.lists[0].id,
+              completed: false
+            });
+          }
+        });
+        for (const key of draftKeys) await saveDraft(key, '');
+        emit('toast', translate('m0658'));
+        if (isPanel('rituals') && form.isConnected) open(kind);
+      } finally { submit.disabled = false; }
     })
   }, el('p', {
     class: 'muted'

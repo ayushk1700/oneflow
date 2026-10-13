@@ -1,1 +1,1 @@
-.mood-choices{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}.mood-choices button{width:110px;display:grid;gap:8px;padding:16px 8px}.mood-choices button>span{font-size:30px}.mood-choices small{color:var(--muted);font-size:11px}
+.mood-choices{display:flex;flex-wrap:wrap;justify-content:center;gap:var(--space-sm)}.mood-choices button{width:calc(var(--space-xs) * 28);display:grid;gap:var(--space-sm);padding:var(--space-md) var(--space-sm)}.mood-choices button>span{font-size:var(--text-title)}.mood-choices small{color:var(--muted);font-size:var(--text-caption)}

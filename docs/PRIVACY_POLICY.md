@@ -1,6 +1,6 @@
 # ONEFLOW privacy policy
 
-Version 1.0.0 · Updated 10 October 2026
+Version 1.0.1 · Updated 14 October 2026
 
 ONEFLOW stores dashboard data in your browser profile. It has no ONEFLOW account, analytics, advertising, remote diagnostics, or developer-operated collection service. The external AI connection is excluded from this release at the user's request.
 
@@ -18,7 +18,7 @@ Small preferences—name, theme, accent and widget toggles—use `chrome.storage
 
 | Feature | What is sent and when |
 | --- | --- |
-| Weather | After you grant access and choose a location, Open-Meteo receives a city search or selected coordinates. Device location requires a separate explicit request; coordinates are rounded. Enabled dashboards refresh expired caches. |
+| Weather | After you grant access and choose a city, Open-Meteo receives a city search or the selected city coordinates. ONEFLOW does not request device geolocation. Existing saved weather locations remain until changed or forgotten. Enabled dashboards refresh expired caches. |
 | Pexels | On explicit search, Pexels receives your API key and query. Its media hosts receive preview/download requests. Selected photos/videos and attribution are cached locally for offline use. |
 | Spotify/YouTube | A provider iframe loads only after explicit playlist connection. The provider can receive normal player data such as IP address, playlist ID, interaction and provider cookies/login information under its own policies. Leaving the panel removes the frame. |
 | Search and quick links | Submitting search invokes the browser’s default search provider; opening a link navigates to your chosen website. The destination’s privacy policy applies. No query history or favicon lookup service is used. |
@@ -29,7 +29,7 @@ These services may receive normal network metadata, including your IP address. O
 
 Disconnect optional services to clear configuration and revoke access. Turning off a widget stops its refresh/playback behavior; an already-started request can finish. Settings provides full export/import and explicit deletion of local data and synced preferences. Browser-profile removal also removes local data. No automatic remote backup is made.
 
-Readable JSON backups contain private records and locally saved integration keys (including Pexels). Optional passphrase encryption happens on your device using AES-256-GCM and PBKDF2-SHA256. The passphrase is not saved or sent anywhere. A lost passphrase cannot be recovered. Keep exported files private; deleting ONEFLOW does not delete downloaded backups.
+Readable JSON backups contain private records, with saved integration keys excluded by default. Including saved keys is an explicit checkbox and requires a passphrase. Session-only keys are never exported. Optional encryption happens locally with AES-256-GCM and PBKDF2-SHA256; the passphrase is never saved or transmitted and cannot be recovered. Keep exported files private: deletion does not remove downloads. Plain backup contents are limited to 128 MiB; encrypted envelopes allow the corresponding base64 expansion. Oversized exports are rejected before success is reported.
 
 Diagnostics export is user-initiated and local. It includes version, counts, storage sizes and bounded error categories, excluding content, keys and browsing hostnames. You choose whether to share that file outside ONEFLOW.
 
@@ -39,7 +39,7 @@ Help & feedback creates a local text download containing only the feedback you e
 
 Dictionary lookups send the submitted English word to Free Dictionary API (`api.dictionaryapi.dev`) after optional access is approved. Up to 30 results are kept in this tab's memory for offline reuse; no dictionary history is saved to storage or backups. Clear words & disconnect removes the memory cache and requests permission revocation. Provider policies apply. Web search sends the submitted query through your browser’s default search provider; ONEFLOW does not save search history. Opening either tool makes no third-party request.
 
-Optional YouTube song search sends your query and entered API key to Google's YouTube Data API when you press Search songs. Saving the key is optional and local; readable backups include saved keys. Forget search key removes it and requests access revocation. Loading a song contacts YouTube through its visible player; provider privacy policies apply. ONEFLOW does not extract audio or track listening activity.
+Optional YouTube song search sends your query and entered API key to Google's YouTube Data API when you press Search songs. Saving the key is optional and local; backups exclude saved keys unless you explicitly include them in an encrypted export. Forget search key removes it and requests access revocation. Loading a song contacts YouTube through its visible player; provider privacy policies apply. ONEFLOW does not extract audio or track listening activity.
 
 [PERMISSIONS.md](PERMISSIONS.md) explains each permission and opt-in trigger. No history, cookies, persistent tabs-reading or broad required host permission is requested. Notes uses temporary active-tab access and scripting after you invoke capture. Blocking requests optional access on enable; allow-only mode explicitly asks for all HTTP/HTTPS sites.
 
@@ -51,9 +51,9 @@ Microphone recording requires an explicit action and browser permission. Audio i
 
 Cloud collaboration and cross-device note synchronization are not implemented. No backend, account or hidden upload is present.
 
-For public distribution, the publisher must provide a verified support/contact channel and host this policy at the store-listed URL. Those publisher details have not been invented in this local package.
+Support contact supplied by the publisher: aayush31500@gmail.com. Contact support opens your mail application; no email or feedback is sent automatically. Public distribution still requires this policy to be hosted at the actual store-listed HTTPS URL. Public packaging refuses to build until that URL is configured.
 
-Optional Pexels background search sends your query and API key to Pexels when you search. Previews and selected media come from Pexels image/video hosts. Selected backgrounds and creator credits are stored on your device for offline use. Your API key is stored locally and is included in data backups; use encrypted backup for sensitive exports. Disconnect clears the key and provider grants, retaining saved wallpapers.
+Optional Pexels search sends your query and API key on explicit search. Previews and media downloads use its image/video hosts; selected backgrounds and attribution are cached locally. Use key for this session keeps a key only in browser-session storage. Save Pexels key explicitly retains it locally. Backups exclude keys by default; saved keys can be included only in an explicitly selected encrypted export. Disconnect clears local/session keys and requests provider-grant revocation, retaining wallpapers.
 
 
 # Personal workspaces
@@ -66,3 +66,6 @@ Quiet Web reads current-window tab titles and HTTP(S) links only after optional 
 
 Proof of Work creates a local CSV only on request and includes only individually approved lines. There is no automatic reporting or client sharing. Workspaces are included in backups and full reset. Removing a workspace record leaves linked Notes and original session history independently available.
 
+
+
+Full deletion clears local/IndexedDB/synced records, temporary capture records and session keys, displayed system notifications, capture menus and granted optional website/tabs/context-menu/notification access. Open Notes editors are invalidated after replacement to prevent stale saves. A random replacement marker remains in session storage without personal content. Capture launch records are also removed when their tab closes or their expiry alarm runs; browser/OS scheduling can delay expiry cleanup. Preview-only corrupted JSON is preserved locally for explicit recovery, and full deletion removes those copies.

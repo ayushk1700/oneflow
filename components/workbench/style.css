@@ -1,16 +1,16 @@
-.workbench { min-width: 0; }
-.workbench .work-section { padding-block: var(--space-md); border-bottom: 1px solid var(--border); }
-.workbench .work-section .work-section { padding-block: var(--space-sm); }
-.workbench h3 { font-size: 16px; font-weight: 550; margin: 0; overflow-wrap: anywhere; }
-.workbench p { margin: 0; overflow-wrap: anywhere; white-space: pre-wrap; }
-.workbench .work-actions,.workbench .work-row { display: flex; flex-wrap: wrap; gap: var(--space-sm); align-items: center; }
-.workbench .work-row { padding-block: var(--space-sm); border-bottom: 1px solid var(--border); }
-.workbench .work-row > span { flex: 1 1 180px; overflow-wrap: anywhere; }
-.workbench .work-columns { display: grid; grid-template-columns: repeat(auto-fit,minmax(140px,1fr)); gap: var(--space-md); }
-.workbench .field { min-width: 0; }
-.workbench button { min-height: 44px; white-space: normal; }
-.workbench input:not([type=checkbox]),.workbench textarea,.workbench select { width: 100%; min-width: 0; }
-.workbench details > summary { padding-block: var(--space-3); cursor: pointer; min-height: 44px; }
-.workbench .toggle-row { gap: var(--space-md); }
-.workbench .toggle-row input { flex: 0 0 auto; }
-@media(max-width:400px) { .workbench .work-actions > button { flex: 1 1 100%; } }
+.workbench { min-width:0; }
+.workbench .work-section { padding-block:var(--space-md); border-bottom:var(--stroke) solid var(--border); }
+.workbench .work-section .work-section { padding-block:var(--space-sm); }
+.workbench h3 { font-size:var(--text-subheading); font-weight:var(--weight-heading); margin:0; overflow-wrap:anywhere; }
+.workbench p { margin:0; overflow-wrap:anywhere; white-space:pre-wrap; }
+.workbench .work-actions,.workbench .work-row { display:flex; flex-wrap:wrap; gap:var(--space-sm); align-items:center; }
+.workbench .work-row { padding-block:var(--space-sm); border-bottom:var(--stroke) solid var(--border); }
+.workbench .work-row > span { flex:1 1 calc(var(--space-xs) * 45); overflow-wrap:anywhere; }
+.workbench .work-columns { display:grid; grid-template-columns:repeat(auto-fit,minmax(calc(var(--space-xs) * 35),1fr)); gap:var(--space-md); }
+.workbench .field { min-width:0; }
+.workbench button { min-height:calc(var(--space-xs) * 11); white-space:normal; }
+.workbench input:not([type=checkbox]),.workbench textarea,.workbench select { width:100%; min-width:0; }
+.workbench details > summary { padding-block:var(--space-3); cursor:pointer; min-height:calc(var(--space-xs) * 11); }
+.workbench .toggle-row { gap:var(--space-md); }
+.workbench .toggle-row input { flex:0 0 auto; }
+@media(max-width:400px) { .workbench .work-actions > button { flex:1 1 100%; } }

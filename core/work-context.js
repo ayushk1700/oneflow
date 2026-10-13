@@ -5,10 +5,14 @@ import { backgroundSync, timerCommand } from './timer-client.js';
 import { safeURL } from './schema.js';
 import { makeNote, saveNote } from './notes.js';
 import { dayKey } from './utils.js';
+import { updateJournal } from './journal.js';
 import * as workSchema from './work-schema.js';
 const {validateCapsule}=workSchema;
 const readWork=()=>storageReadWork(workSchema), updateWork=change=>storageUpdateWork(change,workSchema);
 const isExtension = () => Boolean(globalThis.chrome?.runtime?.id);
+// Chrome can briefly omit both URL fields while a newly created tab commits.
+// Keep only our returned tab IDs until a subsequent explicit restore observes them.
+const openingTabs = new Map();
 const syncAudio = async () => { if (isExtension()) await backgroundSync(); else await (await import('../components/sounds/index.js')).syncAudio(); };
 /** Read only ordinary web tabs in the current non-private window on capture. */
 export async function capsuleTabs() {
@@ -48,13 +52,19 @@ async function reopenTabsLocked(tabs) {
   if (!isExtension() || !tabs.length) return { opened:0, failed:0 };
   const canRead = await chrome.permissions.contains({ permissions:['tabs'] });
   if (!canRead) throw new Error('Enable tab access to restore saved tabs without duplicates, or restore context only.');
-  const open = new Set((await chrome.tabs.query({ currentWindow:true })).map(t=>t.pendingUrl || t.url)), unique = new Set();
+  const currentTabs = await chrome.tabs.query({ currentWindow:true }), present = new Set(currentTabs.map(t=>t.id));
+  for (const id of openingTabs.keys()) if (!present.has(id)) openingTabs.delete(id);
+  const open = new Set(currentTabs.map(tab => {
+    const url = tab.pendingUrl || tab.url;
+    if (url && url !== openingTabs.get(tab.id)) openingTabs.delete(tab.id);
+    return url || openingTabs.get(tab.id);
+  })), unique = new Set();
   let opened = 0, failed = 0;
   for (const tab of tabs) {
     const url = safeURL(tab.url);
     if (!url || open.has(url) || unique.has(url)) continue;
     unique.add(url);
-    try { await chrome.tabs.create({ url, active:false }); opened++; } catch { failed++; }
+    try { const created = await chrome.tabs.create({ url, active:false }); openingTabs.set(created.id,url); opened++; } catch { failed++; }
   }
   return { opened, failed };
 }
@@ -148,11 +158,11 @@ export async function reenter(minutes = null, withAudio = false, journal = false
     const taskId=get().tasks.some(x=>x.id===work.recovery?.taskId) ? work.recovery.taskId : undefined;
     await timerCommand('start',{ focusMinutes:minutes, taskId, taskTitle:work.recovery?.taskTitle || t.taskTitle });
   } else await timerCommand('start');
-  if (journal && work.recovery) await navigator.locks.request('oneflow-backup', async () => {
-    const id=dayKey(), old=await getRecord('journal',id), line=`Returning to ${work.recovery.taskTitle || 'my focus'}. Next: ${work.recovery.next || 'choose one small action'}.`;
-    if((old?.text.length||0)+line.length+2>20000)throw new Error('Today’s journal is full. The timer started; add your re-entry note manually.');
-    await put('journal',{ id, date:id, text:[old?.text,line].filter(Boolean).join('\n\n'), prompt:old?.prompt || '', updatedAt:Date.now() });
-  });
+  if (journal && work.recovery) {
+    const line=`Returning to ${work.recovery.taskTitle || 'my focus'}. Next: ${work.recovery.next || 'choose one small action'}.`;
+    try { await updateJournal(dayKey(),old=>({text:[old?.text,line].filter(Boolean).join('\n\n')})); }
+    catch(error) { throw new Error(`${error.message} The timer started; your resume note is still saved.`); }
+  }
   if (withAudio) { await update(d=> { d.audio.playing=true; }); try { await syncAudio(); } catch(error) { await update(d=> { d.audio.playing=false; }); throw error; } }
   await updateWork(w=> { w.recovery=null; });
 }

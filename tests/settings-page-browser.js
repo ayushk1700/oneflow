@@ -22,7 +22,9 @@ try {
   await page.goto(`chrome-extension://${id}/newtab/index.html`);
   await page.waitForSelector('html[data-ready=true]');
   const skip = page.getByRole('button', { name: 'Skip for now', exact: true });
-  if (await skip.isVisible()) await skip.click();
+  await skip.click();
+  await page.locator('#panel').waitFor({ state: 'hidden' });
+  await page.locator('#home-menu > summary').click();
   await page.locator('#settings-button').click();
   await page.locator('#panel[data-panel=settings]').waitFor();
   assert.deepEqual(await page.locator('#panel').evaluate(node => {

@@ -1,0 +1,22 @@
+.customization-drawer { position:fixed; inset:0 0 0 auto; margin:0; height:100dvh; max-height:100dvh; width:min(100%,var(--drawer-width)); max-width:100%; padding:var(--space-lg); border:var(--stroke) solid var(--border); border-radius:0; background:color-mix(in srgb,var(--panel) calc(var(--panel-alpha) * 100%),transparent); color:var(--text); box-shadow:var(--elevation-modal); overflow:auto; }
+.customization-drawer[open] { display:flex; flex-direction:column; gap:var(--space-md); animation:customization-enter var(--motion-base) var(--easing-standard); }
+.customization-drawer::backdrop { background:var(--backdrop); backdrop-filter:blur(var(--backdrop-blur)); }
+.customization-head,.customization-actions { display:flex; flex-wrap:wrap; gap:var(--space-sm); align-items:center; }
+.customization-head h2 { flex:1; margin:0; font-size:var(--text-title); }
+.customization-nav { display:flex; flex-wrap:wrap; gap:var(--space-xs); }
+.customization-nav button { font-size:var(--text-small); }
+.customization-nav [aria-current=true] { background:var(--accent); color:var(--accent-contrast); }
+.customization-body { display:grid; gap:var(--space-lg); }
+.customization-section { display:grid; gap:var(--space-md); }
+.customization-section h3 { margin:0; font-size:var(--text-subheading); }
+.customization-section .field { display:grid; gap:var(--space-xs); min-width:0; }
+.customization-section input:not([type=checkbox]),.customization-section select,.customization-search { width:100%; min-width:0; }
+.customization-value { font-size:var(--text-small); color:var(--muted); }
+.customization-status { margin:0; font-size:var(--text-small); }
+.customization-danger { border-top:var(--stroke) solid var(--border); padding-top:var(--space-lg); }
+.customization-drawer [hidden] { display:none!important; }
+@keyframes customization-enter { from { transform:translateX(100%); } to { transform:translateX(0); } }
+html[data-zen=true] :is(#focus,#search,#quotes,#weather,#links,#countdowns,#dock,#journal-button,#ambient-session,.greeting,.date-label) { display:none!important; }
+html[data-visible=false] * { animation-play-state:paused!important; }
+html[data-contrast=strong][data-theme=dark] { --surface-1:var(--color-black); --surface-2:var(--color-black); --text-primary:var(--color-white); --text-secondary:var(--color-white); --border-subtle:var(--color-white); }
+html[data-contrast=strong][data-theme=light] { --surface-1:var(--color-white); --surface-2:var(--color-white); --text-primary:var(--color-black); --text-secondary:var(--color-black); --border-subtle:var(--color-black); }

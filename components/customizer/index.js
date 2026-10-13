@@ -2,7 +2,7 @@ import { get } from '../../core/storage.js';
 import { defaults, validate } from '../../core/schema.js';
 import { studioDefaults, ELEMENTS, DOCK_TOOLS, FONT_NAMES } from '../../core/studio-schema.js';
 import { el, uid, download } from '../../core/utils.js';
-import { closePanel, field, select, toggle, act } from '../../core/ui.js';
+import { closePanel, field, select, toggle, act, panelRequest } from '../../core/ui.js';
 import { emit } from '../../core/events.js';
 import * as theme from '../../core/theme.js';
 import * as runtime from '../../core/studio-runtime.js';
@@ -12,14 +12,20 @@ import { catalog } from '../../core/scenes.js';
 import { exportPreset, parsePreset, saveDesign } from '../../core/studio-presets.js';
 import { backgroundSync } from '../../core/timer-client.js';
 import { openFeature } from '../../core/features.js';
-let editor,cleanup;
+let editor,cleanup,opening,generation=0;
 const groups=[['overview','Presets'],['layout','Layout'],['type','Typography'],['surfaces','Glass & surfaces'],['wallpaper','Wallpapers'],['dock','Dock'],['focus','Focus screen'],['journal','Journal'],['soundscapes','Soundscapes'],['automation','Automatic Scenes'],['interaction','Interactions'],['access','Accessibility'],['portable','Import & export']];
 const labels={clock:'Clock',greeting:'Greeting',focus:'Focus',search:'Search',quotes:'Quote',weather:'Weather',links:'Quick links',countdowns:'Countdown'};
-/** Open a nonmodal designer; all edits remain local until Save. */
+/** Open a nonmodal designer; concurrent requests keep only the latest category. */
 export async function open(initialGroup='overview'){
- if(editor){editor.dispatchEvent(new CustomEvent('designer:category',{detail:initialGroup}));return;}closePanel();runtime.init();const original=structuredClone(get().settings);let draft=structuredClone(original),imported=null,selected='clock',group=groups.some(([id])=>id===initialGroup)?initialGroup:'overview',device=innerWidth<=700?'mobile':'desktop',undo=[],redo=[],busy=false,dragCleanup;
+ if(editor){editor.dispatchEvent(new CustomEvent('designer:category',{detail:initialGroup}));return;}
+ if(opening){const current=panelRequest(),version=generation;await opening;if(current()&&version===generation)return open(initialGroup);return;}
+ opening=createEditor(initialGroup);try{await opening;}finally{opening=null;}
+}
+async function createEditor(initialGroup){
+ closePanel();const current=panelRequest(),version=generation,returnFocus=document.activeElement;runtime.init();const original=structuredClone(get().settings);let draft=structuredClone(original),imported=null,selected='clock',group=groups.some(([id])=>id===initialGroup)?initialGroup:'overview',device=innerWidth<=700?'mobile':'desktop',undo=[],redo=[],busy=false,dragCleanup;
  draft.studio.enabled=true;
  const [backgrounds,photos,videos,scenes,localVideos]=await Promise.all([backgroundCatalog(),getAll('images'),getAll('wallpapers'),catalog(),liveWallpaperCatalog().catch(()=>[])]);
+ if(!current()||version!==generation)return;
  const root=document.documentElement;root.dataset.customizing='true';
  const body=el('div',{class:'designer-body stack'}),status=el('p',{role:'status',class:'designer-status','aria-live':'polite'},'Preview only · changes are not saved yet.');
  const toolbar=el('header',{class:'designer-toolbar'},el('strong',{},'Customize ONEFLOW'));
@@ -49,7 +55,7 @@ export async function open(initialGroup='overview'){
  if(!['portable','automation'].includes(group))action('Reset this section',reset);
  if(group==='overview'){
   body.append(el('p',{},'Choose a starting point, then click a dashboard element or open a category to fine-tune it. Save and Cancel keep experimentation reversible.'));
-  for(const [name,id,accent,font] of [['Fresh morning','minimal','#267b66','sans'],['Cozy reading','cozy','#b06b43','serif'],['Night focus','dark','#875ee8','mono'],['Soft spring','lofi','#b34f80','rounded']])action(name,()=>{remember();draft.studio=studioDefaults();draft.studio.enabled=true;draft.accent=accent;draft.background={kind:'bundled',id,color:'#293c36',blur:0,rotate:false};draft.studio.type.clock.font=font;draft.studio.type.greeting.font=font;preview();draw();});
+  for(const [name,id,accent,font] of [['Fresh morning','minimal','--mood-fresh','sans'],['Cozy reading','cozy','--mood-cozy','serif'],['Night focus','dark','--mood-night','mono'],['Soft spring','lofi','--mood-spring','rounded']])action(name,()=>{remember();draft.studio=studioDefaults();draft.studio.enabled=true;draft.accent=getComputedStyle(root).getPropertyValue(accent).trim();draft.background={kind:'bundled',id,color:getComputedStyle(root).getPropertyValue('--background-default').trim(),blur:0,rotate:false};draft.studio.type.clock.font=font;draft.studio.type.greeting.font=font;preview();draw();});
   choice('Dashboard theme','theme',[['dark','Dark'],['light','Light'],['auto','System']]);color('Accent color','accent');choice('Startup view','appearance.defaultView',[['home','Home'],['focus','Focus'],['ambient','Ambient']]);
   for(const [key,label] of [['showBrand','Show logo'],['showDate','Show date'],['showCaption','Show scenery caption']])check(label,'appearance.'+key);
  }
@@ -113,12 +119,12 @@ export async function open(initialGroup='overview'){
  function selectElement(event){if(event.target.closest('.designer')||event.target.closest('#panel'))return;const id=['greeting',...ELEMENTS.filter(id=>id!=='greeting')].find(id=>event.target.closest(selector(id)));if(!id)return;event.preventDefault();event.stopPropagation();selected=id;group=event.shiftKey?'type':'layout';draw();const node=document.querySelector(selector(id));if(draft.studio.layouts[device]?.[id]?.locked)return;const p=draft.studio.layouts[device][id];if(!p||group!=='layout')return;const start={...p},x=event.clientX,y=event.clientY;let moved=false;const move=e=>{if(!moved){remember();moved=true;}const snap=draft.studio.layouts.snap;const round=v=>Math.round(v/snap)*snap;p.x=Math.max(0,Math.min(100-p.w,round(start.x+(e.clientX-x)/innerWidth*100)));p.y=Math.max(0,Math.min(90,round(start.y+(e.clientY-y)/innerHeight*100)));preview();};const end=()=>{document.removeEventListener('pointermove',move);document.removeEventListener('pointerup',end);draw();};document.addEventListener('pointermove',move);document.addEventListener('pointerup',end,{once:true});dragCleanup=end;}
  function keyboard(event){if(document.querySelector('#panel').open)return;if(event.key==='Escape'){event.preventDefault();finish();}if((event.ctrlKey||event.metaKey)&&event.key.toLowerCase()==='z'&&!event.target.matches('textarea,input:not([type=range])')){event.preventDefault();(event.shiftKey?redoButton:undoButton).click();}}
  document.querySelector('#main').addEventListener('pointerdown',selectElement,true);document.querySelector('.topbar').addEventListener('pointerdown',selectElement,true);document.addEventListener('keydown',keyboard);
- async function finish(){if(!editor)return;cleanup?.();editor.remove();editor=null;delete root.dataset.customizing;runtime.endPreview();await theme.render();document.querySelector('#settings-button')?.focus();}
+ async function finish(){if(!editor)return;cleanup?.();editor.remove();editor=null;delete root.dataset.customizing;runtime.endPreview();await theme.render();const target=returnFocus?.isConnected&&returnFocus.checkVisibility({visibilityProperty:true})?returnFocus:document.querySelector('#home-menu>summary');target?.focus();}
  cleanup=()=>{dragCleanup?.();document.querySelector('#main').removeEventListener('pointerdown',selectElement,true);document.querySelector('.topbar').removeEventListener('pointerdown',selectElement,true);document.removeEventListener('keydown',keyboard);};
  draw();preview();picker.focus();
 }
 export function init(){runtime.init();}
 export function render(){}
-export function destroy(){cleanup?.();editor?.remove();editor=null;delete document.documentElement.dataset.customizing;runtime.endPreview();theme.render().catch(error=>emit('error',error));}
+export function destroy(){generation++;cleanup?.();editor?.remove();editor=null;delete document.documentElement.dataset.customizing;runtime.endPreview();theme.render().catch(error=>emit('error',error));}
 
 

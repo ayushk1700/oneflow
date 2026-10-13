@@ -1,0 +1,713 @@
+{
+  "measuredAt": "2026-10-13T06:06:31.049Z",
+  "node": "v24.19.0",
+  "host": {
+    "platform": "win32",
+    "release": "10.0.26300",
+    "cpu": "11th Gen Intel(R) Core(TM) i3-1115G4 @ 3.00GHz"
+  },
+  "method": "Source checkout, headless installed browser, disposable profile, 1440x900, default settings, onboarding skipped, offline; one warm-up reload then eight sequential reloads. oneflow-ready is application initialization, not a paint or every deferred widget completion.",
+  "javascript": {
+    "bytes": 152833,
+    "kib": 149.2509765625,
+    "limitBytes": 153600,
+    "pass": true,
+    "modules": [
+      {
+        "file": "newtab/newtab.js",
+        "bytes": 10944,
+        "sha256": "84f2fc6cfeeba03eccbd2db2b4b46438ab37a0b87e0f2fc80ea5045f6f14f098"
+      },
+      {
+        "file": "core/i18n.js",
+        "bytes": 34205,
+        "sha256": "cfac61047683dca986eb5c2c4e42d8c930523973d733332aac35539c3a79079d"
+      },
+      {
+        "file": "core/storage.js",
+        "bytes": 5924,
+        "sha256": "dba0a5b04d47fbc5feb3e71fd9f1bfee2ddb449d4862a7b4004fe97733fe225b"
+      },
+      {
+        "file": "core/schema.js",
+        "bytes": 8452,
+        "sha256": "ff3a8a0dd2cc82857dac53aec2ada22995d67b21af6d16c506cc08524948c75d"
+      },
+      {
+        "file": "core/refinement-schema.js",
+        "bytes": 1635,
+        "sha256": "1cbac81e1d36dd3ec1a800794bd5a7005023c30169c2645d1e6507ac183c3215"
+      },
+      {
+        "file": "core/stage2-schema.js",
+        "bytes": 4307,
+        "sha256": "cd1bafe63f25cea472a7fe58e7f02ea28e04ddb6e6f2f0e8cf63a06de4fc4fea"
+      },
+      {
+        "file": "core/timer-logic.js",
+        "bytes": 5876,
+        "sha256": "ef33488d6663331af56e8ea7145ed30b1e2c3a710d769b48a4bbc38b63b34f28"
+      },
+      {
+        "file": "core/stage3-schema.js",
+        "bytes": 5728,
+        "sha256": "115499f434dee93dc7b41c59b79e331c8fcc3570a8b9430bdda0cbbc809f561d"
+      },
+      {
+        "file": "core/studio-schema.js",
+        "bytes": 6114,
+        "sha256": "be09a9d1716a85a9e1543ee5cc31d160d0f10d7cb1a803870c0462ce6552749e"
+      },
+      {
+        "file": "core/events.js",
+        "bytes": 604,
+        "sha256": "f23f5287fc45315b1d00612793190c520f2c69b7e29d177485fb04b9ef53b195"
+      },
+      {
+        "file": "core/theme.js",
+        "bytes": 9331,
+        "sha256": "3343a641d2be3205d0dc229ab45e969b0c51d6d3839fcd0934ac1a5faec2de54"
+      },
+      {
+        "file": "core/db.js",
+        "bytes": 3080,
+        "sha256": "10776f2de5621c91f8e25a02dc9d5916e7e7af5c38f8d861b3405ba2e5f6e83d"
+      },
+      {
+        "file": "core/ui.js",
+        "bytes": 9380,
+        "sha256": "84e6d14bd6c811972b4eebbeee7091d10d554a9bc94316b9c6c54b0c2f351a31"
+      },
+      {
+        "file": "core/utils.js",
+        "bytes": 2025,
+        "sha256": "b6c658082442248e7f49a347fe928205176ebfbf0efcb92ec76d720c4c4ed83e"
+      },
+      {
+        "file": "core/background-presentation.js",
+        "bytes": 3553,
+        "sha256": "26bc40553dca96bb770cc4b39ffb657f31dc2cd894836f0bc21564675685b309"
+      },
+      {
+        "file": "core/state.js",
+        "bytes": 354,
+        "sha256": "25fa9982eacdb265b083d5ff3b5caa3ccb0989c7b818389f0607f1453da98721"
+      },
+      {
+        "file": "components/clock/index.js",
+        "bytes": 1562,
+        "sha256": "c437254ed21371154191cce9b1b14eff778d2b8d2d076ef6a915286d75a817a0"
+      },
+      {
+        "file": "components/focus/index.js",
+        "bytes": 1975,
+        "sha256": "3a34adfae0ff4cc1e553e03cc4fa1d77759e1a726cf4aeee02f3c9099c910365"
+      },
+      {
+        "file": "components/session-view/index.js",
+        "bytes": 10341,
+        "sha256": "9470f3329d4ab5c8ce8581d56f42a10c8c482ba6c5d317fb9ee398e6a329c211"
+      },
+      {
+        "file": "core/drafts.js",
+        "bytes": 1038,
+        "sha256": "0025add00469c00d4b32be12d9e63bef117ded5c4d5ce3a51d91eaf94a1edb2a"
+      },
+      {
+        "file": "core/timer-client.js",
+        "bytes": 1149,
+        "sha256": "2469673077a007b2aba5b9ec8aec7166ccc784be603071a30c490b859dd83318"
+      },
+      {
+        "file": "components/search/index.js",
+        "bytes": 892,
+        "sha256": "cb79296f7c01587f35d8f04a0b043dedf04dcfb265eb23d4898941fde8db3f48"
+      },
+      {
+        "file": "core/search.js",
+        "bytes": 697,
+        "sha256": "bf46d8424106c7507963a486bc5efe7994014dd6e2d95c41ef765d92aef4d2ec"
+      },
+      {
+        "file": "core/lazy-widgets.js",
+        "bytes": 2470,
+        "sha256": "8c2932dec436bdbaa746d72c5a9ad6f1730fb4ab24b23f6dea7582ed3c91b888"
+      },
+      {
+        "file": "components/timer/index.js",
+        "bytes": 1287,
+        "sha256": "b2bb0123d632ffd572f923cd594638e320394b8de9829fb4cc1a6a97c9527300"
+      },
+      {
+        "file": "core/features.js",
+        "bytes": 1599,
+        "sha256": "4bae80bc44712c91338408413a33a4504d7f68a5a2ae30ba2e90cb2dd3fa1c67"
+      },
+      {
+        "file": "core/config.js",
+        "bytes": 116,
+        "sha256": "04d76b3f506d97761caf4c1c68cea9ea9ef5c9d2d8ff195cfba373570093f9f2"
+      },
+      {
+        "file": "components/flow/index.js",
+        "bytes": 6468,
+        "sha256": "3403693db967e7f309b871bf6430b079919d4f2eaf4777d9e6a41dcf87134487"
+      },
+      {
+        "file": "core/scenes.js",
+        "bytes": 2946,
+        "sha256": "1875d4a2eee3cfa7907d6750a6b696a5931bd7c38e1678c0d84e91f9fc76c9e2"
+      },
+      {
+        "file": "core/layout.js",
+        "bytes": 965,
+        "sha256": "a007173145e339eefc866d887b0708b3b3263c35242ce796b863732783e4ba56"
+      },
+      {
+        "file": "core/diagnostics.js",
+        "bytes": 1559,
+        "sha256": "c4bae94444e41449f7f08e866a61c93256c1bf83ed507a95e30269985cd56250"
+      },
+      {
+        "file": "core/dashboard-view.js",
+        "bytes": 3172,
+        "sha256": "24a2bb038f63b6789e2b74bb510c5de04859ed7178df2519cab632b155847d46"
+      },
+      {
+        "file": "core/home-menu.js",
+        "bytes": 1375,
+        "sha256": "44506f20094f6e8d36fd7b79c654c2250cbd2d6c68e711bcf8166813325557aa"
+      },
+      {
+        "file": "core/notifications.js",
+        "bytes": 1710,
+        "sha256": "2b87e9f0d22d68c43c52e887cfdc997624f2892f88eb135f209b5e2c54572a5b"
+      }
+    ]
+  },
+  "browsers": [
+    {
+      "browser": "chrome",
+      "executablePath": "C:/Program Files/Google/Chrome/Application/chrome.exe",
+      "timingsMs": [
+        340.90000000596046,
+        492.09999999403954,
+        437.5,
+        381.7000000178814,
+        336.59999999403954,
+        537,
+        1439,
+        259.7000000178814
+      ],
+      "stages": [
+        {
+          "marks": {
+            "oneflow-script-ready": 312,
+            "oneflow-storage-ready": 319.09999999403954,
+            "oneflow-ready": 340.90000000596046
+          },
+          "navigation": {
+            "name": "chrome-extension://agcifphmnedlnmgjlnpkmfkhphfhlfin/newtab/index.html",
+            "entryType": "navigation",
+            "startTime": 0,
+            "duration": 537.4000000059605,
+            "navigationId": 9440,
+            "initiatorType": "navigation",
+            "deliveryType": "",
+            "nextHopProtocol": "",
+            "renderBlockingStatus": "non-blocking",
+            "contentType": "text/html",
+            "contentEncoding": "",
+            "workerStart": 0,
+            "workerRouterEvaluationStart": 0,
+            "workerCacheLookupStart": 0,
+            "workerMatchedSourceType": "",
+            "workerFinalSourceType": "",
+            "redirectStart": 0,
+            "redirectEnd": 0,
+            "fetchStart": 1.4000000059604645,
+            "domainLookupStart": 1.4000000059604645,
+            "domainLookupEnd": 1.4000000059604645,
+            "connectStart": 1.4000000059604645,
+            "secureConnectionStart": 1.4000000059604645,
+            "connectEnd": 1.4000000059604645,
+            "requestStart": 1.4000000059604645,
+            "responseStart": 1.4000000059604645,
+            "firstInterimResponseStart": 0,
+            "finalResponseHeadersStart": 0,
+            "responseEnd": 13.800000011920929,
+            "transferSize": 5399,
+            "encodedBodySize": 5099,
+            "decodedBodySize": 5099,
+            "responseStatus": 200,
+            "serverTiming": [],
+            "unloadEventStart": 31.400000005960464,
+            "unloadEventEnd": 31.400000005960464,
+            "domInteractive": 61.19999998807907,
+            "domContentLoadedEventStart": 313.80000001192093,
+            "domContentLoadedEventEnd": 314,
+            "domComplete": 537.3000000119209,
+            "loadEventStart": 537.4000000059605,
+            "loadEventEnd": 537.4000000059605,
+            "type": "reload",
+            "redirectCount": 0,
+            "activationStart": 0,
+            "criticalCHRestart": 0,
+            "notRestoredReasons": null,
+            "confidence": {
+              "randomizedTriggerRate": 0.4994798,
+              "value": "high"
+            }
+          }
+        },
+        {
+          "marks": {
+            "oneflow-script-ready": 429.19999998807907,
+            "oneflow-storage-ready": 458.90000000596046,
+            "oneflow-ready": 492.09999999403954
+          },
+          "navigation": {
+            "name": "chrome-extension://agcifphmnedlnmgjlnpkmfkhphfhlfin/newtab/index.html",
+            "entryType": "navigation",
+            "startTime": 0,
+            "duration": 840.6999999880791,
+            "navigationId": 3480,
+            "initiatorType": "navigation",
+            "deliveryType": "",
+            "nextHopProtocol": "",
+            "renderBlockingStatus": "non-blocking",
+            "contentType": "text/html",
+            "contentEncoding": "",
+            "workerStart": 0,
+            "workerRouterEvaluationStart": 0,
+            "workerCacheLookupStart": 0,
+            "workerMatchedSourceType": "",
+            "workerFinalSourceType": "",
+            "redirectStart": 0,
+            "redirectEnd": 0,
+            "fetchStart": 1,
+            "domainLookupStart": 1,
+            "domainLookupEnd": 1,
+            "connectStart": 1,
+            "secureConnectionStart": 1,
+            "connectEnd": 1,
+            "requestStart": 1,
+            "responseStart": 1,
+            "firstInterimResponseStart": 0,
+            "finalResponseHeadersStart": 0,
+            "responseEnd": 25.69999998807907,
+            "transferSize": 5399,
+            "encodedBodySize": 5099,
+            "decodedBodySize": 5099,
+            "responseStatus": 200,
+            "serverTiming": [],
+            "unloadEventStart": 53.29999998211861,
+            "unloadEventEnd": 53.29999998211861,
+            "domInteractive": 114.5,
+            "domContentLoadedEventStart": 433,
+            "domContentLoadedEventEnd": 433.19999998807907,
+            "domComplete": 840.5999999940395,
+            "loadEventStart": 840.6999999880791,
+            "loadEventEnd": 840.6999999880791,
+            "type": "reload",
+            "redirectCount": 0,
+            "activationStart": 0,
+            "criticalCHRestart": 0,
+            "notRestoredReasons": null,
+            "confidence": {
+              "randomizedTriggerRate": 0.4994798,
+              "value": "high"
+            }
+          }
+        },
+        {
+          "marks": {
+            "oneflow-script-ready": 397.40000000596046,
+            "oneflow-storage-ready": 409.40000000596046,
+            "oneflow-ready": 437.5
+          },
+          "navigation": {
+            "name": "chrome-extension://agcifphmnedlnmgjlnpkmfkhphfhlfin/newtab/index.html",
+            "entryType": "navigation",
+            "startTime": 0,
+            "duration": 527.5999999940395,
+            "navigationId": 9366,
+            "initiatorType": "navigation",
+            "deliveryType": "",
+            "nextHopProtocol": "",
+            "renderBlockingStatus": "non-blocking",
+            "contentType": "text/html",
+            "contentEncoding": "",
+            "workerStart": 0,
+            "workerRouterEvaluationStart": 0,
+            "workerCacheLookupStart": 0,
+            "workerMatchedSourceType": "",
+            "workerFinalSourceType": "",
+            "redirectStart": 0,
+            "redirectEnd": 0,
+            "fetchStart": 1.5999999940395355,
+            "domainLookupStart": 1.5999999940395355,
+            "domainLookupEnd": 1.5999999940395355,
+            "connectStart": 1.5999999940395355,
+            "secureConnectionStart": 1.5999999940395355,
+            "connectEnd": 1.5999999940395355,
+            "requestStart": 1.5999999940395355,
+            "responseStart": 1.5999999940395355,
+            "firstInterimResponseStart": 0,
+            "finalResponseHeadersStart": 0,
+            "responseEnd": 30.299999982118607,
+            "transferSize": 5399,
+            "encodedBodySize": 5099,
+            "decodedBodySize": 5099,
+            "responseStatus": 200,
+            "serverTiming": [],
+            "unloadEventStart": 52.79999998211861,
+            "unloadEventEnd": 52.79999998211861,
+            "domInteractive": 108.40000000596046,
+            "domContentLoadedEventStart": 402.59999999403954,
+            "domContentLoadedEventEnd": 402.69999998807907,
+            "domComplete": 527.2999999821186,
+            "loadEventStart": 527.5999999940395,
+            "loadEventEnd": 527.5999999940395,
+            "type": "reload",
+            "redirectCount": 0,
+            "activationStart": 0,
+            "criticalCHRestart": 0,
+            "notRestoredReasons": null,
+            "confidence": {
+              "randomizedTriggerRate": 0.4994798,
+              "value": "low"
+            }
+          }
+        },
+        {
+          "marks": {
+            "oneflow-script-ready": 333.7000000178814,
+            "oneflow-storage-ready": 350.30000001192093,
+            "oneflow-ready": 381.7000000178814
+          },
+          "navigation": {
+            "name": "chrome-extension://agcifphmnedlnmgjlnpkmfkhphfhlfin/newtab/index.html",
+            "entryType": "navigation",
+            "startTime": 0,
+            "duration": 484.7000000178814,
+            "navigationId": 776,
+            "initiatorType": "navigation",
+            "deliveryType": "",
+            "nextHopProtocol": "",
+            "renderBlockingStatus": "non-blocking",
+            "contentType": "text/html",
+            "contentEncoding": "",
+            "workerStart": 0,
+            "workerRouterEvaluationStart": 0,
+            "workerCacheLookupStart": 0,
+            "workerMatchedSourceType": "",
+            "workerFinalSourceType": "",
+            "redirectStart": 0,
+            "redirectEnd": 0,
+            "fetchStart": 1.5,
+            "domainLookupStart": 1.5,
+            "domainLookupEnd": 1.5,
+            "connectStart": 1.5,
+            "secureConnectionStart": 1.5,
+            "connectEnd": 1.5,
+            "requestStart": 1.5,
+            "responseStart": 1.5,
+            "firstInterimResponseStart": 0,
+            "finalResponseHeadersStart": 0,
+            "responseEnd": 13.100000023841858,
+            "transferSize": 5399,
+            "encodedBodySize": 5099,
+            "decodedBodySize": 5099,
+            "responseStatus": 200,
+            "serverTiming": [],
+            "unloadEventStart": 33.80000001192093,
+            "unloadEventEnd": 33.80000001192093,
+            "domInteractive": 79.7000000178814,
+            "domContentLoadedEventStart": 337.2000000178814,
+            "domContentLoadedEventEnd": 337.5,
+            "domComplete": 484.60000002384186,
+            "loadEventStart": 484.7000000178814,
+            "loadEventEnd": 484.7000000178814,
+            "type": "reload",
+            "redirectCount": 0,
+            "activationStart": 0,
+            "criticalCHRestart": 0,
+            "notRestoredReasons": null,
+            "confidence": {
+              "randomizedTriggerRate": 0.4994798,
+              "value": "low"
+            }
+          }
+        },
+        {
+          "marks": {
+            "oneflow-script-ready": 290.5,
+            "oneflow-storage-ready": 302.90000000596046,
+            "oneflow-ready": 336.59999999403954
+          },
+          "navigation": {
+            "name": "chrome-extension://agcifphmnedlnmgjlnpkmfkhphfhlfin/newtab/index.html",
+            "entryType": "navigation",
+            "startTime": 0,
+            "duration": 417.7999999821186,
+            "navigationId": 8146,
+            "initiatorType": "navigation",
+            "deliveryType": "",
+            "nextHopProtocol": "",
+            "renderBlockingStatus": "non-blocking",
+            "contentType": "text/html",
+            "contentEncoding": "",
+            "workerStart": 0,
+            "workerRouterEvaluationStart": 0,
+            "workerCacheLookupStart": 0,
+            "workerMatchedSourceType": "",
+            "workerFinalSourceType": "",
+            "redirectStart": 0,
+            "redirectEnd": 0,
+            "fetchStart": 0.5999999940395355,
+            "domainLookupStart": 0.5999999940395355,
+            "domainLookupEnd": 0.5999999940395355,
+            "connectStart": 0.5999999940395355,
+            "secureConnectionStart": 0.5999999940395355,
+            "connectEnd": 0.5999999940395355,
+            "requestStart": 0.5999999940395355,
+            "responseStart": 0.5999999940395355,
+            "firstInterimResponseStart": 0,
+            "finalResponseHeadersStart": 0,
+            "responseEnd": 14.5,
+            "transferSize": 5399,
+            "encodedBodySize": 5099,
+            "decodedBodySize": 5099,
+            "responseStatus": 200,
+            "serverTiming": [],
+            "unloadEventStart": 38.400000005960464,
+            "unloadEventEnd": 38.400000005960464,
+            "domInteractive": 96.7999999821186,
+            "domContentLoadedEventStart": 294.2999999821186,
+            "domContentLoadedEventEnd": 294.59999999403954,
+            "domComplete": 417.7999999821186,
+            "loadEventStart": 417.7999999821186,
+            "loadEventEnd": 417.7999999821186,
+            "type": "reload",
+            "redirectCount": 0,
+            "activationStart": 0,
+            "criticalCHRestart": 0,
+            "notRestoredReasons": null,
+            "confidence": {
+              "randomizedTriggerRate": 0.4994798,
+              "value": "high"
+            }
+          }
+        },
+        {
+          "marks": {
+            "oneflow-script-ready": 469.19999998807907,
+            "oneflow-storage-ready": 503.7999999821186,
+            "oneflow-ready": 537
+          },
+          "navigation": {
+            "name": "chrome-extension://agcifphmnedlnmgjlnpkmfkhphfhlfin/newtab/index.html",
+            "entryType": "navigation",
+            "startTime": 0,
+            "duration": 667.4000000059605,
+            "navigationId": 6377,
+            "initiatorType": "navigation",
+            "deliveryType": "",
+            "nextHopProtocol": "",
+            "renderBlockingStatus": "non-blocking",
+            "contentType": "text/html",
+            "contentEncoding": "",
+            "workerStart": 0,
+            "workerRouterEvaluationStart": 0,
+            "workerCacheLookupStart": 0,
+            "workerMatchedSourceType": "",
+            "workerFinalSourceType": "",
+            "redirectStart": 0,
+            "redirectEnd": 0,
+            "fetchStart": 1.199999988079071,
+            "domainLookupStart": 1.199999988079071,
+            "domainLookupEnd": 1.199999988079071,
+            "connectStart": 1.199999988079071,
+            "secureConnectionStart": 1.199999988079071,
+            "connectEnd": 1.199999988079071,
+            "requestStart": 1.199999988079071,
+            "responseStart": 1.199999988079071,
+            "firstInterimResponseStart": 0,
+            "finalResponseHeadersStart": 0,
+            "responseEnd": 32.5,
+            "transferSize": 5399,
+            "encodedBodySize": 5099,
+            "decodedBodySize": 5099,
+            "responseStatus": 200,
+            "serverTiming": [],
+            "unloadEventStart": 47.5,
+            "unloadEventEnd": 47.5,
+            "domInteractive": 97.5,
+            "domContentLoadedEventStart": 488.2999999821186,
+            "domContentLoadedEventEnd": 488.5,
+            "domComplete": 667.4000000059605,
+            "loadEventStart": 667.4000000059605,
+            "loadEventEnd": 667.4000000059605,
+            "type": "reload",
+            "redirectCount": 0,
+            "activationStart": 0,
+            "criticalCHRestart": 0,
+            "notRestoredReasons": null,
+            "confidence": {
+              "randomizedTriggerRate": 0.4994798,
+              "value": "high"
+            }
+          }
+        },
+        {
+          "marks": {
+            "oneflow-script-ready": 1339.9000000059605,
+            "oneflow-storage-ready": 1398.699999988079,
+            "oneflow-ready": 1439
+          },
+          "navigation": {
+            "name": "chrome-extension://agcifphmnedlnmgjlnpkmfkhphfhlfin/newtab/index.html",
+            "entryType": "navigation",
+            "startTime": 0,
+            "duration": 1389,
+            "navigationId": 8801,
+            "initiatorType": "navigation",
+            "deliveryType": "",
+            "nextHopProtocol": "",
+            "renderBlockingStatus": "non-blocking",
+            "contentType": "text/html",
+            "contentEncoding": "",
+            "workerStart": 0,
+            "workerRouterEvaluationStart": 0,
+            "workerCacheLookupStart": 0,
+            "workerMatchedSourceType": "",
+            "workerFinalSourceType": "",
+            "redirectStart": 0,
+            "redirectEnd": 0,
+            "fetchStart": 1.300000011920929,
+            "domainLookupStart": 1.300000011920929,
+            "domainLookupEnd": 1.300000011920929,
+            "connectStart": 1.300000011920929,
+            "secureConnectionStart": 1.300000011920929,
+            "connectEnd": 1.300000011920929,
+            "requestStart": 1.300000011920929,
+            "responseStart": 1.300000011920929,
+            "firstInterimResponseStart": 0,
+            "finalResponseHeadersStart": 0,
+            "responseEnd": 73.69999998807907,
+            "transferSize": 5399,
+            "encodedBodySize": 5099,
+            "decodedBodySize": 5099,
+            "responseStatus": 200,
+            "serverTiming": [],
+            "unloadEventStart": 102.40000000596046,
+            "unloadEventEnd": 102.40000000596046,
+            "domInteractive": 154.69999998807907,
+            "domContentLoadedEventStart": 1353.300000011921,
+            "domContentLoadedEventEnd": 1354,
+            "domComplete": 1389,
+            "loadEventStart": 1389,
+            "loadEventEnd": 1389,
+            "type": "reload",
+            "redirectCount": 0,
+            "activationStart": 0,
+            "criticalCHRestart": 0,
+            "notRestoredReasons": null,
+            "confidence": {
+              "randomizedTriggerRate": 0.4994798,
+              "value": "high"
+            }
+          }
+        },
+        {
+          "marks": {
+            "oneflow-script-ready": 231.90000000596046,
+            "oneflow-storage-ready": 244.90000000596046,
+            "oneflow-ready": 259.7000000178814
+          },
+          "navigation": {
+            "name": "chrome-extension://agcifphmnedlnmgjlnpkmfkhphfhlfin/newtab/index.html",
+            "entryType": "navigation",
+            "startTime": 0,
+            "duration": 336,
+            "navigationId": 5748,
+            "initiatorType": "navigation",
+            "deliveryType": "",
+            "nextHopProtocol": "",
+            "renderBlockingStatus": "non-blocking",
+            "contentType": "text/html",
+            "contentEncoding": "",
+            "workerStart": 0,
+            "workerRouterEvaluationStart": 0,
+            "workerCacheLookupStart": 0,
+            "workerMatchedSourceType": "",
+            "workerFinalSourceType": "",
+            "redirectStart": 0,
+            "redirectEnd": 0,
+            "fetchStart": 0.5999999940395355,
+            "domainLookupStart": 0.5999999940395355,
+            "domainLookupEnd": 0.5999999940395355,
+            "connectStart": 0.5999999940395355,
+            "secureConnectionStart": 0.5999999940395355,
+            "connectEnd": 0.5999999940395355,
+            "requestStart": 0.5999999940395355,
+            "responseStart": 0.5999999940395355,
+            "firstInterimResponseStart": 0,
+            "finalResponseHeadersStart": 0,
+            "responseEnd": 14.900000005960464,
+            "transferSize": 5399,
+            "encodedBodySize": 5099,
+            "decodedBodySize": 5099,
+            "responseStatus": 200,
+            "serverTiming": [],
+            "unloadEventStart": 26.599999994039536,
+            "unloadEventEnd": 26.599999994039536,
+            "domInteractive": 40.900000005960464,
+            "domContentLoadedEventStart": 233.90000000596046,
+            "domContentLoadedEventEnd": 234,
+            "domComplete": 335.90000000596046,
+            "loadEventStart": 336,
+            "loadEventEnd": 336,
+            "type": "reload",
+            "redirectCount": 0,
+            "activationStart": 0,
+            "criticalCHRestart": 0,
+            "notRestoredReasons": null,
+            "confidence": {
+              "randomizedTriggerRate": 0.4994798,
+              "value": "high"
+            }
+          }
+        }
+      ],
+      "errors": [],
+      "externalRequests": [],
+      "version": "154.0.8037.98",
+      "home": {
+        "visible": {
+          "greeting": true,
+          "clock": true,
+          "date": true,
+          "focus": true,
+          "search": true,
+          "quote": true,
+          "journal": true,
+          "bottomLeft": true,
+          "more": true,
+          "settings": false,
+          "brand": false
+        },
+        "homeShade": "0.6",
+        "sceneTextShade": ".70",
+        "headingWeight": "600",
+        "font": "\"Segoe UI\", system-ui, -apple-system, \"SF Pro Text\", Roboto, \"Helvetica Neue\", Arial, sans-serif",
+        "readability": "linear-gradient(90deg, rgba(0, 0, 0, 0) 8%, rgba(12, 22, 19, 0.192) 38%, rgba(12, 22, 19, 0.192) 62%, rgba(0, 0, 0, 0) 92%), linear-gradient(rgba(12, 22, 19, 0.24), rgba(12, 22, 19, 0.24))"
+      },
+      "medianMs": 409.6000000089407,
+      "maxMs": 1439,
+      "startupPass": false,
+      "loadPass": true
+    }
+  ]
+}

@@ -4,17 +4,10 @@ import { field, toggle, select, act, confirmAction } from '../../core/ui.js';
 import { put, getAll, remove } from '../../core/db.js';
 import { emit } from '../../core/events.js';
 import { liveWallpaperCatalog } from '../../core/background-presentation.js';
+import { validateVideo } from '../../core/media-validation.js';
+export { validateVideo } from '../../core/media-validation.js';
 const set = (group,key,value) => update(data => { data.settings[group][key] = value; });
 /** Reject corrupt or unsupported files before storing them as a wallpaper. */
-export async function validateVideo(file) {
-  const url = URL.createObjectURL(file), video = document.createElement('video'); video.preload = 'metadata';
-  try { await new Promise((resolve,reject) => {
-    const timeout = setTimeout(() => reject(new Error('This video could not be opened. Try another MP4 or WebM.')),8000);
-    video.onloadedmetadata = () => { clearTimeout(timeout); video.videoWidth > 0 ? resolve() : reject(new Error('Choose a video with a visible picture.')); };
-    video.onerror = () => { clearTimeout(timeout); reject(new Error('Unsupported or damaged video. Try another MP4 or WebM.')); };
-    video.src = url;
-  }); } finally { video.removeAttribute('src'); video.load(); URL.revokeObjectURL(url); }
-}
 function slider(body,group,key,label,min,max,step=1) {
   const value = get().settings[group][key], output = el('output',{},String(value));
   const control = el('input',{ type:'range',min,max,step,value,'aria-label':label,oninput:event => { output.textContent = event.target.value; },onchange:act(event => set(group,key,Number(event.target.value))) });

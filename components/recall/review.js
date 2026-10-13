@@ -17,7 +17,7 @@ export async function open(){
     const due=r.concepts.filter(c=>c.due<=Date.now()),count=linkedSessions('recall',r.id,sessions).length,box=section(r.name,message(`${due.length} prompts due · ${count} study sessions${r.exam?` · Exam in ${Math.ceil((new Date(r.exam+'T00:00:00')-Date.now())/86400000)} days`:''}`));
     const review=reviewPage(r,due.length?due:r.concepts),concepts=el('div',{class:'stack'}),materials=el('div',{class:'stack'},el('p',{},r.material));
     for(const id of r.noteIds){const n=notes.find(n=>n.id===id);materials.append(message(n?`Linked Note: ${n.title||'Untitled note'}`:'A linked note is no longer available.'));}materials.append(button('Open Notes',()=>openFeature('notes')));
-    const map=el('div',{class:'concept-map','aria-label':'Concept constellation'});concepts.append(map);
+    const map=el('div',{class:'concept-map',role:'group','aria-label':'Concept constellation'});concepts.append(map);
     for(const c of r.concepts){
       const q=input(c.question,500),answer=area(c.answer,5000),card=el('details',{class:'concept-card'},el('summary',{},`${c.confidence<=1?'○':'●'} ${c.question}`));
       card.append(message(`Confidence ${c.confidence}/3 · Review ${new Date(c.due).toLocaleDateString()}`),field('Recall question',q),field('Answer',answer),button('Save concept',async()=>{await editJourney('rooms',r.id,x=>{const a=x.concepts.find(v=>v.id===c.id);a.question=requireText(q,'a question');a.answer=answer.value;});await open();}),button('Study this concept for 15 minutes',()=>beginJourney('recall',r.id,q.value,15,c.id)));map.append(card);

@@ -4,9 +4,9 @@ import { SOUND_NAMES } from '../../core/stage2-schema.js';
 import { backgroundSync } from '../../core/timer-client.js';
 import { el } from '../../core/utils.js';
 import { resumePanel, openPanel, field, select, act, watch, icon } from '../../core/ui.js';
-import { emit } from '../../core/events.js';
+import { emit, on } from '../../core/events.js';
 import { tabs } from '../panel-design/index.js';
-let preview, off, play, mixer, master, sleepStatus, sleepControl, mixesView, lastMixes;
+let preview, off, offResume, play, mixer, master, sleepStatus, sleepControl, mixesView, lastMixes;
 const labels = { rain: translate('m0439'), cafe: translate('m0667'), fireplace: translate('m0440'), forest: translate('m0441'), ocean: translate('m0442'), white: translate('m0443'), brown: translate('m0444') };
 const symbols = { rain: 'cloud-rain', cafe: 'coffee', fireplace: 'flame', forest: 'trees', ocean: 'waves', white: 'cloud', brown: 'leaf' };
 async function apply() {
@@ -60,5 +60,5 @@ export function open() {
     el('small', { class: 'muted' }, translate('m0456')));
   openPanel(translate('m0457'), 'sounds', content, () => { play = mixer = master = sleepStatus = sleepControl = mixesView = null; }); render();
 }
-export function init() { off = watch(d => [d.audio,d.settings.studio.soundscapes], render); }
-export function destroy() { off?.(); play = mixer = master = sleepStatus = sleepControl = mixesView = null; if (get().audio.playing) update(d => { d.audio.playing = false; }).then(apply).catch(error => emit('error', error)); }
+export function init() { off = watch(d => [d.audio,d.settings.studio.soundscapes], render); offResume=on('panel:resume',name=>{if(name==='sounds')render();}); }
+export function destroy() { off?.();offResume?.(); play = mixer = master = sleepStatus = sleepControl = mixesView = null; if (get().audio.playing) update(d => { d.audio.playing = false; }).then(apply).catch(error => emit('error', error)); }

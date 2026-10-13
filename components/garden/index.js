@@ -8,7 +8,7 @@ import { library } from '../panel-design/index.js';
 export async function open(){
   const data=await workspace('garden','Idea Garden','Collect fragments, let them incubate, and choose which ideas deserve a focus session. Related ideas share words in their titles.');if(!data)return;const {root,j,notes}=data;
   const title=input(),text=area('',10000),url=input('',4096,'url'),file=el('input',{type:'file',accept:'image/png,image/jpeg,image/webp'}),canvas=el('canvas',{width:600,height:240,class:'idea-sketch','aria-label':'Sketch pad; use the text field as a keyboard alternative'});let drawn=false;
-  const ctx=canvas.getContext('2d');ctx.strokeStyle='#555';ctx.lineWidth=3;let drawing=false;
+  const ctx=canvas.getContext('2d');ctx.strokeStyle=getComputedStyle(document.documentElement).getPropertyValue('--sketch-ink').trim();ctx.lineWidth=3;let drawing=false;
   const point=e=>{const r=canvas.getBoundingClientRect();return [(e.clientX-r.left)*600/r.width,(e.clientY-r.top)*240/r.height];};
   canvas.addEventListener('pointerdown',e=>{drawing=true;drawn=true;ctx.strokeStyle=getComputedStyle(canvas).getPropertyValue('--text').trim();canvas.setPointerCapture(e.pointerId);ctx.beginPath();ctx.moveTo(...point(e));});canvas.addEventListener('pointermove',e=>{if(drawing){ctx.lineTo(...point(e));ctx.stroke();}});canvas.addEventListener('pointerup',()=>{drawing=false;});canvas.addEventListener('pointercancel',()=>{drawing=false;});
   const sketch=el('details',{},el('summary',{},'Add a sketch'),canvas,button('Clear sketch',()=>{ctx.clearRect(0,0,600,240);drawn=false;}));

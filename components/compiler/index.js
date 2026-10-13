@@ -5,7 +5,7 @@ import { makeNote, saveNote } from '../../core/notes.js';
 import { updateWork } from '../../core/storage.js';
 import { select, closePanel } from '../../core/ui.js';
 import { emit } from '../../core/events.js';
-import { getRecord, put } from '../../core/db.js';
+import { updateJournal } from '../../core/journal.js';
 import { dayKey } from '../../core/utils.js';
 import { shell, el, field, action, section, message, saving } from '../workbench/shared.js';
 let draft='';
@@ -41,7 +41,7 @@ function draw(root,proposal){
   const exports=el('details',{},el('summary',{},'Keep a copy'));
   root.append(el('div',{class:'work-actions'},save,start),message(`Actions retain your selected Scene (${get().sceneId}). Save a Focus Capsule to return to the full environment.`),exports);exports.append(saving(action('Save brief as a note',()=>{}),async()=>{await saveNote(makeNote({title:outcome.value.slice(0,120),text:draft}));emit('toast','Brief saved to Notes.');}),saving(action('Save outline to today’s journal',()=>{}),async()=>{
     const line=[outcome.value,...rows.map((r,i)=>`${i+1}. ${r.text.value} (${r.minutes.value} min)`)].join('\n');
-    await navigator.locks.request('oneflow-backup',async()=>{const id=dayKey(),old=await getRecord('journal',id);const text=[old?.text,line].filter(Boolean).join('\n\n');if(text.length>20000)throw new Error('Today’s journal is full. Save this brief as a note instead.');await put('journal',{id,date:id,text,prompt:old?.prompt||'',updatedAt:Date.now()});});emit('toast','Outline added to today’s journal.');
+    await updateJournal(dayKey(),old=>({text:[old?.text,line].filter(Boolean).join('\n\n')}));emit('toast','Outline added to today’s journal.');
   }));
 }
 export function init(){}

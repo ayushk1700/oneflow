@@ -1,0 +1,14 @@
+{
+  "checks": [
+    "Stats resizes on keyboard return, retains range/context, and reads new history on resume",
+    "Proof reads freshly changed evidence/session references and exports only explicitly approved lines",
+    "Skill progress exposes recorded confidence and a dated review in a semantic group",
+    "Concurrent Customize/Layout opens create one editor; Cancel restores visible focus; late opening cannot replace another tool",
+    "A player load pending during tool exit cannot reconnect on return; the URL draft remains",
+    "Sounds refreshes a previously focused master control; scene apply/undo preserve the running session and deadline",
+    "Toasts remain operable inside modals, pause for hover/focus, and keep errors until dismissed",
+    "Notifications cap at 40, filter and confirm clearing; compact reduced-motion Stats fits with no unwanted network calls"
+  ],
+  "errors": [],
+  "requests": []
+}

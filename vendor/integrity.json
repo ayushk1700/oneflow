@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "dependencies": [
+    {
+      "name": "chart.js",
+      "version": "4.4.8",
+      "source": "https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.js",
+      "runtime": true,
+      "files": [
+        {
+          "path": "vendor/chart.js/4.4.8/chart.umd.js",
+          "sha256": "15ed63b3bf30a1f713ecab70e1d2e49b79eeaa602941ad34f9eae2773778e2b9"
+        },
+        {
+          "path": "vendor/chart.js/4.4.8/LICENSE.md",
+          "sha256": "41a84aa2caba645f966a18d9c2056b73e6d3a81d80bc0046bc0011a2634d4cce"
+        }
+      ],
+      "localPatch": "ONEFLOW-1: reject prototype segments and route property names in Defaults APIs",
+      "prePatchSha256": "e4cf4d144b222634f2e64ff707cd57b953f8de4b65b231cd5ac6bde114648e4d",
+      "patchReference": "https://github.com/chartjs/Chart.js/issues/12265"
+    },
+    {
+      "name": "tailwindcss",
+      "version": "3.4.17",
+      "source": "https://github.com/tailwindlabs/tailwindcss/releases/tag/v3.4.17",
+      "runtime": true,
+      "files": [
+        {
+          "path": "vendor/tailwindcss/3.4.17/tailwind.min.css",
+          "sha256": "32b0626cd23ba68e1ccf4be3330bf87b603da06e31ee6952848c7bfd0af436aa"
+        },
+        {
+          "path": "vendor/tailwindcss/3.4.17/LICENSE",
+          "sha256": "60e0b68c0f35c078eef3a5d29419d0b03ff84ec1df9c3f9d6e39a519a5ae7985"
+        }
+      ]
+    },
+    {
+      "name": "sortablejs",
+      "version": "1.15.6",
+      "source": "https://cdn.jsdelivr.net/npm/sortablejs@1.15.6/Sortable.min.js",
+      "runtime": false,
+      "files": [
+        {
+          "path": "vendor/sortablejs/1.15.6/Sortable.min.js",
+          "sha256": "6d0a831fc19b4bae851797ad3393157e861afb7862459c11226359b27e2c4337"
+        },
+        {
+          "path": "vendor/sortablejs/1.15.6/LICENSE",
+          "sha256": "e94dfc31e800d169257569db270457c9f028440c9ccae41e7eb78b2db18f1298"
+        }
+      ]
+    },
+    {
+      "name": "canvas-confetti",
+      "version": "1.9.3",
+      "source": "https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js",
+      "runtime": false,
+      "files": [
+        {
+          "path": "vendor/canvas-confetti/1.9.3/confetti.browser.min.js",
+          "sha256": "cfc4a191c3ae300777c25e27aa81cb2d25bb898c8632aa61787f305876a981c8"
+        },
+        {
+          "path": "vendor/canvas-confetti/1.9.3/LICENSE",
+          "sha256": "fd44477c30a832a1dee9ef0b6cfb34677fbe5ef58c0cf655d27c646f11bb2f7a"
+        }
+      ]
+    },
+    {
+      "name": "lucide",
+      "version": "0.468.0",
+      "source": "https://cdn.jsdelivr.net/npm/lucide@0.468.0/dist/umd/lucide.min.js",
+      "runtime": false,
+      "files": [
+        {
+          "path": "vendor/lucide/0.468.0/lucide.min.js",
+          "sha256": "3411692820cb8d47543f69496aa25fd603a358f4498046f41c508a5a3342210e"
+        },
+        {
+          "path": "vendor/lucide/0.468.0/LICENSE",
+          "sha256": "1e7290b35280a048667bbf0ebabac1c7fd52a75300e8b2946ac165715997f2bc"
+        }
+      ]
+    }
+  ]
+}

@@ -1,4 +1,5 @@
 import { t as translate } from './i18n.js';
+import { checkBackupSize, MAX_BACKUP_BYTES } from './backup-limits.js';
 const encoder = new TextEncoder(),
   decoder = new TextDecoder(),
   iterations = 310000;
@@ -22,6 +23,7 @@ async function derive(passphrase, salt) {
 }
 /** Encrypt locally; a forgotten passphrase cannot be recovered. */
 export async function encryptBackup(text, passphrase) {
+  checkBackupSize(text);
   if (passphrase.length < 12) throw new Error(translate('m0012'));
   const salt = crypto.getRandomValues(new Uint8Array(16)),
     iv = crypto.getRandomValues(new Uint8Array(12)),
@@ -43,12 +45,13 @@ export async function encryptBackup(text, passphrase) {
 }
 /** Authenticate the entire ciphertext before returning any backup contents. */
 export async function decryptBackup(text, passphrase) {
-  if (new Blob([text]).size > 60 * 1024 * 1024) throw new Error(translate('m0013'));
+  checkBackupSize(text, true);
   const box = JSON.parse(text);
   if (box.app !== translate('m0630') || box.encrypted !== 1 || box.iterations !== iterations || box.kdf !== 'PBKDF2-SHA256' || box.cipher !== 'AES-256-GCM' || !['salt', 'iv', 'data'].every(k => typeof box[k] === 'string' && /^[A-Za-z0-9+/=]+$/.test(box[k]))) throw new Error(translate('m0014'));
   const salt = decode(box.salt),
     iv = decode(box.iv);
   if (salt.length !== 16 || iv.length !== 12) throw new Error(translate('m0015'));
+  if (box.data.length > Math.ceil((MAX_BACKUP_BYTES + 16) / 3) * 4) throw new Error('Encrypted payload exceeds the supported size.');
   try {
     return decoder.decode(await crypto.subtle.decrypt({
       name: 'AES-GCM',
