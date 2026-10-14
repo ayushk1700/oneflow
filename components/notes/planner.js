@@ -3,6 +3,8 @@ import { get, update, sessionGet } from '../../core/storage.js';
 import { getAll } from '../../core/db.js';
 import { streak, shiftDay } from '../../core/stats-logic.js';
 import { timerCommand, backgroundSync } from '../../core/timer-client.js';
+import { taskViews } from './task-views.js';
+import { completeTask } from '../../core/task-personalization.js';
 
 /** Live task/habit editors share Notes without copying IDs or completion history. */
 export function createPlanner({ editor, button, message, leave, show, dataGeneration }) {
@@ -53,11 +55,16 @@ export function createPlanner({ editor, button, message, leave, show, dataGenera
   }
 
   async function taskEditor(item) {
-    const check = el('input', { type: 'checkbox', checked: item.completed, 'aria-label': 'Task complete', onchange: event => { const completed = event.target.checked; patch('task', item.id, { completed, completedAt: completed ? Date.now() : null }); } });
+    const check = el('input', { type: 'checkbox', checked: item.completed, 'aria-label': 'Task complete', onchange: event => commit(d=>completeTask(d,item.id,event.target.checked)) });
     const list = el('select', { 'aria-label': 'Task list', onchange: event => patch('task', item.id, { listId: event.target.value }) });
     const drawLists = () => { list.replaceChildren(...get().lists.map(x => el('option', { value: x.id }, x.name))); list.value = get().tasks.find(x => x.id === item.id)?.listId || get().lists[0].id; };
     const due=el('input',{type:'date',value:item.dueDate||'','aria-label':'Task due date',onchange:event=>patch('task',item.id,{dueDate:event.target.value})}),effort=el('input',{type:'number',min:1,max:180,value:item.effort||25,'aria-label':'Estimated task minutes',onchange:event=>{const minutes=Number(event.target.value);if(!Number.isInteger(minutes)||minutes<1||minutes>180){message('Use 1–180 whole minutes.',true);return;}patch('task',item.id,{effort:minutes});}});
     drawLists(); editor.append(field('Completed', check), field('List', list),field('Due date (optional)',due),field('Estimated minutes',effort));
+    const priority=el('select',{'aria-label':'Task priority',onchange:e=>patch('task',item.id,{priority:e.target.value})},...['low','normal','high'].map(value=>el('option',{value},value)));priority.value=item.priority||'normal';
+    const tags=el('input',{'aria-label':'Task tags',maxlength:820,value:(item.tags||[]).join(', '),onchange:e=>patch('task',item.id,{tags:[...new Set(e.target.value.split(',').map(s=>s.trim()).filter(Boolean))]})});
+    const recurrence=el('select',{'aria-label':'Task recurrence',onchange:e=>patch('task',item.id,{recurrence:{frequency:e.target.value,interval:Number(interval.value)}})},...['none','daily','weekly','monthly'].map(value=>el('option',{value},value)));recurrence.value=item.recurrence?.frequency||'none';
+    const interval=el('input',{type:'number',min:1,max:30,value:item.recurrence?.interval||1,'aria-label':'Recurring interval',onchange:e=>patch('task',item.id,{recurrence:{frequency:recurrence.value,interval:Number(e.target.value)}})});
+    const subtasks=el('div'),subtext=el('input',{'aria-label':'New subtask',maxlength:240});const drawSubtasks=()=>{subtasks.replaceChildren(...(get().tasks.find(t=>t.id===item.id)?.subtasks||[]).map(sub=>el('label',{},el('input',{type:'checkbox',checked:sub.completed,onchange:e=>commit(d=>{const task=record(d,'task',item.id);task.subtasks.find(s=>s.id===sub.id).completed=e.target.checked;})}),sub.text)));};drawSubtasks();editor.append(field('Priority',priority),field('Tags',tags),field('Recurring rule',recurrence),field('Repeat every',interval),el('h3',{},'Subtasks'),subtasks,subtext,button('Add subtask',async()=>{if(!subtext.value.trim())throw new Error('Write a subtask first.');const text=subtext.value.trim();await commit(d=>{const task=record(d,'task',item.id);(task.subtasks??=[]).push({id:uid(),text,completed:false});});subtext.value='';drawSubtasks();}));
     const name = el('input', { maxlength: 80, 'aria-label': 'List name', placeholder: 'List name' });
     editor.append(el('details', {}, el('summary', {}, 'Manage lists'), el('div', {}, name, el('div', { class: 'row' },
       button('Create list', async () => { if (!name.value.trim()) throw new Error('Enter a list name.'); const value = name.value.trim(), id = uid(); await commit(d => { d.lists.push({ id, name: value }); record(d, 'task', item.id).listId = id; }); drawLists(); }),
@@ -93,11 +100,12 @@ export function createPlanner({ editor, button, message, leave, show, dataGenera
     draw(); editor.append(count, week, field('Daily reminder (local time)', reminder), el('small', {}, 'Leave the reminder blank to turn it off. Your full check-in history is retained.'));
   }
 
-  async function startTask(id){await flush();const task=get().tasks.find(t=>t.id===id&&!t.completed);if(!task)throw Error('This task is no longer available.');if(get().timer.status!=='idle'||get().timer.sessionId)throw Error('Finish your current interval before starting another task.');if(get().timer.phase!=='focus')await timerCommand('phase',{phase:'focus'});await timerCommand('start',{taskId:id,focusMinutes:task.effort||25});message('Focus session started. Return to your dashboard when ready.');}
+  async function startTask(id){await flush();const task=get().tasks.find(t=>t.id===id&&!t.completed);if(!task)throw Error('This task is no longer available.');if(get().timer.status!=='idle'||get().timer.sessionId)throw Error('Finish your current interval before starting another task.');if(get().timer.phase!=='focus')await timerCommand('phase',{phase:'focus'});await timerCommand('start',{taskId:id,focusMinutes:task.effort||get().timerConfig.focus});message('Focus session started. Return to your dashboard when ready.');}
 
   function cards(query, kind) {
     const data = get(), result = [];
     if(kind==='task'){
+      if(data.settings.customization?.widgets.preferences)return [taskViews({query,button,open,start:startTask,commit,message})];
       const nav=el('div',{class:'planner-views',role:'tablist','aria-label':'Task views'}),rows=el('div',{class:'planner-task-rows',role:'tabpanel','aria-label':'Selected task view'}),container=el('section',{class:'planner-task-board'},nav,rows);
       const draw=()=>{for(const b of nav.children){b.setAttribute('aria-selected',String(b.textContent===taskView));b.tabIndex=b.textContent===taskView?0:-1;}rows.replaceChildren();const tasks=get().tasks.filter(t=>`${t.text} ${get().lists.find(x=>x.id===t.listId)?.name||''}`.toLowerCase().includes(query)&&(taskView==='Completed'?t.completed:!t.completed&&(taskView==='Upcoming'?t.dueDate&&t.dueDate>dayKey():!t.dueDate||t.dueDate<=dayKey())));for(const task of tasks){const check=el('input',{type:'checkbox',checked:task.completed,'aria-label':`Complete ${task.text}`,onchange:async e=>{await patch('task',task.id,{completed:e.target.checked,completedAt:e.target.checked?Date.now():null});draw();}});rows.append(el('article',{class:'planner-task-row'},check,button(task.text||'Untitled task',()=>open('task',task.id),{'aria-label':`Open task ${task.text||'Untitled task'}`}),el('small',{},`${task.effort||25} min${task.dueDate?' · '+task.dueDate:''}`),task.completed?null:button('Start',()=>startTask(task.id),{'aria-label':`Start ${task.text}`})));}if(!tasks.length)rows.append(el('p',{class:'empty'},`No ${taskView.toLowerCase()} tasks match this view.`));};
       for(const name of ['Today','Upcoming','Completed'])nav.append(button(name,()=>{taskView=name;draw();},{role:'tab','aria-selected':String(taskView===name)}));nav.onkeydown=e=>{if(!['ArrowLeft','ArrowRight','Home','End'].includes(e.key))return;e.preventDefault();const buttons=[...nav.children],from=buttons.indexOf(document.activeElement),i=e.key==='Home'?0:e.key==='End'?2:(Math.max(0,from)+(e.key==='ArrowRight'?1:-1)+3)%3;buttons[i].click();buttons[i].focus();};draw();return [container];

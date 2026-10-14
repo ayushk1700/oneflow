@@ -1,4 +1,5 @@
-export const SETTINGS_VERSION = 1;
+import { validatePersonalization } from './personalization-schema.js';
+export const SETTINGS_VERSION = 2;
 const object = value => value && typeof value === 'object' && !Array.isArray(value);
 const color = value => typeof value === 'string' && /^#[0-9a-f]{6}$/i.test(value);
 const number = (value, min, max) => Number.isFinite(value) && value >= min && value <= max;
@@ -14,7 +15,7 @@ export function knownKeys(value, template, path = 'settings') {
   for (const key of Object.keys(template)) if (!Object.hasOwn(value,key)) fail(`${path}.${key}`);
   for (const key of Object.keys(value)) {
     if (['__proto__', 'constructor', 'prototype'].includes(key) || !Object.hasOwn(template, key)) throw new Error(`Unknown customization field: ${path}.${key}.`);
-    if (object(template[key])) knownKeys(value[key], template[key], `${path}.${key}`);
+    if (object(template[key]) && Object.keys(template[key]).length) knownKeys(value[key], template[key], `${path}.${key}`);
   }
 }
 export function validatePalette(palette) {
@@ -40,17 +41,20 @@ export function validateSettings(value, defaults) {
     validatePalette(saved.palette);
   }
   if (new Set(t.customThemes.map(item => item.name)).size !== t.customThemes.length) fail('theme.customThemes');
-  if (!['bundled','solid','gradient','upload','animated','video','local-video'].includes(b.kind) || typeof b.id !== 'string' || b.id.length > 100 || !color(b.color) || !number(b.blur,0,20) || typeof b.rotate !== 'boolean') fail('background');
+  if (!['bundled','solid','gradient','animated-gradient','url','upload','animated','video','local-video'].includes(b.kind) || typeof b.id !== 'string' || b.id.length > 100 || !color(b.color) || !number(b.blur,0,20) || typeof b.rotate !== 'boolean') fail('background');
   if (!['compact','comfortable','spacious'].includes(value.layout.density)) fail('layout.density');
-  if (!Object.keys(defaults.widgets).every(key => typeof value.widgets[key] === 'boolean')) fail('widgets');
+  if (!Object.keys(defaults.widgets).filter(key=>key!=='preferences').every(key => typeof value.widgets[key] === 'boolean')) fail('widgets');
   if (typeof value.behavior.zen !== 'boolean' || typeof value.behavior.clock24 !== 'boolean' || !['home','focus','ambient'].includes(value.behavior.startupView)) fail('behavior');
   if (!['highContrast','reduceMotion','largeText','dyslexia'].every(key => typeof a[key] === 'boolean')) fail('accessibility');
-  return value;
+  return validatePersonalization(value);
 }
 /** Version zero carried the same sections without a version marker. */
 export function migrateSettings(value, defaults) {
   if (!object(value)) fail('settings');
-  if (value.schemaVersion === undefined || value.schemaVersion === 0) value = { ...value, schemaVersion: SETTINGS_VERSION };
+  if (value.schemaVersion === undefined || value.schemaVersion === 0 || value.schemaVersion === 1) {
+    const merge=(base,old)=>object(base)&&object(old)?Object.fromEntries([...new Set([...Object.keys(base),...Object.keys(old)])].map(key=>[key,Object.hasOwn(old,key)?merge(base[key],old[key]):structuredClone(base[key])])):structuredClone(old);
+    value=merge(defaults,value);value.schemaVersion=SETTINGS_VERSION;
+  }
   return validateSettings(value, defaults);
 }
 export function resolveTheme(theme, systemDark, date = new Date()) {

@@ -4,8 +4,11 @@ import { emit } from './events.js';
 const KEY = 'oneflow';
 const ext = globalThis.chrome?.storage;
 let current, syncTimer, initialized;
+let workerSchemas;
+/** Preload secondary schemas in MV3 workers, where import() is forbidden. */
+export function useStorageSchemas(value) { workerSchemas = value; }
 const subscribers = new Set();
-const publish = value => { current = value; subscribers.forEach(fn => fn(structuredClone(value))); };
+const publish = value => { current = value; subscribers.forEach(fn => {try{Promise.resolve(fn(structuredClone(value))).catch(error=>emit('error',error));}catch(error){emit('error',error);}}); };
 async function read() {
   try { return ext ? (await ext.local.get(KEY))[KEY] : (await import('./storage-recovery.js')).read(KEY); }
   catch { emit('toast', 'Browser storage could not be read. Safe defaults are available.'); return current; }
@@ -52,9 +55,11 @@ async function initializeLocked() {
   return get();
 }
 /** Return an isolated snapshot. */
-export function get() { return structuredClone(current ?? defaults()); }
+export function get(field) { const value=current ?? defaults(); return structuredClone(field ? value[field] : value); }
+/** Validated identity used to scope asynchronous media operations. */
+export function activeSpaceId() { const id=current?.spaces?.activeId; return typeof id==='string' && /^(default|[a-z0-9-]{1,40})$/i.test(id) ? id : 'default'; }
 /** In-memory customization preview; the settings engine owns its debounced durable write. */
-export function previewSettings(settings) { publish({ ...get(), settings }); }
+export function previewSettings(settings,patch={}) { publish({ ...get(),...patch, settings }); }
 /** Read persisted state for backups. */
 export async function readLatest() { return migrate(await read()); }
 /** Listen for storage updates. */
@@ -101,7 +106,7 @@ export async function clearRecovery() { if (ext) await ext.local.remove(['oneflo
 export async function usage() { return ext ? ext.local.getBytesInUse(null) : new Blob([JSON.stringify(get())]).size; }
 /** Versioned local work data. */
 export async function readWork(schema) {
-  const { migrateWork } = schema || await import('./work-schema.js');
+  const { migrateWork } = schema || workerSchemas?.work || await import('./work-schema.js');
   try { return migrateWork(ext ? (await ext.local.get('focusWork')).focusWork : (await import('./storage-recovery.js')).read('focusWork')); }
   catch { emit('toast', 'Work preferences could not be read. Safe defaults were loaded.'); return migrateWork(); }
 }
@@ -109,7 +114,7 @@ export async function readWork(schema) {
 export async function updateWork(change, schema) {
   return navigator.locks.request('oneflow-work', async () => {
     const next = await readWork(schema); await change(next);
-    (schema || await import('./work-schema.js')).validateWork(next);
+    (schema || workerSchemas?.work || await import('./work-schema.js')).validateWork(next);
     if (ext) await ext.local.set({ focusWork: next }); else localStorage.setItem('focusWork', JSON.stringify(next));
     return next;
   });
@@ -117,10 +122,10 @@ export async function updateWork(change, schema) {
 /** Local-only capture preferences; never sent to browser sync. */
 export async function getNotesPreferences() {
   const value = ext ? (await ext.local.get('notesPreferences')).notesPreferences : (await import('./storage-recovery.js')).read('notesPreferences');
-  return (await import('./notes-preferences.js')).normalize(value);
+  return (workerSchemas?.notes || await import('./notes-preferences.js')).normalize(value);
 }
 /** Save small capture preferences independently of the dashboard document. */
 export async function setNotesPreferences(value) {
-  const next = (await import('./notes-preferences.js')).normalize(value);
+  const next = (workerSchemas?.notes || await import('./notes-preferences.js')).normalize(value);
   if (ext) await ext.local.set({ notesPreferences: next }); else localStorage.setItem('notesPreferences', JSON.stringify(next));
 }

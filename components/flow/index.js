@@ -16,7 +16,7 @@ let session, root,
 export async function enter() {
   if (opening) return;
   opening = true;
-  const fullscreen = document.documentElement.requestFullscreen?.().catch(() => emit('toast', translate('m0176')));
+  const fullscreen = !document.fullscreenElement && document.documentElement.requestFullscreen?.().catch(() => emit('toast', translate('m0176')));
   try {
     closePanel();
     if (!get().flow.active) {

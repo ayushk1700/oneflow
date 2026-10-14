@@ -25,7 +25,7 @@ export function createSessionView({ fullscreen = false } = {}) {
     root.dataset.state = timer.phase !== 'focus' ? 'break' : timer.status;
     if (fullscreen && !data.flow.active) { previous = ''; root.replaceChildren(); return; }
     const active = Boolean(timer.sessionId) || timer.status !== 'idle' || timer.phase !== 'focus';
-    const key = JSON.stringify([dayKey(), active, timer.phase, timer.status, timer.taskId, timer.taskTitle, timer.duration, data.focus, data.lastFocusSession, data.timerConfig.focus, data.settings.widgets.timer, data.tasks.map(task => [task.id, task.text, task.completed])]);
+    const key = JSON.stringify([dayKey(), active, timer.phase, timer.status, timer.taskId, timer.taskTitle, timer.duration, data.focus, data.lastFocusSession, data.timerConfig.focus, data.settings.widgets.timer, data.settings.customization?.widgets?.preferences?.greeting?.focusPrompt, data.tasks.map(task => [task.id, task.text, task.completed])]);
     if (key !== previous) {
       const restoreFocus = root.contains(document.activeElement);
       previous = key;
@@ -64,7 +64,7 @@ export function createSessionView({ fullscreen = false } = {}) {
         root.append(actions, el('small', { class: 'session-hint' }, t(timer.phase !== 'focus' ? 'Take a breath. Your next focus is waiting.' : 'One thing at a time. Space to pause whenever you need.')));
       } else {
         const focus = data.focus.date === dayKey() && !data.focus.completed ? data.focus.text : '';
-        const input = el('input', { maxlength: 240, value: focus, placeholder: t('What matters today?'), 'aria-label': t('Your main focus today') });
+        const input = el('input', { maxlength: 240, value: focus, placeholder: data.settings.customization?.widgets?.preferences?.greeting?.focusPrompt || t('What matters today?'), 'aria-label': t('Your main focus today') });
         const status = el('small', { class: 'muted focus-draft-status', role: 'status' });
         const draftKey = 'task:daily-' + dayKey();
         bindDraft(input, draftKey, status);

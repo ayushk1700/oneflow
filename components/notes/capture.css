@@ -1,6 +1,6 @@
 *{box-sizing:border-box}
 html,body{margin:0;height:100%;overflow:hidden}
-body{background:var(--notes-paper);color:var(--notes-ink);font:var(--text-body)/1.5 var(--font)}
+body{background:var(--notes-paper);color:var(--notes-ink);font:var(--text-body)/var(--leading-body) var(--font)}
 button,input,textarea,select{font:inherit;color:inherit}
 button,summary{cursor:pointer}button:disabled{opacity:.55;cursor:wait}
 input,textarea,select{min-width:0}input[type=checkbox]{width:calc(var(--space-xs) * 5);height:calc(var(--space-xs) * 5);min-height:0;accent-color:var(--notes-ink)}

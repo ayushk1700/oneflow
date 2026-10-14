@@ -2,8 +2,10 @@ import { t as translate } from '../../core/i18n.js';
 import { get } from '../../core/storage.js';
 import { el } from '../../core/utils.js';
 import { watch } from '../../core/ui.js';
-let root, timer, unsubscribe, last = '';
+let root, timer, unsubscribe, last = '',personalized,loading;
 export function render() {
+  if(!personalized&&!loading&&get().settings.customization?.widgets.preferences)loading=import('./personalization.js').then(m=>{if(root){personalized=m;personalized.reset();render();}}).catch(()=>{}).finally(()=>{loading=null;});
+  if(personalized&&get().settings.customization?.widgets.preferences){personalized.render(root,get().settings);return;}
   const s = get().settings, now = new Date(), hour = now.getHours();
   const greeting = hour < 12 ? translate('m0151') : hour < 17 ? translate('m0152') : translate('m0153');
   const time = now.toLocaleTimeString([], { hour: s.clock24 ? '2-digit' : 'numeric', minute: '2-digit', hour12: !s.clock24 });
@@ -17,5 +19,5 @@ export function render() {
     el('div', { class: 'clock-time', role: 'timer', 'aria-label': time }, parts ? parts[1] : time, parts ? el('span', { class: 'clock-period' }, parts[2].trim()) : null),
     el('h1', { class: 'greeting' }, `${greeting}${s.name ? `, ${s.name}` : ''}.`));
 }
-export function init(node) { root = node; render(); timer = setInterval(render, 1000); unsubscribe = watch(d => [d.settings.name, d.settings.clock24], render); }
-export function destroy() { clearInterval(timer); unsubscribe?.(); root?.replaceChildren(); last = ''; }
+export function init(node) { root = node;render();timer = setInterval(render, 1000); unsubscribe = watch(d => [d.settings.name, d.settings.clock24,d.settings.customization?.widgets?.preferences?.clock,d.settings.customization?.widgets?.preferences?.greeting,d.settings.widgets.greeting], render); }
+export function destroy() { clearInterval(timer); unsubscribe?.(); root?.replaceChildren(); root=null;last = '';personalized?.reset(); }

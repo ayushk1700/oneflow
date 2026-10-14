@@ -1,0 +1,18 @@
+import { el } from '../../core/utils.js';
+import { t } from '../../core/i18n.js';
+import { createClockFace,updateClockFace } from '../ambient-clock/index.js';
+let last='',face;
+const minuteWords=['zero','one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve','thirteen','fourteen','fifteen','sixteen','seventeen','eighteen','nineteen'];
+const minuteWord=value=>value<20?minuteWords[value]:'twenty'+(value%10?' '+minuteWords[value%10]:'');
+const numbers=['twelve','one','two','three','four','five','six','seven','eight','nine','ten','eleven'];
+export function wordTime(date){const minute=date.getMinutes(),hour=date.getHours()%12,next=numbers[(hour+1)%12];if(!minute)return numbers[hour]+' o’clock';if(minute===15)return 'quarter past '+numbers[hour];if(minute===30)return 'half past '+numbers[hour];if(minute===45)return 'quarter to '+next;return minute<30?`${minuteWord(minute)} past ${numbers[hour]}`:`${minuteWord(60-minute)} to ${next}`;}
+export function greeting(preferences,date=new Date()){const hour=date.getHours(),period=hour<12?'morning':hour<17?'afternoon':'evening';const phrase=preferences.tone==='calm'?t(hour<12?'m0151':hour<17?'m0152':'m0153'):preferences.tone==='warm'?`A lovely ${period}`:preferences.tone==='direct'?`${period[0].toUpperCase()+period.slice(1)} focus`:`Hello, ${period} flow`;const name=preferences.template==='{timeOfDay}{name}'&&preferences.name?', '+preferences.name:preferences.name;const text=preferences.template.replaceAll('{timeOfDay}',phrase).replaceAll('{name}',name);return /[.!?]$/.test(text)?text:text+'.';}
+export function render(root,settings,date=new Date()){
+ if(document.hidden||!root)return;const prefs=settings.customization.widgets.preferences,clock=prefs.clock,time=date.toLocaleTimeString([],{hour:settings.clock24?'2-digit':'numeric',minute:'2-digit',...(clock.seconds?{second:'2-digit'}:{}),hour12:!settings.clock24});const key=JSON.stringify([time,clock,prefs.greeting,date.toDateString(),settings.widgets.greeting]);if(key===last)return;last=key;root.dataset.clockStyle=clock.style;
+ const dateText=clock.dateFormat==='iso'?`${date.getFullYear()}-${String(date.getMonth()+1).padStart(2,'0')}-${String(date.getDate()).padStart(2,'0')}`:date.toLocaleDateString('en',clock.dateFormat==='short'?{month:'short',day:'numeric'}:{weekday:'long',month:'long',day:'numeric'});
+ const label=el('p',{class:'date-label',hidden:clock.dateFormat==='none'},dateText.toUpperCase());let display;
+ if(clock.style==='analog'){face=createClockFace({seconds:clock.seconds});updateClockFace(face,date,time);display=el('div',{class:'personal-analog'},face.face);}
+ else{face=null;const parts=time.match(/^(.*?)(\s?[ap]m)$/i),digits=parts?parts[1]:time;display=el('div',{class:'clock-time',role:'timer','aria-label':time});if(clock.style==='word')display.append(wordTime(date));else if(clock.style==='vertical')display.append(...digits.split(':').map(part=>el('span',{},part)));else if(clock.style==='flip')display.append(...[...digits].map(char=>el('span',{class:/\d/.test(char)?'clock-glyph':'clock-separator'},char)));else display.append(digits);if(parts)display.append(el('span',{class:'clock-period'},parts[2].trim()));}
+ const zones=el('div',{class:'clock-zones'});for(const zone of clock.timeZones)zones.append(el('div',{},el('strong',{},zone.name||zone.zone),el('span',{},date.toLocaleTimeString([],{timeZone:zone.zone,hour:'2-digit',minute:'2-digit',hour12:!settings.clock24}))));root.replaceChildren(label,display,el('h1',{class:'greeting',hidden:settings.widgets.greeting===false},greeting(prefs.greeting,date)),zones);
+}
+export function reset(){last='';face=null;}

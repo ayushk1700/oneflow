@@ -11,6 +11,12 @@ import { initNotesService } from './notes-service.js';
 import { countInterruption } from '../core/work-context.js';
 import { workerMessageAllowed } from '../core/message-policy.js';
 import { notify } from '../core/system-notifications.js';
+import * as database from '../core/database-store.js';
+import { useDatabaseDriver } from '../core/db.js';
+import * as workSchema from '../core/work-schema.js';
+import * as notesPreferences from '../core/notes-preferences.js';
+storage.useStorageSchemas({ work: workSchema, notes: notesPreferences });
+useDatabaseDriver(database);
 initNotesService();
 let creatingAudio, serial = Promise.resolve();
 const enqueue = job => { const work = serial.then(job); serial = work.catch(error => console.error(translate('m0604'), error)); return work; };
@@ -40,6 +46,8 @@ async function schedule() {
   await chrome.action.setBadgeBackgroundColor({ color: '#385b48' });
   await chrome.action.setBadgeText({ text: t.status === 'running' ? String(Math.ceil(remaining(t, Date.now()) / 60000)) : t.status === 'paused' ? 'Ⅱ' : '' });
   await chrome.action.setTitle({ title: `ONEFLOW notes · ${t.phase === 'focus' ? translate('m0504') : translate('m0607')} · ${t.status}` });
+  const reminder=d.settings.customization?.widgets.preferences.journal.reminder;
+  if(reminder){const date=new Date(),[hour,minute]=reminder.split(':').map(Number);date.setHours(hour,minute,0,0);if(date.getTime()<=Date.now())date.setDate(date.getDate()+1);await chrome.alarms.create('oneflow-journal-reminder',{when:date.getTime()});}else await chrome.alarms.clear('oneflow-journal-reminder');
   const expected = new Set();
   for (const habit of d.habits) if (habit.reminder) {
     const name = `oneflow-habit-${habit.id}`, date = new Date(), [hour, minute] = habit.reminder.split(':').map(Number);
@@ -104,6 +112,7 @@ chrome.alarms.onAlarm.addListener(alarm => enqueue(async () => {
   await ready;
   if (alarm.name.startsWith('oneflow-ritual-') || alarm.name === 'oneflow-backup-reminder') await notifyReminder(alarm.name);
   if (alarm.name === 'oneflow-audio-sleep') { await storage.update(d => { d.audio.playing = false; d.audio.sleepAt = null; }); await syncAudio(); }
+  else if(alarm.name==='oneflow-journal-reminder') {if(storage.get().settings.customization?.widgets.preferences.journal.reminder){await recordNotice('A moment for your journal','info',alarm.name+'-'+dayKey());await notify(alarm.name,{type:'basic',iconUrl:chrome.runtime.getURL('assets/icons/icon-128.png'),title:'ONEFLOW Journal',message:'Take a moment to reflect on your day.'});}}
   else if (alarm.name.startsWith('oneflow-habit-')) {
     await navigator.locks.request('oneflow-backup', async () => {
     const habit = storage.get().habits.find(h => `oneflow-habit-${h.id}` === alarm.name);

@@ -7,6 +7,7 @@ export function noteURL(value) {
 /** Validate persisted/imported records before they reach storage or rendering. */
 export function validateNote(n) {
   const str = (v, max) => typeof v === 'string' && v.length <= max;
+  if(n?.notebook!==undefined&&!str(n.notebook,60)||n?.mood!==undefined&&!str(n.mood,40))throw new Error('Invalid note notebook or mood.');
   if (!n || n.schemaVersion !== 1 || !str(n.id, 100) || !n.id || !str(n.title, 120) || !str(n.text, 50000)
     || !['note', 'checklist', 'task'].includes(n.kind) || !['active', 'archive', 'trash'].includes(n.state)
     || typeof n.pinned !== 'boolean' || !Number.isInteger(n.revision) || n.revision < 1

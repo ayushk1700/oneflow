@@ -6,6 +6,7 @@ import { rulesFor, blockerOrigins, blockedHost } from '../core/blocker-logic.js'
 import { getAll } from '../core/db.js';
 import { dayKey } from '../core/utils.js';
 import { notify } from '../core/system-notifications.js';
+import { record as recordNotice } from '../core/notifications.js';
 /** Reconcile rules against both the saved deadline and a browser-session lease. */
 export async function syncBlocker() {
   const d = storage.get(),
@@ -192,7 +193,7 @@ export async function notifyReminder(name) {
       next.backup.lastReminder = Date.now();
     });
   }
-  if (message) await (await import('../core/notifications.js')).record(`${title}: ${message}`, 'info', `${name}-${dayKey()}`);
+  if (message) await recordNotice(`${title}: ${message}`, 'info', `${name}-${dayKey()}`);
   if (message) await notify(name, {
     type: 'basic',
     iconUrl: chrome.runtime.getURL('assets/icons/icon-128.png'),

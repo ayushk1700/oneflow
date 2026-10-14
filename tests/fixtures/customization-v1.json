@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "theme": {
+    "mode": "dark",
+    "accent": "#c9d9b5",
+    "preset": "default",
+    "paletteEnabled": false,
+    "palette": {
+      "background": "#111a17",
+      "surface": "#1c2522",
+      "text": "#f5f3ea",
+      "muted": "#c4cfc6",
+      "border": "#526259"
+    },
+    "schedule": {
+      "light": "07:00",
+      "dark": "19:00"
+    },
+    "glass": {
+      "blur": 24,
+      "opacity": 94,
+      "border": 16,
+      "shadow": 50
+    },
+    "shape": {
+      "radius": 24,
+      "borderThickness": 1
+    },
+    "typography": {
+      "family": "system",
+      "scale": 1,
+      "weight": 400,
+      "lineHeight": 1.5
+    },
+    "customThemes": []
+  },
+  "background": {
+    "kind": "bundled",
+    "id": "still-ec30a7337910c6ec",
+    "blur": 0,
+    "rotate": false,
+    "color": "#293c36"
+  },
+  "layout": {
+    "density": "comfortable"
+  },
+  "widgets": {
+    "clock": true,
+    "focus": true,
+    "search": true,
+    "links": false,
+    "quotes": true,
+    "weather": true,
+    "tasks": true,
+    "timer": true,
+    "sounds": true,
+    "journal": true,
+    "notes": true,
+    "habits": true,
+    "countdowns": false,
+    "stats": true,
+    "mood": true,
+    "music": true
+  },
+  "behavior": {
+    "zen": false,
+    "clock24": false,
+    "startupView": "home"
+  },
+  "accessibility": {
+    "highContrast": false,
+    "reduceMotion": false,
+    "largeText": false,
+    "dyslexia": false
+  }
+}

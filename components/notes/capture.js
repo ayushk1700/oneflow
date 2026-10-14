@@ -1,3 +1,4 @@
+import { markdown } from '../../core/markdown.js';
 import { el } from '../../core/utils.js';
 import * as notes from '../../core/notes.js';
 import * as storage from '../../core/storage.js';
@@ -8,7 +9,7 @@ import { validateAttachment } from '../../core/media-validation.js';
 
 const app = document.querySelector('#app'), params = new URLSearchParams(location.hash.slice(1));
 const embedded = top !== self, token = params.get('token');
-let board, pinnedBoard, pinnedSection, collectionTitle, sidebarLabels, nav, editor, content, status, search, stateFilter, kindFilter, labelFilter, prefs, current, channel, planner, storageOff;
+let tokensRuntime,notebookFilter,board, pinnedBoard, pinnedSection, collectionTitle, sidebarLabels, nav, editor, content, status, search, stateFilter, kindFilter, labelFilter, prefs, current, channel, planner, storageOff;
 let chain = Promise.resolve(), pending = 0, failed = false, mediaURLs = [], recorder, stream, recordingTimer, source, recordingBusy = false;
 let cardURLs = [], section = 'notes', sortOrder = 'recent', dataGeneration;
 const unsavedMedia = new Map();
@@ -90,7 +91,7 @@ export async function render() {
   });
   const query = search.value.toLowerCase().trim();
   const focused=board.contains(document.activeElement)?document.activeElement.getAttribute('aria-label'):null;
-  const filtered = all.filter(n => n.state === stateFilter.value && (section !== 'reminders' || n.reminderAt) && (!kindFilter.value || n.kind === kindFilter.value)
+  const filtered = all.filter(n => (!notebookFilter?.value||(n.notebook||'Journal')===notebookFilter.value) && n.state === stateFilter.value && (section !== 'reminders' || n.reminderAt) && (!kindFilter.value || n.kind === kindFilter.value)
     && (!labelFilter.value || n.labels.includes(labelFilter.value))
     && `${n.title} ${n.text} ${n.url} ${n.labels.join(' ')} ${n.items.map(i => i.text).join(' ')}`.toLowerCase().includes(query));
   filtered.sort((a, b) => sortOrder === 'oldest' ? a.updatedAt - b.updatedAt
@@ -131,7 +132,7 @@ async function create(kind) {
   await leaveEditor();
   section = 'notes'; stateFilter.value = 'active'; kindFilter.value = ''; labelFilter.value = '';
   if (kind === 'task' || kind === 'habit') return planner.create(kind);
-  const n = await notes.saveNote(notes.makeNote({ kind, items: kind === 'note' ? [] : [{ text: '', checked: false }] }), [], dataGeneration);
+  const n = await notes.saveNote(notes.makeNote({ kind, notebook:notebookFilter?.value||'Journal', items: kind === 'note' ? [] : [{ text: '', checked: false }] }), [], dataGeneration);
   await edit(n.id);
 }
 
@@ -166,7 +167,7 @@ async function edit(id) {
     const saved = await notes.saveNote(copy, media, dataGeneration); failed = false; unsavedMedia.clear(); current = null; await edit(saved.id);
   })), title);
   if (owner.kind === 'note') {
-    const text = el('textarea', { maxlength: 50000, placeholder: 'Take a note…', 'aria-label': 'Note text', oninput: e => { owner.text = e.target.value; save(); } }); text.value = owner.text; editor.append(text);
+    const text = el('textarea', { maxlength: 50000, placeholder: 'Take a note…', 'aria-label': 'Note text', oninput: e => { owner.text = e.target.value; save(); } }); text.value = owner.text; editor.append(text);if(storage.get().settings.customization?.widgets?.preferences?.journal?.markdown){const preview=el('div');const draw=()=>preview.replaceChildren(markdown(text.value));text.addEventListener('input',draw);draw();editor.append(preview);}
   } else {
     const list = el('div', { 'aria-label': 'Checklist items' });
     const drawItems = () => {
@@ -194,7 +195,11 @@ async function edit(id) {
   }) });
   if (owner.reminderAt) { const d = new Date(owner.reminderAt); date.value = new Date(d.getTime() - d.getTimezoneOffset() * 60000).toISOString().slice(0, 16); }
   const details = el('details', {}, el('summary', {}, 'Labels, link & reminder'), el('div', {}, el('label', {}, 'Labels', labels), el('label', {}, 'Source link', url), link, el('label', {}, 'Remind me (local time)', date), el('small', {}, 'Reminders appear while this browser is running. Missed reminders return when it opens.')));
-  editor.append(details);
+  const notebooks=storage.get().settings.customization?.widgets?.preferences?.journal?.notebooks||['Journal'];
+  const notebook=el('select',{'aria-label':'Note notebook',onchange:event=>{owner.notebook=event.target.value;save();}},...[...new Set([...notebooks,owner.notebook||'Journal'])].map(value=>el('option',{value},value)));notebook.value=owner.notebook||'Journal';
+  const moods=storage.get().settings.customization?.widgets?.preferences?.journal?.moodTags||[];
+  const mood=el('select',{'aria-label':'Note mood',onchange:event=>{owner.mood=event.target.value;save();}},el('option',{value:''},'No mood'),...moods.map(value=>el('option',{value},value)));mood.value=owner.mood||'';
+  editor.append(el('label',{},'Notebook',notebook),el('label',{},'Mood',mood),details);
   const media = el('div', { class: 'media-list' }); editor.append(media); await drawMedia(media, owner);
   const attach = async (blob, name) => {
     if (current !== owner) return;
@@ -267,6 +272,7 @@ export async function init() {
     try { if (parent.location.origin !== location.origin) throw new Error(); } catch { throw new Error('Use the ONEFLOW toolbar to open Notes on a webpage.'); }
   }
   await notes.migrateNotes(); prefs = await storage.getNotesPreferences(); document.documentElement.dataset.notesTheme = prefs.theme;
+  if(storage.get().settings.customization){tokensRuntime=await import('../../core/customization-runtime.js');await tokensRuntime.init({dashboard:false});}
   status = el('div', { role: 'status', 'aria-live': 'polite', class: 'status' }, params.has('fallback') ? 'This page blocks overlays. Your full notes workspace is available here.' : 'Local notes · no account, no cloud sync');
   search = el('input', { type: 'search', placeholder: 'Search notes, labels, or anything…', 'aria-label': 'Search notes', oninput: () => action(render) });
   stateFilter = el('select', { 'aria-label': 'Note location', onchange: () => action(async () => { await leaveEditor(); }) }, ...['active', 'archive', 'trash'].map(v => el('option', { value: v }, v === 'active' ? 'All notes' : v === 'archive' ? 'Archive' : 'Trash')));
@@ -326,13 +332,17 @@ export async function init() {
     iconButton('ellipsis', 'More note types', () => { createMenu.open = !createMenu.open; }, { class: 'icon-button more-button' }));
   const sort = el('select', { 'aria-label': 'Sort notes', onchange: () => { sortOrder = sort.value; action(render); } },
     el('option', { value: 'recent' }, 'Most recent'), el('option', { value: 'oldest' }, 'Oldest first'), el('option', { value: 'title' }, 'Title A–Z'));
-  const controls = el('div', { class: 'collection-controls' }, sort, kindFilter, labelFilter, layout);
+  notebookFilter=el('select',{'aria-label':'Filter by notebook',onchange:()=>action(leaveEditor)},el('option',{value:''},'All notebooks'),...(storage.get().settings.customization?.widgets?.preferences?.journal?.notebooks||['Journal']).map(value=>el('option',{value},value)));
+  const controls = el('div', { class: 'collection-controls' }, sort, kindFilter, labelFilter, notebookFilter, layout);
   content.querySelector('.collection-heading').append(controls);
   const workspace = el('div', { class: 'workspace' }, sidebar, el('div', { class: 'main-column' }, topbar,
     el('div', { class: 'workspace-body' }, captureBar, capture, stateFilter, content), status, createMenu, resize));
   app.replaceChildren(workspace);
   if (token) { app.setAttribute('role', 'dialog'); app.setAttribute('aria-label', 'Notes and quick capture'); }
-  storageOff = storage.subscribe(() => action(render));
+  // Timer ticks must not replace task controls while the user is operating them.
+  const collectionKey=data=>JSON.stringify([data.tasks,data.lists,data.habits,data.settings.customization?.widgets?.preferences?.tasks,data.settings.customization?.widgets?.preferences?.journal]);
+  let lastCollection=collectionKey(storage.get());
+  storageOff = storage.subscribe(data => {const next=collectionKey(data);if(next!==lastCollection){lastCollection=next;action(render);}});
   channel = new BroadcastChannel('oneflow-notes'); channel.onmessage = event => {
     if (event.data === 'replaced') { destroy(); source = null; current = null; unsavedMedia.clear(); app.replaceChildren(el('p', { role: 'alert' }, 'Data was replaced. Reload Notes to continue.')); return; }
     action(async () => { await render(); if (current && !pending && (await notes.getNote(current.id))?.revision !== current.revision) message('This note changed in another window. Finish or copy your draft, then reopen it.', true); });
@@ -354,5 +364,5 @@ export async function init() {
   if (token) parentMessage('ready');
 }
 /** Release transient resources; committed notes remain in IndexedDB. */
-export function destroy() { stopTracks(); releaseMedia(); cardURLs.forEach(URL.revokeObjectURL); cardURLs = []; channel?.close(); storageOff?.(); }
+export function destroy() { stopTracks(); releaseMedia(); cardURLs.forEach(URL.revokeObjectURL); cardURLs = []; channel?.close(); storageOff?.(); tokensRuntime?.destroy(); }
 init().catch(error => app.replaceChildren(el('p', { role: 'alert' }, error.message)));

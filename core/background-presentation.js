@@ -7,6 +7,7 @@ export function wallpaperPath(file, live = false) {
   return `../${live ? 'livewallpaper' : 'wallpaper'}/${encodeURIComponent(file).replaceAll("'", '%27')}`;
 }
 export function backgroundSource(item, thumbnail = false) {
+  if(item.folder==='assets'){const file=thumbnail?item.thumbnail||item.file:item.file;wallpaperPath(file);return '../assets/backgrounds/'+encodeURIComponent(file);}
   return wallpaperPath(thumbnail ? item.thumbnail || item.file || `${item.id}-thumb.webp` : item.file || `${item.id}.webp`);
 }
 const clamp = (value, low, high, fallback) => Number.isFinite(value) ? Math.max(low, Math.min(high, value)) : fallback;
@@ -14,6 +15,7 @@ const point = value => Array.isArray(value) && value.length === 2 ? value.map(n 
 /** Normalize local artwork metadata without accepting executable paths or CSS. */
 export function normalizeBackground(item) {
   if (!item || typeof item.id !== 'string' || !/^[a-z][a-z0-9-]{0,39}$/.test(item.id) || typeof item.name !== 'string') throw new Error('Invalid bundled background metadata.');
+  if(item.folder!==undefined&&!['assets','wallpaper'].includes(item.folder))throw new Error('Invalid background folder.');
   backgroundSource(item); backgroundSource(item, true);
   return { ...item, position: point(item.position), mobilePosition: point(item.mobilePosition), shade: clamp(item.shade, .54, .72, .60) };
 }

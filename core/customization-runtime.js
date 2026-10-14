@@ -42,7 +42,7 @@ export function apply() {
   } finally { applying = false; }
 }
 /** Load once; heavy settings code stays off the default startup path. */
-export async function init() {
+export async function init({dashboard=true}={}) {
   if (off) return;
   await settings.init();
   if (off) return;
@@ -56,6 +56,7 @@ export async function init() {
   off = settings.subscribe(apply); system.addEventListener('change', apply);
   document.addEventListener('oneflow:theme', apply); document.addEventListener('visibilitychange', visibility);
   addEventListener('pagehide', save); timer = setInterval(() => { if (!document.hidden) apply(); }, 60000); apply();
+  if(dashboard)await (await import('./personalization-runtime.js')).init();
 }
 function visibility() { root().dataset.visible = String(!document.hidden); if (!document.hidden) apply(); else save(); }
 function save() { settings.flush().catch(() => {}); }

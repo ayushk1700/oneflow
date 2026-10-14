@@ -1,6 +1,6 @@
 import * as storage from './storage.js';
 import { emit } from './events.js';
-import { validateSettings, migrateSettings, resolveTheme } from './customization-schema.js';
+import { validateSettings, migrateSettings, resolveTheme, SETTINGS_VERSION } from './customization-schema.js';
 let base, current, saved, initialized, timer, writing, applying = false, pending = false, undoStack = [], redoStack = [], lastPath, lastEdit = 0;
 const listeners = new Set();
 const publish = () => listeners.forEach(callback => callback(get()));
@@ -13,8 +13,15 @@ function fromExisting(settings) {
   const next = structuredClone(base);
   next.theme.mode = settings.theme; next.theme.accent = settings.accent;
   next.theme.typography.family = settings.font === 'mono' ? 'mono' : 'system';
-  next.background = structuredClone(settings.background); next.widgets = structuredClone(settings.widgets);
+  Object.assign(next.background,structuredClone(settings.background)); Object.assign(next.widgets,structuredClone(settings.widgets));
+  next.widgets.preferences.greeting.name=settings.name;
+  next.widgets.preferences.weather.units=settings.units;
+  const config=storage.get().timerConfig;
+  for(const key of ['focus','short','long','cycles','autoFocus','autoBreak','notifications'])next.widgets.preferences.timer[key]=config[key];
+  next.widgets.preferences.timer.sound=config.chime?settings.studio.interaction.sound:'none';
+  next.widgets.preferences.timer.volume=settings.studio.interaction.volume;
   next.behavior.clock24 = settings.clock24; next.behavior.startupView = settings.appearance.defaultView;
+  next.behavior.spaceId=storage.activeSpaceId();
   next.accessibility.reduceMotion = settings.reducedMotion; next.accessibility.highContrast = settings.contrast === 'strong';
   return next;
 }
@@ -23,16 +30,20 @@ export function legacySettings(settings, value = current) {
   const next = structuredClone(settings);
   next.customization = structuredClone(value);
   next.theme = value.theme.mode === 'scheduled' ? resolveTheme(value.theme, false) : value.theme.mode;
-  next.accent = value.theme.accent; next.background = structuredClone(value.background);
-  next.widgets = Object.fromEntries(Object.entries(value.widgets).map(([key, enabled]) => [key, value.behavior.zen ? key === 'clock' : enabled]));
+  next.accent = value.theme.accent; next.background = legacyBackground(value.background);
+  next.widgets = Object.fromEntries(Object.entries(value.widgets).filter(([,enabled])=>typeof enabled==='boolean').map(([key, enabled]) => [key, value.behavior.zen ? key === 'clock' : enabled]));
+  next.name=value.widgets.preferences.greeting.name;next.units=value.widgets.preferences.weather.units;
+  next.studio.interaction.sound=value.widgets.preferences.timer.sound;next.studio.interaction.volume=value.widgets.preferences.timer.volume;
   next.clock24 = value.behavior.clock24; next.appearance.defaultView = value.behavior.startupView;
   next.appearance.panelOpacity = value.theme.glass.opacity;
   next.reducedMotion = value.accessibility.reduceMotion; next.contrast = value.accessibility.highContrast ? 'strong' : 'normal';
   return next;
 }
+function legacyBackground(value){return {kind:value.kind==='url'?'upload':value.kind==='animated-gradient'?'gradient':value.kind,id:value.id,color:value.color,blur:value.blur,rotate:value.rotate};}
+function timerPreferences(document,value=current){const prefs=value.widgets.preferences.timer,config={...document.timerConfig};for(const key of ['focus','short','long','cycles','autoFocus','autoBreak','notifications'])config[key]=prefs[key];config.chime=prefs.sound!=='none';return config;}
 function preview() {
   applying = true;
-  storage.previewSettings(legacySettings(storage.get().settings));
+  storage.previewSettings(legacySettings(storage.get().settings),{timerConfig:timerPreferences(storage.get())});
   applying = false; publish();
 }
 /** Load one versioned object. Invalid customization falls back without deleting other data. */
@@ -41,20 +52,24 @@ export async function init() {
   initialized = (async () => {
     await storage.init(); base = await loadDefaults();
     const settings = storage.get().settings;
-    try { current = settings.customization ? migrateSettings(settings.customization, base) : fromExisting(settings); }
+    try { current = settings.customization ? migrateSettings(settings.customization, base) : fromExisting(settings); pending=!!settings.customization&&settings.customization.schemaVersion!==SETTINGS_VERSION; }
     catch { current = fromExisting(settings); emit('toast', 'Invalid customization was replaced with safe defaults. Your other records were kept.'); pending = true; }
     saved = structuredClone(current);
+    if(current.behavior.spaceId!==storage.activeSpaceId()){current.behavior.spaceId=storage.activeSpaceId();pending=true;}
+    if(pending&&settings.customization?.schemaVersion===1)current.widgets.preferences=fromExisting(settings).widgets.preferences;
     storage.subscribe(data => {
       if (applying || pending) return;
       try {
         const incoming = data.settings.customization ? migrateSettings(data.settings.customization, base) : fromExisting(data.settings);
         // Legacy controls remain supported and feed back into the same canonical settings.
-        incoming.background = structuredClone(data.settings.background);
-        if (!incoming.behavior.zen) incoming.widgets = structuredClone(data.settings.widgets);
+        if(JSON.stringify(legacyBackground(incoming.background))!==JSON.stringify(data.settings.background))Object.assign(incoming.background,structuredClone(data.settings.background));
+        if (!incoming.behavior.zen) for(const[key,enabled]of Object.entries(data.settings.widgets))if(typeof enabled==='boolean')incoming.widgets[key]=enabled;
         if (incoming.theme.mode !== 'scheduled') incoming.theme.mode = data.settings.theme;
         incoming.theme.accent = data.settings.accent; incoming.behavior.clock24 = data.settings.clock24;
+        incoming.widgets.preferences.greeting.name=data.settings.name;incoming.widgets.preferences.weather.units=data.settings.units;
+        for(const key of ['focus','short','long','cycles','autoFocus','autoBreak','notifications'])incoming.widgets.preferences.timer[key]=data.timerConfig[key];
         incoming.accessibility.reduceMotion = data.settings.reducedMotion; incoming.accessibility.highContrast = data.settings.contrast === 'strong';
-        if (JSON.stringify(incoming) !== JSON.stringify(current)) commit(incoming, false);
+        if (JSON.stringify(incoming) !== JSON.stringify(current)) {if(incoming.behavior.spaceId!==current.behavior.spaceId){undoStack=[];redoStack=[];}commit(incoming, false);}
       } catch { emit('toast', 'A customization update was invalid. Your current view was kept.'); }
     });
     if (pending) await flush();
@@ -84,7 +99,7 @@ export function set(path, value) {
   target[key] = structuredClone(value); commit(next, true, path);
 }
 export function replace(value) { commit(migrateSettings(value, base)); }
-export function reset(section) { const next = get(); if (section) { if (!Object.hasOwn(base, section) || section === 'schemaVersion') throw new Error('Unknown settings section.'); next[section] = structuredClone(base[section]); } else Object.assign(next, defaults()); commit(next); }
+export function reset(section) { const next = get(),spaceId=next.behavior.spaceId; if (section) { if (!Object.hasOwn(base, section) || section === 'schemaVersion') throw new Error('Unknown settings section.'); next[section] = structuredClone(base[section]); } else Object.assign(next, defaults()); next.behavior.spaceId=spaceId;commit(next); }
 export function undo() { if (!undoStack.length) return; redoStack.push(get()); commit(undoStack.pop(), false); lastPath = null; }
 export function redo() { if (!redoStack.length) return; undoStack.push(get()); commit(redoStack.pop(), false); lastPath = null; }
 export const history = () => ({ undo: undoStack.length > 0, redo: redoStack.length > 0 });
@@ -95,15 +110,20 @@ export async function flush() {
   if (writing) { await writing; return flush(); }
   if (!pending) return;
   const snapshot = get();
-  writing = storage.update(document => { document.settings = legacySettings(document.settings, snapshot); }, { sync: false });
-  try { await writing; saved = snapshot; if (JSON.stringify(current) === JSON.stringify(snapshot)) pending = false; }
+  // Finish the durable write before reconfiguring the worker: it may need the
+  // backup lock already held by a wallpaper upload or a space switch.
+  writing = (async()=>{await storage.update(document => { document.settings = legacySettings(document.settings, snapshot); document.timerConfig=timerPreferences(document,snapshot); }, { sync: false });saved=snapshot;if(JSON.stringify(current)===JSON.stringify(snapshot))pending=false;})();
+  try { await writing; }
   catch (error) { emit('toast', 'Settings could not be saved. Keep this tab open and retry.'); throw error; }
   finally { writing = null; publish(); }
+  if(globalThis.chrome?.runtime)import('./timer-client.js').then(module=>module.backgroundSync()).catch(error=>{emit('error',error);emit('toast','Settings were saved, but background services could not refresh. Reopen ONEFLOW to retry.');});
 }
 export function importJSON(text) {
-  if (new Blob([text]).size > 64 * 1024) throw new Error('Settings file must be no larger than 64 KB.');
+  if (new Blob([text]).size > 512 * 1024) throw new Error('Settings file must be no larger than 512 KB.');
   let value;
   try { value = JSON.parse(text); } catch { throw new Error('Settings file is not valid JSON.'); }
-  replace(value);
+  const migrated=migrateSettings(value,base),ids=storage.get().spaces?.profiles?.map(profile=>profile.id)||['default'];
+  if(migrated.behavior.spaceSchedule.some(rule=>!ids.includes(rule.spaceId)))throw new Error('Imported schedules refer to missing spaces. Remove those schedules or restore a full backup.');
+  migrated.behavior.spaceId=current.behavior.spaceId;replace(migrated);
 }
 export function exportJSON() { return JSON.stringify(get(), null, 2); }

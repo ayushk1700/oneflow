@@ -13,10 +13,10 @@ export async function indexWallpapers(root = process.cwd()) {
   try { previous = JSON.parse(await fs.readFile(path.join(data,'backgrounds.json'),'utf8')); }
   catch (error) { if (error.code !== 'ENOENT') throw error; }
   const catalogs = [];
-  for (const [folder,live] of [['wallpaper',false],['livewallpaper',true]]) {
+  for (const [folder,live] of [['assets/backgrounds',false],['livewallpaper',true]]) {
     const location = path.join(root,folder);
-    await fs.mkdir(location,{recursive:true});
-    const entries = await fs.readdir(location,{withFileTypes:true});
+    let entries=[];
+    try{entries=await fs.readdir(location,{withFileTypes:true});}catch(error){if(error.code!=='ENOENT')throw error;}
     const names = new Set(entries.filter(entry => entry.isFile()).map(entry => entry.name));
     const rows = [];
     for (const file of [...names].sort()) {
@@ -28,7 +28,7 @@ export async function indexWallpapers(root = process.cwd()) {
       if (live) rows.push({id,name,file});
       else {
         const thumb = `${path.parse(file).name}-thumb.webp`;
-        rows.push(normalizeBackground({...old,id,name,file,thumbnail:names.has(thumb) ? thumb : file,category:old?.category || 'Local collection'}));
+        rows.push(normalizeBackground({...old,id,name,file,folder:'assets',thumbnail:names.has(thumb) ? thumb : file,category:old?.category || 'Local collection'}));
       }
     }
     // Keep the existing scene ordering (and daily rotation order) stable.

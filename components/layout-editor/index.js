@@ -1,0 +1,23 @@
+import * as settings from '../../core/customization.js';
+import * as layout from '../../core/personal-layout.js';
+import { DASHBOARD_ELEMENTS } from '../../core/personalization-schema.js';
+import { el } from '../../core/utils.js';
+import { field,select } from '../../core/ui.js';
+let editor,off;
+function escape(event){if(event.key!=='Escape'||document.querySelector('dialog[open]'))return;event.preventDefault();event.stopPropagation();close().catch(()=>{});}
+
+/** A nonmodal editor keeps the actual dashboard available for pointer and keyboard editing. */
+export async function open(){if(editor){editor.focus();return;}const next=settings.get();if(!next.layout.enabled)layout.applyPreset(layout.startingLayout('Dashboard'));settings.set('layout.locked',false);layout.setEditing(true);let selected='clock',target=layout.device();const status=el('p',{role:'status'},'Drag Move/Resize handles, or focus a handle and use arrow keys.');editor=el('aside',{class:'layout-editor','aria-label':'Layout editor',tabindex:-1});const body=el('div',{class:'layout-editor-controls'});
+ const action=(label,run)=>el('button',{type:'button',onclick:async()=>{try{await run();status.textContent='Changes save automatically.';}catch(error){status.textContent=error.message;}}},label);
+ editor.append(el('header',{},el('h2',{},'Edit layout'),action('Close layout editor',()=>close())),status,field('Window layout',select([['desktop','Large window'],['mobile','Small window']],target,e=>{target=e.target.value;draw();})),field('Widget',select(DASHBOARD_ELEMENTS.map(id=>[id,layout.labels[id]]),selected,e=>{selected=e.target.value;draw();})),body);document.body.append(editor);document.addEventListener('keydown',escape,true);
+ const name=el('input',{maxlength:60,'aria-label':'Layout preset name',placeholder:'Name your layout'});editor.append(field('Layout preset name',name),action('Save layout preset',()=>{layout.savePreset(name.value);name.value='';}),action('Start from scratch',()=>{const value=settings.get();value.layout.desktop={};value.layout.mobile={};for(const id of DASHBOARD_ELEMENTS)value.widgets[id]=false;settings.replace(value);draw();}));
+ function draw(){const active=body.contains(document.activeElement)?document.activeElement:null;if(active?.type==='range')return;const label=active?.getAttribute('aria-label');const value=settings.get(),cell=value.layout[target][selected],style=value.layout.widgetStyle[selected];body.replaceChildren();const visible=el('input',{type:'checkbox',checked:value.widgets[selected],onchange:e=>{const next=settings.get();next.widgets[selected]=e.target.checked;if(e.target.checked&&!next.layout[target][selected])next.layout[target][selected]=layout.defaultCells(DASHBOARD_ELEMENTS.filter(id=>next.widgets[id]),target==='mobile')[selected];settings.replace(next);}});body.append(field('Show '+layout.labels[selected],visible));
+ if(cell){for(const[key,label,min,max]of [['x','Left (%)',0,100-cell.w],['y','Top (%)',0,100-cell.h],['w','Width (%)',8,100-cell.x],['h','Height (%)',4,100-cell.y]]){const input=el('input',{type:'number',min,max,step:value.layout.snap,value:cell[key],disabled:style.pinned||value.layout.locked,onchange:e=>{const n=Number(e.target.value);if(!Number.isFinite(n)||n<min||n>max){status.textContent='Use a value within the displayed bounds.';e.target.value=cell[key];return;}const next=settings.get();next.layout[target][selected][key]=n;settings.replace(next);}});body.append(field(label,input));}}
+ for(const[key,label]of [['title','Show title'],['collapsed','Collapse widget'],['pinned','Pin position']])body.append(field(label,el('input',{type:'checkbox',checked:style[key],onchange:e=>settings.set(`layout.widgetStyle.${selected}.${key}`,e.target.checked)})));
+ body.append(field('Widget opacity',el('input',{type:'range',min:80,max:100,value:style.opacity,oninput:e=>settings.set(`layout.widgetStyle.${selected}.opacity`,Number(e.target.value))})));if(label)body.querySelector('[aria-label="'+CSS.escape(label)+'"]')?.focus({preventScroll:true});
+ }
+ body.addEventListener('focusout',event=>{if(event.target.type==='range')queueMicrotask(draw);});off=settings.subscribe(draw);draw();editor.focus();}
+export async function close(){await settings.flush();document.removeEventListener('keydown',escape,true);off?.();off=null;editor?.remove();editor=null;layout.setEditing(false);settings.set('layout.locked',true);await settings.flush();document.querySelector('#home-menu > summary')?.focus();}
+export function init(){}
+export function render(){return open();}
+export function destroy(){document.removeEventListener('keydown',escape,true);off?.();off=null;editor?.remove();editor=null;layout.setEditing(false);}

@@ -10,10 +10,10 @@ let live;
 const media = matchMedia('(prefers-color-scheme: dark)');
 const motion = matchMedia('(prefers-reduced-motion: reduce)');
 /** True when either the system or the explicit preference reduces motion. */
-export const reduceMotion = () => get().settings.reducedMotion || motion.matches;
+export const reduceMotion = () => get().settings.reducedMotion || get().settings.customization?.background?.performance?.static || motion.matches;
 function shade(settings = get().settings) {
   const root = document.documentElement, data = get(), style = backgroundPresentation(artwork, settings.contrast === 'strong');
-  root.dataset.shading = Object.keys(data.layout).length ? 'balanced' : 'directional';
+  root.dataset.shading = Object.keys(data.layout).length || data.settings.customization?.layout?.enabled ? 'balanced' : 'directional';
   for (const key of ['left','mobile','flow','all']) root.style.setProperty('--shade-' + key, style[key]);
   // A central text zone must remain legible even on an unknown white upload.
   // The slider controls a local text veil, not a full-screen gray filter.
@@ -58,7 +58,7 @@ export async function render(override) {
   root.dataset.brand = String(a.showBrand); root.dataset.date = String(a.showDate); root.dataset.caption = String(a.showCaption);
   root.dataset.live = s.background.kind === 'animated' ? s.background.id : 'off'; live?.sync(reduceMotion());
   document.dispatchEvent(new Event('oneflow:theme'));
-  const key = JSON.stringify(s.background) + dayKey() + navigator.onLine;
+  const key = JSON.stringify(s.background) + dayKey() + navigator.onLine + (s.customization?.behavior?.spaceId||'default');
   if (key === lastBackground) return;
   lastBackground = key;
   const version = ++revision, b = s.background, hero = document.querySelector('#landscape');
@@ -85,7 +85,7 @@ export async function render(override) {
         // Legacy selections stay local after retiring the online provider.
         attribution?.append(translate('m0115'), el('a', { href: record.unsplash.profile, target: '_blank', rel: 'noreferrer' }, record.unsplash.author), ' on ', el('a', { href: 'https://unsplash.com/?utm_source=oneflow&utm_medium=referral', target: '_blank', rel: 'noreferrer' }, translate('m0116')));
       }
-    } else { source = '../wallpaper/alpine.webp'; preview = source.replace('.webp', '-thumb.webp'); name = translate('m0110'); emit('toast', translate('m0117')); }
+    } else { source = '../assets/backgrounds/alpine.webp'; preview = source.replace('.webp', '-thumb.webp'); name = translate('m0110'); emit('toast', translate('m0117')); }
   }
   if (version !== revision) { if (ownedURL) URL.revokeObjectURL(ownedURL); return; }
   if (objectURL) URL.revokeObjectURL(objectURL); objectURL = ownedURL;

@@ -6,6 +6,22 @@
  * values, but should not redefine the shared design system.
  */
 :root {
+  --layer-settings: var(--layer-drawer);
+  --layer-background-effects: var(--layer-underlay);
+  --ambient-ink: var(--color-white);
+  --effect-particle-size: 2px;
+  --layout-canvas-top: 64px;
+  --layout-canvas-bottom: 64px;
+  --layout-row-height: 160px;
+  --layout-editor-width: 320px;
+  --layout-grid-step: 4%;
+  --layout-grid: var(--border);
+  --wallpaper-preview-aspect: 16 / 10;
+  --json-editor-height: 160px;
+  --gradient-canvas-size: 180% 180%;
+  --motion-scenery: 30s;
+  --personal-clock-face: 128px;
+
   --drawer-width: 560px;
   --font-system: 'Segoe UI', system-ui, -apple-system, 'SF Pro Text', Roboto, 'Helvetica Neue', Arial, sans-serif;
   --font-atkinson: 'ONEFLOW Atkinson', var(--font-system);
@@ -372,3 +388,10 @@ html[data-theme='light'][data-contrast='strong'] { --glass: var(--surface-1); --
 @media(prefers-reduced-motion:reduce) { :root { --animation-level:0; } }
 
 :root { --mood-fresh:#267b66; --mood-cozy:#b06b43; --mood-night:#875ee8; --mood-spring:#b34f80; --background-default:#293c36; }
+
+:root { --completion-start-opacity: .65; }
+
+:root { --space-switcher-width: 180px; }
+
+html[data-contrast=strong][data-notes-theme=light] { --notes-paper:var(--color-white); --notes-card:var(--color-white); --notes-ink:var(--color-black); --notes-muted:var(--color-black); --notes-line:var(--color-black); }
+html[data-contrast=strong][data-notes-theme=dark] { --notes-paper:var(--color-black); --notes-card:var(--color-black); --notes-ink:var(--color-white); --notes-muted:var(--color-white); --notes-line:var(--color-white); }

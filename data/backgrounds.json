@@ -16,10 +16,11 @@
       50,
       50
     ],
-    "shade": 0.54,
+    "shade": 0.64,
     "source": "alpine.svg",
     "file": "alpine.webp",
-    "thumbnail": "alpine-thumb.webp"
+    "thumbnail": "alpine-thumb.webp",
+    "folder": "assets"
   },
   {
     "id": "cozy",
@@ -38,54 +39,11 @@
       50,
       50
     ],
-    "shade": 0.54,
+    "shade": 0.64,
     "source": "cozy.svg",
     "file": "cozy.webp",
-    "thumbnail": "cozy-thumb.webp"
-  },
-  {
-    "id": "lofi",
-    "name": "Lavender dusk",
-    "category": "Soft evening",
-    "colors": [
-      "#8e939e",
-      "#c8bdb9",
-      "#747d87"
-    ],
-    "position": [
-      50,
-      50
-    ],
-    "mobilePosition": [
-      50,
-      50
-    ],
-    "shade": 0.54,
-    "source": "lofi.svg",
-    "file": "lofi.webp",
-    "thumbnail": "lofi-thumb.webp"
-  },
-  {
-    "id": "minimal",
-    "name": "Sage meadow",
-    "category": "Open horizons",
-    "colors": [
-      "#9ba89b",
-      "#ceceba",
-      "#788c70"
-    ],
-    "position": [
-      50,
-      50
-    ],
-    "mobilePosition": [
-      50,
-      50
-    ],
-    "shade": 0.54,
-    "source": "minimal.svg",
-    "file": "minimal.webp",
-    "thumbnail": "minimal-thumb.webp"
+    "thumbnail": "cozy-thumb.webp",
+    "folder": "assets"
   },
   {
     "id": "dark",
@@ -104,10 +62,57 @@
       50,
       50
     ],
-    "shade": 0.54,
+    "shade": 0.64,
     "source": "dark.svg",
     "file": "dark.webp",
-    "thumbnail": "dark-thumb.webp"
+    "thumbnail": "dark-thumb.webp",
+    "folder": "assets"
+  },
+  {
+    "id": "lofi",
+    "name": "Lavender dusk",
+    "category": "Soft evening",
+    "colors": [
+      "#8e939e",
+      "#c8bdb9",
+      "#747d87"
+    ],
+    "position": [
+      50,
+      50
+    ],
+    "mobilePosition": [
+      50,
+      50
+    ],
+    "shade": 0.64,
+    "source": "lofi.svg",
+    "file": "lofi.webp",
+    "thumbnail": "lofi-thumb.webp",
+    "folder": "assets"
+  },
+  {
+    "id": "minimal",
+    "name": "Sage meadow",
+    "category": "Open horizons",
+    "colors": [
+      "#9ba89b",
+      "#ceceba",
+      "#788c70"
+    ],
+    "position": [
+      50,
+      50
+    ],
+    "mobilePosition": [
+      50,
+      50
+    ],
+    "shade": 0.64,
+    "source": "minimal.svg",
+    "file": "minimal.webp",
+    "thumbnail": "minimal-thumb.webp",
+    "folder": "assets"
   },
   {
     "id": "summit",
@@ -126,249 +131,10 @@
       50,
       50
     ],
-    "shade": 0.54,
+    "shade": 0.64,
     "source": "summit.svg",
     "file": "summit.webp",
-    "thumbnail": "summit-thumb.webp"
-  },
-  {
-    "id": "still-efe29597ad8dfe46",
-    "name": "1198589 2048x1128 desktop hd studio ghibli wallpaper photo",
-    "file": "1198589-2048x1128-desktop-hd-studio-ghibli-wallpaper-photo.jpg",
-    "thumbnail": "1198589-2048x1128-desktop-hd-studio-ghibli-wallpaper-photo.jpg",
-    "category": "Local collection",
-    "position": [
-      50,
-      50
-    ],
-    "mobilePosition": [
-      50,
-      50
-    ],
-    "shade": 0.6
-  },
-  {
-    "id": "still-f08fc60ebdbf23bf",
-    "name": "1198594 3200x1680 desktop hd studio ghibli background",
-    "file": "1198594-3200x1680-desktop-hd-studio-ghibli-background.jpg",
-    "thumbnail": "1198594-3200x1680-desktop-hd-studio-ghibli-background.jpg",
-    "category": "Local collection",
-    "position": [
-      50,
-      50
-    ],
-    "mobilePosition": [
-      50,
-      50
-    ],
-    "shade": 0.6
-  },
-  {
-    "id": "still-585cd0c8fcdc6730",
-    "name": "1198609 2560x1440 desktop hd studio ghibli background",
-    "file": "1198609-2560x1440-desktop-hd-studio-ghibli-background.jpg",
-    "thumbnail": "1198609-2560x1440-desktop-hd-studio-ghibli-background.jpg",
-    "category": "Local collection",
-    "position": [
-      50,
-      50
-    ],
-    "mobilePosition": [
-      50,
-      50
-    ],
-    "shade": 0.6
-  },
-  {
-    "id": "still-54b7319536a12df4",
-    "name": "1198615 2560x1440 desktop hd studio ghibli background",
-    "file": "1198615-2560x1440-desktop-hd-studio-ghibli-background.jpg",
-    "thumbnail": "1198615-2560x1440-desktop-hd-studio-ghibli-background.jpg",
-    "category": "Local collection",
-    "position": [
-      50,
-      50
-    ],
-    "mobilePosition": [
-      50,
-      50
-    ],
-    "shade": 0.6
-  },
-  {
-    "id": "still-085fc81103c532c6",
-    "name": "1198627 2080x1319 desktop hd studio ghibli wallpaper",
-    "file": "1198627-2080x1319-desktop-hd-studio-ghibli-wallpaper.jpg",
-    "thumbnail": "1198627-2080x1319-desktop-hd-studio-ghibli-wallpaper.jpg",
-    "category": "Local collection",
-    "position": [
-      50,
-      50
-    ],
-    "mobilePosition": [
-      50,
-      50
-    ],
-    "shade": 0.6
-  },
-  {
-    "id": "still-ec30a7337910c6ec",
-    "name": "Quiet island",
-    "file": "1198712-3840x2160-desktop-4k-studio-ghibli-wallpaper.jpg",
-    "thumbnail": "1198712-3840x2160-desktop-4k-studio-ghibli-wallpaper.jpg",
-    "category": "Local collection",
-    "position": [
-      10,
-      42
-    ],
-    "mobilePosition": [
-      16,
-      38
-    ],
-    "shade": 0.6
-  },
-  {
-    "id": "still-0e4855219f32f3cb",
-    "name": "1198775 3200x1720 desktop hd studio ghibli wallpaper photo",
-    "file": "1198775-3200x1720-desktop-hd-studio-ghibli-wallpaper-photo.jpg",
-    "thumbnail": "1198775-3200x1720-desktop-hd-studio-ghibli-wallpaper-photo.jpg",
-    "category": "Local collection",
-    "position": [
-      50,
-      50
-    ],
-    "mobilePosition": [
-      50,
-      50
-    ],
-    "shade": 0.6
-  },
-  {
-    "id": "still-a6fbba24c95b0620",
-    "name": "1198790 3840x2160 desktop 4k studio ghibli wallpaper",
-    "file": "1198790-3840x2160-desktop-4k-studio-ghibli-wallpaper.jpg",
-    "thumbnail": "1198790-3840x2160-desktop-4k-studio-ghibli-wallpaper.jpg",
-    "category": "Local collection",
-    "position": [
-      50,
-      50
-    ],
-    "mobilePosition": [
-      50,
-      50
-    ],
-    "shade": 0.6
-  },
-  {
-    "id": "still-991a7d9c9316d34e",
-    "name": "1198793 3054x1666 desktop hd studio ghibli wallpaper",
-    "file": "1198793-3054x1666-desktop-hd-studio-ghibli-wallpaper.jpg",
-    "thumbnail": "1198793-3054x1666-desktop-hd-studio-ghibli-wallpaper.jpg",
-    "category": "Local collection",
-    "position": [
-      50,
-      50
-    ],
-    "mobilePosition": [
-      50,
-      50
-    ],
-    "shade": 0.6
-  },
-  {
-    "id": "still-477c20f3f04f5cfd",
-    "name": "1198875 2560x1440 desktop hd studio ghibli background image",
-    "file": "1198875-2560x1440-desktop-hd-studio-ghibli-background-image.jpg",
-    "thumbnail": "1198875-2560x1440-desktop-hd-studio-ghibli-background-image.jpg",
-    "category": "Local collection",
-    "position": [
-      50,
-      50
-    ],
-    "mobilePosition": [
-      50,
-      50
-    ],
-    "shade": 0.6
-  },
-  {
-    "id": "still-30bb8a4e5ee2183a",
-    "name": "1198882 2560x1440 desktop hd studio ghibli wallpaper",
-    "file": "1198882-2560x1440-desktop-hd-studio-ghibli-wallpaper.jpg",
-    "thumbnail": "1198882-2560x1440-desktop-hd-studio-ghibli-wallpaper.jpg",
-    "category": "Local collection",
-    "position": [
-      50,
-      50
-    ],
-    "mobilePosition": [
-      50,
-      50
-    ],
-    "shade": 0.6
-  },
-  {
-    "id": "still-9df1f9015a5f6659",
-    "name": "1198883 2166x1278 desktop hd studio ghibli background photo",
-    "file": "1198883-2166x1278-desktop-hd-studio-ghibli-background-photo.jpg",
-    "thumbnail": "1198883-2166x1278-desktop-hd-studio-ghibli-background-photo.jpg",
-    "category": "Local collection",
-    "position": [
-      50,
-      50
-    ],
-    "mobilePosition": [
-      50,
-      50
-    ],
-    "shade": 0.6
-  },
-  {
-    "id": "still-5fd0bc0d1743fc06",
-    "name": "122083 2404x1704 desktop hd the garden of words background image",
-    "file": "122083-2404x1704-desktop-hd-the-garden-of-words-background-image.jpg",
-    "thumbnail": "122083-2404x1704-desktop-hd-the-garden-of-words-background-image.jpg",
-    "category": "Local collection",
-    "position": [
-      50,
-      50
-    ],
-    "mobilePosition": [
-      50,
-      50
-    ],
-    "shade": 0.6
-  },
-  {
-    "id": "still-4dd1c2193ceaa5fb",
-    "name": "33038 1920x1080 desktop 1080p the garden of words wallpaper image",
-    "file": "33038-1920x1080-desktop-1080p-the-garden-of-words-wallpaper-image.jpg",
-    "thumbnail": "33038-1920x1080-desktop-1080p-the-garden-of-words-wallpaper-image.jpg",
-    "category": "Local collection",
-    "position": [
-      50,
-      50
-    ],
-    "mobilePosition": [
-      50,
-      50
-    ],
-    "shade": 0.6
-  },
-  {
-    "id": "still-f8ad5325ae74b1f5",
-    "name": "pexels jan van der wolf 11680885 10267558",
-    "file": "pexels-jan-van-der-wolf-11680885-10267558.jpg",
-    "thumbnail": "pexels-jan-van-der-wolf-11680885-10267558.jpg",
-    "category": "Local collection",
-    "position": [
-      50,
-      50
-    ],
-    "mobilePosition": [
-      50,
-      50
-    ],
-    "shade": 0.6
+    "thumbnail": "summit-thumb.webp",
+    "folder": "assets"
   }
 ]

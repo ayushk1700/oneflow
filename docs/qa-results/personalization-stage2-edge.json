@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-14T15:35:15.076Z",
+  "checks": [
+    "Stage 1 migrates in Chrome while retaining accent and tasks",
+    "Keyboard movement and resizing update snapped geometry",
+    "Pointer drag moves the same saved widget geometry",
+    "Pinned widgets lock and custom layout presets save",
+    "A layout can be built from scratch and saved using native controls",
+    "Uploaded wallpaper is stored in IndexedDB and real browser quota is measured",
+    "A real local MP4 upload is validated and persisted through the drawer",
+    "Safe SVG becomes an inert raster and active SVG is rejected",
+    "A new space has isolated tasks, journal, notes and wallpaper",
+    "Full backup restores all spaces, selected scoped wallpaper and note attachments",
+    "Duplicate space copies settings and scoped IndexedDB records",
+    "Deleting other spaces preserves original notes, journal and uploaded wallpaper",
+    "All six clock styles render",
+    "Ambient scene and static performance preference apply",
+    "Custom layout, active space and uploaded wallpaper survive a browser restart",
+    "Cached new tab becomes usable within one second"
+  ],
+  "errors": [],
+  "performance": {
+    "ready": 616.7999999970198,
+    "cls": 0
+  }
+}

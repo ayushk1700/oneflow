@@ -12,7 +12,9 @@ import { tasks, settings, countdowns, links, quotes, weather } from '../core/laz
 import * as timer from '../components/timer/index.js';
 import { timerCommand, backgroundSync } from '../core/timer-client.js';
 import { openFeature, openDay, registerFeature, destroyFeature } from '../core/features.js';
-import * as flow from '../components/flow/index.js';
+let flowModule;
+const loadFlow=()=>flowModule??=(import('../components/flow/index.js').then(module=>{module.init();return module;}));
+const flow={init:()=>{},enter:()=>{const fullscreen=document.documentElement.requestFullscreen?.().catch(()=>{});return loadFlow().then(async module=>{await fullscreen;return module.enter();});}};
 import * as layout from '../core/layout.js';
 import { recordDiagnostic } from '../core/diagnostics.js';
 import * as dashboard from '../core/dashboard-view.js';
@@ -24,13 +26,13 @@ let secondaryReady = false;
 let studioRuntime;
 async function applyStudio(data) { if (data.settings.studio.enabled && !studioRuntime) { studioRuntime = await import('../core/studio-runtime.js'); studioRuntime.init(); } }
 async function applyWidgets(data) {
-  const widgets = data.settings.widgets, key = JSON.stringify([widgets, data.settings.studio.enabled, secondaryReady]);
+  const widgets = data.settings.widgets, key = JSON.stringify([widgets, data.settings.studio.enabled, secondaryReady,data.settings.customization?.layout?.enabled,data.settings.customization?.behavior?.spaceId]);
   if (key === previousWidgets) return;
   previousWidgets = key;
   for (const [name, module] of Object.entries(modules)) {
     const node = document.getElementById(name);
     const enabled = (name === 'tasks' ? widgets.tasks || widgets.notes || widgets.habits : name === 'focus' ? widgets.focus || widgets.timer : widgets[name]) &&
-      (!['weather','links','countdowns'].includes(name) || secondaryReady || data.settings.studio.enabled);
+      (!['weather','links','countdowns'].includes(name) || secondaryReady || data.settings.studio.enabled || data.settings.customization?.layout?.enabled);
     if (node) node.hidden = name === 'timer' || !enabled;
     if (enabled && !mounted.has(name)) { mounted.add(name); Promise.resolve(module.init(name === 'timer' ? null : node)).catch(error => emit('error', error)); if (name === 'countdowns') registerFeature(name, module); }
     else if (!enabled && mounted.has(name)) { discardPanel(name); module.destroy(); mounted.delete(name); }

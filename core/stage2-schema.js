@@ -14,6 +14,7 @@ export function validateSession(s) {
   if (!s || !str(s.id, 100) || !num(s.start, 0, 9e15) || !num(s.end, s.start, 9e15) || !num(s.duration, 0, 180 * 60000) || typeof s.completed !== 'boolean' || !(s.taskId === null || str(s.taskId, 100)) || !str(s.taskTitle, 240)) throw new Error(translate('m0071'));
 }
 export function validateJournal(j) {
+  if(j?.notebook!==undefined&&!str(j.notebook,60)||j?.mood!==undefined&&!str(j.mood,40))throw new Error('Invalid journal notebook or mood.');
   if (!j || !str(j.id, 100) || !date(j.date) || !str(j.text, 20000) || !str(j.prompt, 500) || !num(j.updatedAt, 0, 9e15)) throw new Error(translate('m0072'));
 }
 export function validateExtra(d) {

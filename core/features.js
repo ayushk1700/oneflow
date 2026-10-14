@@ -27,6 +27,8 @@ export function destroyFeature(name) {
   modules.get(name)?.destroy();
   modules.delete(name);
 }
+/** Inactive panel caches must never retain another space's private editor. */
+export function clearSpacePanels(){for(const name of [...modules.keys()])if(name!=='countdowns')destroyFeature(name);}
 export async function openDay() { const current = panelRequest(), module = await import('../components/tools/index.js'); if (current()) module.open(); }
 
 

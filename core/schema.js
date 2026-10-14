@@ -3,6 +3,7 @@ import { refinementDefaults, validateRefinement } from './refinement-schema.js';
 import { extraDefaults, EXTRA_WIDGETS, validateExtra } from './stage2-schema.js';
 import { stage3Defaults, validateStage3 } from './stage3-schema.js';
 import { studioDefaults, mergeStudio, validateStudio } from './studio-schema.js';
+import { validateTaskDetails } from './task-schema.js';
 export const SCHEMA_VERSION = 10;
 export const WIDGETS = ['clock', 'focus', 'search', 'links', 'quotes', 'weather', 'tasks', ...EXTRA_WIDGETS];
 /** A fresh default document; never share mutable defaults between callers. */
@@ -13,9 +14,9 @@ export function defaults() {
       name: '', theme: 'dark', accent: '#c9d9b5', font: 'sans', clock24: false, units: 'celsius',
       reducedMotion: false, onboarding: false, engine: 'browser', language: 'en', contrast: 'normal',
       widgets: Object.fromEntries(WIDGETS.map(key => [key, !['links', 'countdowns'].includes(key)])),
-      // The checked-in wallpaper folder is the visual starting point. The
+      // The licensed bundled scenery is the visual starting point. The
       // generated alpine scene remains the safe fallback when media is absent.
-      background: { kind: 'bundled', id: 'still-ec30a7337910c6ec', blur: 0, rotate: false, color: '#293c36' },
+      background: { kind: 'bundled', id: 'alpine', blur: 0, rotate: false, color: '#293c36' },
       appearance: { clockSize: 128, clockWeight: 400, panelOpacity: 94, overlay: 60, motionSpeed: 30, showBrand: true, showDate: true, showCaption: true, ambientClock: false, defaultView: 'home' },
       journal: { autosave: true, prompts: true, font: 'sans', fontSize: 18, width: 780, theme: 'light' },
       studio: studioDefaults()
@@ -86,7 +87,8 @@ export function validate(doc) {
   }
   if (!doc.lists.length || doc.lists.some(x => !x || !string(x.id, 100) || !string(x.name, 80))) throw new Error(translate('m0064'));
   if (doc.tasks.some(x => !x || !string(x.id, 100) || !string(x.text, 240) || !doc.lists.some(l => l.id === x.listId) || typeof x.completed !== 'boolean' || !taskDate(x.dueDate))) throw new Error(translate('m0065'));
-  if (doc.links.some(x => !x || !string(x.id, 100) || !string(x.title, 80) || !safeURL(x.url))) throw new Error(translate('m0066'));
+  doc.tasks.forEach(validateTaskDetails);
+  if (doc.links.some(x => !x || !string(x.id, 100) || !string(x.title, 80) || !safeURL(x.url) || x.icon!==undefined&&!string(x.icon,40) || x.folder!==undefined&&!string(x.folder,60))) throw new Error(translate('m0066'));
   for (const key of ['lists', 'tasks', 'links']) if (new Set(doc[key].map(x => x.id)).size !== doc[key].length) throw new Error(translate('m0067', {p0: key}));
   if (doc.favorites.some(x => !string(x, 100))) throw new Error(translate('m0068'));
   const loc = doc.weather?.location;

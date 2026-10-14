@@ -15,6 +15,9 @@ export function workerMessageAllowed(message, sender, origin) {
     try { return new URL(sender.url).hash.slice(1) === message.url; } catch { return false; }
   }
   if (message?.type === 'audio-slept') return path === '/background/audio/index.html';
+  // The Notes editor inside our own dashboard shares its timer. A webpage
+  // capture frame and a standalone editor cannot acquire that authority.
+  if(path==='/components/notes/capture.html'&&message?.type==='timer')return documentPath({id:sender.id,url:sender.tab?.url},origin)==='/newtab/index.html';
   return path === '/newtab/index.html' && sender.frameId === 0 && ['flow-start', 'flow-stop', 'timer', 'sync', 'test-alert', 'pexels-search'].includes(message?.type)
     || message?.type === 'sync' && path === '/components/notes/capture.html';
 }

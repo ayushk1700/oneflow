@@ -1,6 +1,6 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
-export const runtimeRoots = ['newtab', 'background', 'blocked', 'components', 'core', 'data', 'assets', 'vendor', 'wallpaper', 'livewallpaper'];
+export const runtimeRoots = ['newtab', 'background', 'blocked', 'components', 'core', 'data', 'assets', 'vendor'];
 const excluded = file => /^(?:components\/(?:ai|unsplash)\/|vendor\/(?:lucide|sortablejs|canvas-confetti)\/)/.test(file) || file === 'core/ai.js';
 /** Release file policy rejects unexpected files instead of silently adding them to the ZIP. */
 export async function releaseFiles(root) {

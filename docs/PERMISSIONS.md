@@ -10,7 +10,7 @@
 | `notifications` | Optional | Explicit reminder/system-notice controls request it. Denial retains in-app reminders and keeps the timer usable. |
 | `offscreen` | Yes | One local AUDIO_PLAYBACK owner for requested sounds/chime after tabs close, created only when needed. |
 | `declarativeNetRequest` | Yes | Session-scoped navigation redirects during explicitly started Flow focus. No persistent dynamic/static rules or feedback permission. |
-| Device geolocation | Not requested | City search supplies weather coordinates. Chrome does not support optional extension geolocation, so no required location permission is added. |
+| Device geolocation | Required (approved Stage 2 exception) | Chrome cannot declare it optional. Coordinates are read only through the explicit Use device location action; manual city selection remains available. |
 | Open-Meteo API/geocoding hosts | Optional | Weather setup; selected coordinates/city search and expired-cache refresh while enabled. |
 | Pexels API/image/video hosts | Optional | Explicit personal-key photo/video background search. Selected files cache offline with attribution. Background selection supports the productivity dashboard. |
 | `http://*/*`, `https://*/*` | Optional declaration | Arbitrary user-selected blocker domains. Blocklist requests only selected domain patterns/subdomains. Allow-only requests all HTTP/HTTPS sites to redirect anything outside the allowlist. No broad host grant at installation. |
@@ -58,3 +58,11 @@ The nine new workspace tools add no required permissions. Quiet Web reuses optio
 
 
 Security update 1.0.1: blocker messages require the exact top-level interstitial and matching target. Generic worker/audio actions have owner-document allowlists. Local/sync storage access is restricted to trusted extension contexts. Capture launch tokens expire after one minute, are consumed once, and are cleaned on tab-close/expiry. Full reset clears session capture/key data, menus, displayed notifications and all granted supported optional permissions. Media imports validate content and dimensions, and provider JSON is capped before parsing.
+
+## Core personalization (Stage 2)
+
+Chrome disallows geolocation in optional_permissions, so geolocation is required in the manifest with the user’s explicit approval. See [Chrome permissions documentation](https://developer.chrome.com/docs/extensions/reference/api/permissions). No device location is requested at startup, by a schedule or in the background. The explicit Use device location action obtains coordinates, rounded to three decimal places, and uses the existing optional Open-Meteo origin grant. Saved coordinates provide weather on later tabs. Manual city selection remains available.
+
+Wallpaper URL caching requests only the selected HTTP(S) origin. It sends no credentials or referrer and rejects redirects, active MIME types and oversized downloads. Images/videos remain in IndexedDB within their space. No remote scripts or analytics are added.
+
+Journal reminders reuse alarms and the local notification inbox; system notifications appear only if optional notifications permission has already been granted. Only the active space is scheduled.

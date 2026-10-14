@@ -1,0 +1,22 @@
+[
+  {
+    "name": "home",
+    "score": 100,
+    "failures": []
+  },
+  {
+    "name": "drawer",
+    "score": 100,
+    "failures": []
+  },
+  {
+    "name": "layout",
+    "score": 100,
+    "failures": []
+  },
+  {
+    "name": "layout-light",
+    "score": 100,
+    "failures": []
+  }
+]

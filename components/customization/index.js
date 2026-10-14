@@ -4,10 +4,11 @@ import { el, download } from '../../core/utils.js';
 import { field, select, closePanel, confirmAction } from '../../core/ui.js';
 import { backgroundCatalog } from '../../core/background-presentation.js';
 import { openFeature } from '../../core/features.js';
-let drawer, off, opening;
+let drawer, off, opening, closing;
 const sections = [['theme','Appearance'],['background','Background'],['layout','Layout'],['widgets','Widgets'],['behavior','Behavior'],['accessibility','Accessibility'],['data','Data']];
 /** Stage 1 drawer: immediate preview and debounced persistence, with reversible session edits. */
 export function open(initial = 'theme') {
+  if(closing)return closing.then(()=>open(initial));
   if (opening) return opening;
   opening = build(initial).catch(error => { off?.(); off=null; drawer?.remove(); drawer=null; throw error; }).finally(() => { opening=null; });
   return opening;
@@ -72,31 +73,32 @@ async function build(initial) {
   range('theme','Corner radius','theme.shape.radius',0,36);range('theme','Border thickness','theme.shape.borderThickness',0,3,.5);
   choice('theme','Font family','theme.typography.family',[['system','System sans'],['atkinson','Atkinson Hyperlegible · bundled'],['opendyslexic','OpenDyslexic · bundled'],['mono','System monospace']]);
   range('theme','Text size scale','theme.typography.scale',.85,1.5,.05);range('theme','Font weight','theme.typography.weight',300,700,100);range('theme','Line height','theme.typography.lineHeight',1.3,2,.1);
-  choice('background','Background type','background.kind',[['bundled','Local wallpaper'],['solid','Solid color'],['gradient','Gradient'],['animated','Animated atmosphere'],['upload','Uploaded photo'],['video','Saved video'],['local-video','Local video']]);
+  choice('background','Background type','background.kind',[['bundled','Local wallpaper'],['solid','Solid color'],['gradient','Gradient'],['animated-gradient','Animated gradient'],['animated','Animated atmosphere'],['upload','Uploaded photo'],['video','Saved video'],['local-video','Local video']]);
   const backgrounds=await backgroundCatalog();choice('background','Wallpaper','background.id',backgrounds.map(item=>[item.id,item.name]));
   const atmospheres=el('div',{class:'customization-actions'});groups.get('background').append(atmospheres);
   for(const[id,label]of [['aurora','Aurora glow'],['dusk','Rose dusk'],['ocean','Ocean drift'],['ember','Warm embers']])button(label,()=>{const next=settings.get();Object.assign(next.background,{kind:'animated',id,rotate:false});settings.replace(next);},atmospheres);
   add('background','Background color','background.color','color');range('background','Background blur','background.blur',0,20);add('background','Rotate local wallpapers','background.rotate');
   button('Upload photo or video',async()=>{await close();const {emit}=await import('../../core/events.js');emit('settings:open','backgrounds');},groups.get('background'));
   choice('layout','Density','layout.density',[['compact','Compact'],['comfortable','Comfortable'],['spacious','Spacious']]);
-  button('Arrange dashboard',async()=>{await close();await openFeature('customizer');},groups.get('layout'));
-  for(const key of Object.keys(settings.get().widgets))add('widgets',key[0].toUpperCase()+key.slice(1),'widgets.'+key);
+  button('Arrange dashboard',async()=>{await close();await (await import('../layout-editor/index.js')).open();},groups.get('layout'));
+  for(const [key,value] of Object.entries(settings.get().widgets))if(typeof value==='boolean')add('widgets',key[0].toUpperCase()+key.slice(1),'widgets.'+key);
   add('behavior','Zen mode · clock only','behavior.zen');add('behavior','24-hour clock','behavior.clock24');
   choice('behavior','Startup view','behavior.startupView',[['home','Home'],['focus','Focus'],['ambient','Ambient']]);
   add('accessibility','High contrast','accessibility.highContrast');add('accessibility','Reduce motion','accessibility.reduceMotion');add('accessibility','Large text','accessibility.largeText');add('accessibility','Dyslexia-friendly font','accessibility.dyslexia');
   groups.get('accessibility').append(el('p',{},'OpenDyslexic is bundled locally. Choose the font that feels easiest to read; individual preferences vary.'));
   const data=groups.get('data');button('Export settings',async()=>{await settings.flush();download(new Blob([settings.exportJSON()],{type:'application/json'}),'oneflow-settings.json');},data);
-  const file=el('input',{type:'file',accept:'.json,application/json','aria-label':'Import settings JSON',onchange:async()=>{try{const selected=file.files[0];file.value='';if(!selected)return;if(selected.size>64*1024)throw new Error('Settings file must be no larger than 64 KB.');failure=''; settings.importJSON(await selected.text());await settings.flush();status.textContent='Settings imported and saved.';}catch(error){failure=error.message; status.textContent=failure;}}});data.append(field('Import settings JSON',file));
+  const file=el('input',{type:'file',accept:'.json,application/json','aria-label':'Import settings JSON',onchange:async()=>{try{const selected=file.files[0];file.value='';if(!selected)return;if(selected.size>512*1024)throw new Error('Settings file must be no larger than 512 KB.');failure=''; settings.importJSON(await selected.text());await settings.flush();status.textContent='Settings imported and saved.';}catch(error){failure=error.message; status.textContent=failure;}}});data.append(field('Import settings JSON',file));
   button('Reset all settings',()=>confirmAction(data,'Reset all customization settings? Your tasks, notes and media will remain.',()=>settings.reset()),data);
   button('Clear all data',()=>confirmAction(data,'Delete all ONEFLOW data, media and optional access? Download a backup first. This cannot be undone.',async()=>{await settings.flush();await(await import('../../core/backup.js')).resetData();location.reload();}),data);
+  const personalization=await (await import('./personalization.js')).mount({add,choice,range,button,groups,rows,close,status,reportError:error=>{failure=error.message;status.textContent=failure;}});
   const empty=el('p',{role:'status'},'No matching settings.');body.append(empty);
   function filter(){const term=search.value.trim().toLowerCase();let count=0;for(const[id,group]of groups){group.hidden=term?!rows.some(row=>row.section===id&&row.label.toLowerCase().includes(term)):id!==category;}for(const row of rows){row.row.hidden=!!term&&!row.label.toLowerCase().includes(term);if(!row.row.hidden&&!groups.get(row.section).hidden)count++;}for(const link of nav.children)link.setAttribute('aria-current',String(link.dataset.section===category&&!term));empty.hidden=!term||count>0;}
   function refresh(){for(const[path,{node,type,output}]of controls){if(document.activeElement!==node)node[type==='checkbox'?'checked':'value']=value(path);if(output)output.textContent=String(value(path));}const history=settings.history();undo.disabled=!history.undo;redo.disabled=!history.redo;drawThemes();filter();if(!settings.isSaving()&&!failure)status.textContent='Saved on this device.';}
   const origin=document.activeElement,modal=drawer;off=settings.subscribe(refresh);search.oninput=filter;
-  function cleanup(){if(drawer!==modal)return;off?.();off=null;modal.remove();drawer=null;(origin?.isConnected&&origin.getClientRects().length?origin:document.querySelector('#home-menu > summary'))?.focus();}
+  function cleanup(){if(drawer!==modal)return;off?.();off=null;personalization?.();modal.remove();drawer=null;(origin?.isConnected&&origin.getClientRects().length?origin:document.querySelector('#home-menu > summary'))?.focus();}
   drawer.addEventListener('close',cleanup);
   drawer.addEventListener('cancel',event=>{event.preventDefault();close().catch(error=>{failure=error.message; status.textContent=failure;});});
-  async function close(){await settings.flush();modal.close();cleanup();}
+  function close(){if(closing)return closing;closing=(async()=>{await settings.flush();modal.close();cleanup();})().finally(()=>{closing=null;});return closing;}
   document.body.append(drawer);drawer.showModal();refresh();search.focus();
 }
 export function init() { return runtime.init(); }

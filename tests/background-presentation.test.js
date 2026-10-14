@@ -21,7 +21,7 @@ test('Every bundled scene has optimized artwork and a small offline preview', as
     const item=normalizeBackground(raw);
     assert(item.position && item.mobilePosition);
     const file = item.file || `${item.id}.webp`, thumb = item.thumbnail || `${item.id}-thumb.webp`;
-    const folder = 'wallpaper';
+    const folder = item.folder==='assets'?'assets/backgrounds':'wallpaper';
     assert.equal(backgroundSource(item),`../${folder}/${encodeURIComponent(file)}`);
     assert((await fs.stat(`${folder}/${file}`)).size < (folder === 'wallpaper' ? 8*1024*1024 : 160*1024));
     assert((await fs.stat(`${folder}/${thumb}`)).size < (folder === 'wallpaper' ? 8*1024*1024 : 16*1024));
