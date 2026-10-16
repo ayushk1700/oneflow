@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "ONEFLOW — Private Focus & Study Timer",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "A private workspace in every new tab. Pick a task, start focusing, and see your progress. Works offline. No account needed.",
   "minimum_chrome_version": "120",
   "chrome_url_overrides": {

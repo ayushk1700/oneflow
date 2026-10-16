@@ -7,6 +7,7 @@ export function registerFeature(name, module) {
 }
 const tools = new Set(['firststep','recall','garden','proof','energyweather','afterglow','career','quietweb','skills','capsules','recovery','compiler','dna','energy','customizer','websearch','support','dictionary','reflection','queue','commands','scenes','blocker','rituals','layout','suggestions','notifications','ai']);
 const enabled = name => name === 'notes' ? ['notes','tasks','habits'].some(k => get().settings.widgets[k]) : tools.has(name) ? name !== 'ai' || AI_ASSIST : get().settings.widgets[name];
+tools.add('breathing');
 /** Load isolated panels on demand. */
 export async function openFeature(name) {
   if (name === 'tasks' || name === 'habits') name = 'notes';

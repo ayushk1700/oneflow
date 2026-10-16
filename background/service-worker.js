@@ -15,6 +15,13 @@ import * as database from '../core/database-store.js';
 import { useDatabaseDriver } from '../core/db.js';
 import * as workSchema from '../core/work-schema.js';
 import * as notesPreferences from '../core/notes-preferences.js';
+import {registerModule} from '../core/module-registry.js';
+import * as recovery from '../core/storage-recovery.js';
+import {processRules} from '../core/automation-worker.js';
+registerModule('database',database);
+registerModule('work',workSchema);
+registerModule('notes-preferences',notesPreferences);
+registerModule('recovery',recovery);
 storage.useStorageSchemas({ work: workSchema, notes: notesPreferences });
 useDatabaseDriver(database);
 initNotesService();
@@ -39,6 +46,7 @@ async function syncAudio() {
 }
 async function schedule() {
   const d = storage.get(), t = d.timer;
+  if(d.settings.customization?.behavior?.automation?.enabled)await chrome.alarms.create('oneflow-power-rules',{periodInMinutes:1});else await chrome.alarms.clear('oneflow-power-rules');
   if (t.status === 'running') {
     await chrome.alarms.create('oneflow-timer-end', { when: Math.max(Date.now() + 1, t.endsAt) });
     if (!await chrome.alarms.get('oneflow-timer-pulse')) await chrome.alarms.create('oneflow-timer-pulse', { periodInMinutes: 1 });
@@ -72,7 +80,7 @@ async function notifyPhase() {
 async function reconcile(action = 'tick', payload = {}) {
   setLanguage(storage.get().settings.language);
   await syncBlocker();
-  await runTimer(action, payload); await schedule(); await syncBlocker(); await scheduleReminders();
+  await runTimer(action, payload); await processRules();await schedule(); await syncBlocker(); await scheduleReminders();
   if (await processStudio()) await syncAudio(); await scheduleStudio();
   await notifyPhase().catch(error => console.warn(translate('m0611'), error.message));
 }
@@ -93,7 +101,7 @@ chrome.runtime.onMessage.addListener((message, sender, respond) => {
   }
   enqueue(async () => {
     await ready;
-    if (message.type === 'flow-start') { await startFlow(message.sceneId, Boolean(message.block)); await reconcile(); await syncAudio(); }
+    if (message.type === 'flow-start') { await startFlow(message.sceneId, Boolean(message.block), Boolean(message.preserveScene)); await reconcile(); await syncAudio(); }
     else if (message.type === 'flow-stop') { const summary = await stopFlow(); await reconcile(); await syncAudio(); return { ok: true, summary }; }
     else if (['blocked', 'override'].includes(message.type)) {
       return { ok: true, ...await blockedRequest(message.url, message.type === 'override') };
@@ -101,7 +109,9 @@ chrome.runtime.onMessage.addListener((message, sender, respond) => {
     else if (message.type === 'timer') {
       if (!['tick','start','pause','skip','reset','task','continue','phase','restore'].includes(message.action)) throw new Error(translate('m0612'));
       await reconcile(message.action, message.payload || {});
-    } else if (message.type === 'sync') { await reconcile(); await syncAudio(); }
+      return { ok: true, timer: storage.get().timer };
+    } else if (message.type === 'rules') {await processRules({tabOpened:Boolean(message.tabOpened),tabId:sender.tab?.id||''});await schedule();}
+    else if (message.type === 'sync') { await reconcile(); await syncAudio(); }
     else if (message.type === 'test-alert') { await audioMessage({ type: 'chime', options: storage.get().settings.studio.interaction }); }
     else if (message.type === 'audio-slept') { await storage.update(d => { d.audio.playing = false; d.audio.sleepAt = null; }); await syncAudio(); }
     else throw new Error(translate('m0613'));

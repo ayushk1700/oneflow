@@ -33,6 +33,8 @@ export function snapshot(d = get()) {
 /** Apply a validated snapshot while retaining personal records and active deadlines. */
 export function applySnapshot(d, value) {
   for (const key of ['theme', 'accent', 'font', 'background', 'widgets']) d.settings[key] = structuredClone(value.settings[key]);
+  if(!['dark','light'].includes(d.settings.theme))d.settings.theme=d.settings.customization?.theme?.mode==='light'?'light':'dark';
+  if(d.settings.customization){d.settings.customization.theme.mode=d.settings.theme;d.settings.customization.theme.paletteEnabled=false;}
   d.settings.contrast = value.settings.contrast || 'normal';
   for (const key of ['appearance','journal']) if (value.settings[key]) d.settings[key] = structuredClone(value.settings[key]);
   if (value.settings.studio) d.settings.studio = { ...structuredClone(value.settings.studio), automation: d.settings.studio.automation };

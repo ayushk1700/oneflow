@@ -6,6 +6,7 @@ import { el } from '../../core/utils.js';
 import { resumePanel, openPanel, field, select, act, watch, icon } from '../../core/ui.js';
 import { emit, on } from '../../core/events.js';
 import { tabs } from '../panel-design/index.js';
+import {editSound} from '../../core/sound-preferences.js';
 let preview, off, offResume, play, mixer, master, sleepStatus, sleepControl, mixesView, lastMixes;
 const labels = { rain: translate('m0439'), cafe: translate('m0667'), fireplace: translate('m0440'), forest: translate('m0441'), ocean: translate('m0442'), white: translate('m0443'), brown: translate('m0444') };
 const symbols = { rain: 'cloud-rain', cafe: 'coffee', fireplace: 'flame', forest: 'trees', ocean: 'waves', white: 'cloud', brown: 'leaf' };
@@ -18,7 +19,9 @@ async function apply() {
 export async function syncAudio() { await apply(); }
 function drawMixes(){
   const mixes=get().settings.studio.soundscapes,key=JSON.stringify(mixes);if(!mixesView||key===lastMixes)return;lastMixes=key;
-  mixesView.replaceChildren(mixes.length?field('Saved soundscape',select([['','Choose a mix'],...mixes.map(m=>[m.id,m.name])],'',act(async event=>{const mix=get().settings.studio.soundscapes.find(m=>m.id===event.target.value);if(!mix)return;await update(d=>{d.audio.master=mix.master;d.audio.volumes={...mix.volumes};});await apply();render();}))):el('p',{class:'empty-state'},'No saved mixes yet. Save a soundscape in Customize to reuse it here.'),el('button',{type:'button',onclick:act(async()=>{await(await import('../../core/features.js')).openFeature('customizer');})},'Manage soundscapes'));
+  mixesView.replaceChildren(mixes.length?field('Saved soundscape',select([['','Choose a mix'],...mixes.map(m=>[m.id,m.name])],'',act(async event=>{const mix=get().settings.studio.soundscapes.find(m=>m.id===event.target.value);if(!mix)return;await editSound(sound=>{sound.master=mix.master;sound.volumes={...mix.volumes};});await apply();render();}))):el('p',{class:'empty-state'},'No saved mixes yet. Save a soundscape below to reuse it here.'));
+  const name=el('input',{maxlength:60,'aria-label':'Sound mix name'});mixesView.append(field('Mix name',name),el('button',{type:'button',onclick:act(async()=>{const engine=await import('../../core/customization.js');await engine.init();if(!name.value.trim())throw new Error('Name this mix first.');const audio=get().audio,next=engine.get();next.widgets.preferences.sounds.mixes.push({id:crypto.randomUUID(),name:name.value.trim(),master:audio.master,volumes:audio.volumes});engine.replace(next);})},'Save current mix'));
+  for(const mix of mixes)mixesView.append(el('button',{type:'button',onclick:act(async()=>{const engine=await import('../../core/customization.js');await engine.init();engine.set('widgets.preferences.sounds.mixes',engine.get().widgets.preferences.sounds.mixes.filter(item=>item.id!==mix.id));})},'Delete mix '+mix.name));
 }
 export function render() {
   drawMixes();
@@ -43,18 +46,18 @@ export function open() {
   const grid = el('div', { class: 'sound-grid' }); mixer = grid;
   for (const name of SOUND_NAMES) {
     const value = el('output', {}, `${Math.round(audio.volumes[name] * 100)}%`);
-    const range = el('input', { type: 'range', min: 0, max: 100, value: audio.volumes[name] * 100, 'aria-label': labels[name], oninput: e => { value.textContent = `${e.target.value}%`; }, onchange: act(async e => { const v = Number(e.target.value) / 100; await update(d => { d.audio.volumes[name] = v; }); await apply(); }) });
-    const control = el('button', { class: 'sound-switch grow', 'aria-label': translate('m0448', {p0: labels[name]}), 'aria-pressed': audio.volumes[name] > 0, onclick: act(async () => { await update(d => { d.audio.volumes[name] = d.audio.volumes[name] > 0 ? 0 : .4; }); await apply(); }) }, labels[name]);
+    const range = el('input', { type: 'range', min: 0, max: 100, value: audio.volumes[name] * 100, 'aria-label': labels[name], oninput: act(async e => {const v=Number(e.target.value)/100;value.textContent=`${Math.round(v*100)}%`;await editSound(sound=>sound.volumes[name]=v);await apply();}) });
+    const control = el('button', { class: 'sound-switch grow', 'aria-label': translate('m0448', {p0: labels[name]}), 'aria-pressed': audio.volumes[name] > 0, onclick: act(async () => { await editSound(sound=>sound.volumes[name]=sound.volumes[name]>0?0:.4);await apply(); }) }, labels[name]);
     control.prepend(el('span', { class: 'sound-symbol', 'aria-hidden': 'true' }, icon(symbols[name])));
     grid.append(el('div', { class: 'sound-tile', 'data-sound': name }, el('div', { class: 'row' }, control, value), range));
   }
-  play = el('button', { class: 'primary', onclick: act(async () => { if (!get().audio.playing && !Object.values(get().audio.volumes).some(v => v > 0)) throw new Error(translate('m0449')); await update(d => { d.audio.playing = !d.audio.playing; }); try { await apply(); } catch (error) { await update(d => { d.audio.playing = false; }); throw error; } render(); }) });
+  play = el('button', { class: 'primary', onclick: act(async () => { if (!get().audio.playing && !Object.values(get().audio.volumes).some(v => v > 0)) throw new Error(translate('m0449')); await update(d => { d.audio.playing = !d.audio.playing;const minutes=d.settings.customization?.widgets?.preferences?.sounds?.fadeMinutes;d.audio.sleepAt=d.audio.playing&&minutes?Date.now()+minutes*60000:null; }); try { await apply(); } catch (error) { await update(d => { d.audio.playing = false; }); throw error; } render(); }) });
   const transport = el('div', { class: 'row wrap sound-transport' }, play);
   if (get().settings.widgets.music) transport.append(el('button', { type: 'button', onclick: act(async () => { await (await import('../../core/features.js')).openFeature('music'); }) }, 'My music'));
   content.prepend(transport);
   const mixView=el('div',{class:'stack'}),saved=el('div',{class:'stack'}),rest=el('div',{class:'stack'});tabs(content,[{label:'Mixer',content:mixView},{label:'Saved mixes',content:saved},{label:'Sleep',content:rest}],'sounds');
   mixesView=saved;lastMixes=null;
-  master=el('input', { type: 'range', min: 0, max: 100, value: audio.master * 100, onchange: act(async e => { await update(d => { d.audio.master = Number(e.target.value) / 100; }); await apply(); }) });mixView.append(field(translate('m0450'),master),grid);
+  master=el('input', { type: 'range', min: 0, max: 100, value: audio.master * 100, oninput: act(async e => { const volume=Number(e.target.value)/100;await editSound(sound=>sound.master=volume);await apply(); }) });mixView.append(field(translate('m0450'),master),grid);
   rest.append(field(translate('m0451'), sleepControl=select([['current','Scheduled stop'],['0',translate('m0452')],['15','15 minutes'],['30','30 minutes'],['60','1 hour'],['120','2 hours']], audio.sleepAt?'current':'0', act(async e => { if(e.target.value==='current')return;const minutes = Number(e.target.value); await update(d => { d.audio.sleepAt = minutes ? Date.now() + minutes * 60000 : null; }); await apply(); emit('toast', minutes ? translate('m0453', {p0: minutes}) : translate('m0454')); }))),
     sleepStatus=el('small', {class:'muted',role:'status'}),
     el('small', { class: 'muted' }, translate('m0456')));

@@ -1,0 +1,8 @@
+const minute=time=>Number(time.slice(0,2))*60+Number(time.slice(3));
+/** Conditions are ANDed; an empty day/space selection means any. */
+export function ruleMatches(rule,context){const c=rule.conditions,now=context.now||new Date(),time=now.getHours()*60+now.getMinutes();if(!rule.enabled||c.days.length&&!c.days.includes(now.getDay())||c.spaceId&&c.spaceId!==context.spaceId||c.tabOpened&&!context.tabOpened)return false;if(c.focus==='active'&&!context.focusActive||c.focus==='idle'&&context.focusActive)return false;if(c.start){const start=minute(c.start),end=c.end?minute(c.end):1440;if(start<end?(time<start||time>=end):(time<start&&time>=end))return false;}return true;}
+export const actionTarget=action=>action.type==='widget'?'widget:'+action.widget:action.type;
+/** Higher priorities win each independent target; ties preserve stored order. */
+export function planRules(rules,context){const seen=new Set(),actions=[];for(const rule of rules.map((rule,index)=>({rule,index})).sort((a,b)=>b.rule.priority-a.rule.priority||a.index-b.index).map(item=>item.rule)){if(!ruleMatches(rule,context))continue;for(const action of rule.actions){const target=actionTarget(action);if(seen.has(target))continue;seen.add(target);actions.push({rule,action});}}return actions;}
+/** Marks distinguish edits, space, calendar day, focus sessions and new tabs. */
+export function ruleStamp(rule,context){const now=context.now||new Date(),day=now.getFullYear()+'-'+(now.getMonth()+1)+'-'+now.getDate();return JSON.stringify([rule,context.spaceId,day,rule.conditions.focus==='any'?'':context.sessionId||'idle',rule.conditions.tabOpened?context.tabId||'tab':'']);}

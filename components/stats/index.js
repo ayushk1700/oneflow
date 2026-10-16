@@ -33,6 +33,7 @@ export async function render(range = currentRange) {
   chart?.destroy(); chart = null;
   const d = get(), data = aggregate(sessions, d.tasks, d.moods, range), content = root.querySelector('.stats-content');
   const totalMinutes = data.total / 60000, peak = Math.max(...data.minutes, 0), peakIndex = data.minutes.indexOf(peak);
+  const goal=d.settings.customization?.widgets?.preferences?.stats?.goalMinutes||60,todayMinutes=data.minutes.at(-1)||0;
   const averageDay = average(data.minutes), completion = data.sessions ? Math.round((data.completedSessions / data.sessions) * 100) : 0;
   const moodAverage = data.moods.length ? average(data.moods.map(mood => mood.value)).toFixed(1) : '—';
   const periodLabel = range === 'day' ? 'today' : range === 'month' ? 'the last 30 days' : 'the last 7 days';
@@ -48,6 +49,7 @@ export async function render(range = currentRange) {
     el('thead', {}, el('tr', {}, el('th', { scope: 'col' }, translate('m0466')), el('th', { scope: 'col' }, translate('m0467')))),
     el('tbody', {}, ...data.days.map((day, index) => el('tr', {}, el('td', {}, day), el('td', {}, data.minutes[index].toFixed(1))))));
   content.replaceChildren(
+    el('section',{class:'stats-goal stack'},el('h3',{},'Daily focus goal'),el('p',{},`${Math.round(todayMinutes)} of ${goal} minutes today`),el('progress',{max:goal,value:Math.min(goal,todayMinutes),'aria-label':'Daily focus goal progress'})),
     el('section', { class: 'stats-hero', 'aria-labelledby': 'stats-hero-title' },
       el('div', { class: 'stats-hero-copy' }, el('p', { class: 'eyebrow' }, 'YOUR RHYTHM'), el('h3', { id: 'stats-hero-title' }, 'Small sessions add up.'), el('p', { class: 'muted' }, `A quiet look at your focus for ${periodLabel}. Everything stays on this device.`)),
       el('div', { class: 'stats-hero-total' }, el('span', {}, 'Total focus'), el('strong', {}, minutesLabel(totalMinutes)), el('small', {}, `${averageDay.toFixed(1)} min per day`))),

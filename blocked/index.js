@@ -1,3 +1,4 @@
+import '../core/window-modules.js';
 import { t as translate, setLanguage, translateShell } from '../core/i18n.js';
 import { init, get } from '../core/storage.js';
 const target = location.hash.slice(1);

@@ -1,16 +1,17 @@
 import { t as translate } from './i18n.js';
 import { defaults, migrate, validate } from './schema.js';
 import { emit } from './events.js';
+import {loadModule} from './module-registry.js';
 const KEY = 'oneflow';
 const ext = globalThis.chrome?.storage;
 let current, syncTimer, initialized;
 let workerSchemas;
-/** Preload secondary schemas in MV3 workers, where import() is forbidden. */
+/** Preload secondary schemas in MV3 workers. */
 export function useStorageSchemas(value) { workerSchemas = value; }
 const subscribers = new Set();
 const publish = value => { current = value; subscribers.forEach(fn => {try{Promise.resolve(fn(structuredClone(value))).catch(error=>emit('error',error));}catch(error){emit('error',error);}}); };
 async function read() {
-  try { return ext ? (await ext.local.get(KEY))[KEY] : (await import('./storage-recovery.js')).read(KEY); }
+  try { return ext ? (await ext.local.get(KEY))[KEY] : (await loadModule('recovery')).read(KEY); }
   catch { emit('toast', 'Browser storage could not be read. Safe defaults are available.'); return current; }
 }
 async function write(value) {
@@ -85,9 +86,10 @@ export async function replace(value) {
   return update(doc => { for (const key of Object.keys(doc)) delete doc[key]; Object.assign(doc, next); });
 }
 function scheduleSync(settings) {
-  if (!ext?.sync) return;
   clearTimeout(syncTimer);
+  if (!ext?.sync || !settings.customization?.behavior?.privacy?.sync) return;
   const preferences = { name: settings.name, theme: settings.theme, accent: settings.accent, widgets: settings.widgets };
+  if(new TextEncoder().encode(JSON.stringify(preferences)).length>7500){emit('toast','Small settings exceed the sync quota; they remain saved locally.');return;}
   syncTimer = setTimeout(async () => {
     try {
       const old = await ext.sync.get('preferences');
@@ -101,31 +103,31 @@ export async function clearSync() { clearTimeout(syncTimer); if (ext?.sync) awai
 export async function sessionGet(key) { return ext?.session ? (await ext.session.get(key))[key] : undefined; }
 export async function sessionSet(key, value) { if (ext?.session) await (value === null ? ext.session.remove(key) : ext.session.set({[key]:value})); }
 export async function clearSession() { if (ext?.session) await ext.session.clear(); }
-export async function clearRecovery() { if (ext) await ext.local.remove(['oneflowRecovery','focusWorkRecovery','notesPreferencesRecovery']); else (await import('./storage-recovery.js')).clearRecovery(); }
+export async function clearRecovery() { if (ext) await ext.local.remove(['oneflowRecovery','focusWorkRecovery','notesPreferencesRecovery']); else (await loadModule('recovery')).clearRecovery(); }
 /** Measure local storage use. */
 export async function usage() { return ext ? ext.local.getBytesInUse(null) : new Blob([JSON.stringify(get())]).size; }
 /** Versioned local work data. */
 export async function readWork(schema) {
-  const { migrateWork } = schema || workerSchemas?.work || await import('./work-schema.js');
-  try { return migrateWork(ext ? (await ext.local.get('focusWork')).focusWork : (await import('./storage-recovery.js')).read('focusWork')); }
+  const { migrateWork } = schema || workerSchemas?.work || await loadModule('work');
+  try { return migrateWork(ext ? (await ext.local.get('focusWork')).focusWork : (await loadModule('recovery')).read('focusWork')); }
   catch { emit('toast', 'Work preferences could not be read. Safe defaults were loaded.'); return migrateWork(); }
 }
 /** Serialize work edits. */
 export async function updateWork(change, schema) {
   return navigator.locks.request('oneflow-work', async () => {
     const next = await readWork(schema); await change(next);
-    (schema || workerSchemas?.work || await import('./work-schema.js')).validateWork(next);
+    (schema || workerSchemas?.work || await loadModule('work')).validateWork(next);
     if (ext) await ext.local.set({ focusWork: next }); else localStorage.setItem('focusWork', JSON.stringify(next));
     return next;
   });
 }
 /** Local-only capture preferences; never sent to browser sync. */
 export async function getNotesPreferences() {
-  const value = ext ? (await ext.local.get('notesPreferences')).notesPreferences : (await import('./storage-recovery.js')).read('notesPreferences');
-  return (workerSchemas?.notes || await import('./notes-preferences.js')).normalize(value);
+  const value = ext ? (await ext.local.get('notesPreferences')).notesPreferences : (await loadModule('recovery')).read('notesPreferences');
+  return (workerSchemas?.notes || await loadModule('notes-preferences')).normalize(value);
 }
 /** Save small capture preferences independently of the dashboard document. */
 export async function setNotesPreferences(value) {
-  const next = (workerSchemas?.notes || await import('./notes-preferences.js')).normalize(value);
+  const next = (workerSchemas?.notes || await loadModule('notes-preferences')).normalize(value);
   if (ext) await ext.local.set({ notesPreferences: next }); else localStorage.setItem('notesPreferences', JSON.stringify(next));
 }

@@ -4,6 +4,7 @@
  */
 export async function searchWeb(text, disposition = 'CURRENT_TAB', api = globalThis.chrome) {
   const query = String(text).trim();
+  (await import('./privacy.js')).assertFeature('webSearch');
   if (!query) throw new Error('Enter something to search for.');
   if (query.length > 1000) throw new Error('Keep your search under 1,000 characters.');
   const preferences=(await import('./storage.js')).get().settings.customization?.widgets?.preferences?.search;

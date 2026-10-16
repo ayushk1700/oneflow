@@ -34,3 +34,9 @@ test('MV3 entry statically imports and registers drivers before starting Notes',
   assert(!/\bimport\s*\(/.test(source));
   assert(!/\bimport\s*\(/.test(await fs.readFile(new URL('../background/focus-service.js',import.meta.url),'utf8')));
 });
+
+test('the complete worker dependency graph contains no dynamic imports',async()=>{
+ const path=await import('node:path'),seen=new Set();
+ async function visit(file){file=path.normalize(file);if(seen.has(file))return;seen.add(file);const source=(await fs.readFile(file,'utf8')).replace(/\/\*[\s\S]*?\*\//g,'').replace(/^\s*\/\/.*$/gm,'');assert(!/\bimport\s*\(/.test(source),`Dynamic import in worker dependency: ${file}`);for(const match of source.matchAll(/(?:import|export)\s+(?:[^;'"\n]*?from\s*)?['"](\.[^'"]+)['"]/g))await visit(path.join(path.dirname(file),match[1]));}
+ await visit('background/service-worker.js');assert(seen.size>30);
+});

@@ -7,13 +7,14 @@ import { makeNote, saveNote } from './notes.js';
 import { dayKey } from './utils.js';
 import { updateJournal } from './journal.js';
 import * as workSchema from './work-schema.js';
+import {loadModule} from './module-registry.js';
 const {validateCapsule}=workSchema;
 const readWork=()=>storageReadWork(workSchema), updateWork=change=>storageUpdateWork(change,workSchema);
 const isExtension = () => Boolean(globalThis.chrome?.runtime?.id);
 // Chrome can briefly omit both URL fields while a newly created tab commits.
 // Keep only our returned tab IDs until a subsequent explicit restore observes them.
 const openingTabs = new Map();
-const syncAudio = async () => { if (isExtension()) await backgroundSync(); else await (await import('../components/sounds/index.js')).syncAudio(); };
+const syncAudio = async () => { if (isExtension()) await backgroundSync(); else await (await loadModule('sounds')).syncAudio(); };
 /** Read only ordinary web tabs in the current non-private window on capture. */
 export async function capsuleTabs() {
   if (!isExtension()) return [];

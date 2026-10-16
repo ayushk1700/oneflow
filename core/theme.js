@@ -44,9 +44,9 @@ function loadImage(hero, source, preview, fallback, version) {
 /** Apply color, font, motion, and scene-aware background preferences. */
 export async function render(override) {
   const s = override?.background ? override : get().settings, root = document.documentElement;
-  const canvas = s.background.kind === 'solid' && /^#(?:ffffff|000000)$/i.test(s.background.color) ? s.background.color.toLowerCase() === '#ffffff' ? 'white' : 'black' : 'photo';
+  const canvas = 'photo';
   root.dataset.canvas = canvas;
-  root.dataset.theme = canvas === 'white' ? 'light' : canvas === 'black' ? 'dark' : s.theme === 'auto' ? (media.matches ? 'dark' : 'light') : s.theme;
+  root.dataset.theme = s.theme==='light'?'light':'dark';
   root.dataset.font = s.font; root.dataset.contrast = s.contrast; root.dataset.motion = s.reducedMotion || motion.matches ? 'reduce' : 'full';
   root.style.setProperty('--accent', s.accent);
   const rgb = s.accent.match(/\w\w/g).map(x => { const c = parseInt(x, 16) / 255; return c <= .04045 ? c / 12.92 : ((c + .055) / 1.055) ** 2.4; });

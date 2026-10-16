@@ -13,15 +13,12 @@ export function apply() {
     for (const name of owned) root().style.removeProperty(name); owned.clear();
     const value = settings.get(), theme = value.theme, a = value.accessibility, base = settings.defaults();
     root().dataset.theme = resolveTheme(theme, system.matches);
+    root().dataset.notesTheme=root().dataset.theme;
     root().dataset.density = value.layout.density; root().dataset.zen = String(value.behavior.zen);
     root().dataset.contrast = a.highContrast ? 'strong' : 'normal';
     root().dataset.motion = a.reduceMotion || matchMedia('(prefers-reduced-motion: reduce)').matches ? 'reduce' : 'full';
     root().dataset.visible = String(!document.hidden);
-    if (theme.paletteEnabled) {
-      const roles = { background:['--bg'],surface:['--surface-1','--surface-2','--surface-3'],text:['--text-primary'],muted:['--text-secondary'],border:['--border-subtle','--border-strong'] };
-      for (const [key, names] of Object.entries(roles)) for (const name of names) variable(name, theme.palette[key]);
-    }
-    variable('--foundation-border', theme.palette.border);
+    variable('--foundation-border', 'var(--border-strong)');
     variable('--roundness', theme.shape.radius / 24); variable('--stroke', `${theme.shape.borderThickness}px`);
     variable('--panel-alpha', theme.glass.opacity / 100);
     if (theme.glass.blur !== base.theme.glass.blur) { variable('--glass-blur', `${theme.glass.blur}px`); variable('--studio-blur', `${theme.glass.blur}px`); }
@@ -35,6 +32,7 @@ export function apply() {
     const family = a.dyslexia ? 'opendyslexic' : theme.typography.family;
     variable('--font-ui', `var(--font-${family === 'mono' ? 'mono' : family === 'system' ? 'system' : family})`);
     variable('--font', 'var(--font-ui)'); variable('--leading-body', theme.typography.lineHeight); variable('--weight-regular', theme.typography.weight);
+    const notesFont=theme.widgetFonts?.notes;if(document.title.includes('Notes')&&notesFont&&notesFont!=='inherit')variable('--notes-font',`var(--font-${notesFont})`);
     const scale = theme.typography.scale * (a.largeText ? 1.2 : 1);
     for (const [name, size] of sizes) variable(name, `${size * scale}px`);
     const density = { compact:.85, comfortable:1, spacious:1.15 }[value.layout.density];

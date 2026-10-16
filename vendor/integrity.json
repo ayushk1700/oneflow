@@ -37,38 +37,6 @@
       ]
     },
     {
-      "name": "sortablejs",
-      "version": "1.15.6",
-      "source": "https://cdn.jsdelivr.net/npm/sortablejs@1.15.6/Sortable.min.js",
-      "runtime": false,
-      "files": [
-        {
-          "path": "vendor/sortablejs/1.15.6/Sortable.min.js",
-          "sha256": "6d0a831fc19b4bae851797ad3393157e861afb7862459c11226359b27e2c4337"
-        },
-        {
-          "path": "vendor/sortablejs/1.15.6/LICENSE",
-          "sha256": "e94dfc31e800d169257569db270457c9f028440c9ccae41e7eb78b2db18f1298"
-        }
-      ]
-    },
-    {
-      "name": "canvas-confetti",
-      "version": "1.9.3",
-      "source": "https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js",
-      "runtime": false,
-      "files": [
-        {
-          "path": "vendor/canvas-confetti/1.9.3/confetti.browser.min.js",
-          "sha256": "cfc4a191c3ae300777c25e27aa81cb2d25bb898c8632aa61787f305876a981c8"
-        },
-        {
-          "path": "vendor/canvas-confetti/1.9.3/LICENSE",
-          "sha256": "fd44477c30a832a1dee9ef0b6cfb34677fbe5ef58c0cf655d27c646f11bb2f7a"
-        }
-      ]
-    },
-    {
       "name": "lucide",
       "version": "0.468.0",
       "source": "https://cdn.jsdelivr.net/npm/lucide@0.468.0/dist/umd/lucide.min.js",

@@ -165,7 +165,6 @@ html[data-view=ambient] #main { visibility:hidden; }
 #panel .task-row { background:transparent; border-width:0 0 var(--stroke); border-radius:0; padding:var(--space-3) var(--space-xs); }
 .settings-tabs button[aria-current=page] { background:var(--surface); color:var(--text); border-color:var(--border); box-shadow:var(--selection-rail); }
 .background-card[aria-pressed=true] { border-color:var(--action); box-shadow:var(--selection-ring); }
-#flow-view .session-countdown { font-weight:var(--weight-heading); }
 #toast { bottom:calc(var(--space-xs) * 24); }
 @media(min-width:851px) and (max-height:800px) {
   .topbar { min-height:var(--space-3xl); padding:var(--space-lg); }
@@ -419,3 +418,15 @@ html[data-view=focus] #focus .session-options { color:var(--canvas-muted); }
 html[data-view=focus] #focus .session-options[open] { max-width:100%; }
 html[data-view=focus] #focus .session-options > button { margin:var(--space-xs); min-height:var(--control-height); }
 html[data-view=focus] #focus .session-options summary { width:max-content; margin:auto; }
+
+/* More keeps appearance controls separate from extension behavior. */
+#home-menu .home-menu-body { width:min(calc(var(--space-xs) * 96),calc(100vw - var(--space-5))); gap:var(--space-md); }
+#home-menu .menu-actions { display:grid; gap:var(--space-sm); }
+#home-menu .menu-setting { display:grid; grid-template-columns:var(--icon-size) minmax(0,1fr) auto; align-items:center; gap:var(--space-3); width:100%; text-align:start; padding:var(--space-3); border:var(--stroke) solid var(--border); background:var(--surface); }
+#home-menu .menu-setting > span:nth-child(2) { display:grid; gap:var(--space-xs); }
+#home-menu .menu-setting strong { font-size:var(--text-body); font-weight:var(--weight-control); }
+#home-menu .menu-setting small { font-size:var(--text-small); color:var(--muted); font-weight:var(--weight-regular); }
+#home-menu .menu-setting:hover { border-color:var(--accent); }
+#home-menu .menu-setting svg { width:var(--icon-size); height:var(--icon-size); }
+#home-menu .menu-utilities { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:var(--space-xs); }
+#home-menu .menu-utilities button { padding-inline:var(--space-sm); font-size:var(--text-small); }

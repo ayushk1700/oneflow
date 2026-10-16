@@ -1,0 +1,12 @@
+{
+  "date": "2026-10-15T01:32:43.844Z",
+  "checks": [
+    "Fresh install completes all five onboarding steps and generates a saved setup",
+    "Customization closes immediately even while the storage lock is held, then saves the draft",
+    "Repeated drawer open/close does not leave a stuck modal",
+    "Fuzzy command palette is keyboard operated and opens the breathing guide",
+    "Native worker starts, pauses and records a session with no dynamic-import or worker errors"
+  ],
+  "errors": [],
+  "failure": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Disable custom CSS', exact: true })\u001b[22m\n\n    at D:\\BOOKS\\ONEFLOW\\tests\\power-features-browser.js:19:1056"
+}

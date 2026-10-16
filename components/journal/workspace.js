@@ -106,7 +106,7 @@ export async function open() {
   refresh = () => {
     if (!root) return;
     const s = prefs();
-    root.dataset.journalTheme = s.theme === 'auto' ? document.documentElement.dataset.theme : s.theme;
+    root.dataset.journalTheme = document.documentElement.dataset.theme;
     root.dataset.journalFont = s.font;
     root.style.setProperty('--journal-size',s.fontSize + 'px');
     root.style.setProperty('--journal-width',s.width + 'px');

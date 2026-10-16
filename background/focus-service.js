@@ -41,9 +41,9 @@ export async function recoverFlow() {
   }
   await syncBlocker();
 }
-export async function startFlow(sceneId, block) {
+export async function startFlow(sceneId, block, preserveScene = false) {
   if (storage.get().flow.active) return;
-  const value = await sceneById(sceneId),
+  const value = preserveScene ? null : await sceneById(sceneId),
     d = storage.get();
   if (block) {
     const origins = blockerOrigins(d.blocker);
@@ -51,12 +51,12 @@ export async function startFlow(sceneId, block) {
       origins
     }))) throw new Error(translate('m0597'));
   }
-  const before = snapshot(d),
+  const before = preserveScene ? null : snapshot(d),
     startedAt = Date.now();
   const continuing = Boolean(d.timer.sessionId) || d.timer.status !== 'idle' || d.timer.phase !== 'focus';
   await storage.update(next => {
     const timer = structuredClone(next.timer);
-    applySnapshot(next, value);
+    if (value) applySnapshot(next, value);
     if (continuing) next.timer = timer;
     next.sceneId = sceneId;
     next.flow = {

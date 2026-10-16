@@ -1,4 +1,5 @@
 import { readJSON } from '../../core/network.js';
+import {assertFeature} from '../../core/privacy.js';
 /** Normalize a single English word for a bounded dictionary request. */
 export function normalizeWord(value) {
   const word = String(value).trim().toLowerCase();
@@ -21,6 +22,7 @@ export function parseEntries(data) {
 }
 /** Fetch definitions only after an explicit lookup and permission grant. */
 export async function lookupWord(word, signal) {
+  assertFeature('dictionary');
   if (!navigator.onLine) throw new Error('You are offline. Reopen a word looked up in this dashboard session, or try again when connected.');
   let response;
   try { response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(normalizeWord(word))}`, { signal, credentials: 'omit', referrerPolicy: 'no-referrer', redirect: 'error' }); }

@@ -38,7 +38,7 @@ html[data-layout-sidebar=left] .layout-editor { right:auto; left:var(--space-lg)
 html[data-personal-gradient=true] #landscape { background-image:var(--personal-gradient)!important; background-size:var(--gradient-canvas-size); }
 html[data-personal-gradient=true] #landscape .landscape-image,html[data-personal-gradient=true] #landscape .landscape-preview { display:none; }
 html[data-personal-gradient=true][data-gradient-animated=true] #landscape { animation:personal-gradient var(--motion-scenery) linear infinite alternate; }
-#landscape { filter:blur(var(--background-blur)) brightness(var(--background-brightness,1)) contrast(var(--background-contrast,1)); transform:translate(var(--parallax-x,0),var(--parallax-y,0)) scale(var(--background-scale,1)); }
+#landscape { filter:blur(var(--background-blur)) brightness(calc(var(--background-brightness,1) * var(--theme-wallpaper-brightness))) contrast(var(--background-contrast,1)); transform:translate(var(--parallax-x,0),var(--parallax-y,0)) scale(var(--background-scale,1)); }
 .personal-background-veil { position:fixed; inset:0; z-index:var(--layer-background-effects); pointer-events:none; background:radial-gradient(ellipse at center,transparent,var(--vignette-color)),var(--overlay-tint); opacity:1; }
 html[data-background-static=true] #landscape,html[data-background-static=true] #landscape::before,html[data-background-static=true] #landscape::after { animation:none!important; }
 html[data-motion=reduce] #landscape { animation:none!important; transform:none!important; }
@@ -101,3 +101,14 @@ html[data-motion=reduce] .personal-task-views { animation:none!important; }
 
 .layout-node { background:color-mix(in srgb,var(--panel) calc(var(--widget-opacity) * var(--panel-alpha) * 100%),transparent); box-shadow:var(--elevation-popover); }
 html[data-theme=light] .layout-node { --muted:var(--text); }
+[data-power-font] { font-family:var(--widget-font); }
+[data-power-font] .clock-time,[data-power-font] .greeting,[data-power-font] .personal-greeting { font-family:var(--widget-font); }
+.power-css-recovery { padding:var(--space-sm) var(--space-md);color:var(--text);background:var(--surface);border:var(--stroke) solid var(--border);border-radius:var(--radius-small);font-size:var(--text-small); }
+.power-symbol { display:inline-flex;align-items:center;justify-content:center;font-size:var(--text-subheading);line-height:var(--leading-body); }
+.power-breathing { text-align:center;align-items:center; }
+.power-breath-orb { width:var(--breath-size);height:var(--breath-size);border-radius:var(--radius-full);background:var(--accent);transform:scale(var(--breath-contract));transition:transform var(--breath-duration) var(--motion-easing); }
+.power-breath-orb[data-phase=in],.power-breath-orb[data-phase=hold] { transform:scale(var(--breath-expand)); }
+html[data-motion=reduce] .power-breath-orb { transition:none;transform:none; }
+#power-command-results [aria-selected=true] { background:var(--surface);outline:var(--stroke) solid var(--accent); }
+.power-habit-color { border-inline-start:var(--stroke) solid var(--habit-color,var(--accent));padding-inline-start:var(--space-sm); }
+[dir=rtl] .customization-drawer { right:auto;left:0;text-align:start; }

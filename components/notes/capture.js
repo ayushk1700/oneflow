@@ -1,7 +1,9 @@
+import '../../core/window-modules.js';
 import { markdown } from '../../core/markdown.js';
 import { el } from '../../core/utils.js';
 import * as notes from '../../core/notes.js';
 import * as storage from '../../core/storage.js';
+import {hotkeyMatches} from '../../core/power-hotkeys.js';
 import { noteURL, MEDIA_LIMIT } from '../../core/notes-schema.js';
 import { prepareImage } from '../../core/backup.js';
 import { createPlanner } from './planner.js';
@@ -271,8 +273,8 @@ export async function init() {
     // The only token-free parent allowed is our own dashboard.
     try { if (parent.location.origin !== location.origin) throw new Error(); } catch { throw new Error('Use the ONEFLOW toolbar to open Notes on a webpage.'); }
   }
-  await notes.migrateNotes(); prefs = await storage.getNotesPreferences(); document.documentElement.dataset.notesTheme = prefs.theme;
-  if(storage.get().settings.customization){tokensRuntime=await import('../../core/customization-runtime.js');await tokensRuntime.init({dashboard:false});}
+  await notes.migrateNotes(); prefs = await storage.getNotesPreferences(); document.documentElement.dataset.notesTheme = storage.get().settings.theme==='light'?'light':'dark';
+  tokensRuntime=await import('../../core/customization-runtime.js');await tokensRuntime.init({dashboard:false});
   status = el('div', { role: 'status', 'aria-live': 'polite', class: 'status' }, params.has('fallback') ? 'This page blocks overlays. Your full notes workspace is available here.' : 'Local notes · no account, no cloud sync');
   search = el('input', { type: 'search', placeholder: 'Search notes, labels, or anything…', 'aria-label': 'Search notes', oninput: () => action(render) });
   stateFilter = el('select', { 'aria-label': 'Note location', onchange: () => action(async () => { await leaveEditor(); }) }, ...['active', 'archive', 'trash'].map(v => el('option', { value: v }, v === 'active' ? 'All notes' : v === 'archive' ? 'Archive' : 'Trash')));
@@ -288,7 +290,7 @@ export async function init() {
   const drag = button('⠿', () => {}, { class: 'drag', 'aria-label': 'Move panel with arrow keys or drag', hidden: !token }); gesture(drag, 'move');
   const layout = iconButton('layout-grid', prefs.view === 'grid' ? 'List view' : 'Grid view', async () => { prefs.view = prefs.view === 'grid' ? 'list' : 'grid'; await storage.setNotesPreferences(prefs); layout.setAttribute('aria-label', prefs.view === 'grid' ? 'List view' : 'Grid view'); layout.title = layout.getAttribute('aria-label'); await render(); }, { class: 'icon-button view-button' });
   const menu = el('details', { class: 'preferences' }, el('summary', { 'aria-label': 'Options & privacy', title: 'Options & privacy' }, icon('sliders-horizontal')), el('div', {},
-    button('Switch light / dark', async () => { prefs.theme = prefs.theme === 'dark' ? 'light' : 'dark'; document.documentElement.dataset.notesTheme = prefs.theme; await storage.setNotesPreferences(prefs); }),
+    el('p',{},'Appearance follows the global Light / Dark theme.'),
     button('Enable capture context menu', async () => { if (!await chrome.permissions.request({ permissions: ['contextMenus'] })) throw new Error('Context menu permission was not granted.'); await worker({ type: 'context-menu', enabled: true }); message('Right-click a webpage, selection, or link to capture it.'); }),
     button('Disable capture context menu', async () => { if (await chrome.permissions.contains({ permissions: ['contextMenus'] })) { await worker({ type: 'context-menu', enabled: false }); await chrome.permissions.remove({ permissions: ['contextMenus'] }); } message('Capture context menu disabled'); }),
     el('p', {}, 'Notes, images, sketches and audio stay on this device. Export them through ONEFLOW Settings → Data. Collaboration and cross-device note sync are not connected.'),
@@ -348,6 +350,7 @@ export async function init() {
     action(async () => { await render(); if (current && !pending && (await notes.getNote(current.id))?.revision !== current.revision) message('This note changed in another window. Finish or copy your draft, then reopen it.', true); });
   };
   document.addEventListener('keydown', event => {
+    const commandKey=storage.get().settings.customization?.behavior?.hotkeys?.commands;if(embedded&&!token&&commandKey&&hotkeyMatches(event,commandKey)){event.preventDefault();parentMessage('commands');return;}
     if (event.key === 'Escape' && createMenu.open) { event.preventDefault(); createMenu.open=false; createMenu.querySelector('summary').focus(); return; }
     if (event.key === 'Escape') { event.preventDefault(); action(current || planner.active ? leaveEditor : close); }
     if ((event.ctrlKey || event.metaKey) && event.key === 'Enter') { event.preventDefault(); action(() => create('note')); }

@@ -1,3 +1,4 @@
+import '../core/window-modules.js';
 import { t as translate, setLanguage, translateShell } from '../core/i18n.js';
 import * as storage from '../core/storage.js';
 import * as theme from '../core/theme.js';
@@ -14,7 +15,7 @@ import { timerCommand, backgroundSync } from '../core/timer-client.js';
 import { openFeature, openDay, registerFeature, destroyFeature } from '../core/features.js';
 let flowModule;
 const loadFlow=()=>flowModule??=(import('../components/flow/index.js').then(module=>{module.init();return module;}));
-const flow={init:()=>{},enter:()=>{const fullscreen=document.documentElement.requestFullscreen?.().catch(()=>{});return loadFlow().then(async module=>{await fullscreen;return module.enter();});}};
+const flow={init:()=>{},enter:options=>loadFlow().then(module=>module.enter(options))};
 import * as layout from '../core/layout.js';
 import { recordDiagnostic } from '../core/diagnostics.js';
 import * as dashboard from '../core/dashboard-view.js';
@@ -73,10 +74,7 @@ function renderAudioStatus(data) {
   }) }, 'Ⅱ'));
   host.querySelector('.audio-label').textContent = names.join(' + ') || translate('m0585');
 }
-function shortcuts() {
-  const keys = storage.get().settings.studio.interaction.keys;
-  openPanel(translate('m0674'), 'shortcuts', el('div', { class: 'stack' }, ...[[keys.task.toUpperCase(), translate('m0586')], [keys.timer, translate('m0588')], [keys.flow.toUpperCase(), translate('m0047')], [keys.search, translate('m0589')], [translate('m0590'), translate('m0591')]].map(([key, label]) => el('div', { class: 'row' }, el('kbd', {}, key), label)), el('p', { class: 'muted' }, translate('m0592'))));
-}
+function shortcuts(){const bindings=storage.get().settings.customization?.behavior?.hotkeys||storage.get().settings.studio.interaction.keys;openPanel('Keyboard shortcuts','shortcuts',el('div',{class:'stack'},...Object.entries(bindings).map(([action,binding])=>el('div',{class:'row'},el('kbd',{},binding),action)),el('button',{type:'button',onclick:act(async()=>{await(await import('../components/customization/index.js')).open('behavior');})},'Edit keyboard shortcuts')));}
 async function start() {
   performance.mark('oneflow-script-ready');
   initUI();
@@ -86,6 +84,7 @@ async function start() {
   performance.mark('oneflow-storage-ready');
   setLanguage(storage.get().settings.language); translateShell();
   flow.init(); layout.init(); on('flow:enter', act(flow.enter));
+  on('session:started', act(() => flow.enter({ preserveScene: true })));
   settings.init();
   // Color and contrast apply synchronously; artwork lookup must not hold up controls.
   theme.init().catch(error => emit('error', error));
@@ -106,6 +105,8 @@ async function start() {
   document.querySelector('#focus-exit').onclick = () => emit('focus:exit');
   document.querySelector('#settings-button > span').replaceChildren(icon('sliders-horizontal'));
   document.querySelector('#settings-button').onclick = act(async () => (await import('../components/customization/index.js')).open());
+  document.querySelector('#extension-settings-button > span').replaceChildren(icon('sliders-horizontal'));
+  document.querySelector('#extension-settings-button').onclick = act(() => emit('settings:open','focus'));
   document.querySelector('#background-button').onclick = () => emit('settings:open', 'backgrounds');
   document.querySelector('#shortcuts-button').onclick = shortcuts;
   const fullscreen = document.querySelector('#fullscreen-button');
@@ -114,21 +115,8 @@ async function start() {
   document.addEventListener('fullscreenchange', () => { const label = document.fullscreenElement ? 'Exit fullscreen' : 'Enter fullscreen'; fullscreen.setAttribute('aria-label', label); fullscreen.title = label; });
   on('panel:open', name => { for (const b of document.querySelectorAll('#dock button,#journal-button')) { b.classList.toggle('active', b.dataset.tool === name); b.setAttribute('aria-expanded', String(b.dataset.tool === name)); } const more = document.querySelector('#home-menu > summary'); more.classList.toggle('active', name === 'day'); more.setAttribute('aria-expanded', String(name === 'day')); });
   on('panel:closed', () => { document.querySelectorAll('#dock button,#journal-button').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-expanded', 'false'); }); const more = document.querySelector('#home-menu > summary'); more.classList.remove('active'); more.setAttribute('aria-expanded', 'false'); });
-  document.addEventListener('keydown', event => {
-    if (event.defaultPrevented || event.repeat || event.isComposing) return;
-    const modal = document.querySelector('dialog[open]');
-    if (!modal && !event.ctrlKey && !event.metaKey && !event.altKey && !inputActive(event.target) && event.key.toLowerCase() === 's') { event.preventDefault(); import('../components/customization/index.js').then(m => m.open()).catch(error => emit('error', error)); return; }
-    if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'k' && !modal && !inputActive(event.target)) { event.preventDefault(); openFeature('commands').catch(error => emit('error', error)); return; }
-    if (event.ctrlKey || event.metaKey || event.altKey || inputActive(event.target) || modal && modal.id !== 'flow-view') return;
-    const keys = storage.get().settings.studio.interaction.keys, key = event.code === 'Space' ? 'Space' : event.key.toLowerCase();
-    if (modal && key !== keys.timer) return;
-    if (event.key === 'Escape' && document.documentElement.dataset.view === 'focus') { event.preventDefault(); emit('focus:exit'); return; }
-    if (document.documentElement.dataset.customizing === 'true') return;
-    if (key === keys.search && storage.get().settings.widgets.search) { event.preventDefault(); dashboard.setView('home'); document.querySelector('#web-search')?.focus(); }
-    if (key === keys.task && ['tasks','notes','habits'].some(k => storage.get().settings.widgets[k])) { event.preventDefault(); emit('task:new'); }
-    if (key === keys.flow) { event.preventDefault(); flow.enter().catch(error => emit('error', error)); }
-    if (key === keys.timer && !event.target.closest('button,a,summary,input,[role=button],[role=switch],[role=checkbox]') && storage.get().settings.widgets.timer) { event.preventDefault(); timerCommand(storage.get().timer.status === 'running' ? 'pause' : 'start').catch(error => emit('error', error)); }
-  });
+  document.addEventListener('keydown', event => {if(!event.defaultPrevented&&event.key==='Escape'&&!document.querySelector('dialog[open]')&&document.documentElement.dataset.view==='focus'){event.preventDefault();emit('focus:exit');}});
+  import('../core/power-runtime.js').then(module=>module.init()).catch(error=>emit('error',error));
   performance.mark('oneflow-ready');
   document.documentElement.dataset.ready = 'true';
   if (!storage.get().settings.onboarding) (await import('../components/onboarding/index.js')).init();

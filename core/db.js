@@ -1,10 +1,11 @@
 /** Lazy IndexedDB driver; preserve the existing storage API and startup budget. */
 export const STORES = ['journal', 'sessions', 'images', 'wallpapers', 'notes', 'noteMedia', 'focusSamples'];
 import { activeSpaceId } from './storage.js';
+import {loadModule} from './module-registry.js';
 let driver;
 /** MV3 workers preload this same driver because dynamic imports are forbidden. */
 export function useDatabaseDriver(value){driver=Promise.resolve(value);}
-const load=()=>driver??=(import('./database-store.js').catch(error=>{driver=null;throw error;}));
+const load=()=>driver??=(loadModule('database').catch(error=>{driver=null;throw error;}));
 export const openDB=async(...args)=>(await load()).openDB(...args);
 export const getRecord=async(store,id,space=activeSpaceId())=>(await load()).getRecord(store,id,space);
 export const getAll=async(store,options={})=>{const captured={space:activeSpaceId(),...options};return (await load()).getAll(store,captured);};

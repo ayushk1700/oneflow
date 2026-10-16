@@ -14,6 +14,7 @@ async function requestPermission() {
 }
 /** Device location is requested only from an explicit user action. */
 export async function autoLocation() {
+  if(get().settings.customization?.behavior?.privacy?.weather===false)throw new Error('Weather is off. Enable it in Personalize → Data.');
   const owner=activeSpaceId(),permission=requestPermission();
   if(!await permission)throw new Error('Weather access was declined.');
   if(!navigator.geolocation)throw new Error('Device location is unavailable. Choose a city instead.');
@@ -24,6 +25,7 @@ export async function autoLocation() {
   await refresh(true);
 }
 async function fetchJSON(url) {
+  if(get().settings.customization?.behavior?.privacy?.weather===false)throw new Error('Weather is off. Enable it in Personalize → Data.');
   const response = await fetch(url, { signal: AbortSignal.timeout(10000), credentials: 'omit', referrerPolicy: 'no-referrer', redirect: 'error' });
   if (!response.ok) throw new Error(translate('m0559'));
   return readJSON(response, 128 * 1024);
@@ -35,6 +37,7 @@ export function render() {
   root.replaceChildren(el('button', { class: 'weather-summary', onclick: open, title:valid?description(cache.code):translate('m0561') }, icon(valid && cache.code > 2 ? 'cloud' : 'sun', 24), el('span', {}, valid ? `${temperature}°` : translate('m0302'), el('small', {}, valid ? `${loc.name}${settings.customization?.widgets?.preferences?.weather?.detail==='detailed'?` · ${cache.humidity??'—'}% humidity · ${cache.wind??'—'} km/h wind`:''}${Date.now() - cache.at > 1800000 ? ' · cached' : ''}` : translate('m0562')))));
 }
 export async function refresh(force = false) {
+  if(get().settings.customization?.behavior?.privacy?.weather===false)return;
   const { location: loc, cache } = get().weather,owner=activeSpaceId();
   if (!alive || !loc || busy || (!force && cache?.key === locationKey(loc) && Date.now() - cache.at < 1800000)) return;
   if (globalThis.chrome?.permissions && !await chrome.permissions.contains({ origins })) return;

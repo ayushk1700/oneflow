@@ -1,0 +1,3 @@
+/** Rank contiguous and subsequence matches; original order breaks equal scores. */
+export function fuzzyScore(label,query){const text=label.toLowerCase(),term=query.trim().toLowerCase();if(!term)return 0;const exact=text.indexOf(term);if(exact>=0)return 1000-exact-text.length/1000;let position=0,score=0,last=-2;for(const char of term){const found=text.indexOf(char,position);if(found<0)return -1;score+=found===last+1?5:1;last=found;position=found+1;}return score-text.length/1000;}
+export function searchCommands(items,query){return items.map((item,index)=>({item,index,score:Math.max(...[item.label,...item.aliases||[]].map(label=>fuzzyScore(String(label),query)))})).filter(result=>result.score>=0).sort((a,b)=>b.score-a.score||a.index-b.index).map(result=>result.item);}

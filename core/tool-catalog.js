@@ -35,6 +35,7 @@ export const hubs = [
   ]],
   ['Environment', [
     ['sounds','Sounds','audio-lines','Layer a soundscape.','Sound mixer ambient'],
+    ['breathing','Breathing','heart','Follow a quiet breathing pattern.','Box breathing 4-7-8'],
     ['scenes','Scenes','image','Save a complete atmosphere.','Atmosphere'],
     ['music','Music','play','Your music services.','Spotify YouTube']
   ]]

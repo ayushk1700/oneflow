@@ -3,9 +3,10 @@ import * as storage from './storage.js';
 import * as settings from './customization.js';
 import { safeURL } from './schema.js';
 import { prepareImage } from './backup.js';
-import { validateVideo } from './media-validation.js';
+import { validateVideo,MAX_VIDEO_BYTES } from './media-validation.js';
 import { backgroundCatalog,liveWallpaperCatalog } from './background-presentation.js';
-const MAX_IMAGE=8*1024*1024,MAX_VIDEO=16*1024*1024;
+import {assertFeature} from './privacy.js';
+const MAX_IMAGE=8*1024*1024,MAX_VIDEO=MAX_VIDEO_BYTES;
 /** Sanitize a bounded SVG off-DOM, then flatten it to an inert WebP. */
 export async function rasterizeSVG(blob){
  if(blob.size>1024*1024)throw new Error('SVG uploads must be under 1 MB.');const text=await blob.text();if(/<!DOCTYPE|<!ENTITY/i.test(text))throw new Error('SVG entities and document types are not supported.');
@@ -27,9 +28,9 @@ async function storeMedia(file,name,url='',owner=storage.activeSpaceId()){
  const usage=await quota();if(usage.limit&&usage.limit-usage.usage<blob.size*1.2)throw new Error('Not enough browser storage for this wallpaper.');
  if(owner!==storage.activeSpaceId())throw new Error('Space changed. Choose the wallpaper again.');const id=crypto.randomUUID();await db.put(store,{id,name:String(name||'Wallpaper').slice(0,100),blob,url,createdAt:Date.now()},owner);if(owner!==storage.activeSpaceId())throw new Error('Wallpaper saved in its original space. Switch back to select it.');return {id,kind:video?'video':'upload'};
 }
-export async function upload(file){const owner=storage.activeSpaceId();if(!file||!['image/png','image/jpeg','image/webp','image/svg+xml','video/mp4','video/webm'].includes(file.type)||!file.size||file.size>(file.type.startsWith('video/')?MAX_VIDEO:MAX_IMAGE))throw new Error('Choose PNG, JPEG, WebP or SVG up to 8 MB, or MP4/WebM up to 16 MB.');return navigator.locks.request('oneflow-backup',async()=>{const media=await storeMedia(file,file.name,'',owner);const next=settings.get();Object.assign(next.background,media,{url:'',rotate:false});settings.replace(next);await settings.flush();return media.id;});}
+export async function upload(file){const owner=storage.activeSpaceId();if(!file||!['image/png','image/jpeg','image/webp','image/svg+xml','video/mp4','video/webm'].includes(file.type)||!file.size||file.size>(file.type.startsWith('video/')?MAX_VIDEO:MAX_IMAGE))throw new Error('Choose PNG, JPEG, WebP or SVG up to 8 MB, or MP4/WebM up to 64 MB.');return navigator.locks.request('oneflow-backup',async()=>{const media=await storeMedia(file,file.name,'',owner);const next=settings.get();Object.assign(next.background,media,{url:'',rotate:false});settings.replace(next);await settings.flush();return media.id;});}
 /** Request exactly the selected URL's origin, never broad access automatically. */
-export async function fromURL(input){const owner=storage.activeSpaceId(),value=safeURL(input);if(!value)throw new Error('Use an HTTP or HTTPS URL without credentials.');const url=new URL(value),origin=url.origin+'/*';const grant=globalThis.chrome?.permissions?chrome.permissions.request({origins:[origin]}):Promise.resolve(true);if(!await grant)throw new Error('Wallpaper access was declined. Choose a local upload instead.');
+export async function fromURL(input){assertFeature('wallpaperURLs');const owner=storage.activeSpaceId(),value=safeURL(input);if(!value)throw new Error('Use an HTTP or HTTPS URL without credentials.');const url=new URL(value),origin=url.origin+'/*';const grant=globalThis.chrome?.permissions?chrome.permissions.request({origins:[origin]}):Promise.resolve(true);if(!await grant)throw new Error('Wallpaper access was declined. Choose a local upload instead.');
  const response=await fetch(url.href,{credentials:'omit',referrerPolicy:'no-referrer',redirect:'error',signal:AbortSignal.timeout(15000)});if(!response.ok)throw new Error('Wallpaper URL could not be downloaded.');const type=response.headers.get('content-type')?.split(';')[0].trim(),limit=type?.startsWith('video/')?MAX_VIDEO:MAX_IMAGE;if(!['image/png','image/jpeg','image/webp','image/svg+xml','video/mp4','video/webm'].includes(type))throw new Error('URL must return an allowed image or video.');if(Number(response.headers.get('content-length'))>limit)throw new Error('Remote wallpaper exceeds the upload size limit.');
  const reader=response.body.getReader(),chunks=[];let bytes=0;try{while(true){const{done,value:chunk}=await reader.read();if(done)break;bytes+=chunk.byteLength;if(bytes>limit){await reader.cancel();throw new Error('Remote wallpaper exceeds the upload size limit.');}chunks.push(chunk);}}finally{reader.releaseLock();}
  return navigator.locks.request('oneflow-backup',async()=>{const media=await storeMedia(new Blob(chunks,{type}),url.hostname,url.href,owner),next=settings.get();Object.assign(next.background,media,{kind:media.kind==='upload'?'url':'video',url:url.href,rotate:false});settings.replace(next);await settings.flush();return media.id;});

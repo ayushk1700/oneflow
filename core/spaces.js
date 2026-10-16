@@ -7,6 +7,7 @@ import { freshTimer, remaining } from './timer-logic.js';
 import { timerCommand, backgroundSync } from './timer-client.js';
 import { emit } from './events.js';
 import { workDefaults,validateWork } from './work-schema.js';
+import {switchStoredSpace} from './spaces-store.js';
 const lock=job=>navigator.locks.request('oneflow-spaces',job);
 const snapshot=document=>{const next=structuredClone(document);delete next.spaces;return next;};
 export function registry(document=storage.get()){return structuredClone(document.spaces?{...document.spaces,activeId:document.spaces.activeId||document.settings.customization?.behavior?.spaceId||'default'}:{schemaVersion:1,activeId:document.settings.customization?.behavior?.spaceId||'default',profiles:[{id:document.settings.customization?.behavior?.spaceId||'default',name:'Personal',snapshot:null,work:null,notesPreferences:null}]});}
@@ -34,23 +35,5 @@ export async function create(name,{duplicate=false}={}){await settings.flush();r
  }));}
 export async function rename(id,name){await lock(async()=>{const state=registry(),profile=state.profiles.find(p=>p.id===id);if(!profile)throw new Error('Space no longer exists.');profile.name=nameFor(name,state,id);await storage.update(d=>{d.spaces=validateRegistry(state);},{sync:false});});emit('spaces:changed');}
 /** Pause an active session before changing records; open editors must close first. */
-export async function switchSpace(id){await settings.flush();return lock(async()=>{
- const current=settings.get().behavior.spaceId;if(id===current)return;
- if(document.querySelector('dialog[open]:not(.customization-drawer)'))throw new Error('Close the current editor before switching spaces.');
- const state=registry(),target=state.profiles.find(p=>p.id===id),previous=state.profiles.find(p=>p.id===current);if(!target?.snapshot||!previous)throw new Error('Space no longer exists.');
- if(storage.get().timer.status==='running')await timerCommand('pause');await settings.flush();
- previous.snapshot=snapshot(await storage.readLatest());previous.work=await storage.readWork();previous.notesPreferences=await storage.getNotesPreferences();
- const incoming=structuredClone(target.snapshot);state.activeId=id;incoming.spaces=state;
- incoming.settings.customization.behavior.spaceSchedule=settings.get().behavior.spaceSchedule;incoming.settings.customization.behavior.spaceHotkey=settings.get().behavior.spaceHotkey;
- incoming.audio.playing=false;incoming.flow={active:false,block:false,startedAt:0,snapshot:null};if(incoming.timer.status==='running'){incoming.timer.remaining=remaining(incoming.timer,Date.now());incoming.timer.status='paused';incoming.timer.endsAt=null;}
- validate(incoming);validateRegistry(state);
- const old=storage.get(),oldWork=await storage.readWork(),oldPreferences=await storage.getNotesPreferences(),oldGeneration=await storage.sessionGet('data-generation');
- await navigator.locks.request('oneflow-backup',async()=>{try{
-  await storage.sessionSet('data-generation',crypto.randomUUID());
-  await storage.updateWork(w=>{for(const key of Object.keys(w))delete w[key];Object.assign(w,target.work||workDefaults());});
-  await storage.setNotesPreferences(target.notesPreferences||{});
-  await storage.replace(incoming);
- }catch(error){await storage.replace(old);await storage.updateWork(w=>{for(const key of Object.keys(w))delete w[key];Object.assign(w,oldWork);});await storage.setNotesPreferences(oldPreferences);await storage.sessionSet('data-generation',oldGeneration||null);throw error;}});
- emit('space:switched',id);emit('spaces:changed');await backgroundSync();
- });}
+export async function switchSpace(id){await settings.flush();if(document.querySelector('dialog[open]:not(.customization-drawer)'))throw new Error('Close the current editor before switching spaces.');const changed=await switchStoredSpace(id,{pause:()=>timerCommand('pause'),prepare:document=>{document.settings.customization=migrateSettings(document.settings.customization,settings.defaults());return document;},validateState:validateRegistry});if(changed){emit('space:switched',id);emit('spaces:changed');await backgroundSync();}}
 export async function remove(id){const state=registry();if(state.profiles.length===1)throw new Error('Keep at least one space.');if(id===settings.get().behavior.spaceId)await switchSpace(state.profiles.find(p=>p.id!==id).id);await lock(async()=>{const previous=registry(),next=registry();next.profiles=next.profiles.filter(p=>p.id!==id);for(const profile of next.profiles)if(profile.snapshot)profile.snapshot.settings.customization.behavior.spaceSchedule=profile.snapshot.settings.customization.behavior.spaceSchedule.filter(r=>r.spaceId!==id);await storage.update(d=>{d.spaces=validateRegistry(next);if(d.settings.customization)d.settings.customization.behavior.spaceSchedule=d.settings.customization.behavior.spaceSchedule.filter(r=>r.spaceId!==id);},{sync:false});try{await db.changeSpaceRecords(id,null);}catch(error){await storage.update(d=>{d.spaces=previous;},{sync:false});throw error;}});emit('spaces:changed');}

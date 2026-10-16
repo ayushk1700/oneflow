@@ -20,7 +20,7 @@ export function journalSettings(onBack, onExport, beforeChange) {
   return el('section',{class:'journal-settings stack','aria-label':'Journal settings'},
     el('button',{type:'button',class:'journal-menu-action',onclick:onBack},'Back to pages'),
     el('h3',{},'Journal settings'),
-    field('Journal appearance',select([['light','Light'],['dark','Dark'],['auto','Follow dashboard']],settings.theme,change('theme'))),
+    el('p',{},'Appearance follows the global Light / Dark theme.'),
     field('Journal typeface',select([['sans','Sans serif'],['serif','Serif'],['mono','Monospace']],settings.font,change('font'))),
     number('Text size','fontSize',14,28,1),number('Writing width','width',480,1000,20),
     toggle('Autosave journal entries',settings.autosave,change('autosave')),

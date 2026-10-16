@@ -1,4 +1,5 @@
 const MAX_PIXELS = 32 * 1024 * 1024;
+export const MAX_VIDEO_BYTES = 64 * 1024 * 1024;
 const rasterTypes = ['image/png', 'image/jpeg', 'image/webp'];
 const ascii = (bytes, start, count) => String.fromCharCode(...bytes.subarray(start, start + count));
 /** Inspect dimensions before decoding compressed raster content. */
@@ -48,7 +49,7 @@ export async function decodeRaster(blob) {
 }
 /** Validate local video bytes and decoded metadata without playing the file. */
 export async function validateVideo(blob) {
-  if (!['video/mp4', 'video/webm'].includes(blob.type) || !blob.size || blob.size > 16 * 1024 * 1024) throw new Error('Choose an MP4 or WebM video up to 16 MB.');
+  if (!['video/mp4', 'video/webm'].includes(blob.type) || !blob.size || blob.size > MAX_VIDEO_BYTES) throw new Error('Choose an MP4 or WebM video up to 64 MB.');
   const url = URL.createObjectURL(blob), video = document.createElement('video');
   video.preload = 'metadata';
   let timer;

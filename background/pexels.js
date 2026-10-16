@@ -1,7 +1,9 @@
 import { readLatest, sessionGet } from '../core/storage.js';
 import { readJSON } from '../core/network.js';
+import {assertFeature} from '../core/privacy.js';
 /** Fixed provider request; never accept arbitrary URLs or keys through messages. */
 export async function searchPexels({query,kind}) {
+  assertFeature('pexels');
   if (typeof query !== 'string' || !query.trim() || query.length > 100 || !['photo','video'].includes(kind)) throw new Error('Enter a wallpaper search up to 100 characters.');
   if (!await chrome.permissions.contains({origins:['https://api.pexels.com/*']})) throw new Error('Pexels website access is missing. Reload ONEFLOW in Extensions, reopen the tab and allow access when searching.');
   const key = (await sessionGet('pexels-key') || (await readLatest()).integrations.pexelsKey)?.trim();

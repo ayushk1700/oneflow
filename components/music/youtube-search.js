@@ -1,6 +1,8 @@
 import { deadline, readJSON } from '../../core/network.js';
+import {assertFeature} from '../../core/privacy.js';
 /** Search the official YouTube Data API; no key or query is logged. */
 export async function searchSongs(query, key, signal) {
+  assertFeature('music');
   if (!key.trim()) throw new Error('Add your YouTube Data API key to search inside ONEFLOW.');
   if (!query.trim()) return [];
   if (!navigator.onLine) throw new Error('Song search needs an internet connection.');

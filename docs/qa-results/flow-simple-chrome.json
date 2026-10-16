@@ -1,0 +1,15 @@
+{
+  "browser": "chrome",
+  "checks": [
+    "Start focus opens one calm Flow timer offline, without fullscreen or changing scenery/audio",
+    "Space pauses; Resume retains the session identity",
+    "Light/dark, reduced motion and 1440/390/320px layouts retain reachable controls without overflow",
+    "Back to home minimizes without stopping or showing a misleading saved summary; F reopens",
+    "A second tab shares the same session",
+    "Stop & save persists exactly 125 active seconds once, excludes paused time, closes Flow and opens Stats",
+    "Saved history survives offline reload without duplication",
+    "Natural completion saves once, offers a calm break, and Skip break returns home; titles remain plain text",
+    "No page errors"
+  ],
+  "errors": []
+}

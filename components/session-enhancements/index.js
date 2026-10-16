@@ -9,7 +9,12 @@ import { render as breakActivity } from '../break/index.js';
 /** Keep session follow-up outside the initial script graph. */
 export function summary(root,last,{recorded=true}={}){
   const linked=get().tasks.find(x=>x.id===last.taskId),next=el('textarea',{rows:2,maxlength:2000,'aria-label':'Next step after this session',placeholder:'What is the smallest useful next action?'});
-  root.append(el('h3',{},recorded?'Your progress is saved':'Your focus continues'),el('p',{},`${Math.round(last.duration/60000)} minutes on ${last.taskTitle||'your focus'}. ${recorded?(last.completed?'Session complete.':'Partial session recorded.'):'Leave a return note; your current timer stays intact.'}`),field('What comes next?',next));
+  const duration = last.duration < 60000 ? 'Less than a minute' : `${Math.floor(last.duration/60000)} min`;
+  root.append(el('p',{class:'muted'},`${recorded ? 'Saved' : 'In progress'} · ${duration} · ${last.taskTitle || 'Your focus'}`));
+  const options = el('div',{class:'stack'});
+  root.append(el('details',{},el('summary',{},'Next steps & reflection'),options));
+  root = options;
+  root.append(field('What comes next?',next));
   const save=async()=>{if(next.value.trim())await recoveryPoint(next.value,'intentional pause',false);};
   root.append(el('button',{type:'button',onclick:act(async()=>{await save();emit('toast','Next step saved.');})},'Save next step'));
   const choices=el('div',{class:'row wrap'});

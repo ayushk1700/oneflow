@@ -122,7 +122,7 @@ function appearance(body) {
   const identity = el('section', { class: 'settings-card settings-fields' },
     el('div', { class: 'settings-card-heading' }, el('h5', {}, 'Personal details'), el('p', {}, 'The small choices that make this space feel like yours.')),
     field(translate('m0298'), el('input', { value: s.name, maxlength: 80, placeholder: translate('m0293'), onchange: act(event => preference('name', event.target.value.trim())) })),
-    field(translate('m0408'), select([['dark', translate('m0294')], ['light', translate('m0295')], ['auto', translate('m0296')]], s.theme, act(e => preference('theme', e.target.value)))),
+    field(translate('m0408'), select([['dark', translate('m0294')], ['light', translate('m0295')]], s.theme, act(e => preference('theme', e.target.value)))),
     field(translate('Accent for charts and details'), el('input', { type: 'color', value: s.accent, onchange: act(e => preference('accent', e.target.value)) })),
     field(translate('m0410'), select([['sans', translate('m0411')], ['serif', translate('m0662')], ['mono', translate('m0412')]], s.font, act(e => preference('font', e.target.value)))),
     field(translate('m0413'), select([['en',translate('m0414')],['hi','हिन्दी · sample translation']], s.language, act(async e => { await preference('language',e.target.value); location.reload(); }))));

@@ -1,0 +1,331 @@
+{
+  "schemaVersion": 2,
+  "theme": {
+    "mode": "dark",
+    "accent": "#c9d9b5",
+    "preset": "default",
+    "paletteEnabled": false,
+    "palette": {
+      "background": "#111a17",
+      "surface": "#1c2522",
+      "text": "#f5f3ea",
+      "muted": "#c4cfc6",
+      "border": "#526259"
+    },
+    "schedule": {
+      "light": "07:00",
+      "dark": "19:00"
+    },
+    "glass": {
+      "blur": 24,
+      "opacity": 94,
+      "border": 16,
+      "shadow": 50
+    },
+    "shape": {
+      "radius": 24,
+      "borderThickness": 1
+    },
+    "typography": {
+      "family": "system",
+      "scale": 1,
+      "weight": 400,
+      "lineHeight": 1.5
+    },
+    "customThemes": []
+  },
+  "background": {
+    "kind": "bundled",
+    "id": "alpine",
+    "blur": 0,
+    "rotate": false,
+    "color": "#293c36",
+    "url": "",
+    "gradient": {
+      "type": "linear",
+      "angle": 135,
+      "stops": [
+        {
+          "color": "#293c36",
+          "position": 0
+        },
+        {
+          "color": "#111a17",
+          "position": 100
+        }
+      ]
+    },
+    "effects": {
+      "brightness": 100,
+      "contrast": 100,
+      "grain": 0,
+      "vignette": 0,
+      "overlayTint": "#000000",
+      "overlayOpacity": 0,
+      "parallax": 0
+    },
+    "ambient": {
+      "type": "none",
+      "intensity": 30
+    },
+    "performance": {
+      "static": false
+    },
+    "rotation": {
+      "mode": "off",
+      "pool": []
+    }
+  },
+  "layout": {
+    "density": "comfortable",
+    "enabled": false,
+    "locked": true,
+    "snap": 4,
+    "sidebar": "right",
+    "desktop": {},
+    "mobile": {},
+    "widgetStyle": {
+      "clock": {
+        "opacity": 100,
+        "title": true,
+        "collapsed": false,
+        "pinned": false
+      },
+      "focus": {
+        "opacity": 100,
+        "title": true,
+        "collapsed": false,
+        "pinned": false
+      },
+      "search": {
+        "opacity": 100,
+        "title": true,
+        "collapsed": false,
+        "pinned": false
+      },
+      "links": {
+        "opacity": 100,
+        "title": true,
+        "collapsed": false,
+        "pinned": false
+      },
+      "quotes": {
+        "opacity": 100,
+        "title": true,
+        "collapsed": false,
+        "pinned": false
+      },
+      "weather": {
+        "opacity": 100,
+        "title": true,
+        "collapsed": false,
+        "pinned": false
+      },
+      "tasks": {
+        "opacity": 100,
+        "title": true,
+        "collapsed": false,
+        "pinned": false
+      },
+      "timer": {
+        "opacity": 100,
+        "title": true,
+        "collapsed": false,
+        "pinned": false
+      },
+      "sounds": {
+        "opacity": 100,
+        "title": true,
+        "collapsed": false,
+        "pinned": false
+      },
+      "journal": {
+        "opacity": 100,
+        "title": true,
+        "collapsed": false,
+        "pinned": false
+      },
+      "notes": {
+        "opacity": 100,
+        "title": true,
+        "collapsed": false,
+        "pinned": false
+      },
+      "habits": {
+        "opacity": 100,
+        "title": true,
+        "collapsed": false,
+        "pinned": false
+      },
+      "countdowns": {
+        "opacity": 100,
+        "title": true,
+        "collapsed": false,
+        "pinned": false
+      },
+      "stats": {
+        "opacity": 100,
+        "title": true,
+        "collapsed": false,
+        "pinned": false
+      },
+      "mood": {
+        "opacity": 100,
+        "title": true,
+        "collapsed": false,
+        "pinned": false
+      },
+      "music": {
+        "opacity": 100,
+        "title": true,
+        "collapsed": false,
+        "pinned": false
+      },
+      "greeting": {
+        "opacity": 100,
+        "title": true,
+        "collapsed": false,
+        "pinned": false
+      }
+    },
+    "presets": []
+  },
+  "widgets": {
+    "clock": true,
+    "focus": true,
+    "search": true,
+    "links": false,
+    "quotes": true,
+    "weather": true,
+    "tasks": true,
+    "timer": true,
+    "sounds": true,
+    "journal": true,
+    "notes": true,
+    "habits": true,
+    "countdowns": false,
+    "stats": true,
+    "mood": true,
+    "music": true,
+    "greeting": true,
+    "preferences": {
+      "clock": {
+        "style": "digital",
+        "seconds": false,
+        "dateFormat": "long",
+        "weekStart": 0,
+        "timeZones": []
+      },
+      "greeting": {
+        "name": "",
+        "template": "{timeOfDay}{name}",
+        "tone": "calm",
+        "focusPrompt": "What will you focus on today?"
+      },
+      "tasks": {
+        "view": "today",
+        "sort": "manual",
+        "group": "none",
+        "completionAnimation": true,
+        "carryOver": true
+      },
+      "timer": {
+        "focus": 25,
+        "short": 5,
+        "long": 15,
+        "cycles": 4,
+        "autoFocus": false,
+        "autoBreak": false,
+        "sound": "none",
+        "volume": 50,
+        "notifications": true,
+        "modes": [
+          {
+            "name": "Classic",
+            "focus": 25,
+            "short": 5,
+            "long": 15
+          },
+          {
+            "name": "Extended",
+            "focus": 52,
+            "short": 17,
+            "long": 25
+          },
+          {
+            "name": "Deep",
+            "focus": 90,
+            "short": 20,
+            "long": 30
+          }
+        ]
+      },
+      "journal": {
+        "markdown": false,
+        "notebooks": [
+          "Journal"
+        ],
+        "notebook": "Journal",
+        "prompts": [],
+        "promptPack": "gratitude",
+        "reminder": "",
+        "moodTags": [
+          "calm",
+          "energized",
+          "tired"
+        ]
+      },
+      "quotes": {
+        "categories": [
+          "focus",
+          "life",
+          "creativity",
+          "gratitude"
+        ],
+        "custom": [],
+        "rotation": "daily",
+        "author": true
+      },
+      "links": {
+        "view": "grid",
+        "iconSize": 24,
+        "folder": "All"
+      },
+      "search": {
+        "engine": "browser",
+        "template": "https://www.google.com/search?q={query}",
+        "bangs": [
+          {
+            "bang": "g",
+            "template": "https://www.google.com/search?q={query}"
+          },
+          {
+            "bang": "ddg",
+            "template": "https://duckduckgo.com/?q={query}"
+          }
+        ],
+        "position": "default",
+        "style": "glass"
+      },
+      "weather": {
+        "units": "celsius",
+        "location": "manual",
+        "detail": "simple"
+      }
+    }
+  },
+  "behavior": {
+    "zen": false,
+    "clock24": false,
+    "startupView": "home",
+    "spaceId": "default",
+    "spaceSchedule": [],
+    "spaceHotkey": true
+  },
+  "accessibility": {
+    "highContrast": false,
+    "reduceMotion": false,
+    "largeText": false,
+    "dyslexia": false
+  }
+}

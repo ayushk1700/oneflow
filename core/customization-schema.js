@@ -1,5 +1,6 @@
 import { validatePersonalization } from './personalization-schema.js';
-export const SETTINGS_VERSION = 2;
+import {validatePower} from './power-schema.js';
+export const SETTINGS_VERSION = 5;
 const object = value => value && typeof value === 'object' && !Array.isArray(value);
 const color = value => typeof value === 'string' && /^#[0-9a-f]{6}$/i.test(value);
 const number = (value, min, max) => Number.isFinite(value) && value >= min && value <= max;
@@ -27,7 +28,7 @@ export function validateSettings(value, defaults) {
   knownKeys(value, defaults);
   if (value.schemaVersion !== SETTINGS_VERSION) fail('schemaVersion');
   const t = value.theme, b = value.background, a = value.accessibility;
-  if (!['light','dark','auto','scheduled'].includes(t.mode) || !color(t.accent) || typeof t.paletteEnabled !== 'boolean' || typeof t.preset !== 'string' || t.preset.length > 80) fail('theme');
+  if (!['light','dark'].includes(t.mode) || !color(t.accent) || typeof t.paletteEnabled !== 'boolean' || typeof t.preset !== 'string' || t.preset.length > 80) fail('theme');
   validatePalette(t.palette);
   if (t.paletteEnabled && ['text','muted'].some(key => ['surface','background'].some(surface => contrast(t.palette[key],t.palette[surface]) < 4.5))) throw new Error('Text and muted colors must have at least 4.5:1 contrast against the background and surface.');
   if (!time(t.schedule.light) || !time(t.schedule.dark) || t.schedule.light === t.schedule.dark) fail('theme.schedule');
@@ -46,14 +47,17 @@ export function validateSettings(value, defaults) {
   if (!Object.keys(defaults.widgets).filter(key=>key!=='preferences').every(key => typeof value.widgets[key] === 'boolean')) fail('widgets');
   if (typeof value.behavior.zen !== 'boolean' || typeof value.behavior.clock24 !== 'boolean' || !['home','focus','ambient'].includes(value.behavior.startupView)) fail('behavior');
   if (!['highContrast','reduceMotion','largeText','dyslexia'].every(key => typeof a[key] === 'boolean')) fail('accessibility');
-  return validatePersonalization(value);
+  return validatePower(validatePersonalization(value));
 }
 /** Version zero carried the same sections without a version marker. */
 export function migrateSettings(value, defaults) {
   if (!object(value)) fail('settings');
-  if (value.schemaVersion === undefined || value.schemaVersion === 0 || value.schemaVersion === 1) {
+  if (value.schemaVersion === undefined || [0,1,2,3,4].includes(value.schemaVersion)) {
     const merge=(base,old)=>object(base)&&object(old)?Object.fromEntries([...new Set([...Object.keys(base),...Object.keys(old)])].map(key=>[key,Object.hasOwn(old,key)?merge(base[key],old[key]):structuredClone(base[key])])):structuredClone(old);
     value=merge(defaults,value);value.schemaVersion=SETTINGS_VERSION;
+    if(['auto','scheduled'].includes(value.theme.mode))value.theme.mode=resolveTheme(value.theme,globalThis.matchMedia?.('(prefers-color-scheme:dark)').matches??true);
+    value.theme.paletteEnabled=false;value.theme.preset=value.theme.mode;
+    for(const rule of value.behavior.automation.rules)for(const action of rule.actions)if(action.type==='theme'&&action.value==='auto')action.value=value.theme.mode;
   }
   return validateSettings(value, defaults);
 }

@@ -5,7 +5,9 @@ import { subscribe, get } from './storage.js';
 const NS = 'http://www.w3.org/2000/svg';
 /** Render a locally vendored Lucide icon. */
 export function icon(name, size = 20) {
+  if(get().settings.customization?.theme?.iconPack==='symbols')return el('span',{class:'power-symbol','aria-hidden':'true','data-power-icon':name},({'arrow-left':'←',maximize:'⛶',minimize:'⛶',clock:'◷',search:'⌕',pencil:'✎',bookmark:'▣',sun:'☀',cloud:'☁',play:'▶',pause:'Ⅱ',x:'×',bell:'♧','audio-lines':'♫','sliders-horizontal':'☷','layout-grid':'▦','list-todo':'☑',heart:'♡',image:'▧',download:'↓',ellipsis:'…'})[name]||'◇');
   const svg = document.createElementNS(NS, 'svg');
+  svg.dataset.powerIcon=name;
   svg.dataset.size=size<=16?'sm':size>=24?'lg':'md'; size=size<=16?16:size>=24?24:20; svg.setAttribute('width', size); svg.setAttribute('height', size); svg.setAttribute("viewBox", '0 0 24 24'); svg.setAttribute('aria-hidden', 'true');
   const use = document.createElementNS(NS, 'use');
   use.setAttribute('href', `../assets/icons/lucide.svg#${name}`); svg.append(use); return svg;
@@ -120,7 +122,7 @@ export function openPanel(title, name, content, cleanup, key = name, suspend) {
     else if (current.content !== content) current.cleanup?.();
   } else returnFocus = document.activeElement;
   current = { title, name, content, cleanup, key, suspend, scroll: 0 };
-  heading.textContent = title; body.replaceChildren(content); body.scrollTop = 0;
+  heading.textContent = title; body.dataset.widget=name;body.replaceChildren(content); body.scrollTop = 0;
   dialog.dataset.panel = name;
   drawNavigation();
   if (!dialog.open) dialog.showModal();

@@ -18,6 +18,7 @@ export function validateJournal(j) {
   if (!j || !str(j.id, 100) || !date(j.date) || !str(j.text, 20000) || !str(j.prompt, 500) || !num(j.updatedAt, 0, 9e15)) throw new Error(translate('m0072'));
 }
 export function validateExtra(d) {
+  if(d.habits.some(habit=>!habit||habit.icon!==undefined&&!str(habit.icon,16)||habit.color!==undefined&&!/^#[a-f\d]{6}$/i.test(habit.color)||Object.keys(habit).some(key=>!['id','name','dates','reminder','icon','color','createdAt'].includes(key))))throw new Error('Invalid habit icon, color or field.');
   if (d.integrations?.pexelsKey !== undefined && !str(d.integrations.pexelsKey, 200)) throw new Error('Invalid Pexels API key.');
   const c = d.timerConfig, t = d.timer, a = d.audio;
   if (!c || ['focus','short','long'].some(k => !num(c[k], 1, 180)) || !Number.isInteger(c.cycles) || !num(c.cycles, 1, 12) || ["autoFocus","autoBreak",'notifications','chime'].some(k => typeof c[k] !== 'boolean')) throw new Error(translate('m0075'));

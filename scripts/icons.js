@@ -2,7 +2,7 @@
 import fs from 'node:fs/promises';
 import vm from 'node:vm';
 const source = await fs.readFile('assets/icons/lucide.svg', 'utf8');
-const names = [...new Set([...source.matchAll(/id="([^"]+)"/g)].map(match => match[1]).concat(['x','download','bell','check-check','check','printer','chart-no-axes-column','chevron-left','chevron-right','cloud-rain','coffee','flame','trees','waves','leaf','ellipsis','notebook-pen','arrow-left','pause','volume-2','volume-x','maximize']))];
+const names = [...new Set([...source.matchAll(/id="([^"]+)"/g)].map(match => match[1]).concat(['x','download','bell','check-check','check','printer','chart-no-axes-column','chevron-left','chevron-right','cloud-rain','coffee','flame','trees','waves','leaf','ellipsis','notebook-pen','arrow-left','pause','volume-2','volume-x','maximize','minimize']))];
 const context = { exports: {} }; context.module = { exports: context.exports };
 vm.runInNewContext(await fs.readFile('vendor/lucide/0.468.0/lucide.min.js','utf8'), context);
 const serialize = ([tag, attrs, children = []]) => `<${tag} ${Object.entries(attrs).map(([key,value]) => `${key}="${value}"`).join(' ')}>${children.map(serialize).join('')}</${tag}>`;

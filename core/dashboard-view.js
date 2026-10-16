@@ -21,7 +21,7 @@ export function setView(value) {
 }
 function render() {
   const data = get(), timer = data.timer, active = timer.status !== 'idle' || Boolean(timer.sessionId) || timer.phase !== 'focus';
-  const showClock = mode === 'ambient' && data.settings.widgets.clock;
+  const showClock = mode === 'ambient' && (data.settings.customization?.widgets.preferences.ambient.clock ?? true);
   if (mode === 'ambient' && !ambient && !loadingAmbient) loadingAmbient = import('../components/ambient/index.js').then(module => {
     ambient = module; module.init(); render();
   }).catch(error => emit('error', error)).finally(() => { loadingAmbient = null; });

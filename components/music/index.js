@@ -53,6 +53,7 @@ function playbackControls(frame, title, playlist) {
 }
 export function render() { open(); }
 export function open() {
+  if(get().settings.customization?.behavior?.privacy?.music===false){openPanel('Music','music',el('p',{role:'status'},'Music connections are off. Enable them in Personalize → Data.'));return;}
   if (resumePanel('music')) return;
   const input = el('input', { type:'url', value:get().music.url, required:true, placeholder:'Paste a YouTube song or playlist link…', 'aria-label':'Song or playlist URL' });
   const player = el('div',{class:'music-player'}), title = el('h3',{class:'music-title'},'Your soundtrack.');

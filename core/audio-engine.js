@@ -10,7 +10,8 @@ export class SoundEngine {
   async mix(config, onSleep = () => {}) {
     const epoch = ++this.epoch; await this.ready();
     const fade = Math.max(.03,Math.min(10,config.fade || .24) / 3);
-    this.master.gain.setTargetAtTime(config.master, this.context.currentTime, fade); clearTimeout(this.sleep);
+    this.master.gain.cancelScheduledValues(this.context.currentTime);this.master.gain.setTargetAtTime(config.master, this.context.currentTime, fade); clearTimeout(this.sleep);
+    if(config.sleepAt){const duration=Math.max(0,(config.sleepAt-Date.now())/1000),end=this.context.currentTime+duration,start=this.context.currentTime+Math.max(0,duration-10);this.master.gain.setValueAtTime(config.master,start);this.master.gain.linearRampToValueAtTime(0,end);}
     if (config.sleepAt) this.sleep = setTimeout(() => { this.stop(); onSleep(); }, Math.max(0, config.sleepAt - Date.now()));
     for (const name of SOUND_NAMES) {
       const volume = config.playing ? config.volumes[name] : 0;

@@ -1,14 +1,15 @@
 import * as settings from '../../core/customization.js';
+import '../../core/power-i18n.js';
+import {t} from '../../core/i18n.js';
 import * as runtime from '../../core/customization-runtime.js';
 import { el, download } from '../../core/utils.js';
 import { field, select, closePanel, confirmAction } from '../../core/ui.js';
 import { backgroundCatalog } from '../../core/background-presentation.js';
 import { openFeature } from '../../core/features.js';
-let drawer, off, opening, closing;
-const sections = [['theme','Appearance'],['background','Background'],['layout','Layout'],['widgets','Widgets'],['behavior','Behavior'],['accessibility','Accessibility'],['data','Data']];
+let drawer, off, opening;
+const sections = [['theme','Appearance'],['background','Background'],['ambient','Ambient'],['layout','Layout'],['widgets','Widgets'],['behavior','Behavior'],['accessibility','Accessibility'],['data','Data']];
 /** Stage 1 drawer: immediate preview and debounced persistence, with reversible session edits. */
 export function open(initial = 'theme') {
-  if(closing)return closing.then(()=>open(initial));
   if (opening) return opening;
   opening = build(initial).catch(error => { off?.(); off=null; drawer?.remove(); drawer=null; throw error; }).finally(() => { opening=null; });
   return opening;
@@ -21,7 +22,7 @@ async function build(initial) {
   drawer = el('dialog', { class:'customization-drawer', 'aria-labelledby':'customization-title' });
   const head = el('header', { class:'customization-head' }, el('h2', { id:'customization-title' }, 'Personalize ONEFLOW'));
   const button = (label, action, parent = head) => {
-    const node = el('button', { type:'button', onclick:async () => { try { failure=''; await action(); status.textContent='Changes save automatically.'; } catch(error) { failure=error.message; status.textContent=failure; } } }, label);
+    const node = el('button', { type:'button', onclick:async () => { try { failure=''; await action(); status.textContent='Changes save automatically.'; } catch(error) { failure=error.message; status.textContent=failure; } } }, t(label));
     parent.append(node); return node;
   };
   const search = el('input', { class:'customization-search', type:'search', placeholder:'Find a setting…', 'aria-label':'Search settings' });
@@ -36,7 +37,7 @@ async function build(initial) {
   for (const [id,label] of sections) {
     const group = el('section', { class:'customization-section', 'aria-label':label }, el('h3', {}, label)); groups.set(id,group); body.append(group);
     const link = button(label, () => { category=id; search.value=''; filter(); }, nav); link.dataset.section=id;
-    if (id !== 'data') button('Reset '+label, () => settings.reset(id), group);
+    if (id !== 'data') button('Reset '+label, () => id==='ambient'?settings.set('widgets.preferences.ambient',settings.defaults().widgets.preferences.ambient):settings.reset(id), group);
   }
   const value = path => path.split('.').reduce((v,key) => v[key],settings.get());
   function add(section, label, path, type = 'checkbox', options = {}) {
@@ -55,20 +56,8 @@ async function build(initial) {
   }
   const range = (section,label,path,min,max,step=1) => add(section,label,path,'range',{min,max,step});
   const choice = (section,label,path,options) => add(section,label,path,'select',{options});
-  choice('theme','Theme mode','theme.mode',[['dark','Dark'],['light','Light'],['auto','System'],['scheduled','Scheduled']]);
-  add('theme','Light theme starts','theme.schedule.light','time'); add('theme','Dark theme starts','theme.schedule.dark','time');
-  add('theme','Accent color','theme.accent','color'); add('theme','Use custom palette','theme.paletteEnabled');
-  for(const name of ['background','surface','text','muted','border'])add('theme',name[0].toUpperCase()+name.slice(1)+' color','theme.palette.'+name,'color');
-  const presets = el('div',{class:'customization-actions'}); groups.get('theme').append(presets);
-  const response = await fetch(new URL('../../data/customization-themes.json',import.meta.url));
-  if(!response.ok)throw new Error('Local themes could not be loaded.');
-  const themes = await response.json();
-  function applyTheme(theme) { const next=settings.get(); Object.assign(next.theme,{mode:theme.mode,accent:theme.accent,palette:theme.palette,paletteEnabled:true,preset:theme.name}); settings.replace(next); }
-  for(const theme of themes)button(theme.name,()=>applyTheme(theme),presets);
-  const name=el('input',{type:'text',maxlength:60,'aria-label':'Custom theme name',placeholder:'Name your theme'}),savedThemes=el('div',{class:'customization-actions'});
-  groups.get('theme').append(field('Custom theme name',name),savedThemes);
-  button('Save custom theme',()=>{const next=settings.get(),label=name.value.trim(); if(!label)throw new Error('Name your custom theme first.'); const record={name:label,mode:document.documentElement.dataset.theme,accent:next.theme.accent,palette:next.theme.palette}; next.theme.customThemes=next.theme.customThemes.filter(t=>t.name!==label).concat(record); settings.replace(next); name.value='';},groups.get('theme'));
-  function drawThemes(){savedThemes.replaceChildren();for(const theme of settings.get().theme.customThemes){button('Apply '+theme.name,()=>applyTheme(theme),savedThemes);button('Delete '+theme.name,()=>settings.set('theme.customThemes',settings.get().theme.customThemes.filter(t=>t.name!==theme.name)),savedThemes);}}
+  choice('theme','Theme mode','theme.mode',[['dark','Dark'],['light','Light']]);
+  add('theme','Accent color','theme.accent','color');
   range('theme','Glass blur','theme.glass.blur',0,40);range('theme','Glass opacity','theme.glass.opacity',80,100);range('theme','Glass border','theme.glass.border',0,80);range('theme','Glass shadow','theme.glass.shadow',0,90);
   range('theme','Corner radius','theme.shape.radius',0,36);range('theme','Border thickness','theme.shape.borderThickness',0,3,.5);
   choice('theme','Font family','theme.typography.family',[['system','System sans'],['atkinson','Atkinson Hyperlegible · bundled'],['opendyslexic','OpenDyslexic · bundled'],['mono','System monospace']]);
@@ -82,6 +71,8 @@ async function build(initial) {
   choice('layout','Density','layout.density',[['compact','Compact'],['comfortable','Comfortable'],['spacious','Spacious']]);
   button('Arrange dashboard',async()=>{await close();await (await import('../layout-editor/index.js')).open();},groups.get('layout'));
   for(const [key,value] of Object.entries(settings.get().widgets))if(typeof value==='boolean')add('widgets',key[0].toUpperCase()+key.slice(1),'widgets.'+key);
+  add('ambient','Show clock in Ambient','widgets.preferences.ambient.clock');
+  groups.get('ambient').append(el('p',{},'Ambient keeps only Home, the immersive icon and your optional clock. Use the immersive icon to enter fullscreen; Escape exits fullscreen. Sounds and focus sessions keep running.'));
   add('behavior','Zen mode · clock only','behavior.zen');add('behavior','24-hour clock','behavior.clock24');
   choice('behavior','Startup view','behavior.startupView',[['home','Home'],['focus','Focus'],['ambient','Ambient']]);
   add('accessibility','High contrast','accessibility.highContrast');add('accessibility','Reduce motion','accessibility.reduceMotion');add('accessibility','Large text','accessibility.largeText');add('accessibility','Dyslexia-friendly font','accessibility.dyslexia');
@@ -91,14 +82,15 @@ async function build(initial) {
   button('Reset all settings',()=>confirmAction(data,'Reset all customization settings? Your tasks, notes and media will remain.',()=>settings.reset()),data);
   button('Clear all data',()=>confirmAction(data,'Delete all ONEFLOW data, media and optional access? Download a backup first. This cannot be undone.',async()=>{await settings.flush();await(await import('../../core/backup.js')).resetData();location.reload();}),data);
   const personalization=await (await import('./personalization.js')).mount({add,choice,range,button,groups,rows,close,status,reportError:error=>{failure=error.message;status.textContent=failure;}});
+  const power=(await import('./power.js')).mount({add,choice,range,button,groups,rows,close,status});
   const empty=el('p',{role:'status'},'No matching settings.');body.append(empty);
   function filter(){const term=search.value.trim().toLowerCase();let count=0;for(const[id,group]of groups){group.hidden=term?!rows.some(row=>row.section===id&&row.label.toLowerCase().includes(term)):id!==category;}for(const row of rows){row.row.hidden=!!term&&!row.label.toLowerCase().includes(term);if(!row.row.hidden&&!groups.get(row.section).hidden)count++;}for(const link of nav.children)link.setAttribute('aria-current',String(link.dataset.section===category&&!term));empty.hidden=!term||count>0;}
-  function refresh(){for(const[path,{node,type,output}]of controls){if(document.activeElement!==node)node[type==='checkbox'?'checked':'value']=value(path);if(output)output.textContent=String(value(path));}const history=settings.history();undo.disabled=!history.undo;redo.disabled=!history.redo;drawThemes();filter();if(!settings.isSaving()&&!failure)status.textContent='Saved on this device.';}
+  function refresh(){for(const[path,{node,type,output}]of controls){if(document.activeElement!==node)node[type==='checkbox'?'checked':'value']=value(path);if(output)output.textContent=String(value(path));}const history=settings.history();undo.disabled=!history.undo;redo.disabled=!history.redo;filter();if(!settings.isSaving()&&!failure)status.textContent='Saved on this device.';}
   const origin=document.activeElement,modal=drawer;off=settings.subscribe(refresh);search.oninput=filter;
-  function cleanup(){if(drawer!==modal)return;off?.();off=null;personalization?.();modal.remove();drawer=null;(origin?.isConnected&&origin.getClientRects().length?origin:document.querySelector('#home-menu > summary'))?.focus();}
+  function cleanup(){if(drawer!==modal)return;try{off?.();personalization?.();power?.();}finally{off=null;modal.remove();drawer=null;(origin?.isConnected&&origin.getClientRects().length?origin:document.querySelector('#home-menu > summary'))?.focus();}}
   drawer.addEventListener('close',cleanup);
   drawer.addEventListener('cancel',event=>{event.preventDefault();close().catch(error=>{failure=error.message; status.textContent=failure;});});
-  function close(){if(closing)return closing;closing=(async()=>{await settings.flush();modal.close();cleanup();})().finally(()=>{closing=null;});return closing;}
+  function close(){modal.close();cleanup();settings.flush().catch(error=>{import('../../core/events.js').then(({emit})=>emit('toast','Your settings draft is kept. Reopen Personalize and retry saving: '+error.message));});return Promise.resolve();}
   document.body.append(drawer);drawer.showModal();refresh();search.focus();
 }
 export function init() { return runtime.init(); }

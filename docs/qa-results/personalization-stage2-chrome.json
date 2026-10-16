@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-14T15:27:44.338Z",
+  "date": "2026-10-15T01:33:07.215Z",
   "checks": [
     "Stage 1 migrates in Chrome while retaining accent and tasks",
     "Keyboard movement and resizing update snapped geometry",
@@ -7,7 +7,7 @@
     "Pinned widgets lock and custom layout presets save",
     "A layout can be built from scratch and saved using native controls",
     "Uploaded wallpaper is stored in IndexedDB and real browser quota is measured",
-    "A real local MP4 upload is validated and persisted through the drawer",
+    "A real 20 MiB MP4 is validated and persisted through the drawer",
     "Safe SVG becomes an inert raster and active SVG is rejected",
     "A new space has isolated tasks, journal, notes and wallpaper",
     "Full backup restores all spaces, selected scoped wallpaper and note attachments",
@@ -20,7 +20,7 @@
   ],
   "errors": [],
   "performance": {
-    "ready": 533.1000000014901,
+    "ready": 492.29999999701977,
     "cls": 0
   }
 }

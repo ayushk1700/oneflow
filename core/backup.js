@@ -8,7 +8,7 @@ import { remaining } from './timer-logic.js';
 import { validateNote, validateNoteMedia } from './notes-schema.js';
 import { migrateWork, validateSample, workDefaults } from './work-schema.js';
 import { checkBackupSize, MAX_BACKUP_BYTES } from './backup-limits.js';
-import { decodeRaster, validateVideo, validateAttachment } from './media-validation.js';
+import { decodeRaster, validateVideo, validateAttachment,MAX_VIDEO_BYTES } from './media-validation.js';
 const MAX_IMAGE = 8 * 1024 * 1024;
 function portableRecord(record){if(!record._space)return record;const next={...record},prefix=record._space+'::';for(const key of ['noteId','taskId'])if(typeof next[key]==='string'&&!next[key].startsWith(prefix))next[key]=prefix+next[key];if(next.media)next.media=next.media.map(id=>id.startsWith(prefix)?id:prefix+id);return next;}
 const dataURL = blob => new Promise((resolve, reject) => { const reader = new FileReader(); reader.onload = () => resolve(reader.result); reader.onerror = () => reject(reader.error); reader.readAsDataURL(blob); });
@@ -52,7 +52,9 @@ export async function parseBackup(text) {
   });
   if (input?.app !== translate('m0630') || !Number.isInteger(input.schemaVersion) || input.schemaVersion < 1 || input.schemaVersion > SCHEMA_VERSION || !input.database || !input.local || typeof input.local !== 'object') throw new Error(translate('m0003'));
   const local = migrate(input.local), records = {};
-  if(local.spaces){await (await import('./customization.js')).init();(await import('./spaces.js')).validateRegistry(local.spaces);}
+  const customization=await import('./customization.js');await customization.init();
+  if(local.settings.customization)local.settings.customization=(await import('./customization-schema.js')).migrateSettings(local.settings.customization,customization.defaults());
+  if(local.spaces)(await import('./spaces.js')).validateRegistry(local.spaces);
   for (const key of db.STORES) {
     const rows = ['notes', 'noteMedia', 'focusSamples'].includes(key) || key === 'wallpapers' && input.schemaVersion < 6 ? input.database[key] || [] : input.database[key];
     if (!Array.isArray(rows) || rows.length > 100000 || rows.some(x => !x || typeof x.id !== 'string' || x.id.length > (x._space?142:100))) throw new Error(translate('m0004', {p0: key}));
@@ -97,9 +99,9 @@ export async function parseBackup(text) {
   for (const { data, ...record } of records.wallpapers) {
     if (typeof data !== 'string' || !/^data:video\/(mp4|webm);base64,[A-Za-z0-9+/=]+$/.test(data)) throw new Error('Invalid live wallpaper backup.');
     const [meta, encoded] = data.split(',');
-    if (encoded.length > Math.ceil(16 * 1024 * 1024 / 3) * 4) throw new Error('Live wallpaper exceeds 16 MB.');
+    if (encoded.length > Math.ceil(MAX_VIDEO_BYTES / 3) * 4) throw new Error('Live wallpaper exceeds 64 MB.');
     const bytes = Uint8Array.from(atob(encoded), c => c.charCodeAt(0));
-    if (bytes.length > 16 * 1024 * 1024) throw new Error('Live wallpaper exceeds 16 MB.');
+    if (bytes.length > MAX_VIDEO_BYTES) throw new Error('Live wallpaper exceeds 64 MB.');
     const blob = new Blob([bytes], { type: meta.slice(5, meta.indexOf(';')) });
     await validateVideo(blob); wallpapers.push({ ...record, blob });
   }

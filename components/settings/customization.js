@@ -4,7 +4,7 @@ import { field, toggle, select, act, confirmAction } from '../../core/ui.js';
 import { put, getAll, remove } from '../../core/db.js';
 import { emit } from '../../core/events.js';
 import { liveWallpaperCatalog } from '../../core/background-presentation.js';
-import { validateVideo } from '../../core/media-validation.js';
+import { validateVideo,MAX_VIDEO_BYTES } from '../../core/media-validation.js';
 export { validateVideo } from '../../core/media-validation.js';
 const set = (group,key,value) => update(data => { data.settings[group][key] = value; });
 /** Reject corrupt or unsupported files before storing them as a wallpaper. */
@@ -50,7 +50,7 @@ export async function wallpapers(body, refresh) {
   })},item.name));
   const upload = el('input',{ type:'file',accept:'video/mp4,video/webm','aria-label':'Upload live wallpaper',onchange:act(async event => {
     const file = event.target.files[0]; if (!file) return;
-    if (!['video/mp4','video/webm'].includes(file.type) || file.size > 16 * 1024 * 1024) throw new Error('Choose an MP4 or WebM video up to 16 MB.');
+    if (!['video/mp4','video/webm'].includes(file.type) || file.size > MAX_VIDEO_BYTES) throw new Error('Choose an MP4 or WebM video up to 64 MB.');
     upload.disabled = true;
     try {
       await validateVideo(file);
@@ -60,7 +60,7 @@ export async function wallpapers(body, refresh) {
       refresh(); emit('toast','Live wallpaper saved locally.');
     } finally { upload.disabled = false; }
   }) });
-  body.append(field('Your video wallpaper',upload,'MP4 or WebM · 16 MB maximum each · up to two files · silent playback.'));
+  body.append(field('Your video wallpaper',upload,'MP4 or WebM · 64 MB maximum each · up to two files · silent playback.'));
   const rows = await getAll('wallpapers'); if (!body.isConnected) return;
   for (const row of rows) body.append(el('div',{ class:'row' },el('button',{ type:'button',class:'grow','aria-pressed':String(b.kind === 'video' && b.id === row.id),onclick:act(async () => { await update(data => { Object.assign(data.settings.background,{ kind:'video',id:row.id,rotate:false }); }); refresh(); }) },row.name),el('button',{ type:'button',onclick:() => confirmAction(body,'Remove this local video wallpaper?',async () => { await navigator.locks.request('oneflow-backup',async () => { await update(data => { if (data.settings.background.id === row.id) Object.assign(data.settings.background,{ kind:'bundled',id:'alpine' }); }); await remove('wallpapers',row.id); }); refresh(); }) },'Remove')));
 }

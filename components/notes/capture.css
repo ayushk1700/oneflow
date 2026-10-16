@@ -101,3 +101,4 @@ canvas{width:100%;height:calc(var(--space-xs) * 55);border:var(--stroke) solid v
   .capture-head { height:auto; min-height:calc(var(--control-height) + var(--space-md)); }
   .search-box { height:var(--control-height); }
 }
+.power-habit-color { border-inline-start:var(--stroke) solid var(--habit-color,var(--accent));padding-inline-start:var(--space-sm); }

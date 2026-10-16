@@ -85,10 +85,11 @@ export function createPlanner({ editor, button, message, leave, show, dataGenera
   }
 
   function habitEditor(item) {
+    const emoji=el('input',{maxlength:16,value:item.icon||'','aria-label':'Habit icon or emoji',onchange:event=>patch('habit',item.id,{icon:event.target.value})}),color=el('input',{type:'color',value:item.color||get().settings.accent,'aria-label':'Habit color',onchange:event=>patch('habit',item.id,{color:event.target.value})});editor.append(field('Icon / emoji',emoji),field('Habit color',color));
     const week = el('div', { class: 'planner-week', 'aria-label': 'Habit check-ins' }), count = el('small');
     const draw = () => {
       const habit = get().habits.find(h => h.id === item.id); if (!habit) return;
-      count.textContent = `${streak(habit.dates)} day streak · ${habit.dates.length} total check-ins`;
+      count.textContent = `${habit.icon||''} ${streak(habit.dates)} day streak · ${habit.dates.length} total check-ins`;count.style.setProperty('--habit-color',habit.color||'var(--accent)');count.classList.add('power-habit-color');
       week.replaceChildren(...Array.from({ length: 7 }, (_, i) => shiftDay(dayKey(), i - 6)).map(date => button(`${new Date(date + 'T12:00:00').toLocaleDateString('en', { weekday: 'short' })} ${habit.dates.includes(date) ? '✓' : '·'}`, async () => {
         await commit(d => { const h = record(d, 'habit', item.id); h.dates = h.dates.includes(date) ? h.dates.filter(x => x !== date) : [...h.dates, date]; }); draw(); week.querySelector(`[data-day="${date}"]`)?.focus();
       }, { 'data-day': date, 'aria-current':date===dayKey()?'date':'false', 'aria-label': `Check in ${date}`, 'aria-pressed': String(habit.dates.includes(date)) })));
@@ -117,12 +118,12 @@ export function createPlanner({ editor, button, message, leave, show, dataGenera
       card.append(el('small', {}, `TASK · ${task.completed ? 'DONE' : 'TO DO'}`), el('strong', {}, task.text || 'Untitled task'), el('small', {}, list)); result.push(card);
     }
     if(kind==='habit'){
-      const dates=Array.from({length:7},(_,i)=>shiftDay(dayKey(),i-6)),grid=el('table',{class:'planner-habit-grid'},el('caption',{},'Your weekly habit check-ins')),head=el('tr',{},el('th',{scope:'col'},'Habit'));for(const date of dates)head.append(el('th',{scope:'col','aria-current':date===dayKey()?'date':'false'},new Date(date+'T12:00:00').toLocaleDateString(undefined,{weekday:'short'})));grid.append(el('thead',{},head));const body=el('tbody');for(const habit of data.habits.filter(h=>h.name.toLowerCase().includes(query))){const row=el('tr',{},el('th',{scope:'row'},button(habit.name||'Untitled habit',()=>open('habit',habit.id))));for(const date of dates)row.append(el('td',{'data-today':String(date===dayKey())},button(habit.dates.includes(date)?'✓':'·',async()=>{await commit(d=>{const h=record(d,'habit',habit.id);h.dates=h.dates.includes(date)?h.dates.filter(x=>x!==date):[...h.dates,date];});},{'aria-label':`${habit.name}: check in ${date}`,'aria-pressed':String(habit.dates.includes(date))})));body.append(row);}grid.append(body);return [el('div',{class:'planner-habit-scroll'},grid,body.children.length?null:el('p',{class:'empty'},'No habits yet. Create a habit separately to start your week.'))];
+      const dates=Array.from({length:7},(_,i)=>shiftDay(dayKey(),i-6)),grid=el('table',{class:'planner-habit-grid'},el('caption',{},'Your weekly habit check-ins')),head=el('tr',{},el('th',{scope:'col'},'Habit'));for(const date of dates)head.append(el('th',{scope:'col','aria-current':date===dayKey()?'date':'false'},new Date(date+'T12:00:00').toLocaleDateString(undefined,{weekday:'short'})));grid.append(el('thead',{},head));const body=el('tbody');for(const habit of data.habits.filter(h=>h.name.toLowerCase().includes(query))){const row=el('tr',{},el('th',{scope:'row'},button((habit.icon?habit.icon+' ':'')+(habit.name||'Untitled habit'),()=>open('habit',habit.id))));for(const date of dates)row.append(el('td',{'data-today':String(date===dayKey())},button(habit.dates.includes(date)?'✓':'·',async()=>{await commit(d=>{const h=record(d,'habit',habit.id);h.dates=h.dates.includes(date)?h.dates.filter(x=>x!==date):[...h.dates,date];});},{'aria-label':`${habit.name}: check in ${date}`,'aria-pressed':String(habit.dates.includes(date))})));body.append(row);}grid.append(body);return [el('div',{class:'planner-habit-scroll'},grid,body.children.length?null:el('p',{class:'empty'},'No habits yet. Create a habit separately to start your week.'))];
     }
     if (!kind) for (const habit of data.habits) {
       if (!habit.name.toLowerCase().includes(query)) continue;
       const card = button('', () => open('habit', habit.id), { class: 'note-card', 'data-kind': 'habit', 'aria-label': `Open habit ${habit.name || 'Untitled habit'}` });
-      card.append(el('small', {}, `HABIT · ${habit.dates.includes(dayKey()) ? 'DONE TODAY' : 'TODAY'}`), el('strong', {}, habit.name || 'Untitled habit'), el('small', {}, `${streak(habit.dates)} day streak${habit.reminder ? ' · ' + habit.reminder : ''}`)); result.push(card);
+      card.append(el('small', {}, `HABIT · ${habit.dates.includes(dayKey()) ? 'DONE TODAY' : 'TODAY'}`), el('strong', {}, (habit.icon?habit.icon+' ':'')+(habit.name || 'Untitled habit')), el('small', {}, `${streak(habit.dates)} day streak${habit.reminder ? ' · ' + habit.reminder : ''}`)); result.push(card);
     }
     return result;
   }

@@ -806,6 +806,8 @@ export const packs = {
   hi
 };
 const keys = new Map(Object.entries(en).map(([k, v]) => [v, k]));
+/** Lazy features extend the local catalog without increasing startup payload. */
+export function registerStrings(namespace,entries,translations={}){for(const[label,index]of Object.entries(entries)){const key=namespace+'_'+index;en[key]=label;keys.set(label,key);for(const[locale,values]of Object.entries(translations))if(packs[locale]&&values[label])packs[locale][key]=values[label];}}
 /** Resolve a catalog key or known English label with text-safe interpolation. */
 export function t(key, params = {}) {
   const id = en[key] !== undefined ? key : keys.get(key);

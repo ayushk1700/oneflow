@@ -1,0 +1,1 @@
+export const PACKS={Student:{purpose:'student',vibe:'cozy',layout:'Study',scene:'cozy',focus:25},Developer:{purpose:'developer',vibe:'calm',layout:'Work',scene:'alpine',focus:52},Writer:{purpose:'writer',vibe:'paper',layout:'Focus',scene:'minimal',focus:50},Minimalist:{purpose:'minimalist',vibe:'calm',layout:'Minimal',scene:'minimal',focus:25}};

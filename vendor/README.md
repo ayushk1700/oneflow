@@ -4,8 +4,6 @@ All executable libraries are pinned and local. Nothing is loaded from a CDN at r
 
 | Name | Version | License | Download source | Use |
 | --- | --- | --- | --- | --- |
-| SortableJS | 1.15.6 | MIT | https://cdn.jsdelivr.net/npm/sortablejs@1.15.6/Sortable.min.js | Retained source-only legacy dependency; excluded from release |
-| canvas-confetti | 1.9.3 | ISC | https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js | Retained source-only legacy dependency; excluded from release |
 | Chart.js | 4.4.8 + ONEFLOW patch 1 | MIT | https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.js | Local UMD with Defaults-path/property guards; lazy-loaded only for statistics |
 | Lucide | 0.468.0 | ISC (Lucide), MIT (Feather-derived icons) | https://cdn.jsdelivr.net/npm/lucide@0.468.0/dist/umd/lucide.min.js | Build-time source for the local SVG subset; full bundle excluded from release |
 | Tailwind CSS | 3.4.17 | MIT | https://github.com/tailwindlabs/tailwindcss/releases/tag/v3.4.17 | Locally generated responsive utilities in vendor/tailwindcss/3.4.17/tailwind.min.css; no preflight or runtime JavaScript |

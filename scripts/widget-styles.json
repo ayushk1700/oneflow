@@ -17,7 +17,6 @@
   "../components/notifications/style.css",
   "../components/mood/style.css",
   "../components/music/style.css",
-  "../components/unsplash/style.css",
   "../components/break/style.css",
   "../components/clock/style.css",
   "../components/focus/style.css",

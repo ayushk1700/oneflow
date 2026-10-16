@@ -3,7 +3,7 @@ import { put, getAll } from '../../core/db.js';
 import { el, uid } from '../../core/utils.js';
 import { field, select, act } from '../../core/ui.js';
 import { emit } from '../../core/events.js';
-import { validateVideo, decodeRaster } from '../../core/media-validation.js';
+import { validateVideo, decodeRaster,MAX_VIDEO_BYTES } from '../../core/media-validation.js';
 const origins = ['https://api.pexels.com/*', 'https://images.pexels.com/*', 'https://videos.pexels.com/*'];
 /** Allow only the provider's HTTPS media and attribution origins. */
 export function trusted(value, hosts) {
@@ -61,7 +61,7 @@ export function render(container) {
           use.disabled = true;
           try {
             const video = type === 'video', store = video ? 'wallpapers' : 'images';
-            const blob = await download(item.source,(video ? 16 : 8)*1024*1024);
+            const blob = await download(item.source,video?MAX_VIDEO_BYTES:8*1024*1024);
             if (video) { if (!['video/mp4','video/webm'].includes(blob.type)) throw new Error('This result is not a supported video.'); await validateVideo(blob); }
             else { const bitmap = await decodeRaster(blob); bitmap.close(); }
             if (ticket !== epoch || !container.isConnected) return;
